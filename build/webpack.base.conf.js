@@ -14,7 +14,6 @@ const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
   enforce: 'pre',
-  include: [resolve('src'), resolve('test')],
   exclude: /node_modules/,
   options: {
     formatter: require('eslint-friendly-formatter'),
@@ -33,7 +32,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['*', '.js', '.vue', '.json'],
+    extensions: ['*', '.ts', '.js', '.vue', '.json'],
     modules: [
       resolve('src'),
       resolve('node_modules')
@@ -42,6 +41,7 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       'common': utils.resolve('src/common'),
+      'class': utils.resolve('src/class'),
       'mui': utils.resolve('src/mui'),
       'plugin': utils.resolve('src/plugin')
     }
@@ -62,25 +62,21 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader?cacheDirectory=true',
         options: vueLoaderConfig,
-        include: [utils.resolve('src')],
         exclude: /node_modules/
       },
       {
         test: /\.js$/,
         loader: 'babel-loader?cacheDirectory=true',
-        include: [resolve('src'), resolve('test')],
         exclude: /node_modules/
       },
       {
         test: /\.json$/,
         loader: 'json-loader?cacheDirectory=true',
-        include: [resolve('src')],
         exclude: /node_modules/
       },
       {
         test: /\.dot$/,
         loader: path.resolve( __dirname, "./dot-loader.js" ),
-        include: [resolve('src')],
         exclude: /node_modules/
       },
       {
