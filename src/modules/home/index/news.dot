@@ -1,0 +1,9 @@
+{%~ it:one:index %}
+{% 
+var border = '';
+if(index % 2 == 0) border = 'aui-border-r';
+%}
+<div class="aui-col-xs-6 {%=border%}" data-id="{%=one.id%}">
+    <div class="aui-font-size-14 aui-padded-l-5 aui-ellipsis-2"><span>[{%=one.times%}]</span>{%=one.title%}</div>
+</div>
+{%~%}

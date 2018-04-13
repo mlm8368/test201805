@@ -1,0 +1,35 @@
+@import "../../../mui/sass/variables.scss";
+@import "../../../mui/sass/mixins.scss";
+
+@import "../../../common/sass/cardlist.scss";
+@import "../../../common/sass/switch.scss";
+
+@import "../../../common/sass/bar.scss";
+@import "../../../common/sass/bartab.scss";
+@import "../../../common/sass/btn.scss";
+@import "../../../common/sass/label.scss";
+
+@import "../../../common/sass/dialog.scss";
+
+@import "../../../plugin/mescroll/mescroll.min.css";
+
+.aui-checkbox {
+    width: 16px;
+    height: 16px;
+}
+.text-light {
+    color: #999 !important;
+}
+
+.aui-icon-edit:before { content: "\e6d3"; }
+.aui-icon-trash:before { content: "\e6d4"; }
+
+.aui-content footer {
+  border-top:1px solid #e0e0e0; /*no*/
+  position:fixed;
+  -webkit-transform: translateZ(0);
+  bottom:0;
+  top: auto;
+  left:0;
+  z-index: 99;
+}

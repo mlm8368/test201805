@@ -1,0 +1,116 @@
+/*dialog*/
+.aui-dialog {
+    width: 13.5rem;
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    margin-left: -6.75rem;
+    margin-top: 0;
+    top: 45%;
+    border-radius: 0.3rem;
+    opacity: 0;
+    background-color: #ffffff;
+    -webkit-transform: translate3d(0, 0, 0) scale(1.2);
+            transform: translate3d(0, 0, 0) scale(1.2);
+    -webkit-transition-property: -webkit-transform, opacity;
+            transition-property: transform, opacity;
+    /*display: none;*/
+}
+.aui-dialog-header {
+    padding: 0.5rem 0.75rem 0 0.75rem;
+    text-align: center;
+    font-size: 1em;
+    color: #212121;
+}
+.aui-dialog-body {
+    padding: 0.75rem;
+    overflow: hidden;
+    font-size: 0.875em;
+    color: #757575;
+}
+.aui-dialog-body input {
+    border: 1px solid #dddddd; /*no*/
+    height: 1.8rem;
+    line-height: 1.8rem;
+    min-height: 1.8rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+.aui-dialog-footer {
+    position: relative;
+    font-size: 1em;
+    border-top: 1px solid #dddddd; /*no*/
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+}
+.aui-dialog-btn {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0 0.25rem;
+    height: 2.2rem;
+    font-size: 0.8rem;
+    line-height: 2.2rem;
+    text-align: center;
+    color: #0894ec;
+    border-right: 1px solid #dddddd; /*no*/
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-flex: 1;
+            box-flex: 1;
+}
+.aui-dialog-btn:last-child {
+    border-right: none;
+}
+.aui-dialog.aui-dialog-in {
+    opacity: 1;
+    -webkit-transition-duration: 300ms;
+          transition-duration: 300ms;
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+          transform: translate3d(0, 0, 0) scale(1);
+}
+.aui-dialog.aui-dialog-out {
+    opacity: 0;
+    -webkit-transition-duration: 300ms;
+          transition-duration: 300ms;
+    -webkit-transform: translate3d(0, 0, 0) scale(0.815);
+          transform: translate3d(0, 0, 0) scale(0.815);
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+    .aui-dialog-footer {
+        border: none;
+        background-size: 100% 1px; /*no*/
+        background-repeat: no-repeat;
+        background-position: top;
+        background-image: linear-gradient(0,#dddddd,#dddddd 50%,transparent 50%);
+        background-image: -webkit-linear-gradient(90deg,#dddddd,#dddddd 50%,transparent 50%);
+    }
+    .aui-dialog-btn {
+        border: none;
+        background-image: -webkit-linear-gradient(0deg, #dddddd, #dddddd 50%, transparent 50%);
+        background-image: linear-gradient(270deg, #dddddd, #dddddd 50%, transparent 50%);
+        background-size: 1px 100%; /*no*/
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+    .aui-dialog-btn:last-child {
+        border: none;
+        background-size: 0 100%;
+    }
+    .aui-dialog-body input {
+        border: none;
+        background-image: -webkit-linear-gradient(270deg, #dddddd, #dddddd 50%, transparent 50%), -webkit-linear-gradient(180deg, #dddddd, #dddddd 50%, transparent 50%), -webkit-linear-gradient(90deg, #dddddd, #dddddd 50%, transparent 50%), -webkit-linear-gradient(0, #dddddd, #dddddd 50%, transparent 50%);
+        background-image: linear-gradient(180deg, #dddddd, #dddddd 50%, transparent 50%), linear-gradient(270deg, #dddddd, #dddddd 50%, transparent 50%), linear-gradient(0deg, #dddddd, #dddddd 50%, transparent 50%), linear-gradient(90deg, #dddddd, #dddddd 50%, transparent 50%);
+        background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%; /*no*/
+        background-repeat: no-repeat;
+        background-position: top, right top, bottom, left top;
+    }
+}

@@ -1,0 +1,15 @@
+@import "../../mui/sass/variables.scss";
+@import "../../mui/sass/mixins.scss";
+@import "../../mui/sass/loadings.scss";
+
+button.mui-disabled {
+    opacity: .6;
+}
+button[disabled] {
+    cursor: default;
+}
+.#{$namespace}btn .#{$namespace}spinner {
+    width: 22px;
+    height: 22px;
+    vertical-align: text-bottom;
+}

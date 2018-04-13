@@ -1,0 +1,31 @@
+{% 
+var $ = window.mui; 
+window.mui._now = new Date().getTime();
+%}
+{%~ it:one %}
+<li class="aui-list-item" data-id="{%=one.id%}">
+  <div class="aui-media-list-item-inner">
+      <div class="aui-list-item-media">
+          <img src="../../static/images/loadImg.png" data-src="{%=one.thumb%}">
+      </div>
+      <div class="aui-list-item-inner">
+          <div class="aui-list-item-text">
+              <div class="aui-list-item-title aui-ellipsis-2">{%=one.title%}</div>
+          </div>
+          <div class="aui-info aui-margin-t-5" style="padding:0">
+            <div class="aui-info-item">
+              <span class="aui-margin-l-5">{%=one.catname%}</span>
+            </div>
+            <div class="aui-info-item">{%=one.price%}</div>
+          </div>
+      </div>
+  </div>
+  <div class="aui-info" style="padding-top:0">
+    <div class="aui-info-item">
+      <img src="../../static/images/defaultAvatar.png" style="width:1rem" class="aui-img-round" /><span class="aui-margin-l-5">{%=one.username%}</span>
+    </div>
+    <div class="aui-info-item"><i class="aui-iconfont aui-icon-location"></i>{%=one.area%}</div>
+    <div class="aui-info-item">{%= $.getDateDiff(parseInt(one.edittime)*1000)%}</div>
+  </div>
+</li>
+{%~%}

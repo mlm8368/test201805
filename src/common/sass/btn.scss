@@ -1,0 +1,117 @@
+/*按钮样式*/
+button, .aui-btn {
+    position: relative;
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 400;
+    font-family: inherit;
+    text-decoration: none;
+    text-align: center;
+    margin: 0;
+    background: #dddddd;
+    padding: 0 0.6rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    border-radius: 0.2rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-user-select: none;
+            user-select: none;
+}
+.aui-btn:active {
+    color: #212121;
+    background-color: #bdbdbd;
+}
+.aui-btn-primary {
+    color: #ffffff;
+    background-color: #00bcd4;
+}
+.aui-btn-primary.aui-active, .aui-btn-primary:active {
+    color: #ffffff;
+    background-color: #00acc1;
+}
+.aui-btn-success {
+    color: #ffffff;
+    background-color: #009688;
+}
+.aui-btn-success.aui-active, .aui-btn-success:active {
+    color: #fff;
+    background-color: #00897b;
+}
+.aui-btn-info {
+    color: #ffffff !important;
+    background-color: #03a9f4 !important;
+}
+.aui-btn-info.aui-active, .aui-btn-info:active {
+    color: #fff !important;
+    background-color: #039be5 !important;
+}
+.aui-btn-warning {
+    color: #ffffff !important;
+    background-color: #ffc107 !important;
+}
+.aui-btn-warning.aui-active, .aui-btn-warning:active {
+    color: #ffffff !important;
+    background-color: #ffb300 !important;
+}
+.aui-btn-danger {
+    color: #ffffff !important;
+    background-color: #e51c23 !important;
+}
+.aui-btn-danger.aui-active, .aui-btn-danger:active {
+    color: #ffffff !important;
+    background-color: #dd191b !important;
+}
+.aui-btn-block {
+    display: block;
+    width: 100%;
+    height: 2.5rem;
+    line-height: 2.55rem;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+.aui-btn-block.aui-btn-sm {
+    font-size: 0.7rem;
+    height: 1.8rem;
+    line-height: 1.85rem;
+}
+.aui-btn .aui-iconfont, .aui-btn-block .aui-iconfont {
+    margin-right: 0.3rem;
+}
+.aui-btn .aui-badge, .aui-btn-block .aui-badge {
+    margin-left: 0.3rem;
+}
+.aui-btn-outlined {
+    background: transparent !important;
+    border: 1px solid #bdbdbd; /*no*/
+}
+.aui-btn-outlined:active {
+    background: transparent !important;
+}
+.aui-btn-default.aui-btn-outlined {
+    color: #bdc3c7 !important;
+    border: 1px solid #dcdcdc !important; /*no*/
+}
+.aui-btn-primary.aui-btn-outlined {
+    color: #00bcd4 !important;
+    border: 1px solid #00bcd4 !important; /*no*/
+}
+.aui-btn-success.aui-btn-outlined {
+    color: #009688 !important;
+    border: 1px solid #009688 !important; /*no*/
+}
+.aui-btn-info.aui-btn-outlined {
+    color: #03a9f4 !important;
+    border: 1px solid #03a9f4 !important; /*no*/
+}
+.aui-btn-warning.aui-btn-outlined {
+    color: #ffc107 !important;
+    border: 1px solid #ffc107 !important; /*no*/
+}
+.aui-btn-danger.aui-btn-outlined {
+    color: #e51c23 !important;
+    border: 1px solid #e51c23 !important; /*no*/
+}

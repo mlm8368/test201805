@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>养狗圈</title>
+    <script src="html5plus://ready"></script>
+    <script type="text/javascript">
+      var viewEXT = '.html';
+      var titleView = null;
+      var currIndex = 0;
+      function doPlusready() {
+        // 绘制顶部图标
+        titleView = plus.webview.getLaunchWebview().getTitleNView();
+        titleView.drawText('养狗圈', {}, {color: '#FF0000'}, 'font');
+        titleView.drawRect("#cccccc", {top: "43px", height:"1px", left: "0px"}); 
+      }
+      if(window.plus){
+        doPlusready();
+      }else{
+        document.addEventListener('plusready',doPlusready,false);
+      }
+    </script>
+    <script src="../../static/mui.js"></script>
+  </head>
+  
+  <body>
+    <div id="aui-slide">
+        <div class="aui-slide-wrap" id="slide">
+        </div>
+        <div class="aui-slide-page-wrap"></div>
+    </div>
+    <div class="aui-content">
+      <div class="aui-card-list dogproduct">
+        <div class="aui-card-list-header aui-card-list-user aui-border-b" dogtype="all">
+          <div class="aui-card-list-user-name">
+            <div class="title">产品库 <small class="aui-card-list-user-info">狗狗用品大全</small></div>
+            <small class="aui-list-item-inner aui-list-item-arrow">进入</small>
+          </div>
+        </div>
+        <div class="aui-card-list-content-padded aui-border-b aui-border-t">
+            <div class="aui-row aui-row-padded">
+                <div class="aui-col-xs-3 aui-border-r" dogtype="small">
+                    <img id="sellSimg" src="../../static/images/loadImg.png" data-src="" />
+                    <div class="aui-font-size-12">主粮</div>
+                </div>
+                <div class="aui-col-xs-3 aui-border-r" dogtype="middle">
+                    <img id="sellMimg" src="../../static/images/loadImg.png" data-src="" />
+                    <div class="aui-font-size-12">零食</div>
+                </div>
+                <div class="aui-col-xs-3 aui-border-r" dogtype="big">
+                    <img id="sellBimg" src="../../static/images/loadImg.png" data-src="" />
+                    <div class="aui-font-size-12">窝垫</div>
+                </div>
+                <div class="aui-col-xs-3" dogtype="big">
+                    <img id="sellBimg" src="../../static/images/loadImg.png" data-src="" />
+                    <div class="aui-font-size-12">玩具</div>
+                </div>
+                <div class="aui-col-xs-3 aui-border-r" dogtype="small">
+                    <img id="sellSimg" src="../../static/images/loadImg.png" data-src="" />
+                    <div class="aui-font-size-12">服饰</div>
+                </div>
+                <div class="aui-col-xs-3 aui-border-r" dogtype="middle">
+                    <img id="sellMimg" src="../../static/images/loadImg.png" data-src="" />
+                    <div class="aui-font-size-12">清洁</div>
+                </div>
+                <div class="aui-col-xs-3 aui-border-r" dogtype="big">
+                    <img id="sellBimg" src="../../static/images/loadImg.png" data-src="" />
+                    <div class="aui-font-size-12">美容</div>
+                </div>
+                <div class="aui-col-xs-3" dogtype="big">
+                    <img id="sellBimg" src="../../static/images/loadImg.png" data-src="" />
+                    <div class="aui-font-size-12">保健</div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!--
+      <div class="aui-card-list dogmarket">
+        <div class="aui-card-list-header aui-card-list-user aui-border-b" dogtype="all">
+          <div class="aui-card-list-user-name">
+            <div class="title">狗市场 <small class="aui-card-list-user-info">免费发布信息</small></div>
+            <small class="aui-list-item-inner aui-list-item-arrow">进入</small>
+          </div>
+        </div>
+        <div class="aui-card-list-content-padded aui-border-b aui-border-t">
+            <div class="aui-row aui-row-padded">
+                <div class="aui-col-xs-4 aui-border-r" dogtype="small">
+                    <img id="sellSimg" src="../../static/images/loadImg.png" data-src="" />
+                    <div class="aui-font-size-12">小型犬</div>
+                </div>
+                <div class="aui-col-xs-4 aui-border-r" dogtype="middle">
+                    <img id="sellMimg" src="../../static/images/loadImg.png" data-src="" />
+                    <div class="aui-font-size-12">中型犬</div>
+                </div>
+                <div class="aui-col-xs-4" dogtype="big">
+                    <img id="sellBimg" src="../../static/images/loadImg.png" data-src="" />
+                    <div class="aui-font-size-12">大型犬</div>
+                </div>
+            </div>
+        </div>
+      </div>
+      -->
+      <div class="aui-card-list dogbreed">
+        <div class="aui-card-list-header aui-card-list-user aui-border-b">
+          <div class="aui-card-list-user-name">
+            <div class="title">每日犬种 <small class="aui-card-list-user-info">详细犬种介绍</small></div>
+            <small class="aui-list-item-inner aui-list-item-arrow">进入</small>
+          </div>
+        </div>
+        <div class="aui-card-list-content-padded aui-border-b aui-border-t aui-padded-t-0 aui-padded-b-1">
+          <ul class="aui-list aui-media-list">
+            <li class="aui-list-item">
+                <div class="aui-media-list-item-inner" id="dogbreed">
+                  <div class="aui-list-item-inner" data-id="0">
+                      <div class="aui-list-item-text">
+                          <div class="aui-list-item-title aui-font-size-16"></div>
+                      </div>
+                      <div class="aui-info aui-padded-b-0">
+                          <div class="aui-info-item aui-font-size-12 aui-ellipsis-1 keyword"></div>
+                      </div>
+                      <div class="aui-info aui-padded-b-0">
+                          <div class="aui-info-item aui-font-size-12 aui-ellipsis-2 info"></div>
+                      </div>
+                  </div>
+                  <div class="aui-list-item-media">
+                      <img src="../../static/images/loadImg.png">
+                  </div>
+                </div>
+            </li>
+          </ul>  
+        </div>
+      </div>
+      <div class="aui-card-list dognews">
+        <div class="aui-card-list-header aui-card-list-user aui-border-b">
+          <div class="aui-card-list-user-name">
+            <div class="title">养狗知识 <small class="aui-card-list-user-info">详细养狗知识</small></div>
+            <small class="aui-list-item-inner aui-list-item-arrow">进入</small>
+          </div>
+        </div>
+        <div class="aui-card-list-content-padded aui-border-b aui-border-t aui-padded-l-5 aui-padded-r-5">
+          <div class="aui-row aui-row-padded" id="news">
+          </div>
+        </div>
+      </div>
+      <div class="aui-card-list aui-margin-b-0 dogvideo">
+        <div class="aui-card-list-header aui-card-list-user aui-border-b">
+          <div class="aui-card-list-user-name">
+            <div class="title">萌狗狗 <small class="aui-card-list-user-info">欢迎视频投稿</small></div>
+            <small class="aui-list-item-inner aui-list-item-arrow">进入</small>
+          </div>
+        </div>
+        <div class="aui-card-list-content-padded aui-border-b aui-border-t aui-padded-l-5 aui-padded-r-5">
+          <div class="aui-card-list aui-margin-b-0 aui-border-t aui-border-b" id="dogvideo">
+          </div>    
+        </div>
+      </div>
+    </div>
+    <div style="height: 50px;"></div>
+  </body>
+</html>

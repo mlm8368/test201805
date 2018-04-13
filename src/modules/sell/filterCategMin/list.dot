@@ -1,0 +1,4 @@
+<input type="radio" name="categs" value="0" /><a data-id="0">{%=it.toptitle%}</a>
+{%~it.list:one%}
+  <input type="radio" name="categs" value="{%=one.id%}" /><a data-id="{%=one.id%}">{%=one.title%}</a>
+{%~%}

@@ -1,0 +1,7 @@
+{%~it.list:one%}
+{%
+    var checked = "";
+    if(one.catid == it.currentId) checked = "checked";
+%}
+  <input type="radio" name="categtops" value="{%=one.catid%}" {%=checked%} /><a data-id="{%=one.catid%}">{%=one.catname%}</a>
+{%~%}

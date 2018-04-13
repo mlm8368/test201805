@@ -1,0 +1,54 @@
+/*toast*/
+.aui-toast {
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  border-radius: 0.25rem;
+  color: #ffffff;
+  position: fixed;
+  z-index: 3;
+  top: 45%;
+  left: 50%;
+  width: 6em;
+  padding: 0.5rem;
+  margin-left: -3em;
+  margin-top: -4rem;
+  opacity: 0;
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}
+.aui-toast.aui-toast-in {
+  opacity: 1;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+  -webkit-transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+.aui-toast.aui-toast-out {
+  opacity: 0;
+  -webkit-transition-duration: 300ms;
+  transition-duration: 300ms;
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}
+.aui-toast .aui-iconfont {
+  display: block;
+  font-size: 1.8rem;
+}
+.aui-toast-content {
+  font-size: 0.7rem;
+}
+.aui-toast-loading {
+  background-color: #ffffff;
+  border-radius: 100%;
+  margin: 0.25rem 0;
+  border: 2px solid #ffffff;
+  border-bottom-color: transparent;
+  height: 1.8rem;
+  width: 1.8rem;
+  background: transparent !important;
+  display: inline-block;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: rotate 1s 0s linear infinite;
+  animation: rotate 1s 0s linear infinite;
+}

@@ -1,0 +1,40 @@
+{% 
+var $ = window.mui; 
+window.mui._now = new Date().getTime();
+%}
+{%~ it.list:one %}
+<li class="aui-list-item" data-id="{%=one.id%}">
+{%? one.model=="img_min" %}
+    <div class="aui-media-list-item-inner">
+        <div class="aui-list-item-inner">
+            <div class="aui-list-item-text">
+                <div class="aui-list-item-title aui-font-size-18">{%=one.title%}</div>
+            </div>
+            <div class="aui-info aui-padded-b-0">
+                <div class="aui-info-item aui-font-size-12">
+                  <div class="aui-iconfont aui-icon-laud"></div>
+                    <span class="aui-margin-l-5">{%=one.praise%}</span>
+                </div>
+                <div class="aui-info-item aui-font-size-12">{%= $.getDateDiff(parseInt(one.addtime)*1000)%}</div>
+            </div>
+        </div>
+        <div class="aui-list-item-media">
+            <img src="../../static/images/loadImg.png" data-src="{%=one.img%}">
+        </div>
+    </div>  
+{%??%}
+    <div class="aui-media-list-item-inner">
+        <div class="aui-list-item-inner">
+            <div class="aui-list-item-title aui-font-size-18">{%=one.title%}</div>
+        </div>
+    </div>
+    <div class="aui-info aui-padded-t-0">
+        <div class="aui-info-item aui-font-size-12">
+          <div class="aui-iconfont aui-icon-laud"></div>
+            <span class="aui-margin-l-5">{%=one.praise%}</span>
+        </div>
+        <div class="aui-info-item aui-font-size-12">{%= $.getDateDiff(parseInt(one.addtime)*1000)%}</div>
+    </div>
+ {%?%}
+</li>
+{%~%}

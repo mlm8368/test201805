@@ -1,0 +1,14 @@
+<div class="aui-list-item-inner" data-id="{%=it.id%}">
+    <div class="aui-list-item-text">
+        <div class="aui-list-item-title aui-font-size-16">{%=it.title%}</div>
+    </div>
+    <div class="aui-info aui-padded-b-0">
+        <div class="aui-info-item aui-font-size-12 aui-ellipsis-1 keyword">{%=it.tag%}</div>
+    </div>
+    <div class="aui-info aui-padded-b-0">
+        <div class="aui-info-item aui-font-size-12 aui-ellipsis-2 info">{%=it.description%}</div>
+    </div>
+</div>
+<div class="aui-list-item-media">
+    <img src="../../static/images/loadImg.png" data-src="{%=it.img%}">
+</div>

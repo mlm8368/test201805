@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>index</title>
+    <script type="text/javascript">
+      var viewEXT = '.html';
+    </script>
+    <script src="../../static/mui.js"></script>
+  </head>
+  <body>
+    <div class="aui-content">
+      <footer class="aui-bar aui-bar-tab">
+        <div class="aui-bar-tab-item aui-padded-l-15 aui-padded-r-15">
+            <div class="aui-btn aui-btn-block aui-btn-sm aui-btn-info mui-btn" data-loading-text="提交中">立即提交</div>
+        </div>
+      </footer>
+    </div>
+    <div class="aui-content-padded" id="info">
+    </div>
+    <p class="aui-text-center aui-margin-t-15">标题</p>
+    <section class="aui-content-padded">
+        <textarea id="title" placeholder="标题不能超过30个字符"></textarea>
+    </section>
+    <p class="aui-text-center aui-margin-t-15">详细介绍</p>
+    <section class="aui-content-padded">
+        <textarea id="content" placeholder="在这里输入内容..."></textarea>
+    </section>
+    <p class="aui-text-center aui-margin-t-15">有图更精彩</p>
+    <section class="aui-content-padded">
+        <div class="aui-row aui-row-padded photos" id="photos">
+          <div class="aui-col-xs-4 add-photos">
+              <div class="aui-border aui-text-center add-btn">
+                  <i class="aui-iconfont aui-icon-plus"></i>
+              </div>
+          </div>
+          <div class="aui-col-xs-4 add-photos">
+              <div class="aui-border aui-text-center add-btn">
+                  <i class="aui-iconfont aui-icon-plus"></i>
+              </div>
+          </div>
+          <div class="aui-col-xs-4 add-photos">
+              <div class="aui-border aui-text-center add-btn">
+                  <i class="aui-iconfont aui-icon-plus"></i>
+              </div>
+          </div>
+        </div>
+    </section>
+    <div class="aui-content form">
+      <section class="aui-content-padded" title="犬种" id="categDiv">
+        <input type="text" id="categ" value="请选择" data-catid="0" data-bigcatid="0" readonly="readonly">
+      </section>
+      <section class="aui-content-padded" title="性别" id="genderDiv">
+        <input type="text" id="gender" value="公狗" data-dogsexid="1" readonly="readonly">
+      </section>
+      <section class="aui-content-padded" title="大小" id="ageDiv">
+        <input type="text" id="age" value="三个月" data-dogageid="3" readonly="readonly">
+      </section>
+      <section class="aui-content-padded" title="价格">
+        <input type="number" id="price" placeholder="元/只">
+      </section>
+      <section class="aui-content-padded" title="过期" id="totimeDiv">
+        <input type="text" id="totime" value="一周[至2018-03-21]" data-totime="2018-02-12" readonly="readonly">
+      </section>
+    </div>
+    <section class="aui-content-padded">
+      <ul class="aui-list aui-form-list" id="contact">
+        <li class="aui-list-header">联系方式<p class="aui-text-center">*以下信息请到【<b style="color: blue;">我的账户</b>】里设置。</p></li>
+        <li class="aui-list-item">
+          <div class="aui-list-item-inner">
+            <div class="aui-list-item-label"></div>
+            <div class="aui-list-item-input"></div>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <div style="height: 50px;"></div>
+  </body>
+</html>

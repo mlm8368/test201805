@@ -1,0 +1,9 @@
+/build/
+/config/
+/dist/
+/*.js
+/test/unit/coverage/
+/src/mui/
+/src/common/js/mui.js
+/src/common/aui
+/src/plugin/

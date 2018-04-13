@@ -1,0 +1,20 @@
+@import "../../../mui/sass/variables.scss";
+@import "../../../mui/sass/mixins.scss";
+
+@import "../../../common/sass/list.scss";
+
+.aui-icon-mobile:before { content: "\e697"; }
+.aui-icon-location:before { content: "\e6d1"; }
+.aui-icon-like:before { content: "\e62b"; }
+.aui-icon-image:before { content: "\e6ce"; }
+.aui-icon-cart:before { content: "\e6df"; }
+.aui-icon-cert:before { content: "\e704"; }
+
+.aui-list .aui-list-item-media {
+    width: 48px;
+}
+
+#avatar {
+    width: 33px;
+    height: 33px;
+}

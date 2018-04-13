@@ -1,0 +1,7 @@
+{%~ it:one %}
+<li class="aui-list-item" data-id="{%=one.id%}">
+    <div class="aui-list-item-inner aui-padded-b-0">
+        <div class="aui-list-item-title aui-font-size-18">{%=one.title%}</div>
+    </div>
+</li>
+{%~%}

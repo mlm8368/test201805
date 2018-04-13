@@ -1,0 +1,48 @@
+/*进度条*/
+.aui-progress {
+    width: 100%;
+    height: 1rem;
+    border-radius: 0.2rem;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+.aui-progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 0.6rem;
+    line-height: 1rem;
+    color: #ffffff;
+    text-align: center;
+    background-color: #03a9f4;
+}
+.aui-progress.sm,
+.aui-progress-sm {
+    height: 0.5rem;
+}
+.aui-progress.sm,
+.aui-progress-sm,
+.aui-progress.sm .aui-progress-bar,
+.aui-progress-sm .aui-progress-bar {
+    border-radius: 1px; /*no*/
+}
+.aui-progress.xs,
+.aui-progress-xs {
+    height: 0.35rem;
+}
+.aui-progress.xs,
+.aui-progress-xs,
+.aui-progress.xs .progress-bar,
+.aui-progress-xs .progress-bar {
+    border-radius: 1px; /*no*/
+}
+.aui-progress.xxs,
+.aui-progress-xxs {
+    height: 0.15rem;
+}
+.aui-progress.xxs,
+.aui-progress-xxs,
+.aui-progress.xxs .progress-bar,
+.aui-progress-xxs .progress-bar {
+    border-radius: 1px; /*no*/
+}

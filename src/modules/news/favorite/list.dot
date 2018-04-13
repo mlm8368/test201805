@@ -1,0 +1,8 @@
+{%~ it:one %}
+<li class="aui-list-item" id="f{%=one.id%}">
+  <div class="aui-list-item-label-icon">
+      <span class="aui-checkbox aui-margin-r-5" data-id="{%=one.id%}"></span>
+  </div>
+  <div class="aui-list-item-inner aui-list-item-arrow" data-newsid="{%=one.newsid%}">{%=one.title%}</div>
+</li>
+{%~%}

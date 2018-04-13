@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>index</title>
+    <script type="text/javascript">
+      var viewEXT = '.html';
+    </script>
+    <script src="../../static/mui.js"></script>
+  </head>
+  <body>
+    <div class="aui-content">
+      <footer class="aui-bar aui-bar-tab">
+        <div class="aui-bar-tab-item" style="width: 3rem;">
+            <i class="aui-iconfont aui-icon-share aui-text-info"></i>
+            <div class="aui-bar-tab-label aui-text-info">分享</div>
+        </div>
+        <div class="aui-bar-tab-item" id="favorite" style="width: 3rem;">
+            <i class="aui-iconfont mystar aui-icon-star aui-text-warning"></i>
+            <div class="aui-bar-tab-label aui-text-warning">收藏</div>
+        </div>
+        <div class="aui-bar-tab-item aui-bg-warning aui-text-warning" style="width: auto;">
+          <i class="aui-iconfont aui-icon-wechat aui-text-white"></i>
+          <div class="aui-bar-tab-label aui-text-white">微信咨询</div>
+        </div>
+        <div class="aui-bar-tab-item aui-bg-danger aui-text-warning" style="width: auto;">
+          <i class="aui-iconfont aui-icon-qq aui-text-white"></i>
+          <div class="aui-bar-tab-label aui-text-white">QQ咨询</div>
+        </div>
+      </footer>
+    </div>
+    <div style="height: 200px;">slider</div>
+    <section class="aui-card-list">
+      <div class="title aui-card-list-content" id="title" data-title="">
+        <price id="price" data-todate=""></price>
+        <small id="catname" data-catname="" data-hot="0"></small>
+      </div>
+      <div class="mobile aui-card-list-content">
+        <dl><dt id="truename"></dt><dd id="tel"></dd></dl>
+        <a title="电话"><img src="../../static/images/tel.png" /></a>
+      </div>
+      <div class="location">
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <i class="aui-iconfont aui-icon-location"></i>
+                </div>
+                <div id="address" class="aui-list-item-inner aui-list-item-arrow">
+                </div>
+            </li>
+        </ul>
+      </div>
+      <div class="jinggao aui-card-list-content"><i class="aui-iconfont aui-icon-info"></i> 
+        特别提示：您在本APP上所查询的信息的准确性真实性均由信息发布者负责，采用请谨慎，我们鼓励您当面交易。警惕提前汇款及低价欺诈。
+      </div>
+      <div class="aui-card-list-content">
+        <ul class="aui-list aui-media-list">
+          <li class="aui-list-item">
+              <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-label-icon label-text aui-font-size-14">信息</div>
+                <div class="aui-list-item-inner aui-padded-t-10 aui-padded-b-0">
+                    <div>
+                        <p class="aui-margin-b-10 aui-font-size-12"><span class="aui-text-danger aui-margin-r-5">狗狗性别</span><span id="dogsex"></span></p>
+                        <p class="aui-margin-b-10 aui-font-size-12"><span class="aui-text-danger aui-margin-r-5">狗狗年龄</span><span id="dogage"></span></p>
+                        <p class="aui-margin-b-10 aui-font-size-12"><span class="aui-text-danger aui-margin-r-5">更新时间</span><span id="edittime"></span></p>
+                        <p class="aui-margin-b-10 aui-font-size-12"><span class="aui-text-danger aui-margin-r-5">微信</span><span id="msn"></span></p>
+                        <p class="aui-margin-b-10 aui-font-size-12"><span class="aui-text-danger aui-margin-r-5">QQ</span><span id="qq"></span></p>
+                    </div>
+                </div>
+              </div>
+              <div class="aui-list-item-title aui-font-size-14"><i class="aui-iconfont aui-icon-info"></i> 请您在联系时注明从“养狗圈APP”看到该信息，以便核对信息，谢谢！<small class="aui-margin-l-10 text-light"></small></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="aui-content">
+      <div class="aui-tab aui-border-b" id="tab" style="padding:0 5rem;">
+          <div class="aui-tab-item aui-active">详情</div>
+      </div>
+    </section>
+    <section class="aui-content bg-white aui-padded-15 aui-font-size-14" id="content">
+    </section>
+    <div><img src="../../static/images/jingao.jpg"/></div>
+    <div style="height: 50px;"></div>
+  </body>
+</html>

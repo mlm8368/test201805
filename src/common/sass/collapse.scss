@@ -1,0 +1,44 @@
+/*折叠菜单*/
+.aui-collapse-header.aui-active {
+    background: #ececec;
+}
+.aui-collapse .aui-list-item:active{
+    background: #ececec;
+}
+.aui-collapse-content {
+    display: none;
+}
+.aui-collapse-content .aui-list-item:last-child {
+    border-bottom: 0;
+}
+@media screen and (-webkit-min-device-pixel-ratio:1.5) {
+    .aui-collapse-content .aui-list-item:last-child {
+        background-position: bottom;
+    }
+    .aui-list.aui-collapse.aui-list-noborder,
+    .aui-list.aui-collapse.aui-list-noborder .aui-collapse-content:last-child .aui-list-item:last-child {
+        border: none;
+        background-size: 100% 1px; /*no*/
+        background-repeat: no-repeat;
+        background-position: 0 bottom;
+        background-image: linear-gradient(0,#dddddd,#dddddd 50%,transparent 50%);
+        background-image: -webkit-linear-gradient(90deg,#dddddd,#dddddd 50%,transparent 50%);
+    }
+    .aui-list.aui-collapse.aui-list-noborder,
+    .aui-list.aui-collapse.aui-list-noborder .aui-collapse-item:last-child .aui-list-item:last-child {
+        border: none;
+        background-size: 100% 0;
+        background-image: none;
+    }
+    .aui-list.aui-collapse.aui-list-noborder .aui-collapse-item:last-child .aui-list-item.aui-collapse-header,
+    .aui-list.aui-collapse.aui-list-noborder .aui-collapse-content .aui-list-item:last-child  {
+        border: none;
+        background-size: 100% 0;
+        background-image: none;
+    }
+}
+.aui-collapse-header.aui-active .aui-collapse-arrow {
+    display: block;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+}

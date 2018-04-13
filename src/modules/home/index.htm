@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>养狗圈</title>
+    <script src="html5plus://ready"></script>
+    <script type="text/javascript">
+      var viewEXT = '.htm';
+      var titleView = null;
+      var currIndex = 0;
+      function doPlusready() {
+        // 绘制顶部图标
+        titleView = plus.webview.getLaunchWebview().getTitleNView();
+        titleView.drawText('养狗圈', {}, {color: '#FF0000'}, 'font');
+        titleView.drawRect("#cccccc", {top: "43px", height:"1px", left: "0px"}); 
+      }
+      if(window.plus){
+        doPlusready();
+      }else{
+        document.addEventListener('plusready',doPlusready,false);
+      }
+    </script>
+    <script src="../../static/mui.js"></script>
+  </head>
+  
+  <body>
+    <div id="aui-slide">
+        <div class="aui-slide-wrap" >
+            <div class="aui-slide-node bg-dark">
+                <img src="../../static/images/tmp/l1.png" />
+            </div>
+            <div class="aui-slide-node bg-dark">
+                <img src="../../static/images/tmp/l2.png" />
+            </div>
+            <div class="aui-slide-node bg-dark">
+                <img src="../../static/images/tmp/l3.png" />
+            </div>
+        </div>
+        <div class="aui-slide-page-wrap"></div>
+    </div>
+    <div class="aui-content">
+      <div class="aui-card-list dogmarket">
+        <div class="aui-card-list-header aui-card-list-user aui-border-b" dogtype="all">
+          <div class="aui-card-list-user-name">
+            <div class="title">狗市场 <small class="aui-card-list-user-info">免费发布信息</small></div>
+            <small class="aui-list-item-inner aui-list-item-arrow">进入</small>
+          </div>
+        </div>
+        <div class="aui-card-list-content-padded aui-border-b aui-border-t">
+            <div class="aui-row aui-row-padded">
+                <div class="aui-col-xs-4 aui-border-r" dogtype="small">
+                    <img src="../../static/images/tmp/muwu.jpg" />
+                    <div class="aui-font-size-12">小型犬</div>
+                </div>
+                <div class="aui-col-xs-4 aui-border-r" dogtype="middle">
+                    <img src="../../static/images/tmp/shuijiao.jpg" />
+                    <div class="aui-font-size-12">中型犬</div>
+                </div>
+                <div class="aui-col-xs-4" dogtype="big">
+                    <img src="../../static/images/tmp/yuantiao.jpg" />
+                    <div class="aui-font-size-12">大型犬</div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="aui-card-list dogbreed">
+        <div class="aui-card-list-header aui-card-list-user aui-border-b">
+          <div class="aui-card-list-user-name">
+            <div class="title">每日犬种 <small class="aui-card-list-user-info">详细犬种介绍</small></div>
+            <small class="aui-list-item-inner aui-list-item-arrow">进入</small>
+          </div>
+        </div>
+        <div class="aui-card-list-content-padded aui-border-b aui-border-t aui-padded-t-0 aui-padded-b-1">
+          <ul class="aui-list aui-media-list">
+            <li class="aui-list-item">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title aui-font-size-16">史宾格|英国史宾格犬|英国激飞猎犬(English Springer Spaniel)档案</div>
+                        </div>
+                        <div class="aui-info aui-padded-b-0">
+                            <div class="aui-info-item aui-font-size-12 aui-ellipsis-1 keyword">中型犬 长毛 工作犬 牧羊犬</div>
+                        </div>
+                        <div class="aui-info aui-padded-b-0">
+                            <div class="aui-info-item aui-font-size-12 aui-ellipsis-2 info">边境牧羊犬是非常均匀对称的，中等体型的、外观雄壮的狗狗，中等体型的、外观雄壮的狗狗</div>
+                        </div>
+                    </div>
+                    <div class="aui-list-item-media">
+                        <img src="../../static/images/tmp/shuijiao.jpg">
+                    </div>
+                </div>
+            </li>
+          </ul>  
+        </div>
+      </div>
+      <div class="aui-card-list dognews">
+        <div class="aui-card-list-header aui-card-list-user aui-border-b">
+          <div class="aui-card-list-user-name">
+            <div class="title">养狗知识 <small class="aui-card-list-user-info">详细养狗知识</small></div>
+            <small class="aui-list-item-inner aui-list-item-arrow">进入</small>
+          </div>
+        </div>
+        <div class="aui-card-list-content-padded aui-border-b aui-border-t aui-padded-l-5 aui-padded-r-5">
+          <div class="aui-row aui-row-padded">
+            <div class="aui-col-xs-6 aui-border-r">
+                <div class="aui-font-size-14 aui-padded-l-5">正确挑选巴哥犬的方法 巴哥幼犬购买建议<span>08-19</span></div>
+            </div>
+            <div class="aui-col-xs-6">
+                <div class="aui-font-size-14 aui-padded-l-5">购买哈士奇之前做好养哈士奇犬的准备<span>08-19</span></div>
+            </div>
+            <div class="aui-col-xs-6 aui-border-r">
+                <div class="aui-font-size-14 aui-padded-l-5">比利时牧羊犬怎么挑选 购买比牧时要注意什么<span>08-19</span></div>
+            </div>
+            <div class="aui-col-xs-6">
+                <div class="aui-font-size-14 aui-padded-l-5">金毛犬能活多久 黄金猎犬的寿命<span>08-19</span></div>
+            </div>
+            
+            <div class="aui-col-xs-6 aui-border-r">
+                <div class="aui-font-size-14 aui-padded-l-5">正确挑选巴哥犬的方法 巴哥幼犬购买建议<span>08-19</span></div>
+            </div>
+            <div class="aui-col-xs-6">
+                <div class="aui-font-size-14 aui-padded-l-5">购买哈士奇之前做好养哈士奇犬的准备<span>08-19</span></div>
+            </div>
+            <div class="aui-col-xs-6 aui-border-r">
+                <div class="aui-font-size-14 aui-padded-l-5">比利时牧羊犬怎么挑选 购买比牧时要注意什么<span>08-19</span></div>
+            </div>
+            <div class="aui-col-xs-6">
+                <div class="aui-font-size-14 aui-padded-l-5">金毛犬能活多久 黄金猎犬的寿命<span>08-19</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="aui-card-list aui-margin-b-0 dogvideo">
+        <div class="aui-card-list-header aui-card-list-user aui-border-b">
+          <div class="aui-card-list-user-name">
+            <div class="title">萌狗狗 <small class="aui-card-list-user-info">欢迎视频投稿</small></div>
+            <small class="aui-list-item-inner aui-list-item-arrow">进入</small>
+          </div>
+        </div>
+        <div class="aui-card-list-content-padded aui-border-b aui-border-t aui-padded-l-5 aui-padded-r-5">
+          <div class="aui-card-list aui-margin-b-0 aui-border-t aui-border-b">
+            <div class="aui-card-list-content playvideo">
+                <figure title="中国拥有世界顶级航天芯片产品：俄罗斯造不出来了只能求中国分享"><img src="../../static/images/tmp/l1.png" /></figure>
+            </div>
+          </div>    
+        </div>
+      </div>
+    </div>
+    <div style="height: 50px;"></div>
+  </body>
+</html>

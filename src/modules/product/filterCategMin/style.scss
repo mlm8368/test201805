@@ -1,0 +1,46 @@
+@import "../../../mui/sass/variables.scss";
+@import "../../../mui/sass/mixins.scss";
+
+body{
+    background-color:#fff;
+}
+.aui-content{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+menu{
+    margin: 0;
+    padding:0 8px 0 16px;
+}
+menu a{
+    display: block;
+    height:48px;
+    line-height:48px;
+    color:#4d4d4d;
+    border-bottom:1px solid #e0e0e0; /*no*/
+    background-color:#fff;
+}
+menu input:checked + a{
+    border-bottom-color:#f00;
+}
+
+input :checked {
+    font-size: 16px;
+    border: 0;
+    line-height: 16px;
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+input[type="radio"] {
+    -webkit-border-radius: 0;
+    display: none;
+}

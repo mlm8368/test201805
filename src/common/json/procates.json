@@ -1,0 +1,1829 @@
+{
+    "187": {
+        "catid": "187",
+        "catname": "主粮",
+        "arrparentid": "0",
+        "child": {
+            "198": {
+                "catid": "198",
+                "catname": "进口狗粮",
+                "arrparentid": "0,187",
+                "child": {
+                    "202": {
+                        "catid": "202",
+                        "catname": "全犬期",
+                        "arrparentid": "0,187,198"
+                    },
+                    "203": {
+                        "catid": "203",
+                        "catname": "幼犬期",
+                        "arrparentid": "0,187,198"
+                    },
+                    "204": {
+                        "catid": "204",
+                        "catname": "成犬期",
+                        "arrparentid": "0,187,198"
+                    },
+                    "205": {
+                        "catid": "205",
+                        "catname": "离乳&怀孕哺乳期",
+                        "arrparentid": "0,187,198"
+                    },
+                    "206": {
+                        "catid": "206",
+                        "catname": "老犬期（低热量/减肥）",
+                        "arrparentid": "0,187,198"
+                    }
+                }
+            },
+            "199": {
+                "catid": "199",
+                "catname": "国产狗粮",
+                "arrparentid": "0,187",
+                "child": {
+                    "207": {
+                        "catid": "207",
+                        "catname": "全犬期",
+                        "arrparentid": "0,187,199"
+                    },
+                    "208": {
+                        "catid": "208",
+                        "catname": "幼犬期",
+                        "arrparentid": "0,187,199"
+                    },
+                    "209": {
+                        "catid": "209",
+                        "catname": "成犬期",
+                        "arrparentid": "0,187,199"
+                    },
+                    "210": {
+                        "catid": "210",
+                        "catname": "离乳&怀孕哺乳期",
+                        "arrparentid": "0,187,199"
+                    },
+                    "211": {
+                        "catid": "211",
+                        "catname": "老犬期（低热量/减肥）",
+                        "arrparentid": "0,187,199"
+                    }
+                }
+            },
+            "200": {
+                "catid": "200",
+                "catname": "处方狗粮",
+                "arrparentid": "0,187",
+                "child": {
+                    "212": {
+                        "catid": "212",
+                        "catname": "肝脏",
+                        "arrparentid": "0,187,200"
+                    },
+                    "213": {
+                        "catid": "213",
+                        "catname": "肾脏",
+                        "arrparentid": "0,187,200"
+                    },
+                    "214": {
+                        "catid": "214",
+                        "catname": "心脏",
+                        "arrparentid": "0,187,200"
+                    },
+                    "215": {
+                        "catid": "215",
+                        "catname": "皮肤",
+                        "arrparentid": "0,187,200"
+                    },
+                    "216": {
+                        "catid": "216",
+                        "catname": "糖尿病",
+                        "arrparentid": "0,187,200"
+                    },
+                    "217": {
+                        "catid": "217",
+                        "catname": "胃肠道",
+                        "arrparentid": "0,187,200"
+                    },
+                    "218": {
+                        "catid": "218",
+                        "catname": "高血脂/高血压",
+                        "arrparentid": "0,187,200"
+                    },
+                    "219": {
+                        "catid": "219",
+                        "catname": "减肥/体重控制",
+                        "arrparentid": "0,187,200"
+                    }
+                }
+            },
+            "201": {
+                "catid": "201",
+                "catname": "冻干狗粮",
+                "arrparentid": "0,187",
+                "child": {
+                    "220": {
+                        "catid": "220",
+                        "catname": "全犬粮",
+                        "arrparentid": "0,187,201"
+                    },
+                    "221": {
+                        "catid": "221",
+                        "catname": "成犬粮",
+                        "arrparentid": "0,187,201"
+                    },
+                    "222": {
+                        "catid": "222",
+                        "catname": "幼犬粮",
+                        "arrparentid": "0,187,201"
+                    }
+                }
+            }
+        }
+    },
+    "188": {
+        "catid": "188",
+        "catname": "零食",
+        "arrparentid": "0",
+        "child": {
+            "223": {
+                "catid": "223",
+                "catname": "磨牙洁齿",
+                "arrparentid": "0,188",
+                "child": {
+                    "229": {
+                        "catid": "229",
+                        "catname": "磨牙骨",
+                        "arrparentid": "0,188,223"
+                    },
+                    "230": {
+                        "catid": "230",
+                        "catname": "磨牙棒",
+                        "arrparentid": "0,188,223"
+                    },
+                    "231": {
+                        "catid": "231",
+                        "catname": "真骨",
+                        "arrparentid": "0,188,223"
+                    },
+                    "232": {
+                        "catid": "232",
+                        "catname": "洁齿颗粒/块",
+                        "arrparentid": "0,188,223"
+                    },
+                    "233": {
+                        "catid": "233",
+                        "catname": "皮制咬胶",
+                        "arrparentid": "0,188,223"
+                    }
+                }
+            },
+            "224": {
+                "catid": "224",
+                "catname": "肉制零食",
+                "arrparentid": "0,188",
+                "child": {
+                    "234": {
+                        "catid": "234",
+                        "catname": "鸡肉",
+                        "arrparentid": "0,188,224"
+                    },
+                    "235": {
+                        "catid": "235",
+                        "catname": "鱼肉",
+                        "arrparentid": "0,188,224"
+                    },
+                    "236": {
+                        "catid": "236",
+                        "catname": "羊肉",
+                        "arrparentid": "0,188,224"
+                    },
+                    "237": {
+                        "catid": "237",
+                        "catname": "海鲜",
+                        "arrparentid": "0,188,224"
+                    },
+                    "238": {
+                        "catid": "238",
+                        "catname": "牛肉",
+                        "arrparentid": "0,188,224"
+                    },
+                    "239": {
+                        "catid": "239",
+                        "catname": "鸭肉",
+                        "arrparentid": "0,188,224"
+                    },
+                    "240": {
+                        "catid": "240",
+                        "catname": "鹿肉",
+                        "arrparentid": "0,188,224"
+                    },
+                    "241": {
+                        "catid": "241",
+                        "catname": "其他",
+                        "arrparentid": "0,188,224"
+                    }
+                }
+            },
+            "225": {
+                "catid": "225",
+                "catname": "点心饮料",
+                "arrparentid": "0,188",
+                "child": {
+                    "242": {
+                        "catid": "242",
+                        "catname": "布丁",
+                        "arrparentid": "0,188,225"
+                    },
+                    "243": {
+                        "catid": "243",
+                        "catname": "饮料",
+                        "arrparentid": "0,188,225"
+                    },
+                    "244": {
+                        "catid": "244",
+                        "catname": "奶酪小食",
+                        "arrparentid": "0,188,225"
+                    },
+                    "245": {
+                        "catid": "245",
+                        "catname": "休闲小食",
+                        "arrparentid": "0,188,225"
+                    },
+                    "246": {
+                        "catid": "246",
+                        "catname": "定制蛋糕",
+                        "arrparentid": "0,188,225"
+                    }
+                }
+            },
+            "226": {
+                "catid": "226",
+                "catname": "罐头湿粮",
+                "arrparentid": "0,188",
+                "child": {
+                    "247": {
+                        "catid": "247",
+                        "catname": "罐头",
+                        "arrparentid": "0,188,226"
+                    },
+                    "248": {
+                        "catid": "248",
+                        "catname": "餐盒",
+                        "arrparentid": "0,188,226"
+                    },
+                    "249": {
+                        "catid": "249",
+                        "catname": "鲜封包",
+                        "arrparentid": "0,188,226"
+                    }
+                }
+            },
+            "227": {
+                "catid": "227",
+                "catname": "磨牙饼干",
+                "arrparentid": "0,188",
+                "child": {
+                    "250": {
+                        "catid": "250",
+                        "catname": "小馒头",
+                        "arrparentid": "0,188,227"
+                    },
+                    "251": {
+                        "catid": "251",
+                        "catname": "饼干",
+                        "arrparentid": "0,188,227"
+                    }
+                }
+            },
+            "228": {
+                "catid": "228",
+                "catname": "冻干零食",
+                "arrparentid": "0,188",
+                "child": {
+                    "252": {
+                        "catid": "252",
+                        "catname": "鹿肉",
+                        "arrparentid": "0,188,228"
+                    },
+                    "253": {
+                        "catid": "253",
+                        "catname": "牛肉",
+                        "arrparentid": "0,188,228"
+                    },
+                    "254": {
+                        "catid": "254",
+                        "catname": "鱼肉",
+                        "arrparentid": "0,188,228"
+                    },
+                    "255": {
+                        "catid": "255",
+                        "catname": "鸡肉",
+                        "arrparentid": "0,188,228"
+                    },
+                    "256": {
+                        "catid": "256",
+                        "catname": "羊肉",
+                        "arrparentid": "0,188,228"
+                    },
+                    "257": {
+                        "catid": "257",
+                        "catname": "鸭肉",
+                        "arrparentid": "0,188,228"
+                    },
+                    "258": {
+                        "catid": "258",
+                        "catname": "果蔬",
+                        "arrparentid": "0,188,228"
+                    },
+                    "259": {
+                        "catid": "259",
+                        "catname": "其他",
+                        "arrparentid": "0,188,228"
+                    }
+                }
+            }
+        }
+    },
+    "189": {
+        "catid": "189",
+        "catname": "服饰",
+        "arrparentid": "0",
+        "child": {
+            "260": {
+                "catid": "260",
+                "catname": "时尚服装",
+                "arrparentid": "0,189",
+                "child": {
+                    "262": {
+                        "catid": "262",
+                        "catname": "卫衣",
+                        "arrparentid": "0,189,260"
+                    },
+                    "263": {
+                        "catid": "263",
+                        "catname": "外套",
+                        "arrparentid": "0,189,260"
+                    },
+                    "264": {
+                        "catid": "264",
+                        "catname": "四脚装",
+                        "arrparentid": "0,189,260"
+                    },
+                    "265": {
+                        "catid": "265",
+                        "catname": "马甲",
+                        "arrparentid": "0,189,260"
+                    },
+                    "266": {
+                        "catid": "266",
+                        "catname": "家居服",
+                        "arrparentid": "0,189,260"
+                    },
+                    "267": {
+                        "catid": "267",
+                        "catname": "衬衫",
+                        "arrparentid": "0,189,260"
+                    },
+                    "268": {
+                        "catid": "268",
+                        "catname": "裙装",
+                        "arrparentid": "0,189,260"
+                    },
+                    "269": {
+                        "catid": "269",
+                        "catname": "雨衣",
+                        "arrparentid": "0,189,260"
+                    },
+                    "270": {
+                        "catid": "270",
+                        "catname": "生理裤",
+                        "arrparentid": "0,189,260"
+                    },
+                    "271": {
+                        "catid": "271",
+                        "catname": "变身装",
+                        "arrparentid": "0,189,260"
+                    },
+                    "272": {
+                        "catid": "272",
+                        "catname": "背心",
+                        "arrparentid": "0,189,260"
+                    },
+                    "273": {
+                        "catid": "273",
+                        "catname": "毛衣",
+                        "arrparentid": "0,189,260"
+                    },
+                    "274": {
+                        "catid": "274",
+                        "catname": "背带裤",
+                        "arrparentid": "0,189,260"
+                    }
+                }
+            },
+            "261": {
+                "catid": "261",
+                "catname": "精美配饰",
+                "arrparentid": "0,189",
+                "child": {
+                    "275": {
+                        "catid": "275",
+                        "catname": "变身帽子",
+                        "arrparentid": "0,189,261"
+                    },
+                    "276": {
+                        "catid": "276",
+                        "catname": "假领子",
+                        "arrparentid": "0,189,261"
+                    },
+                    "277": {
+                        "catid": "277",
+                        "catname": "项链/项圈",
+                        "arrparentid": "0,189,261"
+                    },
+                    "278": {
+                        "catid": "278",
+                        "catname": "头饰",
+                        "arrparentid": "0,189,261"
+                    },
+                    "279": {
+                        "catid": "279",
+                        "catname": "铃铛",
+                        "arrparentid": "0,189,261"
+                    },
+                    "280": {
+                        "catid": "280",
+                        "catname": "鞋子",
+                        "arrparentid": "0,189,261"
+                    },
+                    "281": {
+                        "catid": "281",
+                        "catname": "袜子",
+                        "arrparentid": "0,189,261"
+                    },
+                    "282": {
+                        "catid": "282",
+                        "catname": "吊坠",
+                        "arrparentid": "0,189,261"
+                    },
+                    "283": {
+                        "catid": "283",
+                        "catname": "围巾/领带",
+                        "arrparentid": "0,189,261"
+                    },
+                    "284": {
+                        "catid": "284",
+                        "catname": "指甲套",
+                        "arrparentid": "0,189,261"
+                    }
+                }
+            }
+        }
+    },
+    "190": {
+        "catid": "190",
+        "catname": "窝垫",
+        "arrparentid": "0",
+        "child": {
+            "285": {
+                "catid": "285",
+                "catname": "小型犬专区",
+                "arrparentid": "0,190",
+                "child": {
+                    "288": {
+                        "catid": "288",
+                        "catname": "方形",
+                        "arrparentid": "0,190,285"
+                    },
+                    "289": {
+                        "catid": "289",
+                        "catname": "圆形",
+                        "arrparentid": "0,190,285"
+                    },
+                    "290": {
+                        "catid": "290",
+                        "catname": "房子",
+                        "arrparentid": "0,190,285"
+                    },
+                    "291": {
+                        "catid": "291",
+                        "catname": "垫子",
+                        "arrparentid": "0,190,285"
+                    },
+                    "292": {
+                        "catid": "292",
+                        "catname": "沙发",
+                        "arrparentid": "0,190,285"
+                    },
+                    "293": {
+                        "catid": "293",
+                        "catname": "电热毯",
+                        "arrparentid": "0,190,285"
+                    }
+                }
+            },
+            "286": {
+                "catid": "286",
+                "catname": "中型犬专区",
+                "arrparentid": "0,190",
+                "child": {
+                    "294": {
+                        "catid": "294",
+                        "catname": "方形",
+                        "arrparentid": "0,190,286"
+                    },
+                    "295": {
+                        "catid": "295",
+                        "catname": "圆形",
+                        "arrparentid": "0,190,286"
+                    },
+                    "296": {
+                        "catid": "296",
+                        "catname": "房子",
+                        "arrparentid": "0,190,286"
+                    },
+                    "297": {
+                        "catid": "297",
+                        "catname": "沙发",
+                        "arrparentid": "0,190,286"
+                    },
+                    "298": {
+                        "catid": "298",
+                        "catname": "垫子/毯子",
+                        "arrparentid": "0,190,286"
+                    }
+                }
+            },
+            "287": {
+                "catid": "287",
+                "catname": "大型犬专区",
+                "arrparentid": "0,190",
+                "child": {
+                    "299": {
+                        "catid": "299",
+                        "catname": "方形",
+                        "arrparentid": "0,190,287"
+                    },
+                    "300": {
+                        "catid": "300",
+                        "catname": "圆形",
+                        "arrparentid": "0,190,287"
+                    },
+                    "301": {
+                        "catid": "301",
+                        "catname": "垫子/毯子",
+                        "arrparentid": "0,190,287"
+                    },
+                    "302": {
+                        "catid": "302",
+                        "catname": "沙发",
+                        "arrparentid": "0,190,287"
+                    }
+                }
+            }
+        }
+    },
+    "191": {
+        "catid": "191",
+        "catname": "玩具",
+        "arrparentid": "0",
+        "child": {
+            "349": {
+                "catid": "349",
+                "catname": "棉制玩具",
+                "arrparentid": "0,191"
+            },
+            "350": {
+                "catid": "350",
+                "catname": "橡胶玩具",
+                "arrparentid": "0,191"
+            },
+            "351": {
+                "catid": "351",
+                "catname": "塑料玩具",
+                "arrparentid": "0,191"
+            },
+            "352": {
+                "catid": "352",
+                "catname": "食用玩具",
+                "arrparentid": "0,191"
+            },
+            "353": {
+                "catid": "353",
+                "catname": "木质玩具",
+                "arrparentid": "0,191"
+            },
+            "354": {
+                "catid": "354",
+                "catname": "乳胶玩具",
+                "arrparentid": "0,191"
+            }
+        }
+    },
+    "192": {
+        "catid": "192",
+        "catname": "清洁",
+        "arrparentid": "0",
+        "child": {
+            "509": {
+                "catid": "509",
+                "catname": "狗狗厕所",
+                "arrparentid": "0,192",
+                "child": {
+                    "513": {
+                        "catid": "513",
+                        "catname": "平板厕所",
+                        "arrparentid": "0,192,509"
+                    },
+                    "514": {
+                        "catid": "514",
+                        "catname": "围栏厕所",
+                        "arrparentid": "0,192,509"
+                    },
+                    "515": {
+                        "catid": "515",
+                        "catname": "厕所立柱",
+                        "arrparentid": "0,192,509"
+                    }
+                }
+            },
+            "510": {
+                "catid": "510",
+                "catname": "狗狗尿片",
+                "arrparentid": "0,192",
+                "child": {
+                    "516": {
+                        "catid": "516",
+                        "catname": "尿片",
+                        "arrparentid": "0,192,510"
+                    },
+                    "517": {
+                        "catid": "517",
+                        "catname": "尿裤",
+                        "arrparentid": "0,192,510"
+                    }
+                }
+            },
+            "511": {
+                "catid": "511",
+                "catname": "狗狗湿巾",
+                "arrparentid": "0,192",
+                "child": {
+                    "518": {
+                        "catid": "518",
+                        "catname": "日常清洁",
+                        "arrparentid": "0,192,511"
+                    },
+                    "519": {
+                        "catid": "519",
+                        "catname": "五官清洁",
+                        "arrparentid": "0,192,511"
+                    },
+                    "520": {
+                        "catid": "520",
+                        "catname": "驱蚊防虫",
+                        "arrparentid": "0,192,511"
+                    },
+                    "521": {
+                        "catid": "521",
+                        "catname": "防晒",
+                        "arrparentid": "0,192,511"
+                    }
+                }
+            },
+            "512": {
+                "catid": "512",
+                "catname": "清洁除臭",
+                "arrparentid": "0,192",
+                "child": {
+                    "522": {
+                        "catid": "522",
+                        "catname": "消毒杀菌",
+                        "arrparentid": "0,192,512"
+                    },
+                    "523": {
+                        "catid": "523",
+                        "catname": "除臭",
+                        "arrparentid": "0,192,512"
+                    },
+                    "524": {
+                        "catid": "524",
+                        "catname": "洗手/洗衣液",
+                        "arrparentid": "0,192,512"
+                    },
+                    "525": {
+                        "catid": "525",
+                        "catname": "祛毛除毛",
+                        "arrparentid": "0,192,512"
+                    },
+                    "526": {
+                        "catid": "526",
+                        "catname": "足部护理",
+                        "arrparentid": "0,192,512"
+                    },
+                    "527": {
+                        "catid": "527",
+                        "catname": "其他",
+                        "arrparentid": "0,192,512"
+                    }
+                }
+            }
+        }
+    },
+    "193": {
+        "catid": "193",
+        "catname": "保健",
+        "arrparentid": "0",
+        "child": {
+            "355": {
+                "catid": "355",
+                "catname": "强化免疫",
+                "arrparentid": "0,193",
+                "child": {
+                    "361": {
+                        "catid": "361",
+                        "catname": "奶粉",
+                        "arrparentid": "0,193,355"
+                    },
+                    "362": {
+                        "catid": "362",
+                        "catname": "卵磷脂",
+                        "arrparentid": "0,193,355"
+                    },
+                    "363": {
+                        "catid": "363",
+                        "catname": "营养补充",
+                        "arrparentid": "0,193,355"
+                    },
+                    "364": {
+                        "catid": "364",
+                        "catname": "免疫力",
+                        "arrparentid": "0,193,355"
+                    },
+                    "365": {
+                        "catid": "365",
+                        "catname": "护肝肾/尿道",
+                        "arrparentid": "0,193,355"
+                    },
+                    "366": {
+                        "catid": "366",
+                        "catname": "补血/强心",
+                        "arrparentid": "0,193,355"
+                    }
+                }
+            },
+            "356": {
+                "catid": "356",
+                "catname": "美毛增毛",
+                "arrparentid": "0,193",
+                "child": {
+                    "367": {
+                        "catid": "367",
+                        "catname": "化毛",
+                        "arrparentid": "0,193,356"
+                    },
+                    "368": {
+                        "catid": "368",
+                        "catname": "增毛",
+                        "arrparentid": "0,193,356"
+                    },
+                    "369": {
+                        "catid": "369",
+                        "catname": "美毛",
+                        "arrparentid": "0,193,356"
+                    }
+                }
+            },
+            "357": {
+                "catid": "357",
+                "catname": "肠胃调理",
+                "arrparentid": "0,193",
+                "child": {
+                    "370": {
+                        "catid": "370",
+                        "catname": "益生菌",
+                        "arrparentid": "0,193,357"
+                    },
+                    "371": {
+                        "catid": "371",
+                        "catname": "消食片",
+                        "arrparentid": "0,193,357"
+                    },
+                    "372": {
+                        "catid": "372",
+                        "catname": "其他",
+                        "arrparentid": "0,193,357"
+                    }
+                }
+            },
+            "358": {
+                "catid": "358",
+                "catname": "补钙强骨",
+                "arrparentid": "0,193",
+                "child": {
+                    "373": {
+                        "catid": "373",
+                        "catname": "钙粉/颗粒",
+                        "arrparentid": "0,193,358"
+                    },
+                    "374": {
+                        "catid": "374",
+                        "catname": "液体钙",
+                        "arrparentid": "0,193,358"
+                    },
+                    "375": {
+                        "catid": "375",
+                        "catname": "钙片",
+                        "arrparentid": "0,193,358"
+                    },
+                    "376": {
+                        "catid": "376",
+                        "catname": "钙膏",
+                        "arrparentid": "0,193,358"
+                    }
+                }
+            },
+            "359": {
+                "catid": "359",
+                "catname": "微量元素",
+                "arrparentid": "0,193",
+                "child": {
+                    "377": {
+                        "catid": "377",
+                        "catname": "维生素",
+                        "arrparentid": "0,193,359"
+                    },
+                    "378": {
+                        "catid": "378",
+                        "catname": "微量元素",
+                        "arrparentid": "0,193,359"
+                    }
+                }
+            },
+            "360": {
+                "catid": "360",
+                "catname": "关节呵护",
+                "arrparentid": "0,193",
+                "child": {
+                    "379": {
+                        "catid": "379",
+                        "catname": "膏状",
+                        "arrparentid": "0,193,360"
+                    },
+                    "380": {
+                        "catid": "380",
+                        "catname": "颗粒",
+                        "arrparentid": "0,193,360"
+                    },
+                    "381": {
+                        "catid": "381",
+                        "catname": "粉状",
+                        "arrparentid": "0,193,360"
+                    },
+                    "382": {
+                        "catid": "382",
+                        "catname": "片剂",
+                        "arrparentid": "0,193,360"
+                    }
+                }
+            }
+        }
+    },
+    "194": {
+        "catid": "194",
+        "catname": "医疗",
+        "arrparentid": "0",
+        "child": {
+            "383": {
+                "catid": "383",
+                "catname": "体外驱虫",
+                "arrparentid": "0,194",
+                "child": {
+                    "390": {
+                        "catid": "390",
+                        "catname": "滴剂",
+                        "arrparentid": "0,194,383"
+                    },
+                    "391": {
+                        "catid": "391",
+                        "catname": "喷剂",
+                        "arrparentid": "0,194,383"
+                    },
+                    "392": {
+                        "catid": "392",
+                        "catname": "其他",
+                        "arrparentid": "0,194,383"
+                    }
+                }
+            },
+            "384": {
+                "catid": "384",
+                "catname": "体内驱虫",
+                "arrparentid": "0,194",
+                "child": {
+                    "393": {
+                        "catid": "393",
+                        "catname": "肠道寄生虫（绦虫/蛔虫/钩虫）",
+                        "arrparentid": "0,194,384"
+                    },
+                    "394": {
+                        "catid": "394",
+                        "catname": "球虫/弓形虫",
+                        "arrparentid": "0,194,384"
+                    },
+                    "395": {
+                        "catid": "395",
+                        "catname": "心丝虫",
+                        "arrparentid": "0,194,384"
+                    }
+                }
+            },
+            "385": {
+                "catid": "385",
+                "catname": "皮肤病",
+                "arrparentid": "0,194",
+                "child": {
+                    "396": {
+                        "catid": "396",
+                        "catname": "细菌性(脓皮症）",
+                        "arrparentid": "0,194,385"
+                    },
+                    "397": {
+                        "catid": "397",
+                        "catname": "皮肤修复",
+                        "arrparentid": "0,194,385"
+                    },
+                    "398": {
+                        "catid": "398",
+                        "catname": "综合防治",
+                        "arrparentid": "0,194,385"
+                    },
+                    "399": {
+                        "catid": "399",
+                        "catname": "真菌性（癣/霉菌）",
+                        "arrparentid": "0,194,385"
+                    },
+                    "400": {
+                        "catid": "400",
+                        "catname": "寄生虫/螨虫",
+                        "arrparentid": "0,194,385"
+                    }
+                }
+            },
+            "386": {
+                "catid": "386",
+                "catname": "家庭医疗常备",
+                "arrparentid": "0,194",
+                "child": {
+                    "401": {
+                        "catid": "401",
+                        "catname": "感冒/咳嗽",
+                        "arrparentid": "0,194,386"
+                    },
+                    "402": {
+                        "catid": "402",
+                        "catname": "拉肚子/呕吐",
+                        "arrparentid": "0,194,386"
+                    },
+                    "403": {
+                        "catid": "403",
+                        "catname": "犬瘟细小",
+                        "arrparentid": "0,194,386"
+                    },
+                    "404": {
+                        "catid": "404",
+                        "catname": "抗生素（消炎）",
+                        "arrparentid": "0,194,386"
+                    },
+                    "405": {
+                        "catid": "405",
+                        "catname": "医疗小用品",
+                        "arrparentid": "0,194,386"
+                    },
+                    "406": {
+                        "catid": "406",
+                        "catname": "解热/镇痛",
+                        "arrparentid": "0,194,386"
+                    },
+                    "407": {
+                        "catid": "407",
+                        "catname": "试纸",
+                        "arrparentid": "0,194,386"
+                    },
+                    "408": {
+                        "catid": "408",
+                        "catname": "伤口护理",
+                        "arrparentid": "0,194,386"
+                    },
+                    "409": {
+                        "catid": "409",
+                        "catname": "镇静/镇定",
+                        "arrparentid": "0,194,386"
+                    }
+                }
+            },
+            "387": {
+                "catid": "387",
+                "catname": "耳部护理",
+                "arrparentid": "0,194",
+                "child": {
+                    "410": {
+                        "catid": "410",
+                        "catname": "日常护理",
+                        "arrparentid": "0,194,387"
+                    },
+                    "411": {
+                        "catid": "411",
+                        "catname": "耳螨治疗",
+                        "arrparentid": "0,194,387"
+                    },
+                    "412": {
+                        "catid": "412",
+                        "catname": "真菌治疗",
+                        "arrparentid": "0,194,387"
+                    }
+                }
+            },
+            "388": {
+                "catid": "388",
+                "catname": "眼部护理",
+                "arrparentid": "0,194",
+                "child": {
+                    "413": {
+                        "catid": "413",
+                        "catname": "日常护理",
+                        "arrparentid": "0,194,388"
+                    },
+                    "414": {
+                        "catid": "414",
+                        "catname": "去除泪痕",
+                        "arrparentid": "0,194,388"
+                    },
+                    "415": {
+                        "catid": "415",
+                        "catname": "消炎/抗病毒",
+                        "arrparentid": "0,194,388"
+                    },
+                    "416": {
+                        "catid": "416",
+                        "catname": "角膜溃疡",
+                        "arrparentid": "0,194,388"
+                    }
+                }
+            },
+            "389": {
+                "catid": "389",
+                "catname": "口鼻护理",
+                "arrparentid": "0,194",
+                "child": {
+                    "417": {
+                        "catid": "417",
+                        "catname": "漱口水",
+                        "arrparentid": "0,194,389"
+                    },
+                    "418": {
+                        "catid": "418",
+                        "catname": "牙膏/牙刷",
+                        "arrparentid": "0,194,389"
+                    },
+                    "419": {
+                        "catid": "419",
+                        "catname": "牙垢/牙结石",
+                        "arrparentid": "0,194,389"
+                    },
+                    "420": {
+                        "catid": "420",
+                        "catname": "口腔炎症",
+                        "arrparentid": "0,194,389"
+                    },
+                    "421": {
+                        "catid": "421",
+                        "catname": "鼻子护理",
+                        "arrparentid": "0,194,389"
+                    },
+                    "422": {
+                        "catid": "422",
+                        "catname": "日常护理",
+                        "arrparentid": "0,194,389"
+                    }
+                }
+            }
+        }
+    },
+    "195": {
+        "catid": "195",
+        "catname": "生活",
+        "arrparentid": "0",
+        "child": {
+            "303": {
+                "catid": "303",
+                "catname": "狗狗餐具",
+                "arrparentid": "0,195",
+                "child": {
+                    "308": {
+                        "catid": "308",
+                        "catname": "辅助用品",
+                        "arrparentid": "0,195,303"
+                    },
+                    "309": {
+                        "catid": "309",
+                        "catname": "双碗",
+                        "arrparentid": "0,195,303"
+                    },
+                    "310": {
+                        "catid": "310",
+                        "catname": "缓食碗",
+                        "arrparentid": "0,195,303"
+                    },
+                    "311": {
+                        "catid": "311",
+                        "catname": "单碗",
+                        "arrparentid": "0,195,303"
+                    },
+                    "312": {
+                        "catid": "312",
+                        "catname": "饮水器/饮水头",
+                        "arrparentid": "0,195,303"
+                    },
+                    "313": {
+                        "catid": "313",
+                        "catname": "组合餐具",
+                        "arrparentid": "0,195,303"
+                    },
+                    "314": {
+                        "catid": "314",
+                        "catname": "自动饮水机/配件",
+                        "arrparentid": "0,195,303"
+                    },
+                    "315": {
+                        "catid": "315",
+                        "catname": "自动喂食器/配件",
+                        "arrparentid": "0,195,303"
+                    },
+                    "316": {
+                        "catid": "316",
+                        "catname": "储粮用品",
+                        "arrparentid": "0,195,303"
+                    },
+                    "317": {
+                        "catid": "317",
+                        "catname": "奶瓶",
+                        "arrparentid": "0,195,303"
+                    },
+                    "318": {
+                        "catid": "318",
+                        "catname": "餐桌/碗架",
+                        "arrparentid": "0,195,303"
+                    },
+                    "319": {
+                        "catid": "319",
+                        "catname": "防溢碗",
+                        "arrparentid": "0,195,303"
+                    }
+                }
+            },
+            "304": {
+                "catid": "304",
+                "catname": "狗狗外出",
+                "arrparentid": "0,195",
+                "child": {
+                    "320": {
+                        "catid": "320",
+                        "catname": "拉杆箱/推车",
+                        "arrparentid": "0,195,304"
+                    },
+                    "321": {
+                        "catid": "321",
+                        "catname": "狗狗背包",
+                        "arrparentid": "0,195,304"
+                    },
+                    "322": {
+                        "catid": "322",
+                        "catname": "航空箱",
+                        "arrparentid": "0,195,304"
+                    },
+                    "323": {
+                        "catid": "323",
+                        "catname": "背包/提篮",
+                        "arrparentid": "0,195,304"
+                    },
+                    "324": {
+                        "catid": "324",
+                        "catname": "防失身份牌",
+                        "arrparentid": "0,195,304"
+                    },
+                    "325": {
+                        "catid": "325",
+                        "catname": "宠物车垫/安全带",
+                        "arrparentid": "0,195,304"
+                    },
+                    "326": {
+                        "catid": "326",
+                        "catname": "户外用品",
+                        "arrparentid": "0,195,304"
+                    },
+                    "327": {
+                        "catid": "327",
+                        "catname": "拾便工具",
+                        "arrparentid": "0,195,304"
+                    },
+                    "328": {
+                        "catid": "328",
+                        "catname": "外出餐具",
+                        "arrparentid": "0,195,304"
+                    },
+                    "329": {
+                        "catid": "329",
+                        "catname": "嘴套/口罩",
+                        "arrparentid": "0,195,304"
+                    },
+                    "330": {
+                        "catid": "330",
+                        "catname": "防交配",
+                        "arrparentid": "0,195,304"
+                    }
+                }
+            },
+            "305": {
+                "catid": "305",
+                "catname": "狗狗住所",
+                "arrparentid": "0,195",
+                "child": {
+                    "331": {
+                        "catid": "331",
+                        "catname": "帐篷",
+                        "arrparentid": "0,195,305"
+                    },
+                    "332": {
+                        "catid": "332",
+                        "catname": "宠物房子",
+                        "arrparentid": "0,195,305"
+                    },
+                    "333": {
+                        "catid": "333",
+                        "catname": "折叠笼/配件",
+                        "arrparentid": "0,195,305"
+                    },
+                    "334": {
+                        "catid": "334",
+                        "catname": "方管笼",
+                        "arrparentid": "0,195,305"
+                    },
+                    "335": {
+                        "catid": "335",
+                        "catname": "狗家具",
+                        "arrparentid": "0,195,305"
+                    },
+                    "336": {
+                        "catid": "336",
+                        "catname": "围栏",
+                        "arrparentid": "0,195,305"
+                    },
+                    "337": {
+                        "catid": "337",
+                        "catname": "沙发保护套",
+                        "arrparentid": "0,195,305"
+                    },
+                    "338": {
+                        "catid": "338",
+                        "catname": "散热板",
+                        "arrparentid": "0,195,305"
+                    },
+                    "339": {
+                        "catid": "339",
+                        "catname": "凉席/凉垫",
+                        "arrparentid": "0,195,305"
+                    }
+                }
+            },
+            "306": {
+                "catid": "306",
+                "catname": "狗狗训练",
+                "arrparentid": "0,195",
+                "child": {
+                    "340": {
+                        "catid": "340",
+                        "catname": "爱心拍",
+                        "arrparentid": "0,195,306"
+                    },
+                    "341": {
+                        "catid": "341",
+                        "catname": "诱导剂",
+                        "arrparentid": "0,195,306"
+                    },
+                    "342": {
+                        "catid": "342",
+                        "catname": "禁区喷",
+                        "arrparentid": "0,195,306"
+                    },
+                    "343": {
+                        "catid": "343",
+                        "catname": "响片",
+                        "arrparentid": "0,195,306"
+                    },
+                    "344": {
+                        "catid": "344",
+                        "catname": "训狗包",
+                        "arrparentid": "0,195,306"
+                    },
+                    "345": {
+                        "catid": "345",
+                        "catname": "行为纠正",
+                        "arrparentid": "0,195,306"
+                    },
+                    "346": {
+                        "catid": "346",
+                        "catname": "跑步机",
+                        "arrparentid": "0,195,306"
+                    },
+                    "347": {
+                        "catid": "347",
+                        "catname": "犬笛",
+                        "arrparentid": "0,195,306"
+                    }
+                }
+            },
+            "307": {
+                "catid": "307",
+                "catname": "智能黑科技",
+                "arrparentid": "0,195",
+                "child": {
+                    "348": {
+                        "catid": "348",
+                        "catname": "黑科技",
+                        "arrparentid": "0,195,307"
+                    }
+                }
+            }
+        }
+    },
+    "196": {
+        "catid": "196",
+        "catname": "牵引",
+        "arrparentid": "0",
+        "child": {
+            "423": {
+                "catid": "423",
+                "catname": "伸缩牵引",
+                "arrparentid": "0,196",
+                "child": {
+                    "429": {
+                        "catid": "429",
+                        "catname": "小型犬（10kg以下）",
+                        "arrparentid": "0,196,423"
+                    },
+                    "430": {
+                        "catid": "430",
+                        "catname": "中型犬（11-30kg）",
+                        "arrparentid": "0,196,423"
+                    },
+                    "431": {
+                        "catid": "431",
+                        "catname": "大型犬（30kg以上）",
+                        "arrparentid": "0,196,423"
+                    },
+                    "432": {
+                        "catid": "432",
+                        "catname": "配件",
+                        "arrparentid": "0,196,423"
+                    }
+                }
+            },
+            "424": {
+                "catid": "424",
+                "catname": "日常颈圈",
+                "arrparentid": "0,196",
+                "child": {
+                    "433": {
+                        "catid": "433",
+                        "catname": "超小型（5kg以下）",
+                        "arrparentid": "0,196,424"
+                    },
+                    "434": {
+                        "catid": "434",
+                        "catname": "小型（5-10kg）",
+                        "arrparentid": "0,196,424"
+                    },
+                    "435": {
+                        "catid": "435",
+                        "catname": "中型（11-30kg）",
+                        "arrparentid": "0,196,424"
+                    },
+                    "436": {
+                        "catid": "436",
+                        "catname": "大型（30-40kg）",
+                        "arrparentid": "0,196,424"
+                    },
+                    "437": {
+                        "catid": "437",
+                        "catname": "超大型（41kg以上）",
+                        "arrparentid": "0,196,424"
+                    }
+                }
+            },
+            "425": {
+                "catid": "425",
+                "catname": "日常拉带",
+                "arrparentid": "0,196",
+                "child": {
+                    "438": {
+                        "catid": "438",
+                        "catname": "小型犬（10kg以下）",
+                        "arrparentid": "0,196,425"
+                    },
+                    "439": {
+                        "catid": "439",
+                        "catname": "中型犬（11-30kg）",
+                        "arrparentid": "0,196,425"
+                    },
+                    "440": {
+                        "catid": "440",
+                        "catname": "大型犬（30-40kg）",
+                        "arrparentid": "0,196,425"
+                    },
+                    "441": {
+                        "catid": "441",
+                        "catname": "超大型犬（40kg以上）",
+                        "arrparentid": "0,196,425"
+                    }
+                }
+            },
+            "426": {
+                "catid": "426",
+                "catname": "拉颈套装",
+                "arrparentid": "0,196",
+                "child": {
+                    "442": {
+                        "catid": "442",
+                        "catname": "中型犬（11-30kg）",
+                        "arrparentid": "0,196,426"
+                    },
+                    "443": {
+                        "catid": "443",
+                        "catname": "大型犬（30kg以上）",
+                        "arrparentid": "0,196,426"
+                    },
+                    "444": {
+                        "catid": "444",
+                        "catname": "小型犬（10kg以下）",
+                        "arrparentid": "0,196,426"
+                    }
+                }
+            },
+            "427": {
+                "catid": "427",
+                "catname": "拉胸套装",
+                "arrparentid": "0,196",
+                "child": {
+                    "445": {
+                        "catid": "445",
+                        "catname": "小型犬（10kg以下）",
+                        "arrparentid": "0,196,427"
+                    },
+                    "446": {
+                        "catid": "446",
+                        "catname": "中型犬（11-30kg）",
+                        "arrparentid": "0,196,427"
+                    },
+                    "447": {
+                        "catid": "447",
+                        "catname": "大型犬（30kg以上）",
+                        "arrparentid": "0,196,427"
+                    }
+                }
+            },
+            "428": {
+                "catid": "428",
+                "catname": "P链/蛇链",
+                "arrparentid": "0,196",
+                "child": {
+                    "448": {
+                        "catid": "448",
+                        "catname": "金属",
+                        "arrparentid": "0,196,428"
+                    },
+                    "449": {
+                        "catid": "449",
+                        "catname": "尼龙",
+                        "arrparentid": "0,196,428"
+                    }
+                }
+            }
+        }
+    },
+    "197": {
+        "catid": "197",
+        "catname": "美容",
+        "arrparentid": "0",
+        "child": {
+            "450": {
+                "catid": "450",
+                "catname": "专用香波",
+                "arrparentid": "0,197",
+                "child": {
+                    "457": {
+                        "catid": "457",
+                        "catname": "蓝色/银色专用",
+                        "arrparentid": "0,197,450"
+                    },
+                    "458": {
+                        "catid": "458",
+                        "catname": "红棕/巧克力专用",
+                        "arrparentid": "0,197,450"
+                    },
+                    "459": {
+                        "catid": "459",
+                        "catname": "黑灰色专用",
+                        "arrparentid": "0,197,450"
+                    },
+                    "460": {
+                        "catid": "460",
+                        "catname": "白色专用",
+                        "arrparentid": "0,197,450"
+                    },
+                    "461": {
+                        "catid": "461",
+                        "catname": "金色专用",
+                        "arrparentid": "0,197,450"
+                    }
+                }
+            },
+            "451": {
+                "catid": "451",
+                "catname": "日常洗护",
+                "arrparentid": "0,197",
+                "child": {
+                    "462": {
+                        "catid": "462",
+                        "catname": "消炎止痒",
+                        "arrparentid": "0,197,451"
+                    },
+                    "463": {
+                        "catid": "463",
+                        "catname": "低敏舒缓",
+                        "arrparentid": "0,197,451"
+                    },
+                    "464": {
+                        "catid": "464",
+                        "catname": "防脱专用",
+                        "arrparentid": "0,197,451"
+                    },
+                    "465": {
+                        "catid": "465",
+                        "catname": "杀菌除虫",
+                        "arrparentid": "0,197,451"
+                    },
+                    "466": {
+                        "catid": "466",
+                        "catname": "增色亮毛",
+                        "arrparentid": "0,197,451"
+                    },
+                    "467": {
+                        "catid": "467",
+                        "catname": "蓬松塑形",
+                        "arrparentid": "0,197,451"
+                    },
+                    "468": {
+                        "catid": "468",
+                        "catname": "滋养柔顺",
+                        "arrparentid": "0,197,451"
+                    },
+                    "469": {
+                        "catid": "469",
+                        "catname": "除臭添香",
+                        "arrparentid": "0,197,451"
+                    },
+                    "470": {
+                        "catid": "470",
+                        "catname": "超强去污",
+                        "arrparentid": "0,197,451"
+                    }
+                }
+            },
+            "452": {
+                "catid": "452",
+                "catname": "免洗干洗",
+                "arrparentid": "0,197",
+                "child": {
+                    "471": {
+                        "catid": "471",
+                        "catname": "干洗粉",
+                        "arrparentid": "0,197,452"
+                    },
+                    "472": {
+                        "catid": "472",
+                        "catname": "干洗泡沫",
+                        "arrparentid": "0,197,452"
+                    },
+                    "473": {
+                        "catid": "473",
+                        "catname": "干洗水/喷剂",
+                        "arrparentid": "0,197,452"
+                    }
+                }
+            },
+            "453": {
+                "catid": "453",
+                "catname": "洗澡工具",
+                "arrparentid": "0,197",
+                "child": {
+                    "474": {
+                        "catid": "474",
+                        "catname": "浴盆",
+                        "arrparentid": "0,197,453"
+                    },
+                    "475": {
+                        "catid": "475",
+                        "catname": "吸水毛巾",
+                        "arrparentid": "0,197,453"
+                    },
+                    "476": {
+                        "catid": "476",
+                        "catname": "洗澡刷",
+                        "arrparentid": "0,197,453"
+                    },
+                    "477": {
+                        "catid": "477",
+                        "catname": "稀释瓶",
+                        "arrparentid": "0,197,453"
+                    },
+                    "478": {
+                        "catid": "478",
+                        "catname": "吹风机/配件",
+                        "arrparentid": "0,197,453"
+                    },
+                    "479": {
+                        "catid": "479",
+                        "catname": "吹水机/配件",
+                        "arrparentid": "0,197,453"
+                    }
+                }
+            },
+            "454": {
+                "catid": "454",
+                "catname": "梳剪工具",
+                "arrparentid": "0,197",
+                "child": {
+                    "480": {
+                        "catid": "480",
+                        "catname": "精油护理梳",
+                        "arrparentid": "0,197,454"
+                    },
+                    "481": {
+                        "catid": "481",
+                        "catname": "针梳",
+                        "arrparentid": "0,197,454"
+                    },
+                    "482": {
+                        "catid": "482",
+                        "catname": "排梳",
+                        "arrparentid": "0,197,454"
+                    },
+                    "483": {
+                        "catid": "483",
+                        "catname": "按摩梳",
+                        "arrparentid": "0,197,454"
+                    },
+                    "484": {
+                        "catid": "484",
+                        "catname": "开结梳",
+                        "arrparentid": "0,197,454"
+                    },
+                    "485": {
+                        "catid": "485",
+                        "catname": "除蚤梳",
+                        "arrparentid": "0,197,454"
+                    },
+                    "486": {
+                        "catid": "486",
+                        "catname": "褪毛梳/配件",
+                        "arrparentid": "0,197,454"
+                    },
+                    "487": {
+                        "catid": "487",
+                        "catname": "双面梳",
+                        "arrparentid": "0,197,454"
+                    },
+                    "488": {
+                        "catid": "488",
+                        "catname": "直剪/配件",
+                        "arrparentid": "0,197,454"
+                    },
+                    "489": {
+                        "catid": "489",
+                        "catname": "鬃毛梳/亮毛梳",
+                        "arrparentid": "0,197,454"
+                    },
+                    "490": {
+                        "catid": "490",
+                        "catname": "牙剪",
+                        "arrparentid": "0,197,454"
+                    },
+                    "491": {
+                        "catid": "491",
+                        "catname": "电推剪/配件",
+                        "arrparentid": "0,197,454"
+                    },
+                    "492": {
+                        "catid": "492",
+                        "catname": "弯剪",
+                        "arrparentid": "0,197,454"
+                    }
+                }
+            },
+            "455": {
+                "catid": "455",
+                "catname": "护理工具",
+                "arrparentid": "0,197",
+                "child": {
+                    "493": {
+                        "catid": "493",
+                        "catname": "指甲剪",
+                        "arrparentid": "0,197,455"
+                    },
+                    "494": {
+                        "catid": "494",
+                        "catname": "磨甲器",
+                        "arrparentid": "0,197,455"
+                    },
+                    "495": {
+                        "catid": "495",
+                        "catname": "指甲挫",
+                        "arrparentid": "0,197,455"
+                    },
+                    "496": {
+                        "catid": "496",
+                        "catname": "拔毛剪",
+                        "arrparentid": "0,197,455"
+                    },
+                    "497": {
+                        "catid": "497",
+                        "catname": "拔毛粉",
+                        "arrparentid": "0,197,455"
+                    },
+                    "498": {
+                        "catid": "498",
+                        "catname": "止血粉",
+                        "arrparentid": "0,197,455"
+                    }
+                }
+            },
+            "456": {
+                "catid": "456",
+                "catname": "美容配套",
+                "arrparentid": "0,197",
+                "child": {
+                    "499": {
+                        "catid": "499",
+                        "catname": "美甲笔",
+                        "arrparentid": "0,197,456"
+                    },
+                    "500": {
+                        "catid": "500",
+                        "catname": "纹身纸",
+                        "arrparentid": "0,197,456"
+                    },
+                    "501": {
+                        "catid": "501",
+                        "catname": "精油",
+                        "arrparentid": "0,197,456"
+                    },
+                    "502": {
+                        "catid": "502",
+                        "catname": "橡皮圈",
+                        "arrparentid": "0,197,456"
+                    },
+                    "503": {
+                        "catid": "503",
+                        "catname": "香水",
+                        "arrparentid": "0,197,456"
+                    },
+                    "504": {
+                        "catid": "504",
+                        "catname": "浴盐",
+                        "arrparentid": "0,197,456"
+                    },
+                    "505": {
+                        "catid": "505",
+                        "catname": "泡泡浴球",
+                        "arrparentid": "0,197,456"
+                    },
+                    "506": {
+                        "catid": "506",
+                        "catname": "美容服",
+                        "arrparentid": "0,197,456"
+                    },
+                    "507": {
+                        "catid": "507",
+                        "catname": "美容桌",
+                        "arrparentid": "0,197,456"
+                    },
+                    "508": {
+                        "catid": "508",
+                        "catname": "造型",
+                        "arrparentid": "0,197,456"
+                    }
+                }
+            }
+        }
+    }
+}

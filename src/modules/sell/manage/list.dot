@@ -1,0 +1,21 @@
+{%~ it:one %}
+<div class="aui-card-list" id="t{%=one.id%}">
+    <div class="aui-card-list-header aui-font-size-14 aui-padded-b-0" data-id="{%=one.id%}">{%=one.title%}</div>
+    <div class="aui-card-list-content-padded aui-padded-t-0 aui-padded-b-0 text-light">
+        类别：{%=one.catname%} / 有效期：{%=one.totime%} / 已有 {%=one.hot%} 人浏览
+    </div>
+    <div class="aui-card-list-footer aui-border-t">
+        <div>
+        {%
+          var disabled = 'aui-disabled';
+          if(one.canrefresh) disabled = '';
+        %}
+            <label class="refresh"><span class="aui-checkbox aui-margin-r-5 {%=disabled%}" data-id="{%=one.id%}"></span>刷新 <span>(last:{%=one.edittime%})</span></label>
+        </div>
+        <div>
+            <label class="edit" data-id="{%=one.id%}"><i class="aui-iconfont aui-icon-edit aui-margin-r-5 aui-font-size-14"></i>编辑</label>
+            <label class="del" data-id="{%=one.id%}"><i class="aui-iconfont aui-icon-trash aui-margin-r-5 aui-margin-l-15 aui-font-size-14"></i>删除</label>
+        </div>
+    </div>
+</div>
+{%~%}

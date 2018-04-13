@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>狗市场</title>
+    <script type="text/javascript">
+      var viewEXT = '.html';
+      var webviewDetail = null;
+      var titleNView = null;
+      var subNViews = null;
+    </script>
+    <script src="../../static/mui.js"></script>
+  </head>
+  
+  <body>
+    <div id="categtops">
+      <div id="categtop"></div>
+    </div>
+    <div id="categs">
+      <div id="categ_max"></div>
+      <div id="categ_min"></div>
+    </div>
+    <div id="sorts">
+      <div id="sort"></div>
+    </div>
+    <div class="aui-content" id="subtab">
+      <div class="subfilter">
+        <a title="全部" id="shop_categtop" data-isshow="off"></a>
+        <a title="所有分类" id="shop_categ" data-isshow="off"></a>
+        <a title="最新信息" id="shop_sort" data-isshow="off"></a>
+      </div>
+    </div>
+    <div class="aui-content listwarp mescroll" id="mescroll">
+      <ul class="aui-list aui-media-list" id="list">
+      </ul>
+    </div>
+  </body>
+</html>

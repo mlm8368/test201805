@@ -1,0 +1,83 @@
+/*标签*/
+.aui-label {
+    display: inline-block;
+    padding: 0.2em 0.25em;
+    font-size: 0.6rem;
+    line-height: 1;
+    color: #616161;
+    background-color: #dddddd;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 0.15em;
+    position: relative;
+}
+
+.aui-label-primary {
+    color: #ffffff;
+    background-color: #00bcd4;
+}
+.aui-label-success {
+    color: #ffffff;
+    background-color: #009688;
+}
+.aui-label-info {
+  color: #ffffff;
+  background-color: #03a9f4;
+}
+.aui-label-warning {
+    color: #ffffff;
+    background-color: #ffc107;
+}
+.aui-label-danger {
+    color: #ffffff;
+    background-color: #e51c23;
+}
+.aui-label-outlined {
+    background-color: transparent;
+    position: relative;
+}
+.aui-label-outlined:after {
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    height: 200%;
+    content: '';
+    width: 200%;
+    border: 1px solid #d9d9d9; /*no*/
+    position: absolute;
+    top: -1px; /*no*/
+    left: -1px; /*no*/
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    z-index: 1;
+}
+.aui-label-outlined.aui-label-primary,
+.aui-label-outlined.aui-label-primary:after {
+    color: #00bcd4;
+    border-color: #00bcd4;
+}
+.aui-label-outlined.aui-label-success,
+.aui-label-outlined.aui-label-success:after {
+    color: #009688;
+    border-color: #009688;
+}
+.aui-label-outlined.aui-label-info,
+.aui-label-outlined.aui-label-info:after {
+    color: #03a9f4;
+    border-color: #03a9f4;
+}
+.aui-label-outlined.aui-label-warning,
+.aui-label-outlined.aui-label-warning:after {
+    color: #ffc107;
+    border-color: #ffc107;
+}
+.aui-label-outlined.aui-label-danger,
+.aui-label-outlined.aui-label-danger:after {
+    color: #e51c23;
+    border-color: #e51c23;
+}
+.aui-label .aui-iconfont {
+    font-size: 0.6rem;
+}
