@@ -51,10 +51,10 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     // Template for index.html
-    index: path.resolve(__dirname, '../../dogapp2/dist/index.html'),
+    index: path.resolve(__dirname, '../../preschool2/dist/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../../dogapp2/dist'),
+    assetsRoot: path.resolve(__dirname, '../../preschool2/dist'),
     assetsSubDirectory: '../static',
     assetsPublicPath: '../',
 

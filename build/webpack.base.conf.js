@@ -59,6 +59,17 @@ module.exports = {
     rules: [
       ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
+        test: /\.ts$/,
+        enforce: 'pre',
+        loader: 'tslint-loader?cacheDirectory=true',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.ts$/,
+        loader: 'awesome-typescript-loader?cacheDirectory=true',
+        exclude: /node_modules/
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader?cacheDirectory=true',
         options: vueLoaderConfig,
