@@ -1,9 +1,0 @@
-{%~it:one%}
-<div class="aui-col-xs-4 image-item">
-    <input type="hidden" >
-    <img src="{%=one%}" onload="window.compressImage(this);">
-    <div class="delete-btn">
-        <i class="aui-iconfont aui-icon-trash"></i>
-    </div>
-</div>
-{%~%}

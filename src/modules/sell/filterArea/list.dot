@@ -1,7 +1,0 @@
-{%~it.list:area:k%}
-{%
-    var checked = "";
-    if(k == it.currentId) checked = "checked";
-%}
-  <input type="radio" name="areas" value="{%=k%}" {%=checked%} /><a data-id="{%=k%}">{%=area%}</a>
-{%~%}

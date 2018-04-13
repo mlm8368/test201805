@@ -1,3 +1,0 @@
-{%~it.list:one%}
-  <input type="radio" name="categs" value="{%=one.catid%}" /><a data-id="{%=one.catid%}">{%=one.catname%}</a>
-{%~%}
