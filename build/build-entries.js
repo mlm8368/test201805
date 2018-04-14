@@ -22,7 +22,7 @@ glob.sync(globalPath).forEach((pagePath)=>{
     modulename = path.basename(pagePath.replace('/' + basename + ext,''));
   if ( process.env.NODE_MODULES === 'all' || (process.env.NODE_MODULES === modulename && (process.env.NODE_CONTROL === 'all' || process.env.NODE_CONTROL === basename))) {
     pageName = modulename + '/' + basename;
-    buildEntries[pageName] = pagePath.replace(ext,'.js');
+    buildEntries[pageName] = pagePath.replace(ext,'.ts');
   }
 });
 // console.log(buildEntries);
