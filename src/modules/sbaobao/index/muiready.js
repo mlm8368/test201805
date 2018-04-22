@@ -16,7 +16,7 @@ $.init({
 });
 
 $.ready(function() {
-  $.immersed = setImmersedHeight($.byId('aui-header'));
+  setImmersedHeight($.byId('aui-header'));
   if (viewEXT === '.htm') return;
   $.noop();
 });

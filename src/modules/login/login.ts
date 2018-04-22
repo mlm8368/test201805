@@ -5,5 +5,10 @@ import './login/style.scss'
 import '../../common/js/mui.init.js'
 import '../../mui/js/mui.back.5+.js'
 import './login/muiready.js'
+import './login/plusready.js'
 // self
-import { $, viewEXT } from '../../common/js/global.js'
+import { $ } from '../../common/js/global.js'
+
+$.byId('loginOk').addEventListener('tap', function () {
+  $.goPortal('student')
+})
