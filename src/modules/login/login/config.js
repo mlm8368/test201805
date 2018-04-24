@@ -17,7 +17,7 @@ export let barTagsStudent = [
   }, {
     'tag': 'font',
     'id': 'indexText',
-    'text': '首页',
+    'text': '宝宝',
     'position': {
       'top': '23px',
       'left': '0',
@@ -46,7 +46,7 @@ export let barTagsStudent = [
   }, {
     'tag': 'font',
     'id': 'newsText',
-    'text': '萌狗',
+    'text': '学校',
     'position': {
       'top': '23px',
       'left': '20%',
@@ -75,7 +75,7 @@ export let barTagsStudent = [
   }, {
     'tag': 'font',
     'id': 'todoText',
-    'text': '养狗',
+    'text': '班级',
     'position': {
       'top': '24px',
       'left': '40%',
@@ -104,7 +104,7 @@ export let barTagsStudent = [
   }, {
     'tag': 'font',
     'id': 'contactText',
-    'text': '社区',
+    'text': '爸妈圈',
     'position': {
       'top': '24px',
       'left': '60%',
@@ -133,7 +133,7 @@ export let barTagsStudent = [
   }, {
     'tag': 'font',
     'id': 'newwindowText',
-    'text': '我的',
+    'text': '更多',
     'position': {
       'top': '24px',
       'left': '80%',
