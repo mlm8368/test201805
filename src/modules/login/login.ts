@@ -9,6 +9,6 @@ import './login/plusready.js'
 // self
 import { $ } from '../../common/js/global.js'
 
-$.byId('loginOk').addEventListener('tap', function () {
+$.byId('doLogin').addEventListener('tap', function () {
   $.goPortal('student')
 })
