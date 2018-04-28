@@ -10,7 +10,7 @@ $.goPortal = function (type) {
   // student
   let subNViews = [{
     'id': 'tabBarStudent',
-    'styles': { 'bottom': '0px', 'left': '0px', 'height': '50px', 'width': '100%', 'backgroundColor': '#fff' },
+    'styles': { 'bottom': '0px', 'left': '0px', 'height': '50px', 'width': '100%', 'backgroundColor': '#FFFFFF' },
     'tags': barTagsStudent
   }]
   $.openWindow({
