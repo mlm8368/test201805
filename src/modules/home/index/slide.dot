@@ -1,5 +1,0 @@
-{%~ it:one %}
-<div class="aui-slide-node bg-dark">
-    <img src="{%=one.img%}" />
-</div>
-{%~%}

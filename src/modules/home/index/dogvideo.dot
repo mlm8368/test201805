@@ -1,3 +1,0 @@
-<div class="aui-card-list-content playvideo" data-id="{%=it.id%}">
-    <figure title="{%=it.title%}"><img src="../../static/images/loadImg.png" data-src="{%=it.img%}" /></figure>
-</div>
