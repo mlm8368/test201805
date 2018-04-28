@@ -16,7 +16,8 @@
     "allowSyntheticDefaultImports": true
   },
   "files": [
-    "./src/class/**/*"
+    "./src/class/**/*",
+    "./src/modules/**/*.ts"
   ],
   "exclude": [
     "node_modules",
