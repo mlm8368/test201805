@@ -116,26 +116,19 @@ var util = {
   /**
    * 获取当前点击的tab
    */
-  getCurrIndex: function(pageW, clientX, nviewTitle) {
-    let currIndex = 0,
-      currTitle = '';
+  getCurrIndex: function(pageW, clientX) {
+    let currIndex = 0;
     if (clientX > 0 && clientX <= parseInt(pageW * 0.20)) {
       currIndex = 0;
-      currTitle = '养狗圈';
     } else if (clientX > parseInt(pageW * 0.20) && clientX <= parseInt(pageW * 0.40)) {
       currIndex = 1;
-      currTitle = '萌狗狗';
     } else if (clientX > parseInt(pageW * 0.40) && clientX <= parseInt(pageW * 0.60)) {
       currIndex = 2;
-      currTitle = '养狗资讯';
     } else if (clientX > parseInt(pageW * 0.60) && clientX <= parseInt(pageW * 0.80)) {
       currIndex = 3;
-      currTitle = '养狗社区';
     } else {
       currIndex = 4;
-      currTitle = '我的设置';
     }
-    nviewTitle.drawText(currTitle, {}, {color: '#FF0000'}, 'font');
     return currIndex;
   }
 };

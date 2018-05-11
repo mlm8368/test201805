@@ -20,8 +20,7 @@ $.plusReady(function () {
   util.initSubpage({})
 
   let nview = plus.nativeObj.View.getViewById('tabBar')
-  let activePage = plus.webview.currentWebview()
-  let targetPage
-  let subpages = util.options.subpages
-  $.noop()
+  nview.addEventListener('click', function (e) {
+    $.clickTabBar(e)
+  })
 })
