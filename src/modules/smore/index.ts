@@ -6,7 +6,7 @@ import '../../common/js/mui.init.js'
 import '../../mui/js/mui.back.5+.js'
 // self
 // import './index/init.ts'
-import { $, plus, viewEXT, setImmersedHeight } from '../../common/js/global.js'
+import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
 // ready
 $.ready(function () {
   setImmersedHeight($.byId('header'))
