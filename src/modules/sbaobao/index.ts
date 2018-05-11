@@ -19,6 +19,7 @@ $.ready(function () {
 $.plusReady(function () {
   $.plus = getMuiPlus()
   util.options.tabBarId = 'tabBarStudent'
+  util.options.launchWebviewId = 'sbaobao_index'
   util.options.subpages = ['../sxiaoyuan/index' + viewEXT, '../sbanji/index' + viewEXT, '../sbamaquan/index' + viewEXT, '../smore/index' + viewEXT]
   util.initSubpage({})
 

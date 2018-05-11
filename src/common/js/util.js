@@ -4,6 +4,7 @@ var bitmapRight = null;
 var util = {
   options: {
     tabBarId: 'tabBar',
+    launchWebviewId: 'sbaobao_index',
     ACTIVE_COLOR: '#007aff',
     NORMAL_COLOR: '#000',
     subpages: ['../video/list' + viewEXT, '../news/main' + viewEXT, '../club/list' + viewEXT, '../my/index' + viewEXT]
@@ -62,7 +63,7 @@ var util = {
       window.plus.webview.show(targetPage, 'fade-in', 300);
     }
     // 隐藏当前 除了第一个父窗口
-    if (activePage !== window.plus.webview.getLaunchWebview()) {
+    if (activePage !== window.plus.webview.getWebviewById(util.options.launchWebviewId)) {
       window.plus.webview.hide(activePage);
     }
   },
