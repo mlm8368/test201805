@@ -3,6 +3,7 @@ var viewEXT = window.viewEXT;
 var bitmapRight = null;
 var util = {
   options: {
+    tabBarId: 'tabBar',
     ACTIVE_COLOR: '#007aff',
     NORMAL_COLOR: '#000',
     subpages: ['../video/list' + viewEXT, '../news/main' + viewEXT, '../club/list' + viewEXT, '../my/index' + viewEXT]
@@ -92,7 +93,7 @@ var util = {
    */
   updateSubNView: function(currIndex, color) {
     var self = window.plus.webview.currentWebview(),
-      nviewEvent = window.plus.nativeObj.View.getViewById('tabBar'), // 获取nview控件对象
+      nviewEvent = window.plus.nativeObj.View.getViewById(util.options.tabBarId), // 获取nview控件对象
       nviewObj = self.getStyle().subNViews[0], // 获取nview对象的属性
       currTag = nviewObj.tags[currIndex]; // 获取当前需重绘的tag
 

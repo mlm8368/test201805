@@ -16,10 +16,11 @@ $.ready(function () {
 })
 // plusReady
 $.plusReady(function () {
+  util.options.tabBarId = 'tabBarStudent'
   util.options.subpages = ['../video/list' + viewEXT, '../news/main' + viewEXT, '../club/list' + viewEXT, '../my/index' + viewEXT]
   util.initSubpage({})
 
-  let nview = plus.nativeObj.View.getViewById('tabBar')
+  let nview = plus.nativeObj.View.getViewById('tabBarStudent')
   nview.addEventListener('click', function (e) {
     $.clickTabBar(e)
   })
