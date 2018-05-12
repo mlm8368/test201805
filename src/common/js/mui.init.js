@@ -24,11 +24,11 @@ import AuiToast from 'plugin/aui/toast';
       menubutton: false
     }
   });
-  $._now = new Date().getTime();
   $.getDateDiff = function(dateTimeStamp) {
     if (!dateTimeStamp) return '-';
 
-    let diffValue = $._now - dateTimeStamp;
+    let now = new Date().getTime();
+    let diffValue = now - dateTimeStamp;
     if (diffValue < 0) return '刚刚';
     let minute = 60000;
     let hour = 3600000;
