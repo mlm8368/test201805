@@ -1,4 +1,4 @@
-import { viewEXT } from '../../../common/js/global.js'
+import { viewEXT } from '../../../common/js/global.js';
 export let footbarProp = {
   tabBarId: 'tabBarStudent',
   firstWebviewId: 'sbaobao_index',

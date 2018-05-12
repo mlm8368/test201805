@@ -24,7 +24,8 @@ export class Footerbar {
   protected firstWebview
   private aniShow
   constructor (props: FooterbarConfig) {
-    Object.assign(this.props, props)
+    // Object.assign(this.props, props)
+    $.extend(this.props, props, true)
     this.aniShow = {}
 
     if ($.plus) {

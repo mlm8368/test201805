@@ -9,6 +9,13 @@ export default class SFooterbar extends Footerbar {
   constructor (props: FooterbarConfig) {
     super(props)
   }
+  /**
+   * 获取当前点击tab
+   * @param {number} pageW
+   * @param {number} clientX
+   * @returns {number}
+   * @memberof StuFooterbar
+   */
   public getCurrIndex (pageW: number, clientX: number): number {
     let currIndex = 0
     if (clientX > 0 && clientX <= pageW * 0.20) {

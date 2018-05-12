@@ -7,10 +7,9 @@ import '../../mui/js/mui.back.5+.js'
 // self
 import './index/init.ts'
 import { footbarProp } from './index/config.js'
-import SFooterbar from './index/sfooterbar.class'
 // import util from '../../common/js/util.js'
 import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
-
+import SFooterbar from './index/sfooterbar.class'
 // ready
 $.ready(function () {
   setImmersedHeight($.byId('header'))
