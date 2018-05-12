@@ -75,7 +75,7 @@ export class Footerbar {
     // 重绘当前tag 包括icon和text，所以执行两个重绘操作
     this.updateSubNView(currIndex, this.props.activeColor)
     // 重绘兄弟tag 反之排除当前点击的icon和text
-    for (let i = 0; i < this.props.subpages.length * 2; i + 2) {
+    for (let i = 0; i < this.props.subpages.length * 2 + 2; i += 2) {
       if (i !== currIndex && i !== currIndex + 1) {
         this.updateSubNView(i, this.props.normalColor)
       }
@@ -105,7 +105,7 @@ export class Footerbar {
    */
   private initSubpage (): void {
     let subpageStyle = { top: 0, bottom: 50, bounce: 'none', bounceBackground: '#1E90FF' }
-    const self = $.plus.webview.currentWebview()
+    let self = $.plus.webview.currentWebview()
 
     this.activePage = self
 
