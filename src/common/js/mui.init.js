@@ -24,6 +24,10 @@ import AuiToast from 'plugin/aui/toast';
       menubutton: false
     }
   });
+  $.plus = null;
+  $.getMuiPlus = function() {
+    return window.plus;
+  };
   $.getDateDiff = function(dateTimeStamp) {
     if (!dateTimeStamp) return '-';
 

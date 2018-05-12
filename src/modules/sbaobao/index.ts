@@ -7,7 +7,7 @@ import '../../mui/js/mui.back.5+.js'
 // self
 import './index/init.ts'
 import util from '../../common/js/util.js'
-import { $, viewEXT, getMuiPlus, setImmersedHeight } from '../../common/js/global.js'
+import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
 
 // ready
 $.ready(function () {
@@ -17,7 +17,7 @@ $.ready(function () {
 })
 // plusReady
 $.plusReady(function () {
-  $.plus = getMuiPlus()
+  $.plus = $.getMuiPlus()
   util.options.tabBarId = 'tabBarStudent'
   util.options.launchWebviewId = 'sbaobao_index'
   util.options.subpages = ['../sxiaoyuan/index' + viewEXT, '../sbanji/index' + viewEXT, '../sbamaquan/index' + viewEXT, '../smore/index' + viewEXT]
