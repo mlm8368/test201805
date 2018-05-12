@@ -7,7 +7,6 @@ export interface IdUrl {
 export interface FooterbarConfig {
   tabBarId: string,
   firstWebviewId: string,
-  activePage: any,
   activeColor: string,
   normalColor: string,
   subpages: IdUrl[]
@@ -17,41 +16,53 @@ export class Footerbar {
   protected props: FooterbarConfig = {
     tabBarId: 'tabBar',
     firstWebviewId: 'launchWebview',
-    activePage: null,
     activeColor: '#007aff',
     normalColor: '#000',
     subpages: []
   }
+  protected activePage
+  protected firstWebview
   private aniShow
   constructor (props: FooterbarConfig) {
     Object.assign(this.props, props)
     this.aniShow = {}
 
-    if ($.plus) this.initSubpage()
-    else $.log('ERR! mui plus is null')
+    if ($.plus) {
+      if (this.props.firstWebviewId === 'launchWebview') this.firstWebview = $.plus.webview.getLaunchWebview()
+      else this.firstWebview = $.plus.webview.getWebviewById(this.props.firstWebviewId)
+
+      const targetPage = this.firstWebview
+      $.extend(this.aniShow, { targetPage: true })
+
+      this.initSubpage()
+    } else $.log('ERR! mui plus is null')
+  }
+  /**
+   * 获取activePage
+   * @returns activePage
+   * @memberof Footerbar
+   */
+  public getActivePage () {
+    return this.activePage
   }
   /**
    * 点击切换tab窗口
    * @param {*} targetPage
-   * @param {*} activePage
    * @memberof Footerbar
    */
-  public changeSubpage (targetPage: any, activePage: any): void {
+  public changeSubpage (targetPage: any): void {
     // 若为iOS平台或非首次显示，则直接显示
     if ($.os.ios || this.aniShow[targetPage]) {
       $.plus.webview.show(targetPage)
     } else {
       // 否则，使用fade-in动画，且保存变量
-      let temp = {}
-      temp[targetPage] = true
-      $.extend(this.aniShow, temp)
+      $.extend(this.aniShow, { targetPage: true })
       $.plus.webview.show(targetPage, 'fade-in', 300)
     }
     // 隐藏当前 除了第一个父窗口
-    let firstWebview = null
-    if (this.props.firstWebviewId === 'launchWebview') firstWebview = $.plus.webview.getLaunchWebview()
-    else firstWebview = $.plus.webview.getWebviewById(this.props.firstWebviewId)
-    if (activePage !== firstWebview) $.plus.webview.hide(activePage)
+    if (this.activePage !== this.firstWebview) $.plus.webview.hide(this.activePage)
+
+    this.activePage = targetPage
   }
   /**
    * 点击重绘底部tab （view控件）
@@ -93,7 +104,9 @@ export class Footerbar {
    */
   private initSubpage (): void {
     let subpageStyle = { top: 0, bottom: 50, bounce: 'none', bounceBackground: '#1E90FF' }
-    let self = $.plus.webview.currentWebview()
+    const self = $.plus.webview.currentWebview()
+
+    this.activePage = self
 
     // 兼容安卓上添加titleNView 和 设置沉浸式模式会遮盖子webview内容
     if ($.os.android) {
