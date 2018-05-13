@@ -27,7 +27,7 @@ export class Footerbar {
   private aniShow
   constructor (props: FooterbarConfig) {
     // Object.assign(this.props, props)
-    $.extend(this.props, props, true)
+    $.extend(true, this.props, props)
     this.aniShow = {}
 
     if ($.plus) {
@@ -127,7 +127,7 @@ export class Footerbar {
     for (const subpage of this.props.subpages) {
       if (!$.plus.webview.getWebviewById(subpage.id)) {
         let _subpageStyle = subpageStyle
-        if (subpage.subpageStyle) $.extend(_subpageStyle, subpage.subpageStyle)
+        if (subpage.subpageStyle) $.extend(true, _subpageStyle, subpage.subpageStyle)
         let sub = $.plus.webview.create(subpage.url, subpage.id, _subpageStyle)
         // 初始化隐藏
         sub.hide()
