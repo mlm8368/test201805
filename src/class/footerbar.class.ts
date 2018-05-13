@@ -2,7 +2,8 @@ import { $, viewEXT } from '../common/js/global.js'
 
 export interface IdUrl {
   id: string,
-  url: string
+  url: string,
+  subpageStyle?: any
 }
 export interface FooterbarConfig {
   tabBarId: string,
@@ -104,22 +105,24 @@ export class Footerbar {
    * @memberof Footerbar
    */
   private initSubpage (): void {
-    let subpageStyle = { top: 0, bottom: 50, bounce: 'none', bounceBackground: '#1E90FF' }
+    const subpageStyle = { top: '0px', bottom: '50px', bounce: 'none', bounceBackground: '#1E90FF' }
     let self = $.plus.webview.currentWebview()
 
     this.activePage = self
 
     // 兼容安卓上添加titleNView 和 设置沉浸式模式会遮盖子webview内容
-    if ($.os.android) {
-      if ($.plus.navigator.isImmersedStatusbar()) subpageStyle.top += $.plus.navigator.getStatusbarHeight()
-      if (self.getTitleNView()) subpageStyle.top += 40
-    }
+    // if ($.os.android) {
+    //   if ($.plus.navigator.isImmersedStatusbar()) subpageStyle.top += $.plus.navigator.getStatusbarHeight()
+    //   // if (self.getTitleNView()) subpageStyle.top += 40
+    // }
     // 初始化绘制首个tab按钮
     this.toggleNview(0)
 
     for (const subpage of this.props.subpages) {
       if (!$.plus.webview.getWebviewById(subpage.id)) {
-        let sub = $.plus.webview.create(subpage.url, subpage.id, subpageStyle)
+        let _subpageStyle = subpageStyle
+        if (subpage.subpageStyle) $.extend(_subpageStyle, subpage.subpageStyle)
+        let sub = $.plus.webview.create(subpage.url, subpage.id, _subpageStyle)
         // 初始化隐藏
         sub.hide()
         // append到当前父webview
