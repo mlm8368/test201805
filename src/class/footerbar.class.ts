@@ -23,6 +23,7 @@ export class Footerbar {
   }
   protected activePage
   protected firstWebview
+  protected firstTitleNView
   private aniShow
   constructor (props: FooterbarConfig) {
     // Object.assign(this.props, props)
@@ -32,6 +33,8 @@ export class Footerbar {
     if ($.plus) {
       if (this.props.firstWebviewId === 'launchWebview') this.firstWebview = $.plus.webview.getLaunchWebview()
       else this.firstWebview = $.plus.webview.getWebviewById(this.props.firstWebviewId)
+
+      this.firstTitleNView = this.firstWebview.getTitleNView()
 
       const targetPage = this.firstWebview
       $.extend(this.aniShow, { targetPage: true })
@@ -53,6 +56,9 @@ export class Footerbar {
    * @memberof Footerbar
    */
   public changeSubpage (targetPage: any): void {
+    if (targetPage === this.firstWebview) this.firstTitleNView.show()
+    else this.firstTitleNView.hide()
+
     // 若为iOS平台或非首次显示，则直接显示
     if ($.os.ios || this.aniShow[targetPage]) {
       $.plus.webview.show(targetPage)

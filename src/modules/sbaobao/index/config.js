@@ -1,9 +1,9 @@
 import { viewEXT } from '../../../common/js/global.js';
-const subpageStyleXiaoyuan = { top: '50px', statusbar: { background: '#FF0000' }, titleNView: { backgroundColor: '#D74B28', titleText: '宝宝', titleColor: '#CCCCCC' } };
-const subpageStyleBanji = { top: '50px', statusbar: { background: '#FF0000' }, titleNView: { backgroundColor: '#D74B28', titleText: '班级', titleColor: '#CCCCCC' } };
-const subpageStyleBamaquan = { top: '50px', statusbar: { background: '#FF0000' }, titleNView: { backgroundColor: '#D74B28', titleText: '爸妈圈', titleColor: '#CCCCCC' } };
-const subpageStyleMore = { top: '50px', statusbar: { background: '#FF0000' }, titleNView: { backgroundColor: '#D74B28', titleText: '更多', titleColor: '#CCCCCC' } };
-export let footbarProp = {
+const subpageStyleXiaoyuan = { top: '0px', statusbar: { background: '#FF0000' }, titleNView: { backgroundColor: '#D74B28', titleText: '校园', titleColor: '#CCCCCC' } };
+const subpageStyleBanji = { top: '0px', statusbar: { background: '#FF0000' }, titleNView: { backgroundColor: '#D74B28', titleText: '班级', titleColor: '#CCCCCC' } };
+const subpageStyleBamaquan = { top: '0px', statusbar: { background: '#FF0000' }, titleNView: { backgroundColor: '#D74B28', titleText: '爸妈圈', titleColor: '#CCCCCC' } };
+const subpageStyleMore = { top: '0px', statusbar: { background: '#FF0000' }, titleNView: { backgroundColor: '#D74B28', titleText: '更多', titleColor: '#CCCCCC' } };
+export const footbarProp = {
   tabBarId: 'tabBarStudent',
   firstWebviewId: 'sbaobao_index',
   activeColor: '#007aff',
