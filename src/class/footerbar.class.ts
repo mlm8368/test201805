@@ -1,5 +1,8 @@
 import { $, viewEXT } from '../common/js/global.js'
 
+interface StatusBarBackground {
+  [index: string]: string
+}
 export interface IdUrl {
   id: string,
   url: string,
@@ -27,6 +30,7 @@ export class Footerbar {
   private aniShow = {}
   protected isFirst = true
   protected status = 'done'
+  protected statusBarBackground: StatusBarBackground
   constructor (props: FooterbarConfig) {
     // Object.assign(this.props, props)
     $.extend(true, this.props, props)
@@ -82,9 +86,11 @@ return this.status
     // 隐藏当前 除了第一个父窗口
     if (this.activePage !== this.firstWebviewPage) $.plus.webview.hide(this.activePage)
 
+if ( this.statusBarBackground[targetPage] ) $.plus.navigator.setStatusBarBackground(this.statusBarBackground[targetPage])
+
     this.activePage = targetPage
-    $.plus.nativeUI.closeWaiting()
 this.status = 'done'
+    $.plus.nativeUI.closeWaiting()
   }
   /**
    * 点击重绘底部tab （view控件）
@@ -133,6 +139,7 @@ $.plus.nativeUI.showWaiting()
     let self = $.plus.webview.currentWebview()
 
     this.activePage = self.id
+    this.statusBarBackground[self.id] = $.plus.navigator.getStatusBarBackground()
 
     // 兼容安卓上添加titleNView 和 设置沉浸式模式会遮盖子webview内容
     // if ($.os.android) {
@@ -143,6 +150,7 @@ $.plus.nativeUI.showWaiting()
     this.toggleNview(0)
 
     for (const subpage of this.props.subpages) {
+if ( subpage.subpageStyle.statusbar ) this.statusBarBackground[subpage.id] = subpage.subpageStyle.statusbar.background
       if (!$.plus.webview.getWebviewById(subpage.id)) {
         let _subpageStyle = subpageStyle
         if (subpage.subpageStyle) $.extend(true, _subpageStyle, subpage.subpageStyle)
