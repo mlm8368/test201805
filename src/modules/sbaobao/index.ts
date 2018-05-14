@@ -23,6 +23,7 @@ $.plusReady(function () {
 
   const tabBarNView = $.plus.nativeObj.View.getViewById('tabBarStudent')
   tabBarNView.addEventListener('click', function (e) {
+    if (sFooterbar.getStatus() === 'doing') return
     let targetPage: string = null
     let activePage: string = sFooterbar.getActivePage()
     let currIndex: number = sFooterbar.getCurrIndex(window.innerWidth, e.clientX)

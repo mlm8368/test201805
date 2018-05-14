@@ -25,7 +25,8 @@ export class Footerbar {
   protected firstWebviewPage: string
   protected firstTitleNView: any
   private aniShow = {}
-  private isFirst = true
+  protected isFirst = true
+  protected status = 'done'
   constructor (props: FooterbarConfig) {
     // Object.assign(this.props, props)
     $.extend(true, this.props, props)
@@ -56,6 +57,9 @@ export class Footerbar {
   public getActivePage () {
     return this.activePage
   }
+public getStatus () {
+return this.status
+}
   /**
    * 点击切换tab窗口
    * @param {string} targetPage
@@ -80,6 +84,7 @@ export class Footerbar {
 
     this.activePage = targetPage
     $.plus.nativeUI.closeWaiting()
+this.status = 'done'
   }
   /**
    * 点击重绘底部tab （view控件）
@@ -87,7 +92,10 @@ export class Footerbar {
    * @memberof Footerbar
    */
   public toggleNview (currIndex: number): void {
-    if (!this.isFirst) $.plus.nativeUI.showWaiting()
+    if (!this.isFirst) {
+this.status = 'doing'
+$.plus.nativeUI.showWaiting()
+}
     currIndex = currIndex * 2
     // 重绘当前tag 包括icon和text，所以执行两个重绘操作
     this.updateSubNView(currIndex, this.props.activeColor)
