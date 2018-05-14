@@ -21,25 +21,31 @@ export class Footerbar {
     normalColor: '#000',
     subpages: []
   }
-  protected activePage
-  protected firstWebview
-  protected firstTitleNView
-  private aniShow
+  protected activePage: string
+  protected firstWebviewPage: string
+  protected firstTitleNView: any
+  private aniShow = {}
+  private isFirst = true
   constructor (props: FooterbarConfig) {
     // Object.assign(this.props, props)
     $.extend(true, this.props, props)
-    this.aniShow = {}
 
     if ($.plus) {
-      if (this.props.firstWebviewId === 'launchWebview') this.firstWebview = $.plus.webview.getLaunchWebview()
-      else this.firstWebview = $.plus.webview.getWebviewById(this.props.firstWebviewId)
+      let firstWebview = null
+      if (this.props.firstWebviewId === 'launchWebview') firstWebview = $.plus.webview.getLaunchWebview()
+      else firstWebview = $.plus.webview.getWebviewById(this.props.firstWebviewId)
 
-      this.firstTitleNView = this.firstWebview.getTitleNView()
+      if (firstWebview) {
+        this.firstWebviewPage = firstWebview.id
+        this.firstTitleNView = firstWebview.getTitleNView()
+      }
 
-      const targetPage = this.firstWebview
-      $.extend(this.aniShow, { targetPage: true })
+      let aniShow = {}
+      aniShow[firstWebview.id] = true
+      $.extend(this.aniShow, aniShow)
 
       this.initSubpage()
+      this.isFirst = false
     } else $.log('ERR! mui plus is null')
   }
   /**
@@ -52,11 +58,11 @@ export class Footerbar {
   }
   /**
    * 点击切换tab窗口
-   * @param {*} targetPage
+   * @param {string} targetPage
    * @memberof Footerbar
    */
-  public changeSubpage (targetPage: any): void {
-    if (targetPage === this.firstWebview) this.firstTitleNView.show()
+  public changeSubpage (targetPage: string): void {
+    if (targetPage === this.firstWebviewPage) this.firstTitleNView.show()
     else this.firstTitleNView.hide()
 
     // 若为iOS平台或非首次显示，则直接显示
@@ -64,13 +70,16 @@ export class Footerbar {
       $.plus.webview.show(targetPage)
     } else {
       // 否则，使用fade-in动画，且保存变量
-      $.extend(this.aniShow, { targetPage: true })
+      let aniShow = {}
+      aniShow[targetPage] = true
+      $.extend(this.aniShow, aniShow)
       $.plus.webview.show(targetPage, 'fade-in', 300)
     }
     // 隐藏当前 除了第一个父窗口
-    if (this.activePage !== this.firstWebview) $.plus.webview.hide(this.activePage)
+    if (this.activePage !== this.firstWebviewPage) $.plus.webview.hide(this.activePage)
 
     this.activePage = targetPage
+    $.plus.nativeUI.closeWaiting()
   }
   /**
    * 点击重绘底部tab （view控件）
@@ -78,6 +87,7 @@ export class Footerbar {
    * @memberof Footerbar
    */
   public toggleNview (currIndex: number): void {
+    if (!this.isFirst) $.plus.nativeUI.showWaiting()
     currIndex = currIndex * 2
     // 重绘当前tag 包括icon和text，所以执行两个重绘操作
     this.updateSubNView(currIndex, this.props.activeColor)
@@ -114,7 +124,7 @@ export class Footerbar {
     const subpageStyle = { top: '0px', bottom: '50px', bounce: 'none', bounceBackground: '#1E90FF' }
     let self = $.plus.webview.currentWebview()
 
-    this.activePage = self
+    this.activePage = self.id
 
     // 兼容安卓上添加titleNView 和 设置沉浸式模式会遮盖子webview内容
     // if ($.os.android) {
