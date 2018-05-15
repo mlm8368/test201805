@@ -3,6 +3,9 @@ import { $, viewEXT } from '../common/js/global.js'
 interface StatusBarBackground {
   [index: string]: string
 }
+interface AniShow {
+  [index: string]: boolean
+}
 export interface IdUrl {
   id: string,
   url: string,
@@ -30,7 +33,7 @@ export class Footerbar {
   protected isFirst = true
   protected status = 'done'
   protected statusBarBackground: StatusBarBackground = {}
-  private aniShow = {}
+  private aniShow: AniShow = {}
   constructor (props: FooterbarConfig) {
     // Object.assign(this.props, props)
     $.extend(true, this.props, props)
@@ -45,9 +48,7 @@ export class Footerbar {
         this.firstTitleNView = firstWebview.getTitleNView()
       }
 
-      let aniShow = {}
-      aniShow[firstWebview.id] = true
-      $.extend(this.aniShow, aniShow)
+      this.aniShow[firstWebview.id] = true
 
       this.initSubpage()
       this.isFirst = false
@@ -78,9 +79,7 @@ export class Footerbar {
       $.plus.webview.show(targetPage)
     } else {
       // 否则，使用fade-in动画，且保存变量
-      let aniShow = {}
-      aniShow[targetPage] = true
-      $.extend(this.aniShow, aniShow)
+      this.aniShow[targetPage] = true
       $.plus.webview.show(targetPage, 'fade-in', 300)
     }
     // 隐藏当前 除了第一个父窗口
