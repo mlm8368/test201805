@@ -27,10 +27,10 @@ export class Footerbar {
   protected activePage: string
   protected firstWebviewPage: string
   protected firstTitleNView: any
-  private aniShow = {}
   protected isFirst = true
   protected status = 'done'
   protected statusBarBackground: StatusBarBackground
+  private aniShow = {}
   constructor (props: FooterbarConfig) {
     // Object.assign(this.props, props)
     $.extend(true, this.props, props)
@@ -58,12 +58,12 @@ export class Footerbar {
    * @returns activePage
    * @memberof Footerbar
    */
-  public getActivePage () {
+  public getActivePage (): string {
     return this.activePage
   }
-public getStatus () {
-return this.status
-}
+  public getStatus (): string {
+    return this.status
+  }
   /**
    * 点击切换tab窗口
    * @param {string} targetPage
@@ -86,10 +86,10 @@ return this.status
     // 隐藏当前 除了第一个父窗口
     if (this.activePage !== this.firstWebviewPage) $.plus.webview.hide(this.activePage)
 
-if ( this.statusBarBackground[targetPage] ) $.plus.navigator.setStatusBarBackground(this.statusBarBackground[targetPage])
+    if (this.statusBarBackground[targetPage]) $.plus.navigator.setStatusBarBackground(this.statusBarBackground[targetPage])
 
     this.activePage = targetPage
-this.status = 'done'
+    this.status = 'done'
     $.plus.nativeUI.closeWaiting()
   }
   /**
@@ -99,9 +99,9 @@ this.status = 'done'
    */
   public toggleNview (currIndex: number): void {
     if (!this.isFirst) {
-this.status = 'doing'
-$.plus.nativeUI.showWaiting()
-}
+      this.status = 'doing'
+      $.plus.nativeUI.showWaiting()
+    }
     currIndex = currIndex * 2
     // 重绘当前tag 包括icon和text，所以执行两个重绘操作
     this.updateSubNView(currIndex, this.props.activeColor)
@@ -150,7 +150,7 @@ $.plus.nativeUI.showWaiting()
     this.toggleNview(0)
 
     for (const subpage of this.props.subpages) {
-if ( subpage.subpageStyle.statusbar ) this.statusBarBackground[subpage.id] = subpage.subpageStyle.statusbar.background
+      if (subpage.subpageStyle.statusbar) this.statusBarBackground[subpage.id] = subpage.subpageStyle.statusbar.background
       if (!$.plus.webview.getWebviewById(subpage.id)) {
         let _subpageStyle = subpageStyle
         if (subpage.subpageStyle) $.extend(true, _subpageStyle, subpage.subpageStyle)

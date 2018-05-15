@@ -26,15 +26,15 @@ import AuiToast from 'plugin/aui/toast';
   });
   $.immersed = 0;
   $.plus = null;
-$.ready(function () {
-  let ms = (/Html5Plus\/.+\s\(.*(Immersed\/(\d+\.?\d*).*)\)/gi).exec(navigator.userAgent);
-  if (ms && ms.length >= 3) { // 当前环境为沉浸式状态栏模式
-    $.immersed = parseFloat(ms[2]); // 获取状态栏的高度
-  }
-});
-$.plusReady(function () {
-  $.plus = window.plus;
-});
+  $.ready(function () {
+    let ms = (/Html5Plus\/.+\s\(.*(Immersed\/(\d+\.?\d*).*)\)/gi).exec(navigator.userAgent);
+    if (ms && ms.length >= 3) { // 当前环境为沉浸式状态栏模式
+      $.immersed = parseFloat(ms[2]); // 获取状态栏的高度
+    }
+  });
+  $.plusReady(function () {
+    $.plus = window.plus;
+  });
   $.getDateDiff = function(dateTimeStamp) {
     if (!dateTimeStamp) return '-';
 

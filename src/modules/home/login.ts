@@ -9,7 +9,7 @@ import './login/init.ts'
 import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
 // ready
 $.ready(function () {
-  //$.immersed = setImmersedHeight($.byId('header'))
+  // $.immersed = setImmersedHeight($.byId('header'))
   if (viewEXT === '.htm') return
   $.noop()
 })

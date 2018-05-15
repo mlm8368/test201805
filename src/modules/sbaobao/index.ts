@@ -12,7 +12,7 @@ import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
 import SFooterbar from './index/sfooterbar.class'
 // ready
 $.ready(function () {
-  //setImmersedHeight($.byId('header'))
+  // setImmersedHeight($.byId('header'))
   if (viewEXT === '.htm') return
   $.noop()
 })
