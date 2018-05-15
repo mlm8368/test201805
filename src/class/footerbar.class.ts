@@ -29,7 +29,7 @@ export class Footerbar {
   protected firstTitleNView: any
   protected isFirst = true
   protected status = 'done'
-  protected statusBarBackground: StatusBarBackground
+  protected statusBarBackground: StatusBarBackground = {}
   private aniShow = {}
   constructor (props: FooterbarConfig) {
     // Object.assign(this.props, props)
