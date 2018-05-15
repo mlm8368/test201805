@@ -1,8 +1,5 @@
 import { $, viewEXT } from '../common/js/global.js'
 
-interface StatusBarBackground {
-  [index: string]: string
-}
 interface AniShow {
   [index: string]: boolean
 }
@@ -32,7 +29,6 @@ export class Footerbar {
   protected firstTitleNView: any
   protected isFirst = true
   protected status = 'done'
-  protected statusBarBackground: StatusBarBackground = {}
   private aniShow: AniShow = {}
   constructor (props: FooterbarConfig) {
     // Object.assign(this.props, props)
@@ -85,10 +81,6 @@ export class Footerbar {
     // 隐藏当前 除了第一个父窗口
     if (this.activePage !== this.firstWebviewPage) $.plus.webview.hide(this.activePage)
 
-    if (this.statusBarBackground[targetPage]) $.plus.navigator.setStatusBarBackground(this.statusBarBackground[targetPage])
-    $.log(targetPage)
-    $.log(this.statusBarBackground[targetPage])
-
     this.activePage = targetPage
     this.status = 'done'
     $.plus.nativeUI.closeWaiting()
@@ -136,27 +128,18 @@ export class Footerbar {
    * @memberof Footerbar
    */
   private initSubpage (): void {
-    const subpageStyle = { top: '0', bottom: '50px', bounce: 'none', bounceBackground: '#1E90FF' }
+    const subpageStyle = { top: '0px', bottom: '50px', bounce: 'none', bounceBackground: '#1E90FF' }
     let self = $.plus.webview.currentWebview()
 
     this.activePage = self.id
-    this.statusBarBackground[self.id] = $.plus.navigator.getStatusBarBackground()
 
-    // 兼容安卓上添加titleNView 和 设置沉浸式模式会遮盖子webview内容
-    // if ($.os.android) {
-    //   if ($.plus.navigator.isImmersedStatusbar()) subpageStyle.top += $.plus.navigator.getStatusbarHeight()
-    //   // if (self.getTitleNView()) subpageStyle.top += 40
-    // }
     // 初始化绘制首个tab按钮
     this.toggleNview(0)
 
     for (const subpage of this.props.subpages) {
-      if (subpage.subpageStyle.statusbar) this.statusBarBackground[subpage.id] = subpage.subpageStyle.statusbar.background
       if (!$.plus.webview.getWebviewById(subpage.id)) {
         let _subpageStyle = subpageStyle
         if (subpage.subpageStyle) $.extend(true, _subpageStyle, subpage.subpageStyle)
-        if ($.immersed) _subpageStyle['top'] += $.immersed
-        _subpageStyle['top'] += 'px'
         let sub = $.plus.webview.create(subpage.url, subpage.id, _subpageStyle)
         // 初始化隐藏
         sub.hide()

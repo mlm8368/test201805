@@ -8,7 +8,6 @@ $.init({
 
 $.goPortal = function (type) {
   // student
-  let statusbar = { background: '#FF0000' }
   let subNViews = [{
     'id': 'tabBarStudent',
     'styles': { bottom: '0px', left: '0px', height: '50px', width: '100%', backgroundColor: '#FFFFFF' },
@@ -18,6 +17,6 @@ $.goPortal = function (type) {
   $.openWindow({
     id: 'sbaobao_index',
     url: '../sbaobao/index' + viewEXT,
-    styles: { top: $.immersed + 'px', backButtonAutoControl: 'quit', statusbar: statusbar, subNViews: subNViews, titleNView: titleNView }
+    styles: { top: '0px', backButtonAutoControl: 'quit', subNViews: subNViews, titleNView: titleNView }
   })
 }
