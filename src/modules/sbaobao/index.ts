@@ -12,13 +12,12 @@ import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
 import SFooterbar from './index/sfooterbar.class'
 // ready
 $.ready(function () {
-  setImmersedHeight($.byId('header'))
+  //setImmersedHeight($.byId('header'))
   if (viewEXT === '.htm') return
   $.noop()
 })
 // plusReady
 $.plusReady(function () {
-  $.plus = $.getMuiPlus()
   const sFooterbar = new SFooterbar(footbarProp)
 
   const tabBarNView = $.plus.nativeObj.View.getViewById('tabBarStudent')

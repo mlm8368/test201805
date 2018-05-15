@@ -1,4 +1,4 @@
-export let barTagsStudent = [
+export const barTagsStudent = [
   {
     'tag': 'font',
     'id': 'indexIcon',
