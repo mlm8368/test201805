@@ -18,6 +18,6 @@ $.goPortal = function (type) {
   $.openWindow({
     id: 'sbaobao_index',
     url: '../sbaobao/index' + viewEXT,
-    styles: { top: '0px', backButtonAutoControl: 'quit', statusbar: statusbar, subNViews: subNViews, titleNView: titleNView }
+    styles: { top: $.immersed + 'px', backButtonAutoControl: 'quit', statusbar: statusbar, subNViews: subNViews, titleNView: titleNView }
   })
 }

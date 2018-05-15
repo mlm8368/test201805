@@ -86,6 +86,8 @@ export class Footerbar {
     if (this.activePage !== this.firstWebviewPage) $.plus.webview.hide(this.activePage)
 
     if (this.statusBarBackground[targetPage]) $.plus.navigator.setStatusBarBackground(this.statusBarBackground[targetPage])
+    $.log(targetPage)
+    $.log(this.statusBarBackground[targetPage])
 
     this.activePage = targetPage
     this.status = 'done'
@@ -134,7 +136,7 @@ export class Footerbar {
    * @memberof Footerbar
    */
   private initSubpage (): void {
-    const subpageStyle = { top: '0px', bottom: '50px', bounce: 'none', bounceBackground: '#1E90FF' }
+    const subpageStyle = { top: '0', bottom: '50px', bounce: 'none', bounceBackground: '#1E90FF' }
     let self = $.plus.webview.currentWebview()
 
     this.activePage = self.id
@@ -153,6 +155,8 @@ export class Footerbar {
       if (!$.plus.webview.getWebviewById(subpage.id)) {
         let _subpageStyle = subpageStyle
         if (subpage.subpageStyle) $.extend(true, _subpageStyle, subpage.subpageStyle)
+        if ($.immersed) _subpageStyle['top'] += $.immersed
+        _subpageStyle['top'] += 'px'
         let sub = $.plus.webview.create(subpage.url, subpage.id, _subpageStyle)
         // 初始化隐藏
         sub.hide()
