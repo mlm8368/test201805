@@ -9,7 +9,7 @@ import '../../mui/js/mui.back.5+.js'
 import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
 // ready
 $.ready(function () {
-  setImmersedHeight($.byId('header'))
+  // setImmersedHeight($.byId('header'))
   if (viewEXT === '.htm') return
   $.noop()
 })

@@ -1,3 +1,5 @@
+export * from '../../../common/js/config.js'
+
 export const barTagsStudent = [
   {
     'tag': 'font',
@@ -157,4 +159,4 @@ export const barTagsStudent = [
       'color': '#ccc'
     }
   }
-];
+]

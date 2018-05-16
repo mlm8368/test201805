@@ -1,9 +1,5 @@
 @import "./base.scss";
 @import "./animation.scss";
-@import "./toast.scss";
-/*toast*/
-.aui-icon-correct:before { content: "\e6e5"; }
-.aui-icon-close:before { content: "\e6d8"; }
 
 @font-face {
     font-family: "aui_iconfont";

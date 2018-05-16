@@ -5,11 +5,12 @@ import './login/style.scss'
 import '../../common/js/mui.init.js'
 import '../../mui/js/mui.back.5+.js'
 // self
-import './login/init.ts'
-import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
+import { $, viewEXT } from '../../common/js/global.js'
+import Login from './login/login.class'
+
+let login = new Login()
 // ready
 $.ready(function () {
-  // $.immersed = setImmersedHeight($.byId('header'))
   if (viewEXT === '.htm') return
   $.noop()
 })
@@ -19,5 +20,5 @@ $.plusReady(function () {
 })
 // tap
 $.byId('doLogin').addEventListener('tap', function () {
-  $.goPortal('student')
+  login.goPortal('student')
 })

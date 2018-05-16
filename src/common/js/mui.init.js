@@ -14,15 +14,11 @@ import 'mui/js/mui.ajax';
 import 'mui/js/mui.ajax.5+';
 import 'mui/js/mui.dialog.toast';
 
-import AuiToast from 'plugin/aui/toast';
-
 (function($) {
   $.init({
     swipeBack: false,
-    keyEventBind: {
-      backbutton: true,
-      menubutton: false
-    }
+    keyEventBind: { backbutton: true, menubutton: false },
+    gestureConfig: { tap: true, doubletap: false, longtap: false, hold: false, flick: false, swipe: false, drag: false, pinch: false }
   });
   $.immersed = 0;
   $.plus = null;
@@ -90,8 +86,6 @@ import AuiToast from 'plugin/aui/toast';
   $.targets = {};
   $.targets._popover = null;
   $.closePopup = $.noop;
-  // toast
-  $._toast = new AuiToast();
   // 扩展
   $.log = function(str) {
     let myarraylist = str;
