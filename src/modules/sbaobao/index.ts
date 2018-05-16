@@ -5,20 +5,17 @@ import './index/style.scss'
 import '../../common/js/mui.init.js'
 import '../../mui/js/mui.back.5+.js'
 // self
-import './index/init.ts'
-import { footbarProp } from './index/config.js'
-// import util from '../../common/js/util.js'
-import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
-import SFooterbar from './index/sfooterbar.class'
+import * as config from './index/config'
+import { $, viewEXT } from '../../common/js/global.js'
+import SFooterbar from './class/sfooterbar.class'
 // ready
 $.ready(function () {
-  // setImmersedHeight($.byId('header'))
   if (viewEXT === '.htm') return
   $.noop()
 })
 // plusReady
 $.plusReady(function () {
-  const sFooterbar = new SFooterbar(footbarProp)
+  const sFooterbar = new SFooterbar(config.footbarProp)
 
   const tabBarNView = $.plus.nativeObj.View.getViewById('tabBarStudent')
   tabBarNView.addEventListener('click', function (e) {
@@ -27,8 +24,8 @@ $.plusReady(function () {
     let activePage: string = sFooterbar.getActivePage()
     let currIndex: number = sFooterbar.getCurrIndex(window.innerWidth, e.clientX)
 
-    if (currIndex > 0) targetPage = footbarProp.subpages[currIndex - 1].id
-    else targetPage = footbarProp.firstWebviewId
+    if (currIndex > 0) targetPage = config.footbarProp.subpages[currIndex - 1].id
+    else targetPage = config.footbarProp.firstWebviewId
 
     if (targetPage === activePage) return
 

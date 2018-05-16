@@ -6,7 +6,7 @@ import '../../common/js/mui.init.js'
 import '../../mui/js/mui.back.5+.js'
 // self
 import { $, viewEXT } from '../../common/js/global.js'
-import Login from './login/login.class'
+import Login from './class/login.class'
 
 let login = new Login()
 // ready
