@@ -1,7 +1,8 @@
 import { $, viewEXT } from '../../../common/js/global.js'
 import * as config from '../login/config'
+import Abstract from '../../../class/abstract.class'
 
-export default class Login {
+export default class Login extends Abstract {
   public goPortal (type: string): void {
     // student
     let subNViews = [{

@@ -1,22 +1,7 @@
 import { $, viewEXT } from '../common/js/global.js'
+import { FooterbarConfig } from './interface'
 
-interface AniShow {
-  [index: string]: boolean
-}
-export interface IdUrl {
-  id: string,
-  url: string,
-  subpageStyle?: any
-}
-export interface FooterbarConfig {
-  tabBarId: string,
-  firstWebviewId: string,
-  activeColor: string,
-  normalColor: string,
-  subpages: IdUrl[]
-}
-
-export class Footerbar {
+export default class Footerbar {
   protected props: FooterbarConfig = {
     tabBarId: 'tabBar',
     firstWebviewId: 'launchWebview',
@@ -29,7 +14,7 @@ export class Footerbar {
   protected firstTitleNView: any
   protected isFirst = true
   protected status = 'done'
-  private aniShow: AniShow = {}
+  private aniShow: { [index: string]: boolean } = {}
   constructor (props: FooterbarConfig) {
     // Object.assign(this.props, props)
     $.extend(true, this.props, props)
