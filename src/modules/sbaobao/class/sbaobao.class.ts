@@ -10,7 +10,7 @@ export default class SBaobao extends Student {
   constructor () {
     super()
     this.main = $.currentWebview
-    this.menu = $.preload({ id: 'sbaobao_school', url: './school' + viewEXT, styles: { left: '30%', width: '70%', zindex: 9997 } })
+    this.menu = $.preload({ id: 'sbaobao_school', url: './school' + viewEXT, styles: { left: '0%', width: '70%', zindex: 9997 } })
     this.mask = $.createMask(() => { this.closeMenu(false) })
     $.options.beforeback = (): boolean => {
       if (this.showMenu) {
@@ -23,8 +23,8 @@ export default class SBaobao extends Student {
     }
     window.addEventListener('dragright', function (e: any) { e.detail.gesture.preventDefault() })
     window.addEventListener('dragleft', function (e: any) { e.detail.gesture.preventDefault() })
-    window.addEventListener('swipeleft', () => { this.openMenu() })
-    window.addEventListener('swiperight', () => { this.closeMenu() })
+    window.addEventListener('swiperight', () => { this.openMenu() })
+    window.addEventListener('swipeleft', () => { this.closeMenu() })
     window.addEventListener('closeOffcanvas', () => { this.closeMenu() })
   }
 
@@ -34,7 +34,7 @@ export default class SBaobao extends Student {
   public openMenu () {
     if (!this.showMenu) {
       this.menu.show('none', 0, () => {
-        this.main.setStyle({ left: '0%', transition: { duration: 150 } })
+        this.main.setStyle({ left: '70%', transition: { duration: 150 } })
       })
       this.mask.show()
       this.showMenu = true
@@ -46,7 +46,7 @@ export default class SBaobao extends Student {
    */
   public closeMenu (this: SBaobao, closeMask = true) {
     if (this.showMenu) {
-      this.main.setStyle({ left: '-70%', transition: { duration: 150 } })
+      this.main.setStyle({ left: '0%', transition: { duration: 150 } })
       setTimeout(() => { this.menu.hide() }, 300)
       this.showMenu = false
     }
