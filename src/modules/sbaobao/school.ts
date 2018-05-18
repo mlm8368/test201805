@@ -17,5 +17,8 @@ $.ready(function () {
 })
 // plusReady
 $.plusReady(function () {
-  $.noop()
+  const main = $.plus.webview.currentWebview().opener()
+  window.addEventListener('swiperight', () => {
+    $.fire(main, 'menu:swiperight')
+  })
 })

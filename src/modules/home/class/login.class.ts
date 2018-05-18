@@ -12,11 +12,12 @@ export default class Login extends Abstract {
     }]
     let clickButtonOffcanvas = (): void => {
       $.log('clickButtonOffcanvas')
+      $.fire(wvSbaobaoIndex, 'openOffcanvas')
     }
     let titleNView = { backgroundColor: '#D74B28', titleText: '宝宝', titleColor: '#CCCCCC', buttons: [
       { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: clickButtonOffcanvas }
     ] }
-    $.openWindow({
+    let wvSbaobaoIndex = $.openWindow({
       id: 'sbaobao_index',
       url: '../sbaobao/index' + viewEXT,
       styles: { top: '0px', backButtonAutoControl: 'none', subNViews: subNViews, titleNView: titleNView }

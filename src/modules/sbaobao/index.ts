@@ -7,9 +7,10 @@ import '../../common/js/mui.init.js'
 import * as config from './index/config'
 import { $, viewEXT } from '../../common/js/global.js'
 import SFooterbar from './class/sfooterbar.class'
+import SBaobao from './class/sbaobao.class'
 // ready
 $.init({
-  swipeBack: true,
+  swipeBack: false,
   keyEventBind: { backbutton: false, menubutton: false },
   gestureConfig: { tap: true, swipe: true, doubletap: false, longtap: false, hold: false, flick: false, drag: false, pinch: false }
 })
@@ -19,8 +20,19 @@ $.ready(function () {
 })
 // plusReady
 $.plusReady(function () {
-  const sFooterbar = new SFooterbar(config.footbarProp)
+  // backbutton
+  $.plus.key.addEventListener('backbutton', () => {
+    if (!$.__back__first) {
+      $.__back__first = new Date().getTime()
+      $.toast('再按一次退出应用')
+      setTimeout(function () { $.__back__first = null }, 2000)
+    } else {
+      if (new Date().getTime() - $.__back__first < 2000) $.plus.runtime.quit()
+    }
+  }, false)
 
+  // tabBar
+  const sFooterbar = new SFooterbar(config.footbarProp)
   const tabBarNView = $.plus.nativeObj.View.getViewById('tabBarStudent')
   tabBarNView.addEventListener('click', function (e) {
     if (sFooterbar.getStatus() === 'doing') return
@@ -36,14 +48,8 @@ $.plusReady(function () {
     sFooterbar.toggleNview(currIndex)
     sFooterbar.changeSubpage(targetPage)
   })
-  // backbutton
-  $.plus.key.addEventListener('backbutton', () => {
-    if (!$.__back__first) {
-      $.__back__first = new Date().getTime()
-      $.toast('再按一次退出应用')
-      setTimeout(function () { $.__back__first = null }, 2000)
-    } else {
-      if (new Date().getTime() - $.__back__first < 2000) $.plus.runtime.quit()
-    }
-  }, false)
+
+  // offcanvas
+  const sBaobao = new SBaobao()
+  window.addEventListener('openOffcanvas', () => { sBaobao.openMenu() })
 })
