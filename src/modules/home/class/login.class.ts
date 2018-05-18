@@ -10,7 +10,12 @@ export default class Login extends Abstract {
       'styles': { bottom: '0px', left: '0px', height: '50px', width: '100%', backgroundColor: '#FFFFFF' },
       'tags': config.barTagsStudent
     }]
-    let titleNView = { backgroundColor: '#D74B28', titleText: '宝宝', titleColor: '#CCCCCC', buttons:[{text:'...',float:'right',onclick:clickButton}] }
+    let clickButtonOffcanvas = () => {
+      $.log('clickButtonOffcanvas')
+    }
+    let titleNView = { backgroundColor: '#D74B28', titleText: '宝宝', titleColor: '#CCCCCC', buttons: [
+      { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: clickButtonOffcanvas }
+    ] }
     $.openWindow({
       id: 'sbaobao_index',
       url: '../sbaobao/index' + viewEXT,
