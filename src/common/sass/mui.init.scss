@@ -13,3 +13,25 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+// mui
+$namespace: "mui-" !default;
+//blue theme
+$primary-color: #007aff !default;
+// Action colors
+$default-color:  #929292 !default;
+$positive-color: #4cd964 !default;
+$negative-color: #dd524d !default;
+$warning-color: #f0ad4e !default;
+$royal-color: #8a6de9 !default;
+$grey-color:#c7c7cc !default;
+
+.#{$namespace}backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: z("backdrop");
+  background-color: rgba(0,0,0,.3);
+}

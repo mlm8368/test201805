@@ -49,7 +49,7 @@ import 'mui/js/mui.dialog.toast';
   $.closePopup = $.noop;
   $.createMask = function(callback) {
 		var element = document.createElement('div');
-		element.classList.add(CLASS_BACKDROP);
+		element.classList.add($.className('backdrop'));
 		element.addEventListener($.EVENT_MOVE, $.preventDefault);
 		element.addEventListener('tap', function() {
 			mask.close();
