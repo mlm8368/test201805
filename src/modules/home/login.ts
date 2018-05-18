@@ -3,7 +3,6 @@ import '../../common/sass/mui.init.scss'
 import './login/style.scss'
 // mui js
 import '../../common/js/mui.init.js'
-import '../../mui/js/mui.back.5+.js'
 // self
 import { $, viewEXT } from '../../common/js/global.js'
 import Login from './class/login.class'

@@ -4,7 +4,6 @@ import '../../common/sass/mui.init.scss'
 // mui js
 import '../../common/js/mui.init.js'
 // self
-// import './index/init.ts'
 import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
 // ready
 $.init({

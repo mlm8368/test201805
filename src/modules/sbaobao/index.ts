@@ -3,7 +3,6 @@ import '../../common/sass/mui.init.scss'
 import './index/style.scss'
 // mui js
 import '../../common/js/mui.init.js'
-import '../../mui/js/mui.back.5+.js'
 // self
 import * as config from './index/config'
 import { $, viewEXT } from '../../common/js/global.js'
@@ -37,7 +36,7 @@ $.plusReady(function () {
     sFooterbar.toggleNview(currIndex)
     sFooterbar.changeSubpage(targetPage)
   })
-
+  // backbutton
   $.plus.key.addEventListener('backbutton', () => {
     if (!$.__back__first) {
       $.__back__first = new Date().getTime()
