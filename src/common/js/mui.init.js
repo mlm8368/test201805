@@ -8,18 +8,16 @@ import 'mui/js/mui.fixed.animation';
 import 'mui/js/mui.namespace';
 import 'mui/js/mui.gestures';
 import 'mui/js/mui.gestures.tap';
+import 'mui/js/mui.gestures.swipe';
 import 'mui/js/mui.init';
 import 'mui/js/mui.init.5+';
 import 'mui/js/mui.ajax';
 import 'mui/js/mui.ajax.5+';
 import 'mui/js/mui.dialog.toast';
+import 'mui/js/mui.back';
+import 'mui/js/mui.back.5+';
 
-(function($) {
-  $.init({
-    swipeBack: false,
-    keyEventBind: { backbutton: true, menubutton: false },
-    gestureConfig: { tap: true, doubletap: false, longtap: false, hold: false, flick: false, swipe: false, drag: false, pinch: false }
-  });
+(function ($) {
   $.immersed = 0;
   $.plus = null;
   $.ready(function () {
@@ -32,10 +30,11 @@ import 'mui/js/mui.dialog.toast';
     $.plus = window.plus;
   });
   // 返回函数
-  $.addBack = function(back) {
+  /*
+  $.addBack = function (back) {
     return $.addAction('backs', back);
   };
-  $.back = function() {
+  $.back = function () {
     if (typeof $.options.beforeback === 'function') {
       if ($.options.beforeback() === false) {
         return;
@@ -43,49 +42,56 @@ import 'mui/js/mui.dialog.toast';
     }
     $.doAction('backs');
   };
+  window.addEventListener('swiperight', function (e) {
+    var detail = e.detail;
+    if ($.options.swipeBack === true && Math.abs(detail.angle) < 3) {
+      $.back();
+    }
+  });
+  */
   // 返回bug
   $.targets = {};
   $.targets._popover = null;
   $.closePopup = $.noop;
-  $.createMask = function(callback) {
-		var element = document.createElement('div');
-		element.classList.add($.className('backdrop'));
-		element.addEventListener($.EVENT_MOVE, $.preventDefault);
-		element.addEventListener('tap', function() {
-			mask.close();
-		});
-		var mask = [element];
-		mask._show = false;
-		mask.show = function() {
-			mask._show = true;
-			element.setAttribute('style', 'opacity:1');
-			document.body.appendChild(element);
-			return mask;
-		};
-		mask._remove = function() {
-			if (mask._show) {
-				mask._show = false;
-				element.setAttribute('style', 'opacity:0');
-				$.later(function() {
-					var body = document.body;
-					element.parentNode === body && body.removeChild(element);
-				}, 350);
-			}
-			return mask;
-		};
-		mask.close = function() {
-			if (callback) {
-				if (callback() !== false) {
-					mask._remove();
-				}
-			} else {
-				mask._remove();
-			}
-		};
-		return mask;
-	};
+  $.createMask = function (callback) {
+    var element = document.createElement('div');
+    element.classList.add($.className('backdrop'));
+    element.addEventListener($.EVENT_MOVE, $.preventDefault);
+    element.addEventListener('tap', function () {
+      mask.close();
+    });
+    var mask = [element];
+    mask._show = false;
+    mask.show = function () {
+      mask._show = true;
+      element.setAttribute('style', 'opacity:1');
+      document.body.appendChild(element);
+      return mask;
+    };
+    mask._remove = function () {
+      if (mask._show) {
+        mask._show = false;
+        element.setAttribute('style', 'opacity:0');
+        $.later(function () {
+          var body = document.body;
+          element.parentNode === body && body.removeChild(element);
+        }, 350);
+      }
+      return mask;
+    };
+    mask.close = function () {
+      if (callback) {
+        if (callback() !== false) {
+          mask._remove();
+        }
+      } else {
+        mask._remove();
+      }
+    };
+    return mask;
+  };
   // 扩展
-  $.log = function(str) {
+  $.log = function (str) {
     let myarraylist = str;
     if (typeof str === 'object') {
       if ($.isArray(str)) {
@@ -101,7 +107,7 @@ import 'mui/js/mui.dialog.toast';
     }
     console.log(str);
   };
-  $.setStorage = function(key, value) {
+  $.setStorage = function (key, value) {
     if (typeof value === 'object') {
       if (value === null) {
         value = 'objnull-null';
@@ -120,7 +126,7 @@ import 'mui/js/mui.dialog.toast';
     }
     localStorage[key] = value;
   };
-  $.getStorage = function(key) {
+  $.getStorage = function (key) {
     let v = localStorage[key];
     // $.log(key + '+++----------' + v);
     if (!v) return null;
@@ -137,7 +143,7 @@ import 'mui/js/mui.dialog.toast';
       return null;
     }
   };
-  $.rmStorage = function(key) {
+  $.rmStorage = function (key) {
     delete localStorage[key];
   };
   // ajax
@@ -148,40 +154,40 @@ import 'mui/js/mui.dialog.toast';
   $.ajaxSettings.headers = {
     'APPACCTOKEN': ''
   };
-  $.ajaxSettings.error = function(xhr, type, errorThrown) {
+  $.ajaxSettings.error = function (xhr, type, errorThrown) {
     $.log('ajax err...');
   };
   // 扩展
-  $.trim = function(str) {
+  $.trim = function (str) {
     if (String.prototype.trim) {
       return str === null ? '' : String.prototype.trim.call(str);
     } else {
       return str.replace(/(^\s*)|(\s*$)/g, '');
     }
   };
-  $.isElement = function(obj) {
+  $.isElement = function (obj) {
     return !!(obj && obj.nodeType === 1);
   };
-  $.byId = function(id) {
+  $.byId = function (id) {
     return document.getElementById(id);
   };
-  $.fn.addEventListener = function(name, fn, useCapture) {
+  $.fn.addEventListener = function (name, fn, useCapture) {
     useCapture = useCapture || false;
-    this.each(function(i, el) {
+    this.each(function (i, el) {
       if (el.addEventListener) {
         el.addEventListener(name, fn, useCapture);
       }
     });
   };
-  $.fn.removeEventListener = function(name, fn, useCapture) {
+  $.fn.removeEventListener = function (name, fn, useCapture) {
     useCapture = useCapture || false;
-    this.each(function(i, el) {
+    this.each(function (i, el) {
       if (el.removeEventListener) {
         el.removeEventListener(name, fn, useCapture);
       }
     });
   };
-  $.fn.remove = function() {
+  $.fn.remove = function () {
     if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
@@ -191,7 +197,7 @@ import 'mui/js/mui.dialog.toast';
       el.parentNode.removeChild(el);
     }
   };
-  $.fn.attr = function(name, value) {
+  $.fn.attr = function (name, value) {
     if (window.viewEXT === '.htm' && arguments.length === 2) return;
     let el = this[0];
     if (!$.isElement(el)) {
@@ -203,7 +209,7 @@ import 'mui/js/mui.dialog.toast';
       el.setAttribute(name, value);
     }
   };
-  $.fn.removeAttr = function(name) {
+  $.fn.removeAttr = function (name) {
     if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
@@ -213,7 +219,7 @@ import 'mui/js/mui.dialog.toast';
       el.removeAttribute(name);
     }
   };
-  $.fn.val = function(val) {
+  $.fn.val = function (val) {
     if (window.viewEXT === '.htm' && arguments.length === 0) return;
     let el = this[0];
     if (!$.isElement(el)) {
@@ -243,7 +249,7 @@ import 'mui/js/mui.dialog.toast';
       }
     }
   };
-  $.fn.prepend = function(html) {
+  $.fn.prepend = function (html) {
     if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
@@ -251,7 +257,7 @@ import 'mui/js/mui.dialog.toast';
     }
     el.insertAdjacentHTML('afterbegin', html);
   };
-  $.fn.append = function(html) {
+  $.fn.append = function (html) {
     if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
@@ -259,7 +265,7 @@ import 'mui/js/mui.dialog.toast';
     }
     el.insertAdjacentHTML('beforeend', html);
   };
-  $.fn.before = function(html) {
+  $.fn.before = function (html) {
     if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
@@ -267,7 +273,7 @@ import 'mui/js/mui.dialog.toast';
     }
     el.insertAdjacentHTML('beforebegin', html);
   };
-  $.fn.after = function(html) {
+  $.fn.after = function (html) {
     if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
@@ -275,7 +281,7 @@ import 'mui/js/mui.dialog.toast';
     }
     el.insertAdjacentHTML('afterend', html);
   };
-  $.fn.html = function(html) {
+  $.fn.html = function (html) {
     if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
@@ -287,7 +293,7 @@ import 'mui/js/mui.dialog.toast';
       el.innerHTML = html;
     }
   };
-  $.fn.text = function(txt) {
+  $.fn.text = function (txt) {
     if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
@@ -299,7 +305,7 @@ import 'mui/js/mui.dialog.toast';
       el.textContent = txt;
     }
   };
-  $.fn.offset = function() {
+  $.fn.offset = function () {
     let el = this[0];
     if (!$.isElement(el)) {
       return false;
@@ -314,10 +320,10 @@ import 'mui/js/mui.dialog.toast';
       h: el.offsetHeight
     };
   };
-  $.fn.closest = function(selector) {
+  $.fn.closest = function (selector) {
     let el = this[0];
     let doms, targetDom;
-    let isSame = function(doms, el) {
+    let isSame = function (doms, el) {
       let i = 0, len = doms.length;
       for (i; i < len; i++) {
         if (doms[i].isEqualNode(el)) {
@@ -326,7 +332,7 @@ import 'mui/js/mui.dialog.toast';
       }
       return false;
     };
-    let traversal = function(el, selector) {
+    let traversal = function (el, selector) {
       doms = el.parentNode.querySelectorAll(selector);
       targetDom = isSame(doms, el);
       if (!targetDom) {
@@ -340,7 +346,7 @@ import 'mui/js/mui.dialog.toast';
     };
     return traversal(el, selector);
   };
-  $.isLogin = function() {
+  $.isLogin = function () {
     if ($.getStorage('userId') === null) return false;
     return true;
   };

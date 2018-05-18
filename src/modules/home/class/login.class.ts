@@ -19,7 +19,7 @@ export default class Login extends Abstract {
     $.openWindow({
       id: 'sbaobao_index',
       url: '../sbaobao/index' + viewEXT,
-      styles: { top: '0px', backButtonAutoControl: 'quit', subNViews: subNViews, titleNView: titleNView }
+      styles: { top: '0px', backButtonAutoControl: 'none', subNViews: subNViews, titleNView: titleNView }
     })
   }
 }

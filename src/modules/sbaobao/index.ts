@@ -9,6 +9,11 @@ import * as config from './index/config'
 import { $, viewEXT } from '../../common/js/global.js'
 import SFooterbar from './class/sfooterbar.class'
 // ready
+$.init({
+  swipeBack: true,
+  keyEventBind: { backbutton: false, menubutton: false },
+  gestureConfig: { tap: true, swipe: true, doubletap: false, longtap: false, hold: false, flick: false, drag: false, pinch: false }
+})
 $.ready(function () {
   if (viewEXT === '.htm') return
   $.noop()
@@ -32,4 +37,14 @@ $.plusReady(function () {
     sFooterbar.toggleNview(currIndex)
     sFooterbar.changeSubpage(targetPage)
   })
+
+  $.plus.key.addEventListener('backbutton', () => {
+    if (!$.__back__first) {
+      $.__back__first = new Date().getTime()
+      $.toast('再按一次退出应用')
+      setTimeout(function () { $.__back__first = null }, 2000)
+    } else {
+      if (new Date().getTime() - $.__back__first < 2000) $.plus.runtime.quit()
+    }
+  }, false)
 })
