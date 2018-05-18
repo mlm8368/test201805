@@ -25,7 +25,7 @@ export default class SBaobao extends Student {
     window.addEventListener('dragleft', function (e: any) { e.detail.gesture.preventDefault() })
     window.addEventListener('swipeleft', () => { this.openMenu() })
     window.addEventListener('swiperight', () => { this.closeMenu() })
-    window.addEventListener('menu:swiperight', () => { this.closeMenu() })
+    window.addEventListener('closeOffcanvas', () => { this.closeMenu() })
   }
 
   /**

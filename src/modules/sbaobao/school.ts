@@ -19,6 +19,6 @@ $.ready(function () {
 $.plusReady(function () {
   const main = $.plus.webview.currentWebview().opener()
   window.addEventListener('swiperight', () => {
-    $.fire(main, 'menu:swiperight')
+    $.fire(main, 'closeOffcanvas')
   })
 })
