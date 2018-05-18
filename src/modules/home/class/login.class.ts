@@ -10,7 +10,7 @@ export default class Login extends Abstract {
       'styles': { bottom: '0px', left: '0px', height: '50px', width: '100%', backgroundColor: '#FFFFFF' },
       'tags': config.barTagsStudent
     }]
-    let clickButtonOffcanvas = () => {
+    let clickButtonOffcanvas = (): void => {
       $.log('clickButtonOffcanvas')
     }
     let titleNView = { backgroundColor: '#D74B28', titleText: '宝宝', titleColor: '#CCCCCC', buttons: [
