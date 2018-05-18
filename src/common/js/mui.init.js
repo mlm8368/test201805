@@ -101,16 +101,6 @@ import 'mui/js/mui.dialog.toast';
     }
     console.log(str);
   };
-  $.jsonToStr = function(json) {
-    if (typeof json === 'object') {
-      return JSON && JSON.stringify(json);
-    }
-  };
-  $.strToJson = function(str) {
-    if (typeof str === 'string') {
-      return JSON && JSON.parse(str);
-    }
-  };
   $.setStorage = function(key, value) {
     if (typeof value === 'object') {
       if (value === null) {

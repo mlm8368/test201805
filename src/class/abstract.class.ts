@@ -1,4 +1,22 @@
 export default class Abstract {
+  /**
+   * jsonToStr
+   */
+  public jsonToStr (json: object): string {
+    return JSON && JSON.stringify(json)
+  }
+  /**
+   * strToJson
+   */
+  public strToJson (str: string): object {
+    return JSON && JSON.parse(str)
+  }
+  /**
+   * getDateDiff
+   * @param {number} dateTimeStamp
+   * @returns {string}
+   * @memberof Abstract
+   */
   public getDateDiff (dateTimeStamp: number): string {
   	if (!dateTimeStamp) return '-'
 
