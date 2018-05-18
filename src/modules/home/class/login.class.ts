@@ -11,7 +11,7 @@ export default class Login extends Abstract {
       'tags': config.barTagsStudent
     }]
     let clickButtonOffcanvas = (): void => {
-      $.log('clickButtonOffcanvas')
+      // $.log('clickButtonOffcanvas')
       $.fire(wvSbaobaoIndex, 'openOffcanvas')
     }
     let titleNView = { backgroundColor: '#D74B28', titleText: '宝宝', titleColor: '#CCCCCC', buttons: [

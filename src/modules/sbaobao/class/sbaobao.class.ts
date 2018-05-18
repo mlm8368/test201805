@@ -34,7 +34,7 @@ export default class SBaobao extends Student {
   public openMenu () {
     if (!this.showMenu) {
       this.menu.show('none', 0, () => {
-        this.main.setStyle({ left: '-70%', transition: { duration: 150 } })
+        this.main.setStyle({ left: '0%', transition: { duration: 150 } })
       })
       this.mask.show()
       this.showMenu = true
@@ -46,12 +46,7 @@ export default class SBaobao extends Student {
    */
   public closeMenu (this: SBaobao, closeMask = true) {
     if (this.showMenu) {
-      this.main.setStyle({
-        left: '0',
-        transition: {
-          duration: 150
-        }
-      })
+      this.main.setStyle({ left: '-70%', transition: { duration: 150 } })
       setTimeout(() => { this.menu.hide() }, 300)
       this.showMenu = false
     }
