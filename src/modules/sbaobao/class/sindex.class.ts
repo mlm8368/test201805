@@ -20,8 +20,7 @@ export default class SIndex extends Student {
    * setMenu
    */
   public setMenu () {
-    this.menu = $.preload({ id: 'sbaobao_school', url: './school' + viewEXT, styles: { left: '0%', width: '70%', backButtonAutoControl: 'none', bounce: 'none' } })
-    this.menu.close('none')
+    // this.menu = $.preload({ id: 'sbaobao_school', url: './school' + viewEXT, styles: { left: '0%', width: '70%', backButtonAutoControl: 'none', bounce: 'none' } })
     // $.options.beforeback = (): boolean => {
     //   if (this.showMenu) {
     //     this.closeMenu()
@@ -31,6 +30,7 @@ export default class SIndex extends Student {
     //     return true
     //   }
     // }
+    this.menu = $.plus.webview.create('./school' + viewEXT, 'sbaobao_school', { left: '0%', width: '70%', backButtonAutoControl: 'none', bounce: 'none' })
     this.main.addEventListener('maskClick', () => {
       this.main.setStyle({ mask: 'none' })
       this.closeMenu(false)
