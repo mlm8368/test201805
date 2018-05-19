@@ -17,5 +17,6 @@ $.ready(function () {
 })
 // plusReady
 $.plusReady(function () {
+  $('#catid').html($.currentWebview.catid)
   $.noop()
 })
