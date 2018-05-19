@@ -70,7 +70,7 @@ export default class SIndex extends Student {
       tabBarHtml.push(`<div class="aui-tab-item mui-control-item ${tabBarItem.activeClass}" data-vwid="${tabBarItem.id}">${tabBarItem.title}</div>`)
 
       let WebviewGroupItem = { id: tabBarItem.id, url: tabBarItem.url,
-        styles: { top: tabHeight + 80 + 'px', bottom: '0px', backButtonAutoControl: 'none', bounce: 'none' }
+        styles: { top: tabHeight + 80 + 'px', bottom: '0px', render: 'always', backButtonAutoControl: 'none', bounce: 'none' }
       }
       if (tabBarItem.extras) WebviewGroupItem['extras'] = tabBarItem.extras
       WebviewGroupItems.push(WebviewGroupItem)

@@ -218,7 +218,7 @@ import 'mui/js/mui.back.5+';
     el.insertAdjacentHTML('afterend', html);
   };
   $.fn.html = function (html) {
-    if (window.viewEXT === '.htm') return;
+    // if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
       return false;

@@ -57,8 +57,8 @@ $.plusReady(function () {
 
   // tabBar
   let tabBarItems: SbbTabBarItem[] = [
-    { id: 'sbaobao_baobao_1', url: './baobao' + viewEXT, title: '大宝', activeClass: 'mui-active', extras: { id: 1 } },
-    { id: 'sbaobao_baobao_2', url: './baobao' + viewEXT, title: '二宝', activeClass: '', extras: { id: 2 } }
+    { id: 'sbaobao_baobao_1', url: './baobao' + viewEXT, title: '大宝', activeClass: 'mui-active', extras: { icatidd: 1 } },
+    { id: 'sbaobao_baobao_2', url: './baobao' + viewEXT, title: '二宝', activeClass: '', extras: { catid: 2 } }
   ]
   sIndex.setTabBar(tabBarItems)
   $('#tabBar').on('tap', '.mui-control-item', function (e) {
