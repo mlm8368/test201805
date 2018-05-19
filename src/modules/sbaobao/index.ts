@@ -54,7 +54,7 @@ $.plusReady(function () {
   })
 
   const sIndex = new SIndex()
-  
+
   // offcanvas
   sIndex.setMenu()
   window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
