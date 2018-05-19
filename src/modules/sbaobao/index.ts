@@ -7,7 +7,7 @@ import '../../common/js/mui.init.js'
 import * as config from './index/config'
 import { $, viewEXT } from '../../common/js/global.js'
 import SFooterbar from './class/sfooterbar.class'
-import SBaobao from './class/sbaobao.class'
+import SIndex from './class/sindex.class'
 // ready
 $.init({
   swipeBack: false,
@@ -50,6 +50,6 @@ $.plusReady(function () {
   })
 
   // offcanvas
-  const sBaobao = new SBaobao()
-  window.addEventListener('openOffcanvas', () => { sBaobao.openMenu() })
+  const sIndex = new SIndex()
+  window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
 })

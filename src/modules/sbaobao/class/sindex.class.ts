@@ -1,7 +1,7 @@
 import { $, viewEXT } from '../../../common/js/global.js'
 import Student from '../../../class/student.class'
 
-export default class SBaobao extends Student {
+export default class SIndex extends Student {
   private showMenu = false
   private main: any
   private menu: any
@@ -44,7 +44,7 @@ export default class SBaobao extends Student {
   /**
    * closeMenu
    */
-  public closeMenu (this: SBaobao, closeMask = true) {
+  public closeMenu (this: SIndex, closeMask = true) {
     if (this.showMenu) {
       this.main.setStyle({ left: '0%', transition: { duration: 150 } })
       setTimeout(() => { this.menu.hide() }, 300)
