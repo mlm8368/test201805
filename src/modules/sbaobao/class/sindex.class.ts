@@ -76,7 +76,7 @@ export default class SIndex extends Student {
       WebviewGroupItems.push(WebviewGroupItem)
     }
 
-    $('#tabBar').html(tabBarHtml.join())
+    $('#tabBar').html(tabBarHtml.join(''))
 
     this.group = new WebviewGroup(this.main.id, {
       top: tabHeight + 5,
