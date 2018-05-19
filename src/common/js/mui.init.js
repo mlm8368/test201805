@@ -29,38 +29,26 @@ import 'mui/js/mui.back.5+';
   $.plusReady(function () {
     $.plus = window.plus;
   });
-  // 返回函数
-  /*
-  $.addBack = function (back) {
-    return $.addAction('backs', back);
-  };
-  $.back = function () {
-    if (typeof $.options.beforeback === 'function') {
-      if ($.options.beforeback() === false) {
-        return;
-      }
-    }
-    $.doAction('backs');
-  };
-  window.addEventListener('swiperight', function (e) {
-    var detail = e.detail;
-    if ($.options.swipeBack === true && Math.abs(detail.angle) < 3) {
-      $.back();
-    }
-  });
-  */
   // 返回bug
   $.targets = {};
   $.targets._popover = null;
   $.closePopup = $.noop;
+  // ajax
+  $.ajaxSettings.timeout = 120000;
+  // $.ajaxSettings.crossDomain = true;
+  $.ajaxSettings.headers = { 'APPACCTOKEN': '' };
+  $.ajaxSettings.error = function (xhr, type, errorThrown) {
+    $.log('ajax err...');
+  };
+  // function
   $.createMask = function (callback) {
-    var element = document.createElement('div');
+    let element = document.createElement('div');
     element.classList.add($.className('backdrop'));
     element.addEventListener($.EVENT_MOVE, $.preventDefault);
     element.addEventListener('tap', function () {
       mask.close();
     });
-    var mask = [element];
+    let mask = [element];
     mask._show = false;
     mask.show = function () {
       mask._show = true;
@@ -73,7 +61,7 @@ import 'mui/js/mui.back.5+';
         mask._show = false;
         element.setAttribute('style', 'opacity:0');
         $.later(function () {
-          var body = document.body;
+          let body = document.body;
           element.parentNode === body && body.removeChild(element);
         }, 350);
       }
@@ -107,64 +95,7 @@ import 'mui/js/mui.back.5+';
     }
     console.log(str);
   };
-  $.setStorage = function (key, value) {
-    if (typeof value === 'object') {
-      if (value === null) {
-        value = 'objnull-null';
-      } else {
-        value = JSON.stringify(value);
-        value = 'obj-' + value;
-      }
-    } else if (typeof value === 'number') {
-      value = 'num-' + value;
-    } else if (typeof value === 'boolean') {
-      if (value === false) value = 0;
-      else value = 1;
-      value = 'bool-' + value;
-    } else {
-      value = 'str-' + value;
-    }
-    localStorage[key] = value;
-  };
-  $.getStorage = function (key) {
-    let v = localStorage[key];
-    // $.log(key + '+++----------' + v);
-    if (!v) return null;
-    if (v.indexOf('obj-') === 0) {
-      v = v.slice(4);
-      return JSON.parse(v);
-    } else if (v.indexOf('str-') === 0) {
-      return v.slice(4);
-    } else if (v.indexOf('num-') === 0) {
-      return Number(v.slice(4));
-    } else if (v.indexOf('bool-') === 0) {
-      return Boolean(v.slice(5));
-    } else if (v.indexOf('objnull-') === 0) {
-      return null;
-    }
-  };
-  $.rmStorage = function (key) {
-    delete localStorage[key];
-  };
-  // ajax
-  $.ajaxSettings.timeout = 120000;
-  /*
-  $.ajaxSettings.crossDomain = true;
-  */
-  $.ajaxSettings.headers = {
-    'APPACCTOKEN': ''
-  };
-  $.ajaxSettings.error = function (xhr, type, errorThrown) {
-    $.log('ajax err...');
-  };
   // 扩展
-  $.trim = function (str) {
-    if (String.prototype.trim) {
-      return str === null ? '' : String.prototype.trim.call(str);
-    } else {
-      return str.replace(/(^\s*)|(\s*$)/g, '');
-    }
-  };
   $.isElement = function (obj) {
     return !!(obj && obj.nodeType === 1);
   };

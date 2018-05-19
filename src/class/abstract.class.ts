@@ -12,6 +12,63 @@ export default class Abstract {
     return JSON && JSON.parse(str)
   }
   /**
+   * setStorage
+   */
+  public setStorage (key: string, value: any): void {
+    if (typeof value === 'object') {
+      if (value === null) {
+        value = 'objnull-null'
+      } else {
+        value = JSON.stringify(value)
+        value = 'obj-' + value
+      }
+    } else if (typeof value === 'number') {
+      value = 'num-' + value
+    } else if (typeof value === 'boolean') {
+      if (value === false) value = 0
+      else value = 1
+      value = 'bool-' + value
+    } else {
+      value = 'str-' + value
+    }
+    localStorage[key] = value
+  }
+  /**
+   * getStorage
+   */
+  public getStorage (key: string) {
+    let v = localStorage[key]
+    if (!v) return null
+    if (v.indexOf('obj-') === 0) {
+      v = v.slice(4)
+      return JSON.parse(v)
+    } else if (v.indexOf('str-') === 0) {
+      return v.slice(4)
+    } else if (v.indexOf('num-') === 0) {
+      return Number(v.slice(4))
+    } else if (v.indexOf('bool-') === 0) {
+      return Boolean(v.slice(5))
+    } else if (v.indexOf('objnull-') === 0) {
+      return null
+    }
+  }
+  /**
+   * rmStorage
+   */
+  public rmStorage (key: string) {
+    delete localStorage[key]
+  }
+  /**
+   * trim
+   */
+  public trim (str: string) {
+    if (String.prototype.trim) {
+      return str === null ? '' : String.prototype.trim.call(str)
+    } else {
+      return str.replace(/(^\s*)|(\s*$)/g, '')
+    }
+  }
+  /**
    * getDateDiff
    * @param {number} dateTimeStamp
    * @returns {string}
