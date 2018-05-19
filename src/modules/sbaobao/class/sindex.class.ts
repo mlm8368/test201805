@@ -8,7 +8,6 @@ export default class SIndex extends Student {
   private showMenu = false
   private main: any
   private menu: any
-  private mask: any
   // WebviewGroup
   private group: any
 
@@ -16,7 +15,6 @@ export default class SIndex extends Student {
     super()
     this.main = $.currentWebview
     this.menu = $.preload({ id: 'sbaobao_school', url: './school' + viewEXT, styles: { left: '0%', width: '70%', backButtonAutoControl: 'none', bounce: 'none', zindex: 9997 } })
-    this.mask = $.createMask(() => { this.closeMenu(false) })
     $.options.beforeback = (): boolean => {
       if (this.showMenu) {
         this.closeMenu()
@@ -26,10 +24,14 @@ export default class SIndex extends Student {
         return true
       }
     }
-    window.addEventListener('dragright', function (e: any) { e.detail.gesture.preventDefault() })
-    window.addEventListener('dragleft', function (e: any) { e.detail.gesture.preventDefault() })
-    window.addEventListener('swiperight', () => { this.openMenu() })
-    window.addEventListener('swipeleft', () => { this.closeMenu() })
+    this.main.addEventListener('maskClick', () => {
+      this.main.setStyle({ mask: 'none' })
+      this.closeMenu(false)
+    }, false)
+    // window.addEventListener('dragright', function (e: any) { e.detail.gesture.preventDefault() })
+    // window.addEventListener('dragleft', function (e: any) { e.detail.gesture.preventDefault() })
+    // window.addEventListener('swiperight', () => { this.openMenu() })
+    // window.addEventListener('swipeleft', () => { this.closeMenu() })
     window.addEventListener('closeOffcanvas', () => { this.closeMenu() })
   }
 
@@ -41,7 +43,7 @@ export default class SIndex extends Student {
       this.menu.show('none', 0, () => {
         this.main.setStyle({ left: '70%', transition: { duration: 150 } })
       })
-      this.mask.show()
+      this.main.setStyle({ mask: 'rgba(0,0,0,0.5)' })
       this.showMenu = true
     }
   }
@@ -50,23 +52,22 @@ export default class SIndex extends Student {
    * closeMenu
    */
   public closeMenu (this: SIndex, closeMask = true) {
+    if (closeMask) this.main.setStyle({ mask: 'none' })
     if (this.showMenu) {
       this.main.setStyle({ left: '0%', transition: { duration: 150 } })
       setTimeout(() => { this.menu.hide() }, 300)
       this.showMenu = false
     }
-    if (closeMask) this.mask.close()
   }
   /**
    * setWebviewGroupItems
    */
   public setTabBar (tabBarItems: SbbTabBarItem[]) {
     const tabHeight = $.byId('tabBar').offsetHeight
-    $.log(tabHeight)
     let WebviewGroupItems = []
     let tabBarHtml = []
     for (const tabBarItem of tabBarItems) {
-      tabBarHtml.push(`<div class="aui-tab-item mui-control-item ${tabBarItem.activeClass}" data-vwid="news_list_quanzhong">${tabBarItem.title}</div>`)
+      tabBarHtml.push(`<div class="aui-tab-item mui-control-item ${tabBarItem.activeClass}" data-vwid="${tabBarItem.id}">${tabBarItem.title}</div>`)
 
       let WebviewGroupItem = { id: tabBarItem.id, url: tabBarItem.url,
         styles: { top: tabHeight + 80 + 'px', bottom: '0px', backButtonAutoControl: 'none', bounce: 'none' }
