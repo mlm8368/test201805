@@ -41,6 +41,11 @@ import 'mui/js/mui.back.5+';
     $.log('ajax err...');
   };
   // function
+  $.isLogin = function () {
+    let userId = localStorage['userId'];
+    if (userId) return userId;
+    return 0;
+  };
   $.createMask = function (callback) {
     let element = document.createElement('div');
     element.classList.add($.className('backdrop'));
@@ -276,9 +281,5 @@ import 'mui/js/mui.back.5+';
       return targetDom;
     };
     return traversal(el, selector);
-  };
-  $.isLogin = function () {
-    if ($.getStorage('userId') === null) return false;
-    return true;
   };
 })(window.mui);
