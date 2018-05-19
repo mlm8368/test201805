@@ -53,8 +53,10 @@ $.plusReady(function () {
     sFooterbar.changeSubpage(targetPage)
   })
 
-  // offcanvas
   const sIndex = new SIndex()
+  
+  // offcanvas
+  sIndex.setMenu()
   window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
 
   // tabBar

@@ -14,27 +14,30 @@ export default class SIndex extends Student {
   constructor () {
     super()
     this.main = $.currentWebview
+  }
+
+  /**
+   * setMenu
+   */
+  public setMenu () {
     this.menu = $.preload({ id: 'sbaobao_school', url: './school' + viewEXT, styles: { left: '0%', width: '70%', backButtonAutoControl: 'none', bounce: 'none' } })
-    $.options.beforeback = (): boolean => {
-      if (this.showMenu) {
-        this.closeMenu()
-        return false
-      } else {
-        this.menu.close('none')
-        return true
-      }
-    }
+    // $.options.beforeback = (): boolean => {
+    //   if (this.showMenu) {
+    //     this.closeMenu()
+    //     return false
+    //   } else {
+    //     this.menu.close('none')
+    //     return true
+    //   }
+    // }
     this.main.addEventListener('maskClick', () => {
       this.main.setStyle({ mask: 'none' })
       this.closeMenu(false)
     }, false)
-    // window.addEventListener('dragright', function (e: any) { e.detail.gesture.preventDefault() })
-    // window.addEventListener('dragleft', function (e: any) { e.detail.gesture.preventDefault() })
-    // window.addEventListener('swiperight', () => { this.openMenu() })
-    // window.addEventListener('swipeleft', () => { this.closeMenu() })
+    window.addEventListener('dragright', function (e: any) { e.detail.gesture.preventDefault() })
+    window.addEventListener('dragleft', function (e: any) { e.detail.gesture.preventDefault() })
     window.addEventListener('closeOffcanvas', () => { this.closeMenu() })
   }
-
   /**
    * openMenu
    */
