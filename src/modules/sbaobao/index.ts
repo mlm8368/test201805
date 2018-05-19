@@ -61,7 +61,7 @@ $.plusReady(function () {
     { id: 'sbaobao_baobao_2', url: './baobao' + viewEXT, title: '二宝', activeClass: '', extras: { id: 2 } }
   ]
   sIndex.setTabBar(tabBarItems)
-  $('#tabBar').on('tap', '.mui-control-item', (e) => {
+  $('#tabBar').on('tap', '.mui-control-item', function (e) {
     sIndex.switchTab(this.getAttribute('data-vwid'))
   })
 })
