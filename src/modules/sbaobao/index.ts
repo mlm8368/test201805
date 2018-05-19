@@ -8,6 +8,8 @@ import * as config from './index/config'
 import { $, viewEXT } from '../../common/js/global.js'
 import SFooterbar from './class/sfooterbar.class'
 import SIndex from './class/sindex.class'
+
+import { SbbTabBarItem } from '../../class/interface'
 // ready
 $.init({
   swipeBack: false,
@@ -52,4 +54,30 @@ $.plusReady(function () {
   // offcanvas
   const sIndex = new SIndex()
   window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
+
+  // tabBar
+  let tabBarItems: SbbTabBarItem[] = [
+    {
+      id: 'sbaobao_baobao_1',
+      url: 'baobao' + viewEXT,
+      title: '大宝',
+      activeClass: 'mui-active',
+      extras: {
+        id: 1
+      }
+    },
+    {
+      id: 'sbaobao_baobao_2',
+      url: 'baobao' + viewEXT,
+      title: '二宝',
+      activeClass: '',
+      extras: {
+        id: 2
+      }
+    }
+  ]
+  sIndex.setTabBar(tabBarItems)
+  $('#tabBar').on('tap', '.mui-control-item', (e) => {
+    sIndex.switchTab(this.getAttribute('data-vwid'))
+  })
 })

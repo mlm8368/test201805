@@ -10,3 +10,10 @@ export interface FooterbarConfig {
   normalColor: string,
   subpages: IdUrl[]
 }
+export interface SbbTabBarItem {
+  id: string,
+  url: string,
+  title: string,
+  activeClass: string,
+  extras?: any
+}

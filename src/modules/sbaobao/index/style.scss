@@ -1,13 +1,11 @@
 @import "../../../mui/sass/variables.scss";
 @import "../../../mui/sass/mixins.scss";
 
-@import "../../../common/sass/list.scss";
-@import "../../../common/sass/btn.scss";
-@import "../../../common/sass/grid.scss";
-@import "../../../common/sass/col.scss";
+@import "../../../common/sass/tab.scss";
 
-.aui-icon-qq:before { content: "\e6cb"; }
-.aui-icon-wechat:before { content: "\e6c9"; }
-.aui-icon-weibo:before { content: "\e6c8"; }
+body {height: 100%;}
 
-.login-third { margin-top: 48px;}
+.aui-tab-item.mui-active {
+    color: #039be5;
+    border-bottom: 1px solid #039be5; /*no*/
+}
