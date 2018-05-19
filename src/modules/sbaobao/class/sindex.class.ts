@@ -14,7 +14,7 @@ export default class SIndex extends Student {
   constructor () {
     super()
     this.main = $.currentWebview
-    this.menu = $.preload({ id: 'sbaobao_school', url: './school' + viewEXT, styles: { left: '0%', width: '70%', backButtonAutoControl: 'none', bounce: 'none', zindex: 9997 } })
+    this.menu = $.preload({ id: 'sbaobao_school', url: './school' + viewEXT, styles: { left: '0%', width: '70%', backButtonAutoControl: 'none', bounce: 'none' } })
     $.options.beforeback = (): boolean => {
       if (this.showMenu) {
         this.closeMenu()
