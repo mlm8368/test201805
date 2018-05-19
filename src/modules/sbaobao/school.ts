@@ -18,7 +18,7 @@ $.ready(function () {
 // plusReady
 $.plusReady(function () {
   const main = $.plus.webview.currentWebview().opener()
-  window.addEventListener('swiperight', () => {
+  window.addEventListener('swipeleft', () => {
     $.fire(main, 'closeOffcanvas')
   })
 })
