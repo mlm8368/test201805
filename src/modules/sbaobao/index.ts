@@ -23,6 +23,7 @@ $.ready(function () {
 // plusReady
 $.plusReady(function () {
   // backbutton
+  /*
   $.plus.key.addEventListener('backbutton', () => {
     if (!$.__back__first) {
       $.__back__first = new Date().getTime()
@@ -32,6 +33,7 @@ $.plusReady(function () {
       if (new Date().getTime() - $.__back__first < 2000) $.plus.runtime.quit()
     }
   }, false)
+  */
 
   // tabBar
   const sFooterbar = new SFooterbar(config.footbarProp)
