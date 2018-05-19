@@ -21,6 +21,7 @@ export default class SIndex extends Student {
    */
   public setMenu () {
     this.menu = $.preload({ id: 'sbaobao_school', url: './school' + viewEXT, styles: { left: '0%', width: '70%', backButtonAutoControl: 'none', bounce: 'none' } })
+    this.menu.close('none')
     // $.options.beforeback = (): boolean => {
     //   if (this.showMenu) {
     //     this.closeMenu()
