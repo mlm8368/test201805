@@ -4,12 +4,15 @@ import './index/style.scss'
 // mui js
 import '../../common/js/mui.init.js'
 // self
-import * as config from './index/config'
 import { $, viewEXT } from '../../common/js/global.js'
+import * as config from './index/config'
 import SFooterbar from './class/sfooterbar.class'
 import SIndex from './class/sindex.class'
 
 import { SbbTabBarItem } from '../../class/interface'
+
+const sIndex = new SIndex()
+
 // ready
 $.init({
   swipeBack: false,
@@ -52,8 +55,6 @@ $.plusReady(function () {
     sFooterbar.toggleNview(currIndex)
     sFooterbar.changeSubpage(targetPage)
   })
-
-  const sIndex = new SIndex()
 
   // offcanvas
   sIndex.setMenu()

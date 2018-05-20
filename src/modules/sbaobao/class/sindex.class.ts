@@ -13,7 +13,9 @@ export default class SIndex extends Student {
 
   constructor () {
     super()
-    this.main = $.currentWebview
+    $.plusReady(() => {
+      this.main = $.currentWebview
+    })
   }
 
   /**
