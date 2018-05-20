@@ -17,3 +17,10 @@ export interface SbbTabBarItem {
   activeClass: string,
   extras?: any
 }
+export interface ImageSliderImageStyles {
+  src: string,
+  width?: string,
+  height?: string,
+  align?: string,
+  verticalAlign?: string
+}
