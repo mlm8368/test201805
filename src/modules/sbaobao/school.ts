@@ -4,7 +4,7 @@ import '../../common/sass/mui.init.scss'
 // mui js
 import '../../common/js/mui.init.js'
 // self
-import { $, viewEXT } from '../../common/js/global.js'
+import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
 // ready
 $.init({
   swipeBack: false,
@@ -12,6 +12,7 @@ $.init({
   gestureConfig: { tap: true, swipe: true, doubletap: false, longtap: false, hold: false, flick: false, drag: false, pinch: false }
 })
 $.ready(function () {
+  setImmersedHeight($.byId('header'))
   if (viewEXT === '.htm') return
 })
 // plusReady
