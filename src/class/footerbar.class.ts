@@ -49,7 +49,6 @@ export default class Footerbar {
    * @memberof Footerbar
    */
   public initSubpage (): void {
-    const subpageStyle = { top: '0px', bottom: '50px', bounce: 'none', bounceBackground: '#1E90FF' }
     let self = $.plus.webview.currentWebview()
 
     this.activePage = self.id
@@ -59,9 +58,9 @@ export default class Footerbar {
 
     for (const subpage of this.props.subpages) {
       if (!$.plus.webview.getWebviewById(subpage.id)) {
-        let _subpageStyle = subpageStyle
-        if (subpage.subpageStyle) $.extend(true, _subpageStyle, subpage.subpageStyle)
-        let sub = $.plus.webview.create(subpage.url, subpage.id, _subpageStyle)
+        let subpageStyle = { top: '0px', bottom: '50px', bounce: 'none', bounceBackground: '#1E90FF' }
+        if (subpage.subpageStyle) $.extend(true, subpageStyle, subpage.subpageStyle)
+        let sub = $.plus.webview.create(subpage.url, subpage.id, subpageStyle)
         // 初始化隐藏
         sub.hide()
         // append到当前父webview
