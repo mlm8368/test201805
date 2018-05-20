@@ -18,15 +18,14 @@ $.init({
   gestureConfig: { tap: true, swipe: false, doubletap: false, longtap: false, hold: false, flick: false, drag: false, pinch: false }
 })
 $.ready(function () {
-  let slideImages: ImageSliderImageStyles[]
-  slideImages.push({ src: '_www/static/images/tmp/l1.png', width: '100%' })
-  slideImages.push({ src: '_www/static/images/tmp/l2.png', width: '100%' })
-  slideImages.push({ src: '_www/static/images/tmp/l3.png', width: '100%' })
-  sIndex.setSlideImages(slideImages)
   if (viewEXT === '.htm') return
   $.noop()
 })
 // plusReady
 $.plusReady(function () {
-  $.noop()
+  let slideImages: ImageSliderImageStyles[] = []
+  slideImages.push({ src: '_www/static/images/tmp/l1.png', width: '100%' })
+  slideImages.push({ src: '_www/static/images/tmp/l2.png', width: '100%' })
+  slideImages.push({ src: '_www/static/images/tmp/l3.png', width: '100%' })
+  sIndex.setSlideImages(slideImages)
 })
