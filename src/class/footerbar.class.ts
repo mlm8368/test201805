@@ -31,8 +31,6 @@ export default class Footerbar {
 
       this.aniShow[firstWebview.id] = true
 
-      this.initSubpage()
-      this.isFirst = false
     } else $.log('ERR! mui plus is null')
   }
   /**
@@ -45,6 +43,32 @@ export default class Footerbar {
   }
   public getStatus (): string {
     return this.status
+  }
+  /**
+   * 初始化首个tab窗口 和 创建子webview窗口
+   * @memberof Footerbar
+   */
+  public initSubpage (): void {
+    const subpageStyle = { top: '0px', bottom: '50px', bounce: 'none', bounceBackground: '#1E90FF' }
+    let self = $.plus.webview.currentWebview()
+
+    this.activePage = self.id
+
+    // 初始化绘制首个tab按钮
+    this.toggleNview(0)
+
+    for (const subpage of this.props.subpages) {
+      if (!$.plus.webview.getWebviewById(subpage.id)) {
+        let _subpageStyle = subpageStyle
+        if (subpage.subpageStyle) $.extend(true, _subpageStyle, subpage.subpageStyle)
+        let sub = $.plus.webview.create(subpage.url, subpage.id, _subpageStyle)
+        // 初始化隐藏
+        sub.hide()
+        // append到当前父webview
+        self.append(sub)
+      }
+    }
+    this.isFirst = false
   }
   /**
    * 点击切换tab窗口
@@ -107,30 +131,5 @@ export default class Footerbar {
     currTag = nviewObj.tags[currIndex + 1]
     currTag.textStyles.color = color
     tabBarNViewEvent.drawText(currTag.text, currTag.position, currTag.textStyles, currTag.id)
-  }
-  /**
-   * 初始化首个tab窗口 和 创建子webview窗口
-   * @memberof Footerbar
-   */
-  private initSubpage (): void {
-    const subpageStyle = { top: '0px', bottom: '50px', bounce: 'none', bounceBackground: '#1E90FF' }
-    let self = $.plus.webview.currentWebview()
-
-    this.activePage = self.id
-
-    // 初始化绘制首个tab按钮
-    this.toggleNview(0)
-
-    for (const subpage of this.props.subpages) {
-      if (!$.plus.webview.getWebviewById(subpage.id)) {
-        let _subpageStyle = subpageStyle
-        if (subpage.subpageStyle) $.extend(true, _subpageStyle, subpage.subpageStyle)
-        let sub = $.plus.webview.create(subpage.url, subpage.id, _subpageStyle)
-        // 初始化隐藏
-        sub.hide()
-        // append到当前父webview
-        self.append(sub)
-      }
-    }
   }
 }

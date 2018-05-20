@@ -40,6 +40,7 @@ $.plusReady(function () {
 
   // tabBar
   const sFooterbar = new SFooterbar(config.footbarProp)
+  sFooterbar.initSubpage()
   const tabBarNView = $.plus.nativeObj.View.getViewById('tabBarStudent')
   tabBarNView.addEventListener('click', function (e) {
     if (sFooterbar.getStatus() === 'doing') return

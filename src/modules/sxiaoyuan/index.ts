@@ -17,7 +17,7 @@ $.init({
   gestureConfig: { tap: true, swipe: false, doubletap: false, longtap: false, hold: false, flick: false, drag: false, pinch: false }
 })
 $.ready(function () {
-  sIndex.setAuiSlide('schoolPicSlide')
+  // sIndex.setAuiSlide('schoolPicSlide')
   if (viewEXT === '.htm') return
   $.noop()
 })
