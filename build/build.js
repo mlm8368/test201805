@@ -20,7 +20,7 @@ const webpackConfig = require('./webpack.prod.conf')
 const spinner = ora('building for production...')
 spinner.start()
 
-if (process.env.NODE_MODULES !== 'all' || process.env.NODE_TPL_EXT === 'htm' || process.env.NODE_TPL_EXT === 'html') {
+if (process.env.NODE_MODULES !== 'all' || process.env.NODE_TPL_EXT === '.htm' || process.env.NODE_TPL_EXT === '.html') {
   rm = function (opt,callback) {
     callback();
   }

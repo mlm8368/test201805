@@ -15,7 +15,7 @@ for (let moduleName of modules) {
   buildEntries[moduleName] = path.join(utils.resolve('src'),'modules',moduleName,'main.js');
 }
 */
-let globalPath = utils.resolve('src')+'/modules/**/*'+'.'+process.env.NODE_TPL_EXT;
+let globalPath = utils.resolve('src')+'/modules/**/*'+process.env.NODE_TPL_EXT;
 glob.sync(globalPath).forEach((pagePath)=>{
   var ext = path.extname(pagePath),
     basename = path.basename(pagePath, ext),

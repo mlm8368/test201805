@@ -146,7 +146,7 @@ let pages = ((globalPath)=>{
     }
   });
   return htmlFiles;
-})(utils.resolve('src')+'/modules/**/*'+'.'+process.env.NODE_TPL_EXT);
+})(utils.resolve('src')+'/modules/**/*'+process.env.NODE_TPL_EXT);
 
 for (let entryName in pages) {
   let conf = {
