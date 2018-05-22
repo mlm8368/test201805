@@ -24,7 +24,7 @@ $.ready(function () {
   $.noop()
 })
 // plusReady
-$.plusReady(function () {
+$.plusReady(() => {
   // backbutton
   /*
   $.plus.key.addEventListener('backbutton', () => {
@@ -57,10 +57,6 @@ $.plusReady(function () {
     sFooterbar.changeSubpage(targetPage)
   })
 
-  // offcanvas
-  sIndex.setMenu()
-  window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
-
   // tabBar
   let tabBarItems: SbbTabBarItem[] = [
     { id: 'sbaobao_baobao_1', url: './baobao' + viewEXT, title: '大宝', activeClass: 'mui-active', extras: { catid: 1 } },
@@ -72,4 +68,8 @@ $.plusReady(function () {
   $('#tabBar').on('tap', '.mui-control-item', function (e) {
     sIndex.switchTab(this.dataset.vwid)
   })
+
+  // offcanvas
+  setTimeout(() => { sIndex.setMenu() }, 100)
+  window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
 })
