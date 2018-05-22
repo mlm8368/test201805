@@ -1,7 +1,7 @@
 // import '../../static/mui.js';
 
 export let $ = window.mui;
-export let viewEXT = window.viewEXT;
+export let viewEXT = process.env.viewEXT;
 export function getFileExt(fileName) {
   return fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
 }
