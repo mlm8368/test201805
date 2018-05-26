@@ -36,7 +36,7 @@ proto._initNativeView = function() {
 		'left': '100%',
 		'width': '100%',
 		'height': '100%',
-		'backgroundColor':'#e51c23'
+		'backgroundColor':'#ffffff'
 	});
 	this.nativeView.show();
 };
