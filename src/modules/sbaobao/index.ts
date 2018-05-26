@@ -38,7 +38,23 @@ $.plusReady(() => {
   }, false)
   */
 
+  // offcanvas
+  setTimeout(() => { sIndex.setMenu() }, 100)
+  window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
+
   // tabBar
+  let tabBarItems: SbbTabBarItem[] = [
+    { id: 'sbaobao_baobao_1', url: './baobao' + viewEXT, title: '大宝', activeClass: 'mui-active', extras: { catid: 1 } },
+    { id: 'sbaobao_baobao_2', url: './baobao' + viewEXT, title: '二宝', activeClass: '', extras: { catid: 2 } },
+    { id: 'sbaobao_baobao_3', url: './baobao' + viewEXT, title: '三宝', activeClass: '', extras: { catid: 3 } },
+    { id: 'sbaobao_baobao_4', url: './baobao' + viewEXT, title: '四宝', activeClass: '', extras: { catid: 4 } }
+  ]
+  sIndex.setTabBar(tabBarItems)
+  $('#tabBar').on('tap', '.mui-control-item', function (e) {
+    sIndex.switchTab(this.dataset.vwid)
+  })
+
+  // footerBar
   const sFooterbar = new SFooterbar(config.footbarProp)
   sFooterbar.initSubpage()
   const tabBarNView = $.plus.nativeObj.View.getViewById('tabBarStudent')
@@ -56,20 +72,4 @@ $.plusReady(() => {
     sFooterbar.toggleNview(currIndex)
     sFooterbar.changeSubpage(targetPage)
   })
-
-  // tabBar
-  let tabBarItems: SbbTabBarItem[] = [
-    { id: 'sbaobao_baobao_1', url: './baobao' + viewEXT, title: '大宝', activeClass: 'mui-active', extras: { catid: 1 } },
-    { id: 'sbaobao_baobao_2', url: './baobao' + viewEXT, title: '二宝', activeClass: '', extras: { catid: 2 } },
-    { id: 'sbaobao_baobao_3', url: './baobao' + viewEXT, title: '三宝', activeClass: '', extras: { catid: 3 } },
-    { id: 'sbaobao_baobao_4', url: './baobao' + viewEXT, title: '四宝', activeClass: '', extras: { catid: 4 } }
-  ]
-  sIndex.setTabBar(tabBarItems)
-  $('#tabBar').on('tap', '.mui-control-item', function (e) {
-    sIndex.switchTab(this.dataset.vwid)
-  })
-
-  // offcanvas
-  setTimeout(() => { sIndex.setMenu() }, 100)
-  window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
 })

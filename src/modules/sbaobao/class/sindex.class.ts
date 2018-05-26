@@ -2,6 +2,7 @@ import { $, viewEXT } from '../../../common/js/global.js'
 import Student from '../../../class/student.class'
 import WebviewGroup from '../../../plugin/aui/webviewGroup.js'
 import { SbbTabBarItem } from '../../../class/interface'
+import * as config from '../index/config'
 
 export default class SIndex extends Student {
   // Offcanvas
@@ -85,7 +86,7 @@ export default class SIndex extends Student {
     $('#tabBar').html(tabBarHtml.join(''))
 
     this.group = new WebviewGroup(this.main.id, {
-      top: tabHeight + 5,
+      top: config.common.titleNViewHeight + tabHeight, // 切换遮罩view
       items: WebviewGroupItems,
       onChange: function (obj) {
         const c = document.querySelector('.mui-control-item.mui-active')

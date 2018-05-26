@@ -1,4 +1,4 @@
-export * from '../../../common/js/config.js'
+export * from '../../../class/config'
 
 export const barTagsStudent = [
   {

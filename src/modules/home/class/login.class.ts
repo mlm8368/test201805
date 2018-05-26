@@ -7,7 +7,7 @@ export default class Login extends Abstract {
     // student
     let subNViews = [{
       'id': 'tabBarStudent',
-      'styles': { bottom: '0px', left: '0px', height: '50px', width: '100%', backgroundColor: '#FFFFFF' },
+      'styles': { bottom: '0px', left: '0px', height: config.common.footerbarHeight + 'px', width: '100%', backgroundColor: '#FFFFFF' },
       'tags': config.barTagsStudent
     }]
     let clickButtonOffcanvas = (): void => {

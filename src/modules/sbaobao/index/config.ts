@@ -1,6 +1,6 @@
 import { viewEXT } from '../../../common/js/global.js'
 
-export * from '../../../common/js/config.js'
+export * from '../../../class/config'
 
 const subpageStyleXiaoyuan = { top: '0px', backButtonAutoControl: 'none', titleNView: { backgroundColor: '#FFff00', titleText: '阳光美智幼儿园', titleColor: '#CCCCCC' },
   subNViews: [{ id: 'schoolSlider', type: 'ImageSlider', styles: { left: '0px', right: '0px', top: '0px', height: '200px', position: 'static', autoplay: true, loop: true, images: [] } }] }

@@ -1,7 +1,9 @@
+import * as config from '../../common/js/config.js'
+
 var webviewGroup = function(id, options) {
 	this.id = id;
 	this.options = options;
-	this.styles = options.styles;
+	// this.styles = options.styles;
 	this.items = options.items;
 	this.onChange = options.onChange
 
@@ -28,15 +30,13 @@ proto._initParent = function() {
 	}
 };
 proto._initNativeView = function() {
-	// fixed by wmy 因为沉浸式应用，需要额外加上状态栏高度
-	var statusbar_H = window.plus.navigator.getStatusbarHeight(); 
 	this.nativeView = new window.plus.nativeObj.View('__MUI_TAB_NATIVE', {
-		'top': (this.options.top + statusbar_H) +'px', //这个需要根据顶部导航及顶部选项卡高度自动调整
-		'bottom': '50px',
+		'top': this.options.top +'px', //这个需要根据顶部导航及顶部选项卡高度自动调整
+		'bottom': config.common.footerbarHeight + 'px',
 		'left': '100%',
 		'width': '100%',
 		'height': '100%',
-		"backgroundColor":"#ffffff"
+		'backgroundColor':'#e51c23'
 	});
 	this.nativeView.show();
 };

@@ -1,5 +1,6 @@
 import { $, viewEXT } from '../common/js/global.js'
 import { FooterbarConfig } from './interface'
+import * as config from '../common/js/config.js'
 
 export default class Footerbar {
   protected props: FooterbarConfig = {
@@ -58,7 +59,7 @@ export default class Footerbar {
 
     for (const subpage of this.props.subpages) {
       if (!$.plus.webview.getWebviewById(subpage.id)) {
-        let subpageStyle = { top: '0px', bottom: '50px', bounce: 'none', bounceBackground: '#1E90FF' }
+        let subpageStyle = { top: '0px', bottom: config.common.footerbarHeight + 'px', bounce: 'none', bounceBackground: '#1E90FF' }
         if (subpage.subpageStyle) $.extend(true, subpageStyle, subpage.subpageStyle)
         let sub = $.plus.webview.create(subpage.url, subpage.id, subpageStyle)
         // 初始化隐藏
