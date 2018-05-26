@@ -33,7 +33,7 @@ export default class SIndex extends Student {
     //     return true
     //   }
     // }
-    this.menu = $.plus.webview.create('./school' + viewEXT, 'sbaobao_school', { left: '0%', width: '70%', backButtonAutoControl: 'none', bounce: 'none' })
+    this.menu = $.plus.webview.create('./school' + viewEXT, 'sbaobao_school', { left: '0%', bottom: '0px', width: '70%', height: '100%', backButtonAutoControl: 'none', bounce: 'none' })
     this.main.addEventListener('maskClick', () => {
       this.main.setStyle({ mask: 'none' })
       this.closeMenu(false)
