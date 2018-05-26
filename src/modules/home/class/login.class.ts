@@ -4,6 +4,7 @@ import Abstract from '../../../class/abstract.class'
 
 export default class Login extends Abstract {
   public goPortal (type: string): void {
+    $.plus.nativeUI.showWaiting() // 等宝宝等页加载完后关闭
     // student
     let subNViews = [{
       'id': 'tabBarStudent',
