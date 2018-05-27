@@ -1,4 +1,4 @@
-export const SITE_HOST = {
+export const siteHost = {
   siteurl: 'http://appdata.dog1314.com/1.4/',
   siteurl_longcache: 'http://longcache.dog1314.com/1.4/',
   siteurl_shortcache: 'http://shortcache.dog1314.com/1.4/',
