@@ -8,11 +8,10 @@
   <script src="../../static/mui.js"></script>
   <link rel="stylesheet" href="../../static/aui.css" />
   <style type="text/css">
-    .aui-grid [class*=aui-col-] {padding: 10px 0;}
     .student {width:100%; padding: 20px 0 20px; text-align: center; }
     .student img {width: 100px !important; display: inline-block !important;}
     .student h1 {color:#ffffff;}
-    .teacher img {width: 60px; height: 60px; display: inline-block;}
+    .tabBar {padding: 0 60px;}
   </style>
 </head>
 
@@ -25,81 +24,25 @@
       </div>
     </div>
   </section>
-  <section class="aui-content aui-grid aui-margin-b-0 teacher">
+  <section class="aui-content aui-grid">
     <div class="aui-row">
-        <div class="aui-col-5">
-            <img src="../../static/images/defaultAvatar.png" class="aui-img-round" >
-            <div class="aui-gird-lable aui-font-size-12">李老师</div>
+        <div class="aui-col-xs-3 aui-border">
+            <i class="aui-iconfont aui-icon-home"></i>
+            <div class="aui-grid-label">请假</div>
         </div>
-        <div class="aui-col-5">
-            <img src="../../static/images/defaultAvatar.png" class="aui-img-round" >
-            <div class="aui-gird-lable aui-font-size-12">张老师</div>
-        </div>
-        <div class="aui-col-5">
-            <img src="../../static/images/defaultAvatar.png" class="aui-img-round" >
-            <div class="aui-gird-lable aui-font-size-12">王老师</div>
+        <div class="aui-col-xs-3 aui-border">
+            <i class="aui-iconfont aui-icon-gear"></i>
+            <div class="aui-grid-label">作业</div>
         </div>
     </div>
+    <div class="aui-hr"></div>
   </section>
   <section class="aui-content">
-    <div class="aui-list">
-      <div class="aui-list-header"><span class="aui-text-danger aui-font-size-18">成长记录</span></div>
-    </div>
-    <div class="aui-timeline">
-        <div class="aui-timeline-item-header">2017年1月8日</div>
-        <div class="aui-timeline-item">
-            <div class="aui-timeline-item-label aui-bg-info text-light">NO.1</div>
-            <div class="aui-timeline-item-inner">
-                <div class="aui-card-list">
-                    <div class="aui-card-list-header aui-border-b">
-                        <div>时间轴回来了</div>
-                        <i class="aui-iconfont aui-icon-star aui-text-danger"></i>
-                    </div>
-                    <div class="aui-card-list-content-padded">
-                        时间轴重新回归了，跟卡片列表布局结合可以完成丰富的布局样式
-                        <img src="../../static/images/tmp/l1.png">
-                    </div>
-                    <div class="aui-card-list-footer aui-border-t aui-font-size-12">
-                        <div><i class="aui-iconfont aui-icon-note aui-font-size-14"></i> 666</div>
-                        <div><i class="aui-iconfont aui-icon-laud aui-font-size-14"></i> 888</div>
-                        <div><i class="aui-iconfont aui-icon-star aui-font-size-14"></i> 888</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="aui-timeline-item">
-            <div class="aui-timeline-item-label-icon aui-bg-danger">
-                <i class="aui-iconfont aui-icon-like text-light"></i>
-            </div>
-            <div class="aui-timeline-item-inner">
-                <div class="aui-card-list">
-                    <div class="aui-card-list-content-padded">
-                        AUI一直在努力，并会持久的更新下去，更方便快速的完成布局。感谢一路有大家的陪伴！！！</div>
-                </div>
-            </div>
-        </div>
-        <div class="aui-timeline-item">
-            <div class="aui-timeline-item-label aui-bg-warning text-light">NO.2</div>
-            <div class="aui-timeline-item-inner">
-                <div class="aui-card-list">
-                    <div class="aui-card-list-header aui-border-b">更好的组合模式</div>
-                    <div class="aui-card-list-content-padded">
-                        <div class="aui-row aui-row-padded">
-                            <div class="aui-col-xs-4">
-                                <img src="../../static/images/tmp/demo1.png" />
-                            </div>
-                            <div class="aui-col-xs-4">
-                                <img src="../../static/images/tmp/demo2.png" />
-                            </div>
-                            <div class="aui-col-xs-4">
-                                <img src="../../static/images/tmp/demo3.png" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </section>
+		<div class="aui-tab mui-scroll tabBar" id="tabBar">
+      <div class="aui-tab-item mui-control-item mui-active" data-vwid="sbanji_timeline">成长记录</div>
+      <div class="aui-tab-item mui-control-item" data-vwid="sbanji_groupteacher">老师群</div>
+      <div class="aui-tab-item mui-control-item" data-vwid="sbanji_groupparent">家长群</div>
+  	</div>
+	</section>
 </body>
 </html>
