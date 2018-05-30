@@ -20,7 +20,7 @@ export default class SIndex extends Student {
    * setWebviewGroupItems
    */
   public setTabBar (tabBarItems: SbbTabBarItem[]) {
-    const tabHeightAll = $.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight
+    const tabHeightAll = $.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight + 200
     let WebviewGroupItems = []
     let tabBarHtml = []
     for (const tabBarItem of tabBarItems) {
