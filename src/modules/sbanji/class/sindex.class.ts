@@ -27,7 +27,7 @@ export default class SIndex extends Student {
       tabBarHtml.push(`<div class="aui-tab-item mui-control-item ${tabBarItem.activeClass}" data-vwid="${tabBarItem.id}">${tabBarItem.title}</div>`)
 
       let WebviewGroupItem = { id: tabBarItem.id, url: tabBarItem.url,
-        styles: { top: tabHeightAll + 'px', bottom: config.common.footerbarHeight + 'px', render: 'always', backButtonAutoControl: 'none', bounce: 'none' }
+        styles: { top: tabHeightAll + 'px', height: '800px', render: 'always', backButtonAutoControl: 'none', bounce: 'none' }
       }
       if (tabBarItem.extras) WebviewGroupItem['extras'] = tabBarItem.extras
       WebviewGroupItems.push(WebviewGroupItem)
@@ -37,6 +37,7 @@ export default class SIndex extends Student {
 
     this.group = new WebviewGroup(this.main.id, {
       top: tabHeightAll, // 切换遮罩view
+      height: '100%', // 切换遮罩view
       items: WebviewGroupItems,
       onChange: function (obj) {
         const c = document.querySelector('.mui-control-item.mui-active')

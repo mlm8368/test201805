@@ -86,7 +86,8 @@ export default class SIndex extends Student {
     $('#tabBar').html(tabBarHtml.join(''))
 
     this.group = new WebviewGroup(this.main.id, {
-      top: tabHeightAll, // 切换遮罩view
+      top: tabHeightAll + 'px', // 切换遮罩view
+      height: '100%', // 切换遮罩view
       items: WebviewGroupItems,
       onChange: function (obj) {
         const c = document.querySelector('.mui-control-item.mui-active')
