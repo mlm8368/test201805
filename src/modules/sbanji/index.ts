@@ -9,6 +9,8 @@ import SIndex from './class/sindex.class'
 
 import { SbbTabBarItem } from '../../class/interface'
 
+const sIndex = new SIndex()
+
 // ready
 $.init({
   swipeBack: false,
