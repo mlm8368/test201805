@@ -26,11 +26,13 @@ export default class SIndex extends Student {
     let WebviewGroupItems = []
     let tabBarHtml = []
     $.byId('tabbarcontent').style.height = (this.screenHeight - tabHeightAll) + 'px'
+    let tabbarcontentOffset = $('#tabbarcontent').offset()
+    // $.log(tabbarcontentOffset)
     for (const tabBarItem of tabBarItems) {
       tabBarHtml.push(`<div class="aui-tab-item mui-control-item ${tabBarItem.activeClass}" data-vwid="${tabBarItem.id}">${tabBarItem.title}</div>`)
 
       let WebviewGroupItem = { id: tabBarItem.id, url: tabBarItem.url,
-        styles: { top: (tabHeightAll - 500) + 'px', height: (this.screenHeight - tabHeightAll) + 'px', render: 'always', backButtonAutoControl: 'none', bounce: 'none' }
+        styles: { top: (tabbarcontentOffset.t) + 'px', height: (this.screenHeight - tabHeightAll) + 'px', render: 'always', backButtonAutoControl: 'none', bounce: 'none', position: 'static' }
       }
       if (tabBarItem.extras) WebviewGroupItem['extras'] = tabBarItem.extras
       WebviewGroupItems.push(WebviewGroupItem)
@@ -39,7 +41,7 @@ export default class SIndex extends Student {
     $('#tabBar').html(tabBarHtml.join(''))
 
     this.group = new WebviewGroup(this.main.id, {
-      top: (tabHeightAll - 500) + 'px', // 切换遮罩view
+      top: (tabbarcontentOffset.t) + 'px', // 切换遮罩view
       height: (this.screenHeight - tabHeightAll) + 'px', // 切换遮罩view
       items: WebviewGroupItems,
       onChange: function (obj) {
