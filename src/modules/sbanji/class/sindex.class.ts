@@ -6,6 +6,7 @@ import * as config from '../index/config'
 
 export default class SIndex extends Student {
   private main: any
+  private screenHeight: number
   // WebviewGroup
   private group: any
 
@@ -13,6 +14,7 @@ export default class SIndex extends Student {
     super()
     $.plusReady(() => {
       this.main = $.currentWebview
+      this.screenHeight = $.plus.screen.resolutionHeight
     })
   }
 
@@ -20,14 +22,15 @@ export default class SIndex extends Student {
    * setWebviewGroupItems
    */
   public setTabBar (tabBarItems: SbbTabBarItem[]) {
-    const tabHeightAll = $.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight + 200
+    const tabHeightAll = $.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight
     let WebviewGroupItems = []
     let tabBarHtml = []
+    $.byId('tabbarcontent').style.height = (this.screenHeight - tabHeightAll) + 'px'
     for (const tabBarItem of tabBarItems) {
       tabBarHtml.push(`<div class="aui-tab-item mui-control-item ${tabBarItem.activeClass}" data-vwid="${tabBarItem.id}">${tabBarItem.title}</div>`)
 
       let WebviewGroupItem = { id: tabBarItem.id, url: tabBarItem.url,
-        styles: { top: tabHeightAll + 'px', height: '800px', render: 'always', backButtonAutoControl: 'none', bounce: 'none' }
+        styles: { top: (tabHeightAll - 500) + 'px', height: (this.screenHeight - tabHeightAll) + 'px', render: 'always', backButtonAutoControl: 'none', bounce: 'none' }
       }
       if (tabBarItem.extras) WebviewGroupItem['extras'] = tabBarItem.extras
       WebviewGroupItems.push(WebviewGroupItem)
@@ -36,8 +39,8 @@ export default class SIndex extends Student {
     $('#tabBar').html(tabBarHtml.join(''))
 
     this.group = new WebviewGroup(this.main.id, {
-      top: tabHeightAll, // 切换遮罩view
-      height: '100%', // 切换遮罩view
+      top: (tabHeightAll - 500) + 'px', // 切换遮罩view
+      height: (this.screenHeight - tabHeightAll) + 'px', // 切换遮罩view
       items: WebviewGroupItems,
       onChange: function (obj) {
         const c = document.querySelector('.mui-control-item.mui-active')
