@@ -25,7 +25,7 @@ export default class SIndex extends Student {
     const tabHeightAll = $.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight
     let WebviewGroupItems = []
     let tabBarHtml = []
-    $.byId('tabbarcontent').style.height = (this.screenHeight - tabHeightAll) + 'px'
+    $.byId('tabbarcontent').style.height = (this.screenHeight - tabHeightAll - config.common.footerbarHeight) + 'px'
     let tabbarcontentOffset = $('#tabbarcontent').offset()
     // $.log(tabbarcontentOffset)
     for (const tabBarItem of tabBarItems) {
