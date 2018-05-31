@@ -9,12 +9,14 @@ export default class SIndex extends Student {
   private screenHeight: number
   // WebviewGroup
   private group: any
+  private isTopShow: boolean
 
   constructor () {
     super()
     $.plusReady(() => {
       this.main = $.currentWebview
       this.screenHeight = $.plus.screen.resolutionHeight
+      this.isTopShow = true
     })
   }
 
@@ -53,6 +55,20 @@ export default class SIndex extends Student {
         if (target.scrollIntoView) target.scrollIntoView()
       }
     })
+    
+    $.doScroll = (childScrollTop: number) => {
+			if (childScrollTop === 0) {
+				if (!this.isTopShow) {
+					window.scrollTo(0, 0)
+					this.isTopShow = true
+				}
+			} else {
+				if(this.isTopShow) {
+					window.scrollTo(tabbarcontentOffset.t, 0)
+					this.isTopShow = false
+				}
+			}
+		}
   }
   /**
    * switchTab

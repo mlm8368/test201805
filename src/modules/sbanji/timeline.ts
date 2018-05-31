@@ -17,6 +17,11 @@ $.ready(function () {
   $.noop()
 })
 // plusReady
-$.plusReady(function () {
+$.plusReady(() => {
+	let parent = $.currentWebview.parent()
+	window.addEventListener("scroll", () => {
+		let scrollTop = document.documentElement.scrollTop
+		parent.evalJS(`mui&&mui.doScroll(${scrollTop});`)
+	});
   $.noop()
 })
