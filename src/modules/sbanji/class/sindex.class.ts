@@ -9,14 +9,13 @@ export default class SIndex extends Student {
   private screenHeight: number
   // WebviewGroup
   private group: any
-  private isTopShow: boolean
+  private scrollTop = 0 // 显示卡片时上面部分完全卷入的高度
 
   constructor () {
     super()
     $.plusReady(() => {
       this.main = $.currentWebview
       this.screenHeight = $.plus.screen.resolutionHeight
-      this.isTopShow = true
     })
   }
 
@@ -57,17 +56,14 @@ export default class SIndex extends Student {
     })
 
     $.doScroll = (childScrollTop: number) => {
-      $.log(childScrollTop)
-      if (childScrollTop === 0) {
-        if (!this.isTopShow) {
-          window.scrollTo(0, 0)
-          this.isTopShow = true
-        }
-      } else {
-        if (this.isTopShow) {
-          window.scrollTo(tabbarcontentOffset.t, 0)
-          this.isTopShow = false
-        }
+      let scrollTop = document.body.scrollTop
+      $.log(scrollTop + 'px')
+      $.log(this.scrollTop)
+      if (childScrollTop === 0 && scrollTop > 0) {
+        window.scrollTo(0, 0)
+      } else if (childScrollTop > 0 && (scrollTop < this.scrollTop || this.scrollTop === 0)) {
+        window.scrollTo(0, tabbarcontentOffset.t)
+        this.scrollTop = document.body.scrollTop
       }
     }
   }
