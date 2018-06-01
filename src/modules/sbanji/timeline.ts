@@ -5,7 +5,7 @@ import '../../common/sass/mui.init.scss'
 import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT } from '../../common/js/global.js'
-import { setParentScroll } from './class/global'
+import { setParentScrollTop } from './class/global'
 // ready
 $.init({
   swipeBack: false,
@@ -18,5 +18,5 @@ $.ready(function () {
 })
 // plusReady
 $.plusReady(() => {
-  setParentScroll()
+  setParentScrollTop()
 })

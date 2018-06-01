@@ -1,6 +1,6 @@
 import { $, viewEXT } from '../../../common/js/global.js'
 
-export function setParentScroll () {
+export function setParentScrollTop () {
   let parent = $.currentWebview.parent()
   let bufferFn = $.buffer(() => {
     let scrollTop = document.body.scrollTop
