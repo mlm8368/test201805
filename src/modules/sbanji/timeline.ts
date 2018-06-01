@@ -22,6 +22,7 @@ $.plusReady(() => {
   window.addEventListener('scroll', () => {
     $.buffer(() => {
       let scrollTop = document.documentElement.scrollTop
+      $.log(scrollTop + 'px')
       parent.evalJS(`mui&&mui.doScroll(${scrollTop});`)
     })
   })

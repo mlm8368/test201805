@@ -43,7 +43,7 @@ export default class SIndex extends Student {
     $('#tabBar').html(tabBarHtml.join(''))
 
     this.group = new WebviewGroup(this.main.id, {
-      top: (tabbarcontentOffset.t) + 'px', // 切换遮罩view
+      top: tabHeightAll + 'px', // 切换遮罩view
       height: (this.screenHeight - tabHeightAll - config.common.footerbarHeight) + 'px', // 切换遮罩view
       items: WebviewGroupItems,
       onChange: function (obj) {
@@ -57,6 +57,7 @@ export default class SIndex extends Student {
     })
 
     $.doScroll = (childScrollTop: number) => {
+      $.log(childScrollTop)
       if (childScrollTop === 0) {
         if (!this.isTopShow) {
           window.scrollTo(0, 0)
