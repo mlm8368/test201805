@@ -19,12 +19,10 @@ $.ready(function () {
 // plusReady
 $.plusReady(() => {
   let parent = $.currentWebview.parent()
-  window.addEventListener('scroll', () => {
-    $.buffer(() => {
-      let scrollTop = document.documentElement.scrollTop
-      $.log(scrollTop + 'px')
-      parent.evalJS(`mui&&mui.doScroll(${scrollTop});`)
-    })
-  })
+  let bufferFn = $.buffer(() => {
+    let scrollTop = document.body.scrollTop
+    parent.evalJS(`mui&&mui.doScroll(${scrollTop});`)
+  }, 150, this)
+  window.addEventListener('scroll', bufferFn)
   $.noop()
 })
