@@ -57,8 +57,6 @@ export default class SIndex extends Student {
 
     $.doScroll = (childScrollTop: number) => {
       let scrollTop = document.body.scrollTop
-      // $.log(scrollTop + 'px')
-      // $.log(this.scrollTop)
       if (childScrollTop === 0 && scrollTop > 0) {
         window.scrollTo(0, 0)
       } else if (childScrollTop > 0 && (scrollTop < this.scrollTop || this.scrollTop === 0)) {
