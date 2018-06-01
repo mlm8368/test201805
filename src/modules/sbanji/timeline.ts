@@ -19,11 +19,11 @@ $.ready(function () {
 // plusReady
 $.plusReady(() => {
   let parent = $.currentWebview.parent()
-  window.addEventListener("scroll", () => {
+  window.addEventListener('scroll', () => {
     $.buffer(() => {
       let scrollTop = document.documentElement.scrollTop
       parent.evalJS(`mui&&mui.doScroll(${scrollTop});`)
     })
-  });
+  })
   $.noop()
 })
