@@ -54,8 +54,8 @@ export default class SIndex extends Student {
         if (target.scrollIntoView) target.scrollIntoView()
       }
     })
-
-    $.doScroll = (childScrollTop: number) => {
+    // tabbar 滚动时触发上面部分的展开/收起
+    $.doScrollTop = (childScrollTop: number) => {
       let scrollTop = document.body.scrollTop
       if (childScrollTop === 0 && scrollTop > 0) {
         window.scrollTo(0, 0)

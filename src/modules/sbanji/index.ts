@@ -4,7 +4,7 @@ import './index/style.scss'
 // mui js
 import '../../common/js/mui.init.js'
 // self
-import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
+import { $, viewEXT } from '../../common/js/global.js'
 import SIndex from './class/sindex.class'
 
 import { TabBarItem } from '../../class/interface'
