@@ -1,7 +1,7 @@
 import { $, viewEXT } from '../../../common/js/global.js'
 import Student from '../../../class/student.class'
 import WebviewGroup from '../../../plugin/aui/webviewGroup.js'
-import { SbbTabBarItem } from '../../../class/interface'
+import { TabBarItem } from '../../../class/interface'
 import * as config from '../index/config'
 
 export default class SIndex extends Student {
@@ -22,7 +22,7 @@ export default class SIndex extends Student {
   /**
    * setWebviewGroupItems
    */
-  public setTabBar (tabBarItems: SbbTabBarItem[]) {
+  public setTabBar (tabBarItems: TabBarItem[]) {
     const tabHeightAll = $.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight
     let WebviewGroupItems = []
     let tabBarHtml = []

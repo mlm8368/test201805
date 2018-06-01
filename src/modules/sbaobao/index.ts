@@ -9,7 +9,7 @@ import * as config from './index/config'
 import SFooterbar from './class/sfooterbar.class'
 import SIndex from './class/sindex.class'
 
-import { SbbTabBarItem } from '../../class/interface'
+import { TabBarItem } from '../../class/interface'
 
 const sIndex = new SIndex()
 
@@ -43,7 +43,7 @@ $.plusReady(() => {
   window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
 
   // tabBar
-  let tabBarItems: SbbTabBarItem[] = [
+  let tabBarItems: TabBarItem[] = [
     { id: 'sbaobao_baobao_1', url: './baobao' + viewEXT, title: '大宝', activeClass: 'mui-active', extras: { catid: 1 } },
     { id: 'sbaobao_baobao_2', url: './baobao' + viewEXT, title: '二宝', activeClass: '', extras: { catid: 2 } },
     { id: 'sbaobao_baobao_3', url: './baobao' + viewEXT, title: '三宝', activeClass: '', extras: { catid: 3 } },
