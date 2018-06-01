@@ -26,7 +26,7 @@ $.plusReady(() => {
   // tabBar
   let tabBarItems: SbbTabBarItem[] = [
     { id: 'sbanji_timeline', url: './timeline' + viewEXT, title: '成长记录', activeClass: 'mui-active', extras: { catid: 1 } },
-    { id: 'sbanji_groupteacher', url: './groupteacher' + viewEXT, title: '老师群', activeClass: '', extras: { catid: 2 } },
+    { id: 'sbanji_groupteacher', url: './groupteacher' + viewEXT, title: '班级群', activeClass: '', extras: { catid: 2 } },
     { id: 'sbanji_groupparent', url: './groupparent' + viewEXT, title: '家长群', activeClass: '', extras: { catid: 3 } }
   ]
   sIndex.setTabBar(tabBarItems)
