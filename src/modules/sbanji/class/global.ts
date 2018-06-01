@@ -1,7 +1,7 @@
 import { $, viewEXT } from '../../../common/js/global.js'
 
 export function setParentScrollTop () {
-  let parent = $.currentWebview.parent()
+  let parent = $.plus.webview.getWebviewById('sbanji_index')
   let bufferFn = $.buffer(() => {
     let scrollTop = document.body.scrollTop
     parent.evalJS(`mui&&mui.doScrollTop(${scrollTop});`)
