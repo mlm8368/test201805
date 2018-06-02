@@ -5,11 +5,11 @@ import './index/style.scss'
 import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT } from '../../common/js/global.js'
-import SIndex from './class/sindex.class'
+// import SIndex from './class/sindex.class'
 
 import { TabBarItem } from '../../class/interface'
 
-const sIndex = new SIndex()
+// const sIndex = new SIndex()
 
 // ready
 $.init({
@@ -23,14 +23,5 @@ $.ready(function () {
 })
 // plusReady
 $.plusReady(() => {
-  // tabBar
-  let tabBarItems: TabBarItem[] = [
-    { id: 'sbanji_timeline', url: './timeline' + viewEXT, title: '成长记录', activeClass: 'mui-active', extras: { catid: 1 } },
-    { id: 'sbanji_groupteacher', url: './groupteacher' + viewEXT, title: '班级群', activeClass: '', extras: { catid: 2 } },
-    { id: 'sbanji_groupparent', url: './groupparent' + viewEXT, title: '家长群', activeClass: '', extras: { catid: 3 } }
-  ]
-  sIndex.setTabBar(tabBarItems)
-  $('#tabBar').on('tap', '.mui-control-item', function (e) {
-    sIndex.switchTab(this.dataset.vwid)
-  })
+  $.noop()
 })
