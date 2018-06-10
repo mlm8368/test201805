@@ -1,0 +1,13 @@
+@import "../../../mui/sass/variables.scss";
+@import "../../../mui/sass/mixins.scss";
+
+@import "../../../common/sass/list.scss";
+@import "../../../common/sass/btn.scss";
+@import "../../../common/sass/grid.scss";
+@import "../../../common/sass/col.scss";
+
+.aui-icon-qq:before { content: "\e6cb"; }
+.aui-icon-wechat:before { content: "\e6c9"; }
+.aui-icon-weibo:before { content: "\e6c8"; }
+
+.login-third { margin-top: 48px;}
