@@ -22,10 +22,9 @@ $.byId('doLogin').addEventListener('tap', function () {
   login.goPortal('student')
 })
 $.byId('goReg').addEventListener('tap', function () {
-  let titleNView = { backgroundColor: '#D74B28', titleText: '用户注册', titleColor: '#CCCCCC', autoBackButton: true }
   $.openWindow({
     id: 'home_reg',
     url: '../home/reg' + viewEXT,
-    styles: { top: '0px', titleNView: titleNView }
+    styles: { top: '0px', titleNView: { backgroundColor: '#D74B28', titleText: '用户注册', titleColor: '#CCCCCC', autoBackButton: true } }
   })
 })
