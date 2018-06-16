@@ -1,6 +1,6 @@
 import { $, viewEXT } from '../common/js/global.js'
 import { FooterbarConfig } from './interface'
-import * as config from '../common/js/config.js'
+import * as config from './config'
 
 export default class Footerbar {
   protected props: FooterbarConfig = {

@@ -1,4 +1,4 @@
-import * as config from '../../common/js/config.js'
+import * as config from '../../class/config.ts'
 
 var webviewGroup = function(id, options) {
 	this.id = id;
@@ -30,6 +30,7 @@ proto._initParent = function() {
 	}
 };
 proto._initNativeView = function() {
+  $.log(config);
 	this.nativeView = new window.plus.nativeObj.View('__MUI_TAB_NATIVE', {
 		'top': this.options.top, //这个需要根据顶部导航及顶部选项卡高度自动调整
 		'bottom': config.common.footerbarHeight + 'px',
