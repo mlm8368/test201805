@@ -19,7 +19,7 @@ $.plusReady(function () {
 })
 // tap
 $.byId('doLogin').addEventListener('tap', function () {
-  login.goPortal('student')
+  login.doLogin('student')
 })
 $.byId('goReg').addEventListener('tap', function () {
   $.openWindow({

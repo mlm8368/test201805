@@ -1,3 +1,4 @@
+import { $, viewEXT } from '../common/js/global.js'
 export default class Abstract {
   /**
    * jsonToStr
@@ -57,6 +58,12 @@ export default class Abstract {
    */
   public rmStorage (key: string) {
     delete localStorage[key]
+  }
+  /**
+   * alert
+   */
+  public alert (message: string, alertCB?: (event: Event) => void, title?: string, buttonCapture?: string) {
+    $.plus.nativeUI.alert(message, alertCB, title, buttonCapture)
   }
   /**
    * trim
