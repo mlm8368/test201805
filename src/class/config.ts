@@ -1,7 +1,7 @@
 export const siteHost = {
-  siteurl: 'http://appdata.dog1314.com/1.4/',
-  siteurl_longcache: 'http://longcache.dog1314.com/1.4/',
-  siteurl_shortcache: 'http://shortcache.dog1314.com/1.4/',
+  siteurl: 'http://v7.dog1314.com/appdata/1.1/',
+  siteurl_longcache: 'http://v7.dog1314.com/appdata/1.1/',
+  siteurl_shortcache: 'http://v7.dog1314.com/appdata/1.1/',
   baidubosUploaderUrl: 'http://dogquan.bj.bcebos.com',
   baidubosUploaderImgUrl: 'http://img17.dog1314.com/'
 }
