@@ -62,7 +62,7 @@ export default class Abstract {
   /**
    * alert
    */
-  public alert (message: string, alertCB?: (event: Event) => void, title?: string, buttonCapture?: string) {
+  public alert (message: string, alertCB?: (event: Event) => void, title = '提示', buttonCapture = '知道了') {
     $.plus.nativeUI.alert(message, alertCB, title, buttonCapture)
   }
   /**

@@ -34,6 +34,11 @@ import 'mui/js/mui.back.5+';
   $.targets._popover = null;
   $.closePopup = $.noop;
   // ajax
+  $.accessToken = function () {
+    let accessToken = localStorage['accessToken'];
+    if (accessToken) accessToken = accessToken.slice(4);
+    return accessToken;
+  };
   $.ajaxSettings.timeout = 120000;
   // $.ajaxSettings.crossDomain = true;
   $.ajaxSettings.headers = { 'APPACCTOKEN': '' };

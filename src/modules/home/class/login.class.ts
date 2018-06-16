@@ -27,6 +27,7 @@ export default class Login extends Abstract {
 
       this.setStorage('accessToken', '')
       $.post(config.siteHost.siteurl + 'index.php?moduleid=2&action=login', uData, function (ret) {
+        $.log(ret)
         if (ret.status === 1) {
           this.setStorage('userId', ret.userInfo.id)
           this.setStorage('groupId', ret.userInfo.groupid)
