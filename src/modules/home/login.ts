@@ -20,6 +20,8 @@ $.plusReady(function () {
     $.log(ret)
   }, 'json')
   $.noop()
+  // 已登录 直接跳转
+  if (login.isLogin()) login.goPortalStudent()
 })
 // tap
 $.byId('doLogin').addEventListener('tap', function () {

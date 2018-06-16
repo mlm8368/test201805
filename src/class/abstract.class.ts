@@ -66,6 +66,13 @@ export default class Abstract {
     $.plus.nativeUI.alert(message, alertCB, title, buttonCapture)
   }
   /**
+   * isLogin
+   */
+  public isLogin (): boolean {
+    if (this.getStorage('accessToken')) return true
+    return false
+  }
+  /**
    * trim
    */
   public trim (str: string) {

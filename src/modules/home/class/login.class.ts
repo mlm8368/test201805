@@ -46,7 +46,7 @@ export default class Login extends Abstract {
       }, 'json')
     }
   }
-  private goPortalStudent (): void {
+  public goPortalStudent (): void {
     $.plus.nativeUI.showWaiting() // 等宝宝等页加载完后关闭
     // student
     let subNViews = [{
