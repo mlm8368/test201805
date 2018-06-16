@@ -29,12 +29,13 @@ export default class Login extends Abstract {
       $.post(config.siteHost.siteurl + 'index.php?moduleid=2&action=login', uData, (ret) => {
         $.log(ret)
         if (ret.status === 1) {
-          this.setStorage('userId', ret.userInfo.id)
-          this.setStorage('groupId', ret.userInfo.groupid)
+          this.setStorage('userid', ret.userInfo.userid)
+          this.setStorage('username', ret.userInfo.username)
+          this.setStorage('groupid', ret.userInfo.groupid)
           this.setStorage('accessToken', ret.userInfo.accessToken)
-          this.setStorage('userInfo', ret.userInfo)
           this.setStorage('area', ret.userInfo.area)
-          this.setStorage('areaId', ret.userInfo.areaId)
+          this.setStorage('areaid', ret.userInfo.areaid)
+          this.setStorage('userInfo', ret.userInfo)
           // fire
           // alert
           this.alert('登录成功', () => {
