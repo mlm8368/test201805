@@ -6,6 +6,7 @@ import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT } from '../../common/js/global.js'
 import Login from './class/login.class'
+import * as config from './login/config'
 
 let login = new Login()
 // ready
@@ -15,6 +16,9 @@ $.ready(function () {
 })
 // plusReady
 $.plusReady(function () {
+  $.get(config.siteHost.siteurl + 'index.php?XDEBUG_SESSION_START=ECLIPSE_DBGP&KEY=15197212645396', null, (ret) => {
+    $.log(ret)
+  }, 'json')
   $.noop()
 })
 // tap

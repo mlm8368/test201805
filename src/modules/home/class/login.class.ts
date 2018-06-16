@@ -26,7 +26,6 @@ export default class Login extends Abstract {
       uData['password'] = password
 
       this.setStorage('accessToken', '')
-      $.log(config.siteHost.siteurl + 'index.php?moduleid=2&action=login')
       $.post(config.siteHost.siteurl + 'index.php?moduleid=2&action=login', uData, (ret) => {
         $.log(ret)
         if (ret.status === 1) {
