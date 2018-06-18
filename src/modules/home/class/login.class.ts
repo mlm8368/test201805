@@ -65,7 +65,7 @@ export default class Login extends Abstract {
         this.alert('请填写6位数以上的密码')
         return false
       }
-      if (password === password1) {
+      if (password !== password1) {
         this.alert('两次输入密码不一致')
         return false
       }
