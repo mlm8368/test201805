@@ -17,3 +17,7 @@ $.ready(function () {
 $.plusReady(function () {
   $.noop()
 })
+// tap
+$.byId('doReg').addEventListener('tap', () => {
+  login.doReg('student')
+})

@@ -10,24 +10,24 @@ import * as config from './login/config'
 
 let login = new Login()
 // ready
-$.ready(function () {
+$.ready(() => {
   if (viewEXT === '.htm') return
   $.noop()
 })
 // plusReady
-$.plusReady(function () {
+$.plusReady(() => {
   $.get(config.siteHost.siteurl + 'index.php?XDEBUG_SESSION_START=ECLIPSE_DBGP&KEY=15197212645396', null, (ret) => {
     $.log(ret)
   }, 'json')
   $.noop()
   // 已登录 直接跳转
-  if (login.isLogin()) login.goPortalStudent()
+  // if (login.isLogin()) login.goPortalStudent()
 })
 // tap
-$.byId('doLogin').addEventListener('tap', function () {
+$.byId('doLogin').addEventListener('tap', () => {
   login.doLogin('student')
 })
-$.byId('goReg').addEventListener('tap', function () {
+$.byId('goReg').addEventListener('tap', () => {
   $.openWindow({
     id: 'home_reg',
     url: '../home/reg' + viewEXT,
