@@ -73,6 +73,7 @@ export default class Login extends Abstract {
       uData['submit'] = 1
       uData['mobile'] = mobile
       uData['password'] = password
+      uData['cpassword'] = password1
       uData['areaid'] = this.getStorage('areaid')
       if (!uData['areaid']) uData['areaid'] = 0
 
