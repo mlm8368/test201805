@@ -22,8 +22,8 @@ glob.sync(globalPath).forEach((pagePath)=>{
   var ext = path.extname(pagePath),
     basename = path.basename(pagePath, ext),
     modulename = path.basename(pagePath.replace('/' + basename + ext,''));
-  if (appBuildModules.indexOf(modulename) === -1) continue;
-  if ( process.env.NODE_MODULES === 'all' || (process.env.NODE_MODULES === modulename && (process.env.NODE_CONTROL === 'all' || process.env.NODE_CONTROL === basename))) {
+  if ( (appBuildModules.indexOf(modulename) === -1) &&
+   (process.env.NODE_MODULES === 'all' || (process.env.NODE_MODULES === modulename && (process.env.NODE_CONTROL === 'all' || process.env.NODE_CONTROL === basename)))) {
     pageName = modulename + '/' + basename;
     buildEntries[pageName] = pagePath.replace(ext,'.ts');
   }
