@@ -9,7 +9,7 @@ process.env.NODE_APPNAME = 'student'
 process.env.NODE_MODULES = 'all'
 process.env.NODE_CONTROL = 'all'
 
-var argv = require('minimist')(process.argv.slice(3))
+var argv = require('minimist')(process.argv.slice(2))
 if (argv._[0]) process.env.NODE_APPNAME = argv._[0]
 if (argv._[1]) process.env.NODE_MODULES = argv._[1]
 if (argv._[2]) process.env.NODE_CONTROL = argv._[2]
