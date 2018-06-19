@@ -12,9 +12,12 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const glob = require('glob')
 
-const env = process.env.NODE_ENV === 'testing'
+let env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : require('../config/prod.env')
+  env = merge(env, {
+    appName: '"'+process.env.NODE_APPNAME+'"'
+  })
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {

@@ -2,6 +2,7 @@
 
 export let $ = window.mui;
 export let viewEXT = process.env.viewEXT;
+export let appName = process.env.appName;
 export function getFileExt(fileName) {
   return fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
 }

@@ -10,6 +10,11 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 const glob = require('glob')
 
+let env = require('../config/dev.env')
+  env = merge(env, {
+    appName: '"'+process.env.NODE_APPNAME+'"'
+  })
+
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 // add hot-reload related code to entry chunks
@@ -45,7 +50,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': require('../config/dev.env')
+      'process.env': env
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.

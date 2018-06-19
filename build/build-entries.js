@@ -3,8 +3,10 @@ const fs = require('fs');
 const utils = require('./utils');
 const glob = require('glob');
 
+const env = require('../config/prod.env')
+const appBuildModules = env.appBuildModules[process.env.NODE_APPNAME]
+
 let buildEntries = {};
-// buildEntries.vendor = ['mescroll.m'];
 
 /*获取所有模块的文件夹名*/
 /*
@@ -20,6 +22,7 @@ glob.sync(globalPath).forEach((pagePath)=>{
   var ext = path.extname(pagePath),
     basename = path.basename(pagePath, ext),
     modulename = path.basename(pagePath.replace('/' + basename + ext,''));
+  if (appBuildModules.indexOf(modulename) === -1) continue;
   if ( process.env.NODE_MODULES === 'all' || (process.env.NODE_MODULES === modulename && (process.env.NODE_CONTROL === 'all' || process.env.NODE_CONTROL === basename))) {
     pageName = modulename + '/' + basename;
     buildEntries[pageName] = pagePath.replace(ext,'.ts');
