@@ -67,4 +67,4 @@ export function doCompressImage(imgObj) {
  */
 export function setImmersedHeight (obj) {
   obj.style.paddingTop = $.immersed + 'px';
-};
+}
