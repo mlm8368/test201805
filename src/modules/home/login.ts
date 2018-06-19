@@ -25,7 +25,7 @@ $.plusReady(() => {
 })
 // tap
 $.byId('doLogin').addEventListener('tap', () => {
-  login.doLogin('student')
+  login.doLogin()
 })
 $.byId('goReg').addEventListener('tap', () => {
   $.openWindow({
