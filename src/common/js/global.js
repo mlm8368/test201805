@@ -1,8 +1,6 @@
-// import '../../static/mui.js';
-
 export let $ = window.mui;
-export let viewEXT = process.env.viewEXT;
-export let appName = process.env.appName;
+export let viewEXT = process.env.viewEXT; // .htm .html
+export let appName = process.env.appName; // student teacher
 export function getFileExt(fileName) {
   return fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
 }
@@ -60,35 +58,6 @@ export function doCompressImage(imgObj) {
     imgObj.src = event.target;
   }, function(err) {
     $._toast.fail({title: err.message, duration: 2000});
-  });
-}
-
-export function doLogin(extras) {
-  if (!extras) extras = {};
-  $.openWindow({
-    id: 'login_login',
-    url: '_www/dist/login/login' + window.viewEXT,
-    styles: {
-      backButtonAutoControl: 'close',
-      bounce: 'none',
-      bounceBackground: '#1E90FF',
-      titleNView: {
-        titleText: '登录',
-        titleColor: '#EE2C2C',
-        titleSize: '17px',
-        backgroundColor: '#FFFFFF',
-        autoBackButton: true,
-        progress: {
-          color: '#00FF00',
-          height: '2px'
-        },
-        splitLine: {
-          color: '#CCCCCC',
-          height: '1px'
-        }
-      }
-    },
-    extras: extras
   });
 }
 
