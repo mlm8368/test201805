@@ -1,0 +1,4 @@
+enum appNames {
+  teacher,
+  student
+}
