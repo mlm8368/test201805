@@ -147,4 +147,13 @@ export default class Abstract {
     }
     return '刚刚'
   }
+  /**
+   * gender
+   */
+  public getGender (gender: number, typeid = 0): string {
+    let genderName = []
+    genderName.push({ 1 : '男', 2 : '女' })
+
+    return genderName[typeid][gender]
+  }
 }
