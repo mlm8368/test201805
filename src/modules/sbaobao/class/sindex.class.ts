@@ -1,10 +1,12 @@
 import { $, viewEXT } from '../../../common/js/global.js'
 import Student from '../../../class/student.class'
+import Cache from '../../../class/cache.class'
 import WebviewGroup from '../../../plugin/aui/webviewGroup.js'
 import { TabBarItem } from '../../../class/interface'
 import * as config from '../index/config'
 
 export default class SIndex extends Student {
+  private cache: any
   // Offcanvas
   private showMenu = false
   private main: any
@@ -14,6 +16,7 @@ export default class SIndex extends Student {
 
   constructor () {
     super()
+    this.cache = new Cache()
     $.plusReady(() => {
       this.main = $.currentWebview
     })

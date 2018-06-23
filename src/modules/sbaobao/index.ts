@@ -43,12 +43,22 @@ $.plusReady(() => {
   window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
 
   // tabBar
-  let tabBarItems: TabBarItem[] = [
-    { id: 'sbaobao_baobao_1', url: './baobao' + viewEXT, title: '大宝', activeClass: 'mui-active', extras: { catid: 1 } },
-    { id: 'sbaobao_baobao_2', url: './baobao' + viewEXT, title: '二宝', activeClass: '', extras: { catid: 2 } },
-    { id: 'sbaobao_baobao_3', url: './baobao' + viewEXT, title: '三宝', activeClass: '', extras: { catid: 3 } },
-    { id: 'sbaobao_baobao_4', url: './baobao' + viewEXT, title: '四宝', activeClass: '', extras: { catid: 4 } }
-  ]
+  let tabBarItems: TabBarItem[]
+  let userInfo = sIndex.getStorage('userInfo')
+  if (userInfo && userInfo.student) {
+    let studentids = userInfo.student.studentids.split(',')
+    let relatename = userInfo.student.relatename.split(',')
+
+    studentids.forEach((studentid, index) => {
+      let one = { id: 'sbaobao_baobao_' + (index + 1), url: './baobao' + viewEXT, title: relatename[index], activeClass: '', extras: { catid: studentid } }
+      if (index === 0) one['activeClass'] = 'mui-active'
+      tabBarItems.push(one)
+    })
+  } else {
+    tabBarItems = [
+      { id: 'sbaobao_baobao_1', url: './baobao' + viewEXT, title: '宝宝', activeClass: 'mui-active', extras: { catid: 1 } }
+    ]
+  }
   sIndex.setTabBar(tabBarItems)
   $('#tabBar').on('tap', '.mui-control-item', function (e) {
     sIndex.switchTab(this.dataset.vwid)
