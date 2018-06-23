@@ -53,7 +53,7 @@ export default class Login extends Abstract {
     if (this.isLogin()) {
       $.post(config.siteHost.siteurl + 'index.php?moduleid=2&action=login&op=checkloginuserinfo', null, (ret) => {
         if (ret.status === 1) {
-          this.setLoginData(ret.userInfo)
+          this.setLoginData(ret.userInfo, false)
           successFun()
         } else {
           this.logout()
@@ -133,10 +133,10 @@ export default class Login extends Abstract {
     })
   }
 
-  private setLoginData (userInfo) {
+  private setLoginData (userInfo, updateAccessToken = true) {
     this.setStorage('userid', userInfo.userid)
     this.setStorage('username', userInfo.username)
-    this.setStorage('accessToken', userInfo.accessToken)
+    if (updateAccessToken) this.setStorage('accessToken', userInfo.accessToken)
     this.setStorage('studentids', userInfo.studentids)
     this.setStorage('classesids', userInfo.classesids)
     this.setStorage('groupid', userInfo.groupid)
