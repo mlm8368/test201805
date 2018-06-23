@@ -66,6 +66,12 @@ export default class Abstract {
     $.plus.nativeUI.alert(message, alertCB, title, buttonCapture)
   }
   /**
+   * toast
+   */
+  public toast (message: string, options?: any) {
+    $.plus.nativeUI.toast(message, options)
+  }
+  /**
    * isLogin
    */
   public isLogin (): boolean {

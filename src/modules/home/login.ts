@@ -33,7 +33,7 @@ $.plusReady(() => {
         break
     }
   }, () => {
-    login.alert('请重新登录')
+    login.toast('请重新登录')
   })
 })
 // tap
