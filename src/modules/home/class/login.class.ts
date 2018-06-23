@@ -158,7 +158,7 @@ export default class Login extends Abstract {
       // $.log('clickButtonOffcanvas')
       $.fire(wvTbanjiIndex, 'openOffcanvas')
     }
-    let titleNView = { backgroundColor: '#D74B28', titleText: '上学啦', titleColor: '#CCCCCC', buttons: [
+    let titleNView = { backgroundColor: '#D74B28', titleText: '幼教云', titleColor: '#CCCCCC', buttons: [
       { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: clickButtonOffcanvas }
     ] }
     let wvTbanjiIndex = $.openWindow({
