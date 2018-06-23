@@ -32,16 +32,9 @@ export default class Login extends Abstract {
       return false
     }
 
-    this.setStorage('accessToken', '')
     $.post(config.siteHost.siteurl + 'index.php?moduleid=2&action=login', uData, (ret) => {
       if (ret.status === 1) {
-        this.setStorage('userid', ret.userInfo.userid)
-        this.setStorage('username', ret.userInfo.username)
-        this.setStorage('accessToken', ret.userInfo.accessToken)
-        this.setStorage('groupid', ret.userInfo.groupid)
-        this.setStorage('area', ret.userInfo.area)
-        this.setStorage('areaid', ret.userInfo.areaid)
-        this.setStorage('userInfo', ret.userInfo)
+        this.setLoginData(ret.userInfo)
         // fire
         // alert
         this.alert('登录成功', () => {
@@ -51,6 +44,23 @@ export default class Login extends Abstract {
         this.alert(ret.msg)
       }
     }, 'json')
+  }
+
+  /**
+   * checkLoginUserInfo
+   */
+  public checkLoginUserInfo (successFun: () => void, errorFun: () => void) {
+    if (this.isLogin()) {
+      $.post(config.siteHost.siteurl + 'index.php?moduleid=2&action=login&op=checkloginuserinfo', null, (ret) => {
+        if (ret.status === 1) {
+          this.setLoginData(ret.userInfo)
+          successFun()
+        } else {
+          this.logout()
+          errorFun()
+        }
+      }, 'json')
+    }
   }
 
   /**
@@ -121,5 +131,17 @@ export default class Login extends Abstract {
       url: '../sbaobao/index' + viewEXT,
       styles: { top: '0px', backButtonAutoControl: 'none', subNViews: subNViews, titleNView: titleNView }
     })
+  }
+
+  private setLoginData (userInfo) {
+    this.setStorage('userid', userInfo.userid)
+    this.setStorage('username', userInfo.username)
+    this.setStorage('accessToken', userInfo.accessToken)
+    this.setStorage('studentids', userInfo.studentids)
+    this.setStorage('classesids', userInfo.classesids)
+    this.setStorage('groupid', userInfo.groupid)
+    this.setStorage('area', userInfo.area)
+    this.setStorage('areaid', userInfo.areaid)
+    this.setStorage('userInfo', userInfo)
   }
 }

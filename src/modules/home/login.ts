@@ -4,7 +4,7 @@ import './login/style.scss'
 // mui js
 import '../../common/js/mui.init.js'
 // self
-import { $, viewEXT } from '../../common/js/global.js'
+import { $, viewEXT, appName } from '../../common/js/global.js'
 import Login from './class/login.class'
 import * as config from './login/config'
 
@@ -21,7 +21,20 @@ $.plusReady(() => {
   }, 'json')
   $.noop()
   // 已登录 直接跳转
-  // if (login.isLogin()) login.goPortalStudent()
+  login.checkLoginUserInfo(() => {
+    switch (appName) {
+      case 'student':
+        login.goPortalStudent()
+        break
+      case 'teacher':
+        login.goPortalStudent()
+        break
+      default:
+        break
+    }
+  }, () => {
+    login.alert('请重新登录')
+  })
 })
 // tap
 $.byId('doLogin').addEventListener('tap', () => {

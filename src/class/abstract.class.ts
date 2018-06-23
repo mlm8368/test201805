@@ -73,6 +73,20 @@ export default class Abstract {
     return false
   }
   /**
+   * logout
+   */
+  public logout () {
+    this.rmStorage('userid')
+    this.rmStorage('username')
+    this.rmStorage('accessToken')
+    this.rmStorage('studentids')
+    this.rmStorage('classesids')
+    this.rmStorage('groupid')
+    this.rmStorage('area')
+    this.rmStorage('areaid')
+    this.rmStorage('userInfo')
+  }
+  /**
    * trim
    */
   public trim (str: string) {
