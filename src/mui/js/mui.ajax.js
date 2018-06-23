@@ -244,12 +244,12 @@
 		return params.join('&').replace(/%20/g, '+');
 	};
 	$.get = function( /* url, data, success, dataType */ ) {
-	  $.extend($.ajaxSettings.headers, {'APPACCTOKEN': $.accessToken});
+	  $.extend($.ajaxSettings.headers, {'APPACCTOKEN': $.accessToken()});
 		return $.ajax(parseArguments.apply(null, arguments));
 	};
 
 	$.post = function( /* url, data, success, dataType */ ) {
-	  $.extend($.ajaxSettings.headers, {'APPACCTOKEN': $.accessToken});
+	  $.extend($.ajaxSettings.headers, {'APPACCTOKEN': $.accessToken()});
 		var options = parseArguments.apply(null, arguments);
 		options.type = 'POST';
 		return $.ajax(options);

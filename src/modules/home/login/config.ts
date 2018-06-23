@@ -267,7 +267,7 @@ export const barTagsTeacher = [
   }, {
     'tag': 'font',
     'id': 'contactText',
-    'text': '爸妈圈',
+    'text': '教师圈',
     'position': {
       'top': '24px',
       'left': '60%',

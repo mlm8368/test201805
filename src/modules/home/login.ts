@@ -22,20 +22,7 @@ $.plusReady(() => {
   $.noop()
   // 已登录 直接跳转
   login.checkLoginUserInfo(() => {
-    switch (appName) {
-      case 'student':
-        login.goPortalStudent()
-        break
-      case 'teacher':
-        login.goPortalStudent()
-        break
-      case 'allapp':
-        if (login.getStorage('studentids')) login.goPortalStudent()
-        else login.goPortalStudent()
-        break
-      default:
-        break
-    }
+    login.toast('欢迎你回来', { verticalAlign: 'top' })
   }, () => {
     login.toast('请重新登录')
   })

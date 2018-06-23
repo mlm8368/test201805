@@ -8,37 +8,30 @@ export default class Login extends Abstract {
    */
   public doLogin (): boolean {
     let uData = {}
-    if (appName === 'student') {
-      let mobile = $.byId('mobile').value
-      let password = $.byId('password').value
+    let mobile = $.byId('mobile').value
+    let password = $.byId('password').value
 
-      if (/^1[0-9]{10}$/.test(mobile) === false) {
-        this.alert('请填写正确手机号')
-        return false
-      }
-      if (password.length < 6) {
-        this.alert('请填写6位数以上的密码')
-        return false
-      }
-
-      uData['submit'] = 1
-      uData['mobile'] = mobile
-      uData['password'] = password
-    } else if (appName === 'teacher') {
-      uData['submit'] = 1
-      uData['username'] = 'mobile'
-      uData['password'] = 'password'
-    } else {
+    if (/^1[0-9]{10}$/.test(mobile) === false) {
+      this.alert('请填写正确手机号')
+      return false
+    }
+    if (password.length < 6) {
+      this.alert('请填写6位数以上的密码')
       return false
     }
 
+    uData['submit'] = 1
+    uData['mobile'] = mobile
+    uData['password'] = password
+
     $.post(config.siteHost.siteurl + 'index.php?moduleid=2&action=login', uData, (ret) => {
+      // $.log(ret)
       if (ret.status === 1) {
         this.setLoginData(ret.userInfo)
         // fire
         // alert
         this.alert('登录成功', () => {
-          if (appName === 'student') this.goPortalStudent()
+          this.goPortal()
         })
       } else {
         this.alert(ret.msg)
@@ -52,14 +45,31 @@ export default class Login extends Abstract {
   public checkLoginUserInfo (successFun: () => void, errorFun: () => void) {
     if (this.isLogin()) {
       $.post(config.siteHost.siteurl + 'index.php?moduleid=2&action=login&op=checkloginuserinfo', null, (ret) => {
+        // $.log(ret)
         if (ret.status === 1) {
           this.setLoginData(ret.userInfo, false)
+          this.goPortal()
           successFun()
         } else {
           this.logout()
           errorFun()
         }
       }, 'json')
+    }
+  }
+
+  public goPortal () {
+    switch (appName) {
+      case 'student':
+        this.goPortalStudent()
+        break
+      case 'teacher':
+        this.goPortalTeacher()
+        break
+      case 'allapp':
+        if (this.getStorage('studentids')) this.goPortalStudent()
+        else this.goPortalTeacher()
+        break
     }
   }
 
@@ -169,4 +179,5 @@ export default class Login extends Abstract {
     this.setStorage('areaid', userInfo.areaid)
     this.setStorage('userInfo', userInfo)
   }
+
 }
