@@ -29,6 +29,10 @@ $.plusReady(() => {
       case 'teacher':
         login.goPortalStudent()
         break
+      case 'allapp':
+        if (login.getStorage('studentids')) login.goPortalStudent()
+        else login.goPortalStudent()
+        break
       default:
         break
     }

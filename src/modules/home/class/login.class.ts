@@ -133,6 +133,31 @@ export default class Login extends Abstract {
     })
   }
 
+  /**
+   * goPortalTeacher
+   */
+  public goPortalTeacher (): void {
+    $.plus.nativeUI.showWaiting() // 等宝宝等页加载完后关闭
+    // teacher
+    let subNViews = [{
+      'id': 'tabBarStudent',
+      'styles': { bottom: '0px', left: '0px', height: config.common.footerbarHeight + 'px', width: '100%', backgroundColor: '#FFFFFF' },
+      'tags': config.barTagsTeacher
+    }]
+    let clickButtonOffcanvas = (): void => {
+      // $.log('clickButtonOffcanvas')
+      $.fire(wvTbanjiIndex, 'openOffcanvas')
+    }
+    let titleNView = { backgroundColor: '#D74B28', titleText: '上学啦', titleColor: '#CCCCCC', buttons: [
+      { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: clickButtonOffcanvas }
+    ] }
+    let wvTbanjiIndex = $.openWindow({
+      id: 'tbanji_index',
+      url: '../tbanji/index' + viewEXT,
+      styles: { top: '0px', backButtonAutoControl: 'none', subNViews: subNViews, titleNView: titleNView }
+    })
+  }
+
   private setLoginData (userInfo, updateAccessToken = true) {
     this.setStorage('userid', userInfo.userid)
     this.setStorage('username', userInfo.username)
