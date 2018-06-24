@@ -60,8 +60,8 @@ $.plusReady(() => {
     ]
   }
   sIndex.setTabBar(tabBarItems)
-  $('#tabBar').on('tap', '.mui-control-item', function (e) {
-    sIndex.switchTab(this.dataset.vwid)
+  $('#tabBar').on('tap', '.mui-control-item', (event) => {
+    sIndex.switchTab(event.target.dataset.vwid)
   })
 
   // footerBar
