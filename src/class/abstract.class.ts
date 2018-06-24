@@ -1,5 +1,28 @@
 import { $, viewEXT } from '../common/js/global.js'
+// import Dot from 'dot'
+
 export default class Abstract {
+  /**
+   * dot
+   */
+  // public parseDot (content: string) {
+  //   let templateSettings = {
+  //     evaluate:    /\{\%([\s\S]+?)\%\}/g,
+  //     interpolate: /\{\%=([\s\S]+?)\%\}/g,
+  //     encode:      /\{\%!([\s\S]+?)\%\}/g,
+  //     use:         /\{\%#([\s\S]+?)\%\}/g,
+  //     define:      /\{\%##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\%\}/g,
+  //     conditional: /\{\%\?(\?)?\s*([\s\S]*?)\s*\%\}/g,
+  //     iterate:     /\{\%~\s*(?:\%\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\%\})/g,
+  //     varname: 'it',
+  //     strip: true,
+  //     append: true,
+  //     selfcontained: true,
+  //     useParams: false
+  //   }
+
+  //   return Dot.template(content, templateSettings)
+  // }
   /**
    * jsonToStr
    */
