@@ -60,15 +60,15 @@ $.plusReady(() => {
     ]
   }
   sIndex.setTabBar(tabBarItems)
-  $('#tabBar').on('tap', '.mui-control-item', (event) => {
-    sIndex.switchTab(event.target.dataset.vwid)
+  $('#tabBar').on('tap', '.mui-control-item', (e) => {
+    sIndex.switchTab(e.target.dataset.vwid)
   })
 
   // footerBar
   const sFooterbar = new SFooterbar(config.footbarProp)
   sFooterbar.initSubpage()
   const tabBarNView = $.plus.nativeObj.View.getViewById('tabBarStudent')
-  tabBarNView.addEventListener('click', function (e) {
+  tabBarNView.addEventListener('click', (e) => {
     if (sFooterbar.getStatus() === 'doing') return
     let targetPage: string = null
     let activePage: string = sFooterbar.getActivePage()
