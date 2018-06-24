@@ -22,7 +22,7 @@ $.plusReady(() => {
   $.noop()
   // 已登录 直接跳转
   login.checkLoginUserInfo(() => {
-    login.toast('欢迎你回来', { verticalAlign: 'top' })
+    login.toast(login.getStorage('username') + ',欢迎你回来', { verticalAlign: 'top' })
   }, () => {
     login.toast('请重新登录')
   })
