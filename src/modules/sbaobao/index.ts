@@ -43,7 +43,7 @@ $.plusReady(() => {
   window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
 
   // tabBar
-  let tabBarItems: TabBarItem[]
+  let tabBarItems: TabBarItem[] = []
   let userInfo = sIndex.getStorage('userInfo')
   if (userInfo && userInfo.student) {
     let studentids = userInfo.student.studentids.split(',')
