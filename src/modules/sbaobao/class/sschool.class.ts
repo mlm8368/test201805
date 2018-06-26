@@ -13,4 +13,11 @@ export default class SSchool extends Student {
       }
     }, 'json')
   }
+
+  /**
+   * test
+   */
+  public test () {
+    $('#attending').after(this.parseDot('./sbaobao/school/tplSchoolone.dot'))
+  }
 }

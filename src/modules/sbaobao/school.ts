@@ -5,6 +5,10 @@ import '../../common/sass/mui.init.scss'
 import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
+import SSchool from './class/sschool.class'
+
+let sSchool = new SSchool()
+
 // ready
 $.init({
   swipeBack: false,
@@ -20,4 +24,5 @@ $.plusReady(() => {
   window.addEventListener('swipeleft', () => {
     $.fire($.currentWebview.opener(), 'closeOffcanvas')
   })
+  sSchool.test()
 })
