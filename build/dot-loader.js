@@ -10,18 +10,37 @@ module.exports = function(content) {
   */
   
   // dot.templateSettings.selfcontained = true;
+  // let templateSettings = {
+  //   evaluate:    /\{\%([\s\S]+?)\%\}/g,
+  //   interpolate: /\{\%=([\s\S]+?)\%\}/g,
+  //   encode:      /\{\%!([\s\S]+?)\%\}/g,
+  //   use:         /\{\%#([\s\S]+?)\%\}/g,
+  //   define:      /\{\%##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\%\}/g,
+  //   conditional: /\{\%\?(\?)?\s*([\s\S]*?)\s*\%\}/g,
+  //   iterate:     /\{\%~\s*(?:\%\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\%\})/g,
+  //   varname: 'it',
+  //   strip: true,
+  //   append: true,
+  //   selfcontained: true
+  // };
+
   let templateSettings = {
-    evaluate:    /\{\%([\s\S]+?)\%\}/g,
+    evaluate: /\{\%([\s\S]+?(\}?)+)\%\}/g,
     interpolate: /\{\%=([\s\S]+?)\%\}/g,
-    encode:      /\{\%!([\s\S]+?)\%\}/g,
-    use:         /\{\%#([\s\S]+?)\%\}/g,
-    define:      /\{\%##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\%\}/g,
+    encode: /\{\%!([\s\S]+?)\%\}/g,
+    // use: /\{\%#([\s\S]+?)\%\}/g,
+    // useParams: /(^|[^\w$])def(?:\.|\[[\'\"])([\w$\.]+)(?:[\'\"]\])?\s*\:\s*([\w$\.]+|\"[^\"]+\"|\'[^\']+\'|\{[^\}]+\})/g,
+    // define: /\{\%##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\%\}/g,
+    // defineParams: /^\s*([\w$]+):([\s\S]+)/,
+    use: null,
+    define: null,
     conditional: /\{\%\?(\?)?\s*([\s\S]*?)\s*\%\}/g,
-    iterate:     /\{\%~\s*(?:\%\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\%\})/g,
+    iterate: /\{\%~\s*(?:\%\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\%\})/g,
     varname: 'it',
     strip: true,
     append: true,
-    selfcontained: true
+    selfcontained: false,
+    doNotSkipEncoded: false
   };
 
   // var content2 = fs.readFileSync(content.resource);
