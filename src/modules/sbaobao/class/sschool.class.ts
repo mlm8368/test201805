@@ -1,4 +1,4 @@
-import { $, viewEXT } from '../../../common/js/global.js'
+import { $, dotSchoolone } from '../../../common/js/global.js'
 import * as config from '../school/config'
 import Student from '../../../class/student.class'
 
@@ -18,6 +18,6 @@ export default class SSchool extends Student {
    * test
    */
   public test () {
-    $('#attending').after(this.parseDot('./sbaobao/school/tplSchoolone.dot'))
+    $('#attending').after(dotSchoolone())
   }
 }

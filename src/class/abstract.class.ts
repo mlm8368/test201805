@@ -1,40 +1,6 @@
 import { $, viewEXT } from '../common/js/global.js'
-import Dot from 'dot'
-import fs from 'fs'
-import path from 'path'
 
 export default class Abstract {
-  /**
-   * dot
-   */
-  public parseDot (file: string) {
-    let templateSettings = {
-      evaluate: /\{\%([\s\S]+?(\}?)+)\%\}/g,
-      interpolate: /\{\%=([\s\S]+?)\%\}/g,
-      encode: /\{\%!([\s\S]+?)\%\}/g,
-      use: /\{\%#([\s\S]+?)\%\}/g,
-      useParams: /(^|[^\w$])def(?:\.|\[[\'\"])([\w$\.]+)(?:[\'\"]\])?\s*\:\s*([\w$\.]+|\"[^\"]+\"|\'[^\']+\'|\{[^\}]+\})/g,
-      define: /\{\%##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\%\}/g,
-      defineParams: /^\s*([\w$]+):([\s\S]+)/,
-      conditional: /\{\%\?(\?)?\s*([\s\S]*?)\s*\%\}/g,
-      iterate: /\{\%~\s*(?:\%\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\%\})/g,
-      varname: 'it',
-      strip: true,
-      append: true,
-      selfcontained: false,
-      doNotSkipEncoded: false
-    }
-
-    let defs = {
-      loadfile: (file: string) => {
-        let data = fs.readFileSync(path.resolve(__dirname, '../modules/') + file)
-        if (data) return data.toString()
-        return 'file not found with path: ' + file
-      }
-    }
-
-    return Dot.template(`{%#def.loadfile(${ file })%}`, templateSettings, defs)
-  }
   /**
    * jsonToStr
    */
