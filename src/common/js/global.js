@@ -1,6 +1,3 @@
-import tplSchoolone from '../../modules/sbaobao/school/tplSchoolone.dot';
-export let dotSchoolone = tplSchoolone;
-
 export let $ = window.mui;
 export let viewEXT = process.env.viewEXT; // .htm .html
 export let appName = process.env.appName; // student teacher

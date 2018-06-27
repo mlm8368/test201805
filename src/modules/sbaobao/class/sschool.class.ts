@@ -1,6 +1,7 @@
-import { $, dotSchoolone } from '../../../common/js/global.js'
+import { $ } from '../../../common/js/global.js'
 import * as config from '../school/config'
 import Student from '../../../class/student.class'
+import { dotSchoolone } from '../school/dot.js'
 
 export default class SSchool extends Student {
   /**
