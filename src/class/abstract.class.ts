@@ -2,6 +2,12 @@ import { $, viewEXT } from '../common/js/global.js'
 
 export default class Abstract {
   /**
+   * byId
+   */
+  public byId (id: string) {
+    return document.getElementById(id)
+  }
+  /**
    * jsonToStr
    */
   public jsonToStr (json: object): string {
@@ -86,8 +92,6 @@ export default class Abstract {
     this.rmStorage('userid')
     this.rmStorage('username')
     this.rmStorage('accessToken')
-    // this.rmStorage('student')
-    // this.rmStorage('classes')
     this.rmStorage('groupid')
     this.rmStorage('area')
     this.rmStorage('areaid')

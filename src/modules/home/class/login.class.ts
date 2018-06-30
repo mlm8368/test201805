@@ -172,8 +172,6 @@ export default class Login extends Abstract {
     this.setStorage('userid', userInfo.userid)
     this.setStorage('username', userInfo.username)
     if (updateAccessToken) this.setStorage('accessToken', userInfo.accessToken)
-    // this.setStorage('student', userInfo.student)
-    // this.setStorage('classes', userInfo.classes)
     this.setStorage('groupid', userInfo.groupid)
     this.setStorage('area', userInfo.area)
     this.setStorage('areaid', userInfo.areaid)

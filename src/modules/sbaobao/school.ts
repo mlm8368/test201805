@@ -24,5 +24,6 @@ $.plusReady(() => {
   window.addEventListener('swipeleft', () => {
     $.fire($.currentWebview.opener(), 'closeOffcanvas')
   })
-  sSchool.test()
+  if (viewEXT === '.htm') return
+  sSchool.getClasses(1)
 })

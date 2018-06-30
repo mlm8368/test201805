@@ -129,7 +129,6 @@ import 'mui/js/mui.back.5+';
     });
   };
   $.fn.remove = function () {
-    if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
       return false;
@@ -139,7 +138,7 @@ import 'mui/js/mui.back.5+';
     }
   };
   $.fn.attr = function (name, value) {
-    if (window.viewEXT === '.htm' && arguments.length === 2) return;
+    if (arguments.length === 2) return;
     let el = this[0];
     if (!$.isElement(el)) {
       return false;
@@ -151,7 +150,6 @@ import 'mui/js/mui.back.5+';
     }
   };
   $.fn.removeAttr = function (name) {
-    if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
       return false;
@@ -161,7 +159,7 @@ import 'mui/js/mui.back.5+';
     }
   };
   $.fn.val = function (val) {
-    if (window.viewEXT === '.htm' && arguments.length === 0) return;
+    if (arguments.length === 0) return;
     let el = this[0];
     if (!$.isElement(el)) {
       return false;
@@ -191,7 +189,6 @@ import 'mui/js/mui.back.5+';
     }
   };
   $.fn.prepend = function (html) {
-    if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
       return false;
@@ -199,7 +196,6 @@ import 'mui/js/mui.back.5+';
     el.insertAdjacentHTML('afterbegin', html);
   };
   $.fn.append = function (html) {
-    if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
       return false;
@@ -207,7 +203,6 @@ import 'mui/js/mui.back.5+';
     el.insertAdjacentHTML('beforeend', html);
   };
   $.fn.before = function (html) {
-    if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
       return false;
@@ -215,7 +210,6 @@ import 'mui/js/mui.back.5+';
     el.insertAdjacentHTML('beforebegin', html);
   };
   $.fn.after = function (html) {
-    if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
       return false;
@@ -223,7 +217,6 @@ import 'mui/js/mui.back.5+';
     el.insertAdjacentHTML('afterend', html);
   };
   $.fn.html = function (html) {
-    // if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
       return false;
@@ -235,7 +228,6 @@ import 'mui/js/mui.back.5+';
     }
   };
   $.fn.text = function (txt) {
-    if (window.viewEXT === '.htm') return;
     let el = this[0];
     if (!$.isElement(el)) {
       return false;

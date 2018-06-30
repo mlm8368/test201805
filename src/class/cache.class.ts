@@ -1,10 +1,13 @@
 import { $ } from '../common/js/global.js'
+import { appCacheKey } from './enum'
+
 export default class Cache {
+  private preKey = 'appCacheKey'
   /**
    * getItem
    */
-  public getItem (key: string) {
-    let value = $.plus.storage.getItem(key)
+  public get (key: appCacheKey): {param: string, values: any} {
+    let value = $.plus.storage.getItem(this.preKey + key)
     if (value === null) return null
     else return JSON.parse(value)
   }
@@ -12,28 +15,28 @@ export default class Cache {
   /**
    * setItem
    */
-  public setItem (key: string, value: any[], expires = 86400) {
-    this.setCacheKeys(key, expires)
+  public set (key: appCacheKey, value: {param: string, values: any}, expires = 0) {
+    if (expires > 0) this.setCacheKeys(key, expires)
 
     let valueJson = JSON.stringify(value)
-    $.plus.storage.setItem(key, valueJson)
+    $.plus.storage.setItem(this.preKey + key, valueJson)
   }
 
   /**
    * removeItem
    */
-  public removeItem (key: string) {
-    $.plus.storage.removeItem(key)
+  public remove (key: appCacheKey) {
+    $.plus.storage.removeItem(this.preKey + key)
   }
 
   /**
    * clear
    */
-  public clear () {
+  public clearAll () {
     $.plus.storage.clear()
   }
 
-  private setCacheKeys (key: string, expires: number) {
+  private setCacheKeys (key: appCacheKey, expires: number) {
     const cacheKey = 'collectAllCacheKeys'
     if (expires > 0) expires = new Date().getTime() + expires * 1000
 
@@ -41,7 +44,7 @@ export default class Cache {
     if (allKeys === null) allKeys = {}
     else allKeys = JSON.parse(allKeys)
 
-    allKeys[key] = expires
+    allKeys[this.preKey + key] = expires
     $.plus.storage.setItem(cacheKey, JSON.stringify(allKeys))
   }
 }
