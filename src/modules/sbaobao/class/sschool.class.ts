@@ -33,7 +33,7 @@ export default class SSchool extends Student {
 
     $.get(config.siteHost.siteurl + 'index.php?moduleid=2&action=getclasses', { studentids: studentids }, (ret) => {
       if (ret.status === 1) {
-        $.log(ret)
+        // $.log(ret)
         classes = { param: studentids + classesids, values: ret.schools }
         this.renderSchool(classes.values[studentid])
         // cache.set(appCacheKey.sbaobao_school_classes, classes)
@@ -54,7 +54,7 @@ export default class SSchool extends Student {
         else if (school.status === 'done') schoolHtmlDone += dotSchoolone(school)
       }
     }
-    this.byId('attending').insertAdjacentHTML('afterend', schoolHtmlDoing)
-    this.byId('attended').insertAdjacentHTML('afterend', schoolHtmlDone)
+    this.byId('attending').innerHTML = schoolHtmlDoing
+    this.byId('attended').innerHTML = schoolHtmlDone
   }
 }

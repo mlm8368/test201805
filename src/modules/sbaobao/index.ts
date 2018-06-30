@@ -51,7 +51,10 @@ $.plusReady(() => {
 
     studentids.forEach((studentid, index) => {
       let one = { id: 'sbaobao_baobao_' + (index + 1), url: './baobao' + viewEXT, title: relatename[index], activeClass: '', extras: { studentid: studentid } }
-      if (index === 0) one['activeClass'] = 'mui-active'
+      if (index === 0) {
+        one['activeClass'] = 'mui-active'
+        sIndex.setStorage('sbaobao_studentid_current', studentid)
+      }
       tabBarItems.push(one)
     })
   } else {
@@ -63,6 +66,7 @@ $.plusReady(() => {
   $('#tabBar').on('tap', '.mui-control-item', (e) => {
     sIndex.switchTab(e.target.dataset.vwid)
   })
+  $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
 
   // footerBar
   const sFooterbar = new SFooterbar(config.footbarProp)

@@ -93,7 +93,6 @@ export default class SIndex extends Student {
       height: '100%', // 切换遮罩view
       items: WebviewGroupItems,
       onChange: (obj) => {
-        $.log(obj)
         const c = document.querySelector('.mui-control-item.mui-active')
         if (c) c.classList.remove('mui-active')
 
