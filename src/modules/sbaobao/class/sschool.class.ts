@@ -10,9 +10,16 @@ export default class SSchool extends Student {
    * getClasses
    */
   public getClasses (studentid: number) {
+    let studentids = ''
+    let classesids = ''
+
     let userInfo = this.getStorage('userInfo')
-    let studentids = userInfo.studentids
-    let classesids = userInfo.classesids
+    if (userInfo.student) {
+      if (userInfo.student.studentids) studentids = userInfo.student.studentids
+      if (userInfo.student.classesids) classesids = userInfo.student.classesids
+    } else {
+      return
+    }
 
     let classes = null
     let cache = new Cache()
@@ -37,11 +44,14 @@ export default class SSchool extends Student {
 
     let schoolHtmlDoing = ''
     let schoolHtmlDone = ''
-    schoolList.forEach(school => {
-      let oneHtml = dotSchoolone(school)
-      if (school.status === 'doing') schoolHtmlDoing += oneHtml
-      else if (school.status === 'done') schoolHtmlDone += oneHtml
-    })
+    for (const key in schoolList) {
+      if (schoolList.hasOwnProperty(key)) {
+        const school = schoolList[key]
+
+        if (school.status === 'doing') schoolHtmlDoing += dotSchoolone(school)
+        else if (school.status === 'done') schoolHtmlDone += dotSchoolone(school)
+      }
+    }
     this.byId('attending').insertAdjacentHTML('afterend', schoolHtmlDoing)
     this.byId('attended').insertAdjacentHTML('afterend', schoolHtmlDone)
   }

@@ -19,7 +19,7 @@
 </div>
 <div class="aui-card-list-content">
   <ul class="aui-list aui-list-in">
-    {%~ it:classes %}
+    {%~ it.classes:one %}
     <li class="aui-list-item">
       <div class="aui-list-item-inner aui-list-item-arrow">
         <div class="aui-list-item-title">{%=one.classesname%}</div>
