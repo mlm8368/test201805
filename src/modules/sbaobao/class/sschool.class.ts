@@ -9,7 +9,9 @@ export default class SSchool extends Student {
   /**
    * getClasses
    */
-  public getClasses (studentid: number) {
+  public getClasses () {
+    let studentid: number = this.getStorage('sbaobao_studentid_current')
+
     let studentids = ''
     let classesids = ''
 

@@ -92,13 +92,17 @@ export default class SIndex extends Student {
       top: tabHeightAll + 'px', // 切换遮罩view
       height: '100%', // 切换遮罩view
       items: WebviewGroupItems,
-      onChange: function (obj) {
+      onChange: (obj) => {
+        $.log(obj)
         const c = document.querySelector('.mui-control-item.mui-active')
         if (c) c.classList.remove('mui-active')
 
         const target = document.querySelector('.mui-scroll .mui-control-item:nth-child(' + (obj.index + 1) + ')')
         target.classList.add('mui-active')
         if (target.scrollIntoView) target.scrollIntoView()
+
+        this.setStorage('sbaobao_studentid_current', tabBarItems[obj.index].extras.studentid)
+        $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
       }
     })
   }

@@ -21,9 +21,14 @@ $.ready(() => {
 })
 // plusReady
 $.plusReady(() => {
-  window.addEventListener('swipeleft', () => {
-    $.fire($.currentWebview.opener(), 'closeOffcanvas')
-  })
   if (viewEXT === '.htm') return
-  sSchool.getClasses(1)
+  sSchool.getClasses()
+})
+// fire
+window.addEventListener('swipeleft', () => {
+  $.fire($.currentWebview.opener(), 'closeOffcanvas')
+})
+
+window.addEventListener('getClasses', () => {
+  sSchool.getClasses()
 })

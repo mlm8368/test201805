@@ -18,6 +18,6 @@ $.ready(function () {
 // plusReady
 $.plusReady(function () {
   if ($.currentWebview.catid === 1) $.plus.nativeUI.closeWaiting()
-  $('#catid').html($.currentWebview.catid)
+  $('#catid').html($.currentWebview.studentid)
   $.noop()
 })
