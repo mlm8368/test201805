@@ -133,7 +133,7 @@ export default class Login extends Abstract {
       // $.log('clickButtonOffcanvas')
       $.fire(wvSbaobaoIndex, 'openOffcanvas')
     }
-    let titleNView = { backgroundColor: '#D74B28', titleText: '上学啦', titleColor: '#CCCCCC', buttons: [
+    let titleNView = { backgroundColor: '#D74B28', titleText: '宝宝上学啦', titleColor: '#CCCCCC', buttons: [
       { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: clickButtonOffcanvas }
     ] }
     let wvSbaobaoIndex = $.openWindow({
