@@ -5,6 +5,10 @@ import '../../common/sass/mui.init.scss'
 import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT } from '../../common/js/global.js'
+import SBaobao from './class/sbaobao.class'
+
+let sBaobao = new SBaobao()
+
 // ready
 $.init({
   swipeBack: false,
@@ -17,7 +21,7 @@ $.ready(function () {
 })
 // plusReady
 $.plusReady(function () {
-  if ($.currentWebview.catid === 1) $.plus.nativeUI.closeWaiting()
-  $('#catid').html($.currentWebview.studentid)
-  $.noop()
+  if ($.currentWebview.index === 0) $.plus.nativeUI.closeWaiting()
+  if (viewEXT === '.htm') return
+  sBaobao.getBaobao($.currentWebview.studentid)
 })

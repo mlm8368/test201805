@@ -50,7 +50,7 @@ $.plusReady(() => {
     let relatename = userInfo.student.relatename.split(',')
 
     studentids.forEach((studentid, index) => {
-      let one = { id: 'sbaobao_baobao_' + (index + 1), url: './baobao' + viewEXT, title: relatename[index], activeClass: '', extras: { studentid: studentid } }
+      let one = { id: 'sbaobao_baobao_' + index, url: './baobao' + viewEXT, title: relatename[index], activeClass: '', extras: { studentid: studentid, index: index } }
       if (index === 0) {
         one['activeClass'] = 'mui-active'
         sIndex.setStorage('sbaobao_studentid_current', studentid)
@@ -59,7 +59,7 @@ $.plusReady(() => {
     })
   } else {
     tabBarItems = [
-      { id: 'sbaobao_baobao_1', url: './baobao' + viewEXT, title: '宝宝', activeClass: 'mui-active', extras: { studentid: 0 } }
+      { id: 'sbaobao_baobao_0', url: './baobao' + viewEXT, title: '宝宝', activeClass: 'mui-active', extras: { studentid: 0 } }
     ]
   }
   sIndex.setTabBar(tabBarItems)

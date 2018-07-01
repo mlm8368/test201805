@@ -1,55 +1,47 @@
-import { $, viewEXT } from '../../../common/js/global.js'
+import { $ } from '../../../common/js/global.js'
+import * as config from '../school/config'
 import Student from '../../../class/student.class'
+import { appCacheKey } from '../../../class/enum'
+import Cache from '../../../class/cache.class'
 
 export default class SBaobao extends Student {
-  private showMenu = false
-  private main: any
-  private menu: any
-  private mask: any
+  /**
+   * getBaobao
+   */
+  public getBaobao (studentid: number) {
+    let studentids = ''
+    let classesids = ''
 
-  constructor () {
-    super()
-    this.main = $.currentWebview
-    this.menu = $.preload({ id: 'sbaobao_school', url: './school' + viewEXT, styles: { left: '0%', width: '70%', zindex: 9997 } })
-    this.mask = $.createMask(() => { this.closeMenu(false) })
-    $.options.beforeback = (): boolean => {
-      if (this.showMenu) {
-        this.closeMenu()
-        return false
-      } else {
-        this.menu.close('none')
-        return true
+    let userInfo = this.getStorage('userInfo')
+    if (userInfo.student) {
+      if (userInfo.student.studentids) studentids = userInfo.student.studentids
+      if (userInfo.student.classesids) classesids = userInfo.student.classesids
+    } else {
+      return
+    }
+
+    let baobaos = null
+    let cache = new Cache()
+    baobaos = cache.get(appCacheKey.sbaobao_baobao_parentes)
+    if (baobaos !== null && baobaos.param === studentids + classesids) {
+      this.renderBaobao(baobaos.values[studentid])
+      return
+    }
+
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=2&action=getbaobao', { studentids: studentids }, (ret) => {
+      if (ret.status === 1) {
+        // $.log(ret)
+        baobaos = { param: studentids + classesids, values: ret.schools }
+        this.renderBaobao(baobaos.values[studentid])
+        // cache.set(appCacheKey.sbaobao_baobao_parentes, baobaos)
       }
-    }
-    window.addEventListener('dragright', function (e: any) { e.detail.gesture.preventDefault() })
-    window.addEventListener('dragleft', function (e: any) { e.detail.gesture.preventDefault() })
-    window.addEventListener('swiperight', () => { this.openMenu() })
-    window.addEventListener('swipeleft', () => { this.closeMenu() })
-    window.addEventListener('closeOffcanvas', () => { this.closeMenu() })
+    }, 'json')
   }
 
   /**
-   * openMenu
+   * renderBaobao
    */
-  public openMenu () {
-    if (!this.showMenu) {
-      this.menu.show('none', 0, () => {
-        this.main.setStyle({ left: '70%', transition: { duration: 150 } })
-      })
-      this.mask.show()
-      this.showMenu = true
-    }
-  }
-
-  /**
-   * closeMenu
-   */
-  public closeMenu (this: SBaobao, closeMask = true) {
-    if (this.showMenu) {
-      this.main.setStyle({ left: '0%', transition: { duration: 150 } })
-      setTimeout(() => { this.menu.hide() }, 300)
-      this.showMenu = false
-    }
-    if (closeMask) this.mask.close()
+  public renderBaobao (baobao) {
+    $.noop()
   }
 }
