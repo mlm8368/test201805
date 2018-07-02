@@ -9,6 +9,7 @@ export default class Cache {
   public get (key: appCacheKey): {param: string, values: any} {
     let value = $.plus.storage.getItem(this.preKey + key)
     if (value === null) return null
+    else if (value.expires > 0 && value.expires < new Date().getTime() ) return null
     else return JSON.parse(value)
   }
 
@@ -16,7 +17,9 @@ export default class Cache {
    * setItem
    */
   public set (key: appCacheKey, value: {param: string, values: any}, expires = 0) {
-    if (expires > 0) this.setCacheKeys(key, expires)
+    // if (expires > 0) this.setCacheKeys(key, expires)
+    if (expires > 0) expires = new Date().getTime() + expires * 1000
+    value['expires'] = expires
 
     let valueJson = JSON.stringify(value)
     $.plus.storage.setItem(this.preKey + key, valueJson)
