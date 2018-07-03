@@ -10,6 +10,7 @@ export default class SBaobao extends Student {
    */
   public getBaobao (studentid: number) {
     let studentids = ''
+    let classesid = 0
     let parentuserids = ''
 
     let userInfo = this.getStorage('userInfo')
@@ -20,6 +21,8 @@ export default class SBaobao extends Student {
       return
     }
 
+    classesid = this.getStorage('currentClassesid')
+
     let baobaos = null
     let cache = new Cache()
     baobaos = cache.get(appCacheKey.sbaobao_baobao_parentes)
@@ -28,7 +31,7 @@ export default class SBaobao extends Student {
       return
     }
 
-    $.get(config.siteHost.siteurl + 'index.php?moduleid=2&action=getbaobao', { studentids: studentids }, (ret) => {
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=2&action=getbaobao', { studentids: studentids, classesid: classesid }, (ret) => {
       if (ret.status === 1) {
         // $.log(ret)
         baobaos = { param: studentids + parentuserids, values: ret.baobaos }
