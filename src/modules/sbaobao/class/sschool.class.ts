@@ -3,7 +3,7 @@ import * as config from '../school/config'
 import Student from '../../../class/student.class'
 import { appCacheKey } from '../../../class/enum'
 import Cache from '../../../class/cache.class'
-import { dotSchoolone } from '../school/dot.js'
+import * as dot from '../school/dot.js'
 
 export default class SSchool extends Student {
   /**
@@ -50,8 +50,8 @@ export default class SSchool extends Student {
       if (schoolList.hasOwnProperty(key)) {
         const school = schoolList[key]
 
-        if (school.status === 'doing') schoolHtmlDoing += dotSchoolone(school)
-        else if (school.status === 'done') schoolHtmlDone += dotSchoolone(school)
+        if (school.status === 'doing') schoolHtmlDoing += dot.schoolone(school)
+        else if (school.status === 'done') schoolHtmlDone += dot.schoolone(school)
       }
     }
     this.byId('attending').innerHTML = schoolHtmlDoing

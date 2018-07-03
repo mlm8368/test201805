@@ -1,2 +1,2 @@
 import tplSchoolone from './tplSchoolone.dot';
-export let dotSchoolone = tplSchoolone;
+export let schoolone = tplSchoolone;
