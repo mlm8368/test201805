@@ -1,0 +1,37 @@
+<div class="aui-card-list-content">
+  <ul class="aui-list aui-media-list">
+    <li class="aui-list-item aui-list-item-middle">
+        <div class="aui-media-list-item-inner">
+            <div class="aui-list-item-media schoolpic">
+                <img src="{%=it.thumb%}" class="aui-img-round aui-list-img-sm">
+            </div>
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-text">
+                    <div class="aui-list-item-title aui-font-size-14">{%=it.company%}</div>
+                </div>
+                <div class="aui-list-item-text">
+                    专注英语培训
+                </div>
+            </div>
+        </div>
+    </li>
+  </ul>
+</div>
+<div class="aui-card-list-content">
+  <ul class="aui-list aui-list-in">
+    {%~ it.classes:one %}
+    <li class="aui-list-item">
+      <div class="aui-list-item-inner aui-list-item-arrow">
+        <div class="aui-list-item-title">{%=one.classesname%}</div>
+        <div class="aui-list-item-right">
+          {%
+            var schoolDate = '开学于 ' + one.startdate;
+            if(one.enddate) schoolDate = one.startdate + ' ~ ' + one.enddate;
+          %}
+          <div class="aui-label-info">{%=schoolDate%}</div>
+        </div>
+      </div>
+    </li>
+    {%~%}
+  </ul>
+</div>
