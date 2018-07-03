@@ -3,10 +3,13 @@ import { appCacheKey } from './enum'
 
 export default class Cache {
   private preKey = 'appCacheKey'
+  private closeCache = true // 开发调试
   /**
    * getItem
    */
   public get (key: appCacheKey): {param: string, values: any} {
+    if (this.closeCache) return null
+
     let value = $.plus.storage.getItem(this.preKey + key)
     if (value === null) return null
     else if (value.expires > 0 && value.expires < new Date().getTime()) return null

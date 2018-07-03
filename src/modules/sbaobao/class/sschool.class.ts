@@ -36,7 +36,7 @@ export default class SSchool extends Student {
         // $.log(ret)
         classes = { param: studentids + classesids, values: ret.schools }
         this.renderSchool(classes.values[studentid])
-        // cache.set(appCacheKey.sbaobao_school_classes, classes)
+        cache.set(appCacheKey.sbaobao_school_classes, classes)
       }
     }, 'json')
   }
