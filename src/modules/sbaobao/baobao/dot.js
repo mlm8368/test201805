@@ -1,8 +1,8 @@
 import tplBaobao from './tplBaobao.dot';
-export let dotBaobao = tplBaobao;
+export let baobao = tplBaobao;
 
 import tplParent from './tplParent.dot';
-export let dotParent = tplParent;
+export let parent = tplParent;
 
 import tplSchool from './tplSchool.dot';
-export let dotSchool = tplSchool;
+export let school = tplSchool;
