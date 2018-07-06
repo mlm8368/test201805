@@ -3,7 +3,6 @@ import * as config from '../school/config'
 import Student from '../../../class/student.class'
 import { appCacheKey } from '../../../class/enum'
 import Cache from '../../../class/cache.class'
-// import { dotBaobao, dotParent, dotSchool } from '../baobao/dot.js'
 import * as dot from '../baobao/dot.js'
 
 export default class SBaobao extends Student {
@@ -32,7 +31,7 @@ export default class SBaobao extends Student {
       return
     }
 
-    $.get(config.siteHost.siteurl + 'index.php?moduleid=2&action=getbaobao', { studentids: studentids, classesid: classesid }, (ret) => {
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=2&action=getbaobao', { studentids: studentids }, (ret) => {
       if (ret.status === 1) {
         // $.log(ret)
         baobaos = { param: studentids + parentuserids + classesids, values: ret.baobaos }
@@ -46,11 +45,16 @@ export default class SBaobao extends Student {
    * renderBaobao
    */
   public renderBaobao (baobao) {
-    if (!baobao) return
+    const classesid: number = this.getStorage('currentClassesid')
+    let classes = baobao.classes[classesid]
+    if (!classes.enddate) {
+      classes.enddate = '现在'
+      classes.endtime = $.now
+    }
+    classes.totaltime = this.getDateDiff(classes.starttime, classes.endtime)
 
-    let classesid: number = this.getStorage('currentClassesid')
-
-    this.byId('attending').innerHTML = schoolHtmlDoing
-
+    this.byId('baobao').innerHTML = dot.baobao(baobao.baobao)
+    this.byId('parent').innerHTML = dot.parent(baobao.parent)
+    this.byId('school').innerHTML = dot.school({ school: baobao.school[classes.schoolid], classes: classes })
   }
 }

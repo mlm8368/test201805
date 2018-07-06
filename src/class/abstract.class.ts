@@ -113,10 +113,10 @@ export default class Abstract {
    * @returns {string}
    * @memberof Abstract
    */
-  public getDateDiff (dateTimeStamp: number): string {
+  public getDateDiff (dateTimeStamp: number, now = 0): string {
   	if (!dateTimeStamp) return '-'
 
-    let now = new Date().getTime()
+    if (now === 0) now = new Date().getTime()
     let diffValue = now - dateTimeStamp
     if (diffValue < 0) return '刚刚'
     let minute = 60000

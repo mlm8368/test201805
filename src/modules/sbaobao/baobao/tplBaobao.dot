@@ -1,37 +1,15 @@
-<div class="aui-card-list-content">
-  <ul class="aui-list aui-media-list">
-    <li class="aui-list-item aui-list-item-middle">
-        <div class="aui-media-list-item-inner">
-            <div class="aui-list-item-media schoolpic">
-                <img src="{%=it.thumb%}" class="aui-img-round aui-list-img-sm">
-            </div>
-            <div class="aui-list-item-inner">
-                <div class="aui-list-item-text">
-                    <div class="aui-list-item-title aui-font-size-14">{%=it.company%}</div>
-                </div>
-                <div class="aui-list-item-text">
-                    专注英语培训
-                </div>
-            </div>
-        </div>
-    </li>
-  </ul>
-</div>
-<div class="aui-card-list-content">
-  <ul class="aui-list aui-list-in">
-    {%~ it.classes:one %}
-    <li class="aui-list-item">
-      <div class="aui-list-item-inner aui-list-item-arrow">
-        <div class="aui-list-item-title">{%=one.classesname%}</div>
-        <div class="aui-list-item-right">
-          {%
-            var schoolDate = '开学于 ' + one.startdate;
-            if(one.enddate) schoolDate = one.startdate + ' ~ ' + one.enddate;
-          %}
-          <div class="aui-label-info">{%=schoolDate%}</div>
-        </div>
+<div class="aui-list aui-media-list aui-list-noborder aui-bg-info">
+  <div class="aui-list-item aui-list-item-middle">
+      <div class="aui-media-list-item-inner ">
+          <div class="aui-list-item-media avatar">
+              <img src="{%=it.avatar%}" class="aui-img-round" >
+          </div>
+          <div class="aui-list-item-inner aui-list-item-arrow">
+              <div class="aui-list-item-text text-white aui-font-size-18">{%=it.babyname%}</div>
+              <div class="aui-list-item-text text-white">
+                 <div><i class="aui-iconfont aui-icon-mobile aui-font-size-14"></i>宝宝 {%=it.birthday%}<span id="catid"></span></div>
+              </div>
+          </div>
       </div>
-    </li>
-    {%~%}
-  </ul>
+  </div>
 </div>
