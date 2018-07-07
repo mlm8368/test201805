@@ -1,10 +1,13 @@
 <div class="aui-row">
-  {%~ it:one %}
+  {%
+    for (var key in it) {
+     var one = it[key];
+  %}
   <div class="aui-col-5">
       <img src="{%=one.avatarpic%}" class="aui-img-round" >
       <div class="aui-gird-lable aui-font-size-12">{%=one.parentcall%}</div>
   </div>
-  {%~%}
+  {% } %}
   <div class="aui-col-5">
       <div class="aui-border aui-text-center yaoqing">
           <i class="aui-iconfont aui-icon-plus"></i>
