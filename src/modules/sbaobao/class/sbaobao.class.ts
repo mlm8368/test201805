@@ -54,10 +54,38 @@ export default class SBaobao extends Student {
       classes.enddate = '现在'
       classes.endtime = $.nowtime
     }
-    classes.totaltime = this.getDateDiff(classes.starttime, classes.endtime)
+    classes.totaltime = this.getInClassesDay(classes.starttime, classes.endtime)
 
     this.byId('baobao').innerHTML = dot.baobao(baobao.baobao)
     this.byId('parent').innerHTML = dot.parent(baobao.parent)
     this.byId('school').innerHTML = dot.school({ school: baobao.school[classes.schoolid], classes: classes })
+  }
+
+  private getInClassesDay (starttime: number, endtime: number) {
+    const diffValue = endtime - starttime
+    const day = 86400000
+    const week = 604800000
+    const month = 2592000000
+    let r = ''
+
+    let monthC = diffValue / month
+    if (monthC >= 1) {
+      r = Math.floor(monthC) + '个月'
+      let monthDay = (diffValue % month) / day
+      if (monthDay) r += Math.floor(monthDay) + '天'
+      return r
+    } else {
+      let weekC = diffValue / week
+      if (weekC >= 1) {
+        r = Math.floor(weekC) + '周'
+        let weekDay = (diffValue % week) / day
+        if (weekDay) r += Math.floor(weekDay) + '天'
+        return r
+      } else {
+        let dayC = diffValue / day
+        r = Math.floor(dayC) + '天'
+        return r
+      }
+    }
   }
 }

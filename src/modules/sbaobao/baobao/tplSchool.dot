@@ -2,7 +2,7 @@
     <div class="aui-card-list-content">
         <img src="{%=it.school.thumb%}" />
         <h1 style="text-align: center;">{%=it.school.school%}</h1>
-        <p style="text-align: center;">已在 {%=it.classes.classesname%} 就读 {%=it.classes.totaltime%} 个月</p>
+        <p style="text-align: center;">已在 {%=it.classes.classesname%} 就读 {%=it.classes.totaltime%}</p>
         <p style="text-align: center;">{%=it.classes.startdate%} ~ {%=it.classes.enddate%}</p>
     </div>
     <div class="aui-card-list-footer aui-border-t">

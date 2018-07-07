@@ -117,14 +117,14 @@ export default class Abstract {
   	if (!dateTimeStamp) return '-'
 
     if (now === 0) now = new Date().getTime()
-    let diffValue = now - dateTimeStamp
+    const diffValue = now - dateTimeStamp
     if (diffValue < 0) return '刚刚'
-    let minute = 60000
-    let hour = 3600000
-    let day = 86400000
-    let week = 604800000
-    let month = 2592000000
-    let year = 31104000000
+    const minute = 60000
+    const hour = 3600000
+    const day = 86400000
+    const week = 604800000
+    const month = 2592000000
+    const year = 31104000000
 
     let yearC = diffValue / year
     if (yearC >= 1) {
