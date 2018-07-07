@@ -1,4 +1,4 @@
-import { $ } from '../../../common/js/global.js'
+import { $, getAge } from '../../../common/js/global.js'
 import * as config from '../school/config'
 import Student from '../../../class/student.class'
 import { appCacheKey } from '../../../class/enum'
@@ -56,7 +56,9 @@ export default class SBaobao extends Student {
     }
     classes.totaltime = this.getInClassesDay(classes.starttime, classes.endtime)
 
-    this.byId('baobao').innerHTML = dot.baobao(baobao.baobao)
+    let baobaoInfo = baobao.baobao
+    baobaoInfo['birthdayStr'] = getAge(baobaoInfo.birthday + ' 1:1:1', this.getNowFormatDate() + ' 1:1:1')
+    this.byId('baobao').innerHTML = dot.baobao(baobaoInfo)
     this.byId('parent').innerHTML = dot.parent(baobao.parent)
     this.byId('school').innerHTML = dot.school({ school: baobao.school[classes.schoolid], classes: classes })
   }
@@ -87,5 +89,19 @@ export default class SBaobao extends Student {
         return r
       }
     }
+  }
+
+  private getNowFormatDate () {
+    const date = new Date()
+    const seperator1 = '-'
+    const month = date.getMonth() + 1
+    let month2 = ''
+    const strDate = date.getDate()
+    let strDate2 = ''
+    if (month >= 1 && month <= 9) month2 = '0' + month
+    else month2 = '' + month
+    if (strDate >= 0 && strDate <= 9) strDate2 = '0' + strDate
+    else strDate2 = '' + strDate
+    return date.getFullYear() + seperator1 + month2 + seperator1 + strDate2
   }
 }
