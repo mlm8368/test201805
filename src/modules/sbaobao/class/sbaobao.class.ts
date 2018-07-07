@@ -57,7 +57,7 @@ export default class SBaobao extends Student {
     classes.totaltime = this.getInClassesDay(classes.starttime, classes.endtime)
 
     let baobaoInfo = baobao.baobao
-    baobaoInfo['birthdayStr'] = getAge(baobaoInfo.birthday + ' 1:1:1', this.getNowFormatDate() + ' 1:1:1')
+    baobaoInfo['birthdayStr'] = getAge(baobaoInfo.birthday + ' 1:1:1', this.getFormatDate() + ' 1:1:1')
     this.byId('baobao').innerHTML = dot.baobao(baobaoInfo)
     this.byId('parent').innerHTML = dot.parent(baobao.parent)
     this.byId('school').innerHTML = dot.school({ school: baobao.school[classes.schoolid], classes: classes })
@@ -89,19 +89,5 @@ export default class SBaobao extends Student {
         return r
       }
     }
-  }
-
-  private getNowFormatDate () {
-    const date = new Date()
-    const seperator1 = '-'
-    const month = date.getMonth() + 1
-    let month2 = ''
-    const strDate = date.getDate()
-    let strDate2 = ''
-    if (month >= 1 && month <= 9) month2 = '0' + month
-    else month2 = '' + month
-    if (strDate >= 0 && strDate <= 9) strDate2 = '0' + strDate
-    else strDate2 = '' + strDate
-    return date.getFullYear() + seperator1 + month2 + seperator1 + strDate2
   }
 }

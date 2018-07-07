@@ -104,11 +104,15 @@ export function getAge(beginStr, endStr) {
   var mnthString = month > 0 ? month + '月' : '';
   var dayString = days > 0 ? days + '天' : '';
 
+  return yearString + mnthString + dayString;
+
+  /*
   // 1 如果岁 大于等于1 那么年龄取 几岁 2 如果 岁等于0 但是月大于1 那么如果天等于0天小于3天 取小时
   // 例如出生2天 就取 48小时
   var result = '';
   if (year >= 1) {
     result = yearString + mnthString;
+    if(days > 0) result += dayString;
   } else {
     if (month >= 1) {
       result = days > 0 ? mnthString + dayString : mnthString;
@@ -127,4 +131,5 @@ export function getAge(beginStr, endStr) {
   }
 
   return result;
+  */
 }
