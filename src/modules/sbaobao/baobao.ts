@@ -21,7 +21,11 @@ $.ready(function () {
 })
 // plusReady
 $.plusReady(function () {
-  if ($.currentWebview.index === 0) $.plus.nativeUI.closeWaiting()
   if (viewEXT === '.htm') return
-  sBaobao.getBaobao($.currentWebview.studentid)
+  sBaobao.getBaobao($.currentWebview.studentid, () => {
+    if ($.currentWebview.indexid === 0) {
+      $.plus.nativeUI.closeWaiting()
+      $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
+    }
+  })
 })

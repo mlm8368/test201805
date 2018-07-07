@@ -50,10 +50,10 @@ $.plusReady(() => {
     let relatename = userInfo.student.relatename.split(',')
 
     studentids.forEach((studentid, index) => {
-      let one = { id: 'sbaobao_baobao_' + index, url: './baobao' + viewEXT, title: relatename[index], activeClass: '', extras: { studentid: studentid, index: index } }
+      let one = { id: 'sbaobao_baobao_' + index, url: './baobao' + viewEXT, title: relatename[index], activeClass: '', extras: { studentid: studentid, indexid: index } }
       if (index === 0) {
         one['activeClass'] = 'mui-active'
-        sIndex.setStorage('sbaobao_studentid_current', studentid)
+        sIndex.setStorage('current_sbaobao_studentid', studentid)
       }
       tabBarItems.push(one)
     })

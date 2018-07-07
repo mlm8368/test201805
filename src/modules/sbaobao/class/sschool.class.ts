@@ -10,38 +10,15 @@ export default class SSchool extends Student {
    * getClasses
    */
   public getClasses () {
-    let studentid: number = this.getStorage('sbaobao_studentid_current')
+    let studentid: number = this.getStorage('current_sbaobao_studentid')
 
-    let studentids = ''
-    let classesids = ''
-
-    let userInfo = this.getStorage('userInfo')
-    if (userInfo.student) {
-      if (userInfo.student.studentids) studentids = userInfo.student.studentids
-      if (userInfo.student.classesids) classesids = userInfo.student.classesids
-    } else {
-      return
-    }
-
-    let classes = null
+    let baobaos = null
     let cache = new Cache()
-    classes = cache.get(appCacheKey.sbaobao_school_classes)
-    if (classes !== null && classes.param === studentids + classesids) {
-      this.renderSchool(classes.values[studentid])
-      return
-    }
-
-    $.get(config.siteHost.siteurl + 'index.php?moduleid=2&action=getclasses', { studentids: studentids }, (ret) => {
-      if (ret.status === 1) {
-        // $.log(ret)
-        classes = { param: studentids + classesids, values: ret.schools }
-        this.renderSchool(classes.values[studentid])
-        cache.set(appCacheKey.sbaobao_school_classes, classes)
-      }
-    }, 'json')
+    baobaos = cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    this.renderSchool(baobaos.values[studentid].school, baobaos.values[studentid].classes)
   }
 
-  private renderSchool (schoolList) {
+  private renderSchool (schoolList, classesList) {
     if (!schoolList) return
 
     let schoolHtmlDoing = ''
@@ -49,9 +26,10 @@ export default class SSchool extends Student {
     for (const key in schoolList) {
       if (schoolList.hasOwnProperty(key)) {
         const school = schoolList[key]
+        const schoolHtml = dot.schoolone({ school: school, classesList: classesList })
 
-        if (school.status === 'doing') schoolHtmlDoing += dot.schoolone(school)
-        else if (school.status === 'done') schoolHtmlDone += dot.schoolone(school)
+        if (school.status === 'doing') schoolHtmlDoing += schoolHtml
+        else if (school.status === 'done') schoolHtmlDone += schoolHtml
       }
     }
     this.byId('attending').innerHTML = schoolHtmlDoing

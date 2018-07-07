@@ -100,7 +100,7 @@ export default class SIndex extends Student {
         target.classList.add('mui-active')
         if (target.scrollIntoView) target.scrollIntoView()
 
-        this.setStorage('sbaobao_studentid_current', tabBarItems[obj.index].extras.studentid)
+        this.setStorage('current_sbaobao_studentid', tabBarItems[obj.index].extras.studentid)
         $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
       }
     })

@@ -9,7 +9,7 @@ export default class SBaobao extends Student {
   /**
    * getBaobao
    */
-  public getBaobao (studentid: number) {
+  public getBaobao (studentid: number, callback: () => void) {
     let studentids = ''
     let parentuserids = ''
     let classesids = ''
@@ -25,9 +25,10 @@ export default class SBaobao extends Student {
 
     let baobaos = null
     let cache = new Cache()
-    baobaos = cache.get(appCacheKey.sbaobao_baobao_parentes)
+    baobaos = cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
     if (baobaos !== null && baobaos.param === studentids + parentuserids + classesids) {
       this.renderBaobao(baobaos.values[studentid])
+      callback()
       return
     }
 
@@ -36,7 +37,8 @@ export default class SBaobao extends Student {
         // $.log(ret)
         baobaos = { param: studentids + parentuserids + classesids, values: ret.baobaos }
         this.renderBaobao(baobaos.values[studentid])
-        cache.set(appCacheKey.sbaobao_baobao_parentes, baobaos)
+        callback()
+        cache.set(appCacheKey.sbaobao_baobao_parentes_schools, baobaos)
       }
     }, 'json')
   }
@@ -45,11 +47,12 @@ export default class SBaobao extends Student {
    * renderBaobao
    */
   public renderBaobao (baobao) {
-    const classesid: number = this.getStorage('currentClassesid')
+    let classesid: number = this.getStorage('currentClassesid')
+    if (!classesid) classesid = baobao.baobao.classesid
     let classes = baobao.classes[classesid]
     if (!classes.enddate) {
       classes.enddate = '现在'
-      classes.endtime = $.now
+      classes.endtime = $.nowtime
     }
     classes.totaltime = this.getDateDiff(classes.starttime, classes.endtime)
 

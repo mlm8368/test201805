@@ -22,7 +22,7 @@ $.ready(() => {
 // plusReady
 $.plusReady(() => {
   if (viewEXT === '.htm') return
-  sSchool.getClasses()
+  // sSchool.getClasses()
 })
 // fire
 window.addEventListener('swipeleft', () => {

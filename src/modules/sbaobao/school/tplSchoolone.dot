@@ -3,11 +3,11 @@
     <li class="aui-list-item aui-list-item-middle">
         <div class="aui-media-list-item-inner">
             <div class="aui-list-item-media schoolpic">
-                <img src="{%=it.thumb%}" class="aui-img-round aui-list-img-sm">
+                <img src="{%=it.school.thumb%}" class="aui-img-round aui-list-img-sm">
             </div>
             <div class="aui-list-item-inner">
                 <div class="aui-list-item-text">
-                    <div class="aui-list-item-title aui-font-size-14">{%=it.company%}</div>
+                    <div class="aui-list-item-title aui-font-size-14">{%=it.school.school%}</div>
                 </div>
                 <div class="aui-list-item-text">
                     专注英语培训
@@ -19,7 +19,10 @@
 </div>
 <div class="aui-card-list-content">
   <ul class="aui-list aui-list-in">
-    {%~ it.classes:one %}
+    {%~ it.school.classesids:classesid %}
+    {%
+      var one = it.classesList[classesid];
+    %}
     <li class="aui-list-item">
       <div class="aui-list-item-inner aui-list-item-arrow">
         <div class="aui-list-item-title">{%=one.classesname%}</div>

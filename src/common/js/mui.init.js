@@ -18,7 +18,7 @@ import 'mui/js/mui.back';
 import 'mui/js/mui.back.5+';
 
 (function ($) {
-  $.now = new Date().getTime();
+  $.nowtime = new Date().getTime();
   $.immersed = 0;
   $.plus = null;
   $.ready(function () {
