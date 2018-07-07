@@ -4,9 +4,10 @@ import './login/style.scss'
 // mui js
 import '../../common/js/mui.init.js'
 // self
-import { $, viewEXT, appName } from '../../common/js/global.js'
+import { $, viewEXT } from '../../common/js/global.js'
 import Login from './class/login.class'
 import * as config from './login/config'
+import Cache from '../../class/cache.class'
 
 let login = new Login()
 // ready
@@ -16,6 +17,9 @@ $.ready(() => {
 })
 // plusReady
 $.plusReady(() => {
+  const cache = new Cache()
+  cache.clearAll() // debug
+
   $.get(config.siteHost.siteurl + 'index.php?XDEBUG_SESSION_START=ECLIPSE_DBGP&KEY=15197212645396', null, (ret) => {
     $.log(ret)
   }, 'json')

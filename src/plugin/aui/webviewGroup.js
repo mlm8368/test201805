@@ -160,7 +160,7 @@ proto.getCurrentWebviewContext = function() {
 	return false;
 };
 proto.switchTab = function(id) {
-	id = id.replace('_0', ''); //首页需要替换为appid
+	// id = id.replace('_0', ''); //首页需要替换为appid
 	var fromWebview = this.currentWebview;
 	if(id === fromWebview.id) {
 		return;
