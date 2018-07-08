@@ -10,12 +10,13 @@ export default class SSchool extends Student {
    * getClasses
    */
   public getClasses () {
-    let studentid: number = this.getStorage('current_sbaobao_studentid')
+    const studentid: number = this.getStorage('current_sbaobao_studentid')
+    const cache = new Cache()
 
-    let baobaos = null
-    let cache = new Cache()
-    baobaos = cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
-    this.renderSchool(baobaos.values[studentid].school, baobaos.values[studentid].classes)
+    setTimeout(() => {
+      const baobaos = cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+      if (baobaos) this.renderSchool(baobaos.values[studentid].school, baobaos.values[studentid].classes)
+    }, 100)
   }
 
   private renderSchool (schoolList, classesList) {
