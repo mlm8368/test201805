@@ -14,7 +14,7 @@ export default class SBaobao extends Student {
     let parentuserids = ''
     let classesids = ''
 
-    let userInfo = this.getStorage('userInfo')
+    const userInfo = this.getStorage('userInfo')
     if (userInfo.student) {
       if (userInfo.student.studentids) studentids = userInfo.student.studentids
       if (userInfo.student.parentuserids) parentuserids = userInfo.student.parentuserids
@@ -24,7 +24,7 @@ export default class SBaobao extends Student {
     }
 
     let baobaos = null
-    let cache = new Cache()
+    const cache = new Cache()
     baobaos = cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
     if (baobaos !== null && baobaos.param === studentids + parentuserids + classesids) {
       this.renderBaobao(baobaos.values[studentid])

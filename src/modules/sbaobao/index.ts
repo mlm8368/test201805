@@ -41,6 +41,10 @@ $.plusReady(() => {
   // offcanvas
   setTimeout(() => { sIndex.setMenu() }, 100)
   window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
+  window.addEventListener('refreshBaobao', () => {
+    const c = document.querySelector('.mui-control-item.mui-active')
+    sIndex.switchTab(c.getAttribute('data-vwid'), true)
+  })
 
   // tabBar
   let tabBarItems: TabBarItem[] = []
@@ -66,7 +70,6 @@ $.plusReady(() => {
   $('#tabBar').on('tap', '.mui-control-item', (e) => {
     sIndex.switchTab(e.target.dataset.vwid)
   })
-  $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
 
   // footerBar
   const sFooterbar = new SFooterbar(config.footbarProp)

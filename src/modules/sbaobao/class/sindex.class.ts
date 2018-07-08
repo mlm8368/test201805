@@ -1,12 +1,12 @@
 import { $, viewEXT } from '../../../common/js/global.js'
 import Student from '../../../class/student.class'
+import { appCacheKey } from '../../../class/enum'
 import Cache from '../../../class/cache.class'
 import WebviewGroup from '../../../plugin/aui/webviewGroup.js'
 import { TabBarItem } from '../../../class/interface'
 import * as config from '../index/config'
 
 export default class SIndex extends Student {
-  private cache: any
   // Offcanvas
   private showMenu = false
   private main: any
@@ -16,7 +16,6 @@ export default class SIndex extends Student {
 
   constructor () {
     super()
-    this.cache = new Cache()
     $.plusReady(() => {
       this.main = $.currentWebview
     })
@@ -108,7 +107,11 @@ export default class SIndex extends Student {
   /**
    * switchTab
    */
-  public switchTab (vwid: string) {
+  public switchTab (vwid: string, cleanBaobaoCache = false) {
+    if (cleanBaobaoCache) {
+      const cache = new Cache()
+      cache.remove(appCacheKey.sbaobao_baobao_parentes_schools)
+    }
     this.group.switchTab(vwid)
   }
 }
