@@ -41,9 +41,10 @@ $.plusReady(() => {
   // offcanvas
   setTimeout(() => { sIndex.setMenu() }, 100)
   window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
+  // refreshBaobao
   window.addEventListener('refreshBaobao', () => {
     const c = document.querySelector('.mui-control-item.mui-active')
-    sIndex.switchTab(c.getAttribute('data-vwid'), true)
+    sIndex.refreshBaobao(c.getAttribute('data-vwid'))
   })
 
   // tabBar

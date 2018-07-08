@@ -28,4 +28,12 @@ $.plusReady(function () {
       $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
     }
   })
+
+  window.addEventListener('refreshBaobao', () => {
+    const studentid = sBaobao.getStorage('current_sbaobao_studentid')
+    sBaobao.getBaobao(studentid, () => {
+      $.plus.nativeUI.closeWaiting()
+      $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
+    })
+  })
 })

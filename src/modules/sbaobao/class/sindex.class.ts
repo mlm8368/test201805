@@ -107,12 +107,17 @@ export default class SIndex extends Student {
   /**
    * switchTab
    */
-  public switchTab (vwid: string, cleanBaobaoCache = false) {
-    if (cleanBaobaoCache) {
-      $.plus.nativeUI.showWaiting()
-      const cache = new Cache()
-      cache.remove(appCacheKey.sbaobao_baobao_parentes_schools)
-    }
+  public switchTab (vwid: string) {
     this.group.switchTab(vwid)
+  }
+
+  /**
+   * refreshBaobao
+   */
+  public refreshBaobao (vwid: string) {
+    $.plus.nativeUI.showWaiting()
+    const cache = new Cache()
+    cache.remove(appCacheKey.sbaobao_baobao_parentes_schools)
+    $.fire($.plus.webview.getWebviewById(vwid), 'refreshBaobao')
   }
 }
