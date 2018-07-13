@@ -6,8 +6,9 @@ import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT } from '../../common/js/global.js'
 // import SIndex from './class/sindex.class'
-
-import { TabBarItem } from '../../class/interface'
+// vue
+import Vue from 'vue'
+import TimeLine from './class/TimeLine.vue'
 
 // const sIndex = new SIndex()
 
@@ -24,4 +25,9 @@ $.ready(function () {
 // plusReady
 $.plusReady(() => {
   $.noop()
+})
+// vue
+const vm = new Vue({
+  el: '#vue-app',
+  components: { 'TimeLine': TimeLine }
 })
