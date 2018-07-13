@@ -20,8 +20,7 @@
   },
   "files": [
     "./src/class/**/*",
-    "./src/modules/**/*.ts",
-    "./src/modules/**/*.vue"
+    "./src/modules/**/*.ts"
   ],
   "exclude": [
     "node_modules",
