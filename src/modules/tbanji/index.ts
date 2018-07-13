@@ -50,7 +50,7 @@ $.plusReady(() => {
     { id: 'sbaobao_baobao_4', url: './baobao' + viewEXT, title: '四宝', activeClass: '', extras: { catid: 4 } }
   ]
   sIndex.setTabBar(tabBarItems)
-  $('#tabBar').on('tap', '.mui-control-item', function (e) {
+  $('#tabBar').on('tap', '.mui-control-item', function (this: any) {
     sIndex.switchTab(this.dataset.vwid)
   })
 
