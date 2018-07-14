@@ -65,12 +65,12 @@ module.exports = {
         loader: 'awesome-typescript-loader?cacheDirectory=true',
         exclude: /node_modules/
       },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader?cacheDirectory=true',
-        options: vueLoaderConfig,
-        exclude: /node_modules/
-      },
+      // {
+      //   test: /\.vue$/,
+      //   loader: 'vue-loader?cacheDirectory=true',
+      //   options: vueLoaderConfig,
+      //   exclude: /node_modules/
+      // },
       {
         test: /\.js$/,
         loader: 'babel-loader?cacheDirectory=true',
@@ -85,6 +85,11 @@ module.exports = {
         test: /\.dot$/,
         loader: path.resolve( __dirname, "./dot-loader.js" ),
         exclude: /node_modules/
+      },
+      {
+        test: /\.vue\.html$/,
+        loader: 'raw-loader',
+        exclude: ['./src/index.html']
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

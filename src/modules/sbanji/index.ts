@@ -29,5 +29,5 @@ $.plusReady(() => {
 // vue
 const vm = new Vue({
   el: '#vue-app',
-  components: { 'TimeLine': TimeLine }
+  components: { 'time-line': TimeLine }
 })
