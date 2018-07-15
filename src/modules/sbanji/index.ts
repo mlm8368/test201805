@@ -5,14 +5,9 @@ import './index/style.scss'
 import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT } from '../../common/js/global.js'
-// import SIndex from './class/sindex.class'
-// vue
-import Vue from 'vue'
-import BaoBao from './class/baobao.vue'
-import LaoShi from './class/laoshi.vue'
-import TimeLine from './class/timeline.vue'
+import SIndex from './class/sindex.class'
 
-// const sIndex = new SIndex()
+const sIndex = new SIndex()
 
 // ready
 $.init({
@@ -20,20 +15,16 @@ $.init({
   keyEventBind: { backbutton: false, menubutton: false },
   gestureConfig: { tap: true, swipe: false, doubletap: false, longtap: false, hold: false, flick: false, drag: false, pinch: false }
 })
-$.ready(function () {
+$.ready(() => {
   if (viewEXT === '.htm') return
-  $.noop()
 })
 // plusReady
 $.plusReady(() => {
-  $.noop()
+  if (viewEXT === '.htm') return
+  sIndex.getTimeLine()
 })
-// vue
-const vm = new Vue({
-  el: '#vue-app',
-  components: {
-    'bao-bao': BaoBao,
-    'lao-shi': LaoShi,
-    'time-line': TimeLine
-  }
+
+// fire
+window.addEventListener('refreshVueData', () => {
+  sIndex.setVueData('refresh')
 })

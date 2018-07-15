@@ -14,6 +14,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+[v-cloak] {
+  display: none !important;
+}
+
 // mui
 $namespace: "mui-" !default;
 //blue theme

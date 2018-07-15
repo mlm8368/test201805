@@ -21,25 +21,16 @@
   <section class="aui-content">
     <div class="aui-card-list aui-margin-b-0">
       <div class="aui-card-list-content aui-bg-info student">
-        <img src="../../static/images/defaultAvatar.png" class="aui-img-round" >
-        <h1>张子琪</h1>
+        <img :src="baobaoAvatar" class="aui-img-round" >
+        <h1>{{baobaoName}}</h1>
       </div>
     </div>
   </section>
-  <time-line></time-line>
   <section class="aui-content aui-grid aui-margin-b-0 teacher">
     <div class="aui-row">
-        <div class="aui-col-5">
-            <img src="../../static/images/defaultAvatar.png" class="aui-img-round" >
-            <div class="aui-gird-lable aui-font-size-12">李老师</div>
-        </div>
-        <div class="aui-col-5">
-            <img src="../../static/images/defaultAvatar.png" class="aui-img-round" >
-            <div class="aui-gird-lable aui-font-size-12">张老师</div>
-        </div>
-        <div class="aui-col-5">
-            <img src="../../static/images/defaultAvatar.png" class="aui-img-round" >
-            <div class="aui-gird-lable aui-font-size-12">王老师</div>
+        <div class="aui-col-5" v-for='(one,k) in teachers'>
+            <img :src="one.avatarpic" class="aui-img-round" >
+            <div class="aui-gird-lable aui-font-size-12">{{one.truename}} ({{one.teacherpost}})</div>
         </div>
     </div>
   </section>
