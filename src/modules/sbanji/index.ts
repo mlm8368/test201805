@@ -8,7 +8,9 @@ import { $, viewEXT } from '../../common/js/global.js'
 // import SIndex from './class/sindex.class'
 // vue
 import Vue from 'vue'
-import TimeLine from './class/TimeLine.vue'
+import BaoBao from './class/baobao.vue'
+import LaoShi from './class/laoshi.vue'
+import TimeLine from './class/timeline.vue'
 
 // const sIndex = new SIndex()
 
@@ -29,5 +31,9 @@ $.plusReady(() => {
 // vue
 const vm = new Vue({
   el: '#vue-app',
-  components: { 'time-line': TimeLine }
+  components: {
+    'bao-bao': BaoBao,
+    'lao-shi': LaoShi,
+    'time-line': TimeLine
+  }
 })
