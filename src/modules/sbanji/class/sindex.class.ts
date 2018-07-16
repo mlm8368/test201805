@@ -22,7 +22,7 @@ export default class SIndex extends Student {
       el: '#vue-app',
       data: this.vueData,
       components: {
-        'timeline': TimeLine
+        'time-line': TimeLine
       }
     })
   }
