@@ -28,7 +28,7 @@
   </section>
   <section class="aui-content aui-grid aui-margin-b-0 teacher">
     <div class="aui-row">
-        <div class="aui-col-5" v-for='(teacher,k) in teachers'>
+        <div class="aui-col-5" v-for="(teacher,k) in teachers">
             <img :src="teacher.avatarpic" class="aui-img-round" >
             <div class="aui-gird-lable aui-font-size-12">{{teacher.truename}} ({{teacher.teacherpost}})</div>
         </div>
@@ -39,7 +39,11 @@
       <div class="aui-list-header"><span class="aui-text-danger aui-font-size-18">成长记录</span></div>
     </div>
     <div class="aui-timeline">
-      <time-line></time-line>
+      <time-line 
+        v-for="(timeline,k) in timelines"
+        v-bind:key="k"
+        v-bind:oneday="timeline"
+      ></time-line>
     </div>
   </section>
   </div>
