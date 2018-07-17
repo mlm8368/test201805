@@ -7,15 +7,17 @@ import * as dot from '../baobao/dot.js'
 
 export default class SBaobao extends Student {
   private cache
+  private baobaos
 
   constructor () {
     super()
     this.cache = new Cache()
+    this.baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
   }
   /**
    * getBaobao
    */
-  public getBaobao (callback: (baobaos) => void) {
+  public getBaobao (callback: () => void) {
     let studentids = ''
     let parentuserids = ''
     let classesids = ''
@@ -35,7 +37,7 @@ export default class SBaobao extends Student {
     let baobaos = null
     baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
     if (baobaos !== null && baobaos.param === cacheParam) {
-      callback(baobaos)
+      callback()
       return
     }
 
@@ -44,7 +46,7 @@ export default class SBaobao extends Student {
         // $.log(ret)
         baobaos = { param: cacheParam, values: ret.baobaos }
         this.cache.set(appCacheKey.sbaobao_baobao_parentes_schools, baobaos)
-        callback(baobaos)
+        callback()
       }
     }, 'json')
   }
@@ -52,9 +54,9 @@ export default class SBaobao extends Student {
   /**
    * renderBaobao
    */
-  public renderBaobao (studentid: number, index: number, baobaos = null) {
-    if (baobaos === null) baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
-    const baobao = baobaos.values[studentid]
+  public renderBaobao (studentid: number, index: number) {
+    if (this.baobaos === null) this.baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    const baobao = this.baobaos.values[studentid]
     let classesid: number = this.getStorage('currentClassesid')
     if (!classesid) classesid = baobao.baobao.classesid
     let classes = baobao.classes[classesid]

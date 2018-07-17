@@ -72,11 +72,11 @@ $.plusReady(() => {
     sIndex.switchTab(e.target.dataset.index, true)
   })
   // getBaobao
-  sBaobao.getBaobao((baobaos) => {
+  sBaobao.getBaobao(() => {
     $.plus.nativeUI.closeWaiting()
 
     tabBarItems.forEach((tabBarItem, index) => {
-      sBaobao.renderBaobao(tabBarItem.studentid, index, baobaos)
+      sBaobao.renderBaobao(tabBarItem.studentid, index)
     })
 
     $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
