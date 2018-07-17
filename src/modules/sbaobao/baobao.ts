@@ -20,20 +20,20 @@ $.ready(function () {
   $.noop()
 })
 // plusReady
-$.plusReady(function () {
-  if (viewEXT === '.htm') return
-  sBaobao.getBaobao($.currentWebview.studentid, () => {
-    if ($.currentWebview.indexid === 0) {
-      $.plus.nativeUI.closeWaiting()
-      $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
-    }
-  })
+// $.plusReady(function () {
+//   if (viewEXT === '.htm') return
+//   sBaobao.getBaobao($.currentWebview.studentid, () => {
+//     if ($.currentWebview.indexid === 0) {
+//       $.plus.nativeUI.closeWaiting()
+//       $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
+//     }
+//   })
 
-  window.addEventListener('refreshBaobao', () => {
-    const studentid = sBaobao.getStorage('current_sbaobao_studentid')
-    sBaobao.getBaobao(studentid, () => {
-      $.plus.nativeUI.closeWaiting()
-      $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
-    })
-  })
-})
+//   window.addEventListener('refreshBaobao', () => {
+//     const studentid = sBaobao.getStorage('current_sbaobao_studentid')
+//     sBaobao.getBaobao(studentid, () => {
+//       $.plus.nativeUI.closeWaiting()
+//       $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
+//     })
+//   })
+// })

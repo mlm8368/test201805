@@ -2,10 +2,13 @@
 @import "../../../mui/sass/mixins.scss";
 
 @import "../../../common/sass/tab.scss";
+@import "../../../common/sass/slide.scss";
 
 body {height: 100%;}
 
-.aui-tab-item.mui-active {
-    color: #039be5;
-    border-bottom: 1px solid #039be5; /*no*/
-}
+.aui-grid [class*=aui-col-] {padding: 10px 0;}
+.text-white { color: #ffffff !important; }
+.avatar {width: 60px;}
+.jiazhang img {width: 60px; height: 60px; display: inline-block;}
+.yaoqing {width: 60px; height: 60px;line-height: 70px; margin-left: 7px; margin-bottom: 5px; background: #DCDCDC; border-radius: 50%;}
+.yaoqing .aui-icon-plus {color: #CCCCCC;}

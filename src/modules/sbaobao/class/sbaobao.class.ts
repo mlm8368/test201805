@@ -6,10 +6,16 @@ import Cache from '../../../class/cache.class'
 import * as dot from '../baobao/dot.js'
 
 export default class SBaobao extends Student {
+  private cache
+
+  constructor () {
+    super()
+    this.cache = new Cache()
+  }
   /**
    * getBaobao
    */
-  public getBaobao (studentid: number, callback: () => void) {
+  public getBaobao (callback: (baobaos) => void) {
     let studentids = ''
     let parentuserids = ''
     let classesids = ''
@@ -27,11 +33,9 @@ export default class SBaobao extends Student {
 
     const cacheParam = studentids + parentuserids + classesids + teacherids
     let baobaos = null
-    const cache = new Cache()
-    baobaos = cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
     if (baobaos !== null && baobaos.param === cacheParam) {
-      this.renderBaobao(baobaos.values[studentid])
-      callback()
+      callback(baobaos)
       return
     }
 
@@ -39,9 +43,8 @@ export default class SBaobao extends Student {
       if (ret.status === 1) {
         // $.log(ret)
         baobaos = { param: cacheParam, values: ret.baobaos }
-        this.renderBaobao(baobaos.values[studentid])
-        callback()
-        cache.set(appCacheKey.sbaobao_baobao_parentes_schools, baobaos)
+        this.cache.set(appCacheKey.sbaobao_baobao_parentes_schools, baobaos)
+        callback(baobaos)
       }
     }, 'json')
   }
@@ -49,7 +52,9 @@ export default class SBaobao extends Student {
   /**
    * renderBaobao
    */
-  public renderBaobao (baobao) {
+  public renderBaobao (studentid: number, index: number, baobaos = null) {
+    if (baobaos === null) baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    const baobao = baobaos.values[studentid]
     let classesid: number = this.getStorage('currentClassesid')
     if (!classesid) classesid = baobao.baobao.classesid
     let classes = baobao.classes[classesid]
@@ -61,9 +66,22 @@ export default class SBaobao extends Student {
 
     let baobaoInfo = baobao.baobao
     baobaoInfo['birthdayStr'] = getAge(baobaoInfo.birthday + ' 1:1:1', this.getFormatDate() + ' 1:1:1')
-    this.byId('baobao').innerHTML = dot.baobao(baobaoInfo)
-    this.byId('parent').innerHTML = dot.parent(baobao.parent)
-    this.byId('school').innerHTML = dot.school({ school: baobao.school[classes.schoolid], classes: classes })
+    const baobaoDivs = $.qsa('baobao_' + index)
+    $.log(baobaoDivs)
+    baobaoDivs.forEach(element => {
+      element.innerHTML = dot.baobao(baobaoInfo)
+    })
+    const parentDivs = $.qsa('parent_' + index)
+    parentDivs.forEach(element => {
+      element.innerHTML = dot.parent(baobao.parent)
+    })
+    const schoolDivs = $.qsa('school_' + index)
+    schoolDivs.forEach(element => {
+      element.innerHTML = dot.school({ school: baobao.school[classes.schoolid], classes: classes })
+    })
+    // this.byId('baobao_' + index).innerHTML = dot.baobao(baobaoInfo)
+    // this.byId('parent_' + index).innerHTML = dot.parent(baobao.parent)
+    // this.byId('school_' + index).innerHTML = dot.school({ school: baobao.school[classes.schoolid], classes: classes })
   }
 
   private getInClassesDay (starttime: number, endtime: number) {

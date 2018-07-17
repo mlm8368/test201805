@@ -2,17 +2,16 @@ import { $, viewEXT } from '../../../common/js/global.js'
 import Student from '../../../class/student.class'
 import { appCacheKey } from '../../../class/enum'
 import Cache from '../../../class/cache.class'
-import WebviewGroup from '../../../plugin/aui/webviewGroup.js'
-import { TabBarItem } from '../../../class/interface'
-import * as config from '../index/config'
+import AuiSlide from '../../../plugin/aui/slide.js'
 
 export default class SIndex extends Student {
   // Offcanvas
   private showMenu = false
   private main: any
   private menu: any
-  // WebviewGroup
-  private group: any
+  // Auislide
+  private slide: any
+  private tabBarItems: any[]
 
   constructor () {
     super()
@@ -69,47 +68,46 @@ export default class SIndex extends Student {
     }
   }
   /**
-   * setWebviewGroupItems
+   * setAuislide
    */
-  public setTabBar (tabBarItems: TabBarItem[]) {
-    const tabHeightAll = $.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight
-    let WebviewGroupItems = []
+  public setTabBar (tabBarItems) {
+    this.tabBarItems = tabBarItems
+
     let tabBarHtml = []
-    for (const tabBarItem of tabBarItems) {
-      tabBarHtml.push(`<div class="aui-tab-item mui-control-item ${tabBarItem.activeClass}" data-vwid="${tabBarItem.id}">${tabBarItem.title}</div>`)
+    let slideNodeItems = []
+    tabBarItems.forEach((tabBarItem, index) => {
+      tabBarHtml.push(`<div class="aui-tab-item ${tabBarItem.activeClass}" data-index="${index}">${tabBarItem.title}</div>`)
 
-      let WebviewGroupItem = { id: tabBarItem.id, url: tabBarItem.url,
-        styles: { top: tabHeightAll + 'px', bottom: config.common.footerbarHeight + 'px', render: 'always', backButtonAutoControl: 'none', bounce: 'none' }
-      }
-      if (tabBarItem.extras) WebviewGroupItem['extras'] = tabBarItem.extras
-      WebviewGroupItems.push(WebviewGroupItem)
-    }
-
+      let slideNodeItem = `<div class="aui-slide-node aui-slide-node-middle aui-slide-node-center">
+      <section class="aui-content baobao_${index}"></section>
+      <section class="aui-content aui-grid aui-margin-b-15 jiazhang parent_${index}"></section>
+      <section class="aui-content school_${index}"></section>
+    </div>`
+      slideNodeItems.push(slideNodeItem)
+    })
     $('#tabBar').html(tabBarHtml.join(''))
+    $('#slideBody').html(slideNodeItems.join(''))
 
-    this.group = new WebviewGroup(this.main.id, {
-      top: tabHeightAll + 'px', // 切换遮罩view
-      height: '100%', // 切换遮罩view
-      items: WebviewGroupItems,
-      onChange: (obj) => {
-        const c = document.querySelector('.mui-control-item.mui-active')
-        if (c) c.classList.remove('mui-active')
-
-        const target = document.querySelector('.mui-scroll .mui-control-item:nth-child(' + (obj.index + 1) + ')')
-        target.classList.add('mui-active')
-        if (target.scrollIntoView) target.scrollIntoView()
-
-        const studentid = tabBarItems[obj.index].extras.studentid
-        this.setStorage('current_sbaobao_studentid', studentid)
-        $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
+    this.slide = new AuiSlide({
+      container: document.getElementById('aui-slide'), height: 260, pageShow: false, loop: false, currentPage: (index) => {
+        console.log(index)
+        this.switchTab(index)
       }
     })
   }
   /**
    * switchTab
    */
-  public switchTab (vwid: string) {
-    this.group.switchTab(vwid)
+  public switchTab (index: number) {
+    // this.slide.setPaginationActive(index)
+
+    const c = document.querySelector('.aui-tab-item.aui-active')
+    if (c) c.classList.remove('mui-active')
+    const target = document.querySelector('.aui-tab .aui-tab-item:nth-child(' + (index + 1) + ')')
+    target.classList.add('aui-active')
+
+    this.setStorage('current_sbaobao_studentid', this.tabBarItems[index].studentid)
+    $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
   }
 
   /**

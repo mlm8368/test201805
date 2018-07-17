@@ -8,10 +8,10 @@ import { $, viewEXT } from '../../common/js/global.js'
 import * as config from './index/config'
 import SFooterbar from './class/sfooterbar.class'
 import SIndex from './class/sindex.class'
-
-import { TabBarItem } from '../../class/interface'
+import SBaobao from './class/sbaobao.class'
 
 const sIndex = new SIndex()
+const sBaobao = new SBaobao()
 
 // ready
 $.init({
@@ -43,33 +43,43 @@ $.plusReady(() => {
   window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
   // refreshBaobao
   window.addEventListener('refreshBaobao', () => {
-    const c = document.querySelector('.mui-control-item.mui-active')
-    sIndex.refreshBaobao(c.getAttribute('data-vwid'))
+    const c = document.querySelector('.aui-tab-item.aui-active')
+    sIndex.refreshBaobao(c.getAttribute('data-index'))
   })
 
-  // tabBar
-  let tabBarItems: TabBarItem[] = []
+  // tabBar(baobao)
+  let tabBarItems = []
   let userInfo = sIndex.getStorage('userInfo')
   if (userInfo && userInfo.student) {
     let studentids = userInfo.student.studentids.split(',')
     let relatename = userInfo.student.relatename.split(',')
 
     studentids.forEach((studentid, index) => {
-      let one = { id: 'sbaobao_baobao_' + index, url: './baobao' + viewEXT, title: relatename[index], activeClass: '', extras: { studentid: studentid, indexid: index } }
+      let one = { title: relatename[index], activeClass: '', studentid: studentid }
       if (index === 0) {
-        one['activeClass'] = 'mui-active'
+        one['activeClass'] = 'aui-active'
         sIndex.setStorage('current_sbaobao_studentid', studentid)
       }
       tabBarItems.push(one)
     })
   } else {
     tabBarItems = [
-      { id: 'sbaobao_baobao_0', url: './baobao' + viewEXT, title: '宝宝', activeClass: 'mui-active', extras: { studentid: 0 } }
+      { id: 0, title: '宝宝', activeClass: 'aui-active', studentid: 0 }
     ]
   }
   sIndex.setTabBar(tabBarItems)
-  $('#tabBar').on('tap', '.mui-control-item', (e) => {
-    sIndex.switchTab(e.target.dataset.vwid)
+  $('#tabBar').on('tap', '.aui-tab-item', (e) => {
+    sIndex.switchTab(e.target.dataset.index)
+  })
+  // getBaobao
+  sBaobao.getBaobao((baobaos) => {
+    $.plus.nativeUI.closeWaiting()
+
+    tabBarItems.forEach((tabBarItem, index) => {
+      sBaobao.renderBaobao(tabBarItem.studentid, index, baobaos)
+    })
+
+    $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
   })
 
   // footerBar
