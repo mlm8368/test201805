@@ -66,16 +66,16 @@ export default class SBaobao extends Student {
 
     let baobaoInfo = baobao.baobao
     baobaoInfo['birthdayStr'] = getAge(baobaoInfo.birthday + ' 1:1:1', this.getFormatDate() + ' 1:1:1')
-    const baobaoDivs = $.qsa('baobao_' + index)
+    const baobaoDivs = $.qsa('.baobao_' + index)
     $.log(baobaoDivs)
     baobaoDivs.forEach(element => {
       element.innerHTML = dot.baobao(baobaoInfo)
     })
-    const parentDivs = $.qsa('parent_' + index)
+    const parentDivs = $.qsa('.parent_' + index)
     parentDivs.forEach(element => {
       element.innerHTML = dot.parent(baobao.parent)
     })
-    const schoolDivs = $.qsa('school_' + index)
+    const schoolDivs = $.qsa('.school_' + index)
     schoolDivs.forEach(element => {
       element.innerHTML = dot.school({ school: baobao.school[classes.schoolid], classes: classes })
     })

@@ -69,7 +69,7 @@ $.plusReady(() => {
   }
   sIndex.setTabBar(tabBarItems)
   $('#tabBar').on('tap', '.aui-tab-item', (e) => {
-    sIndex.switchTab(e.target.dataset.index)
+    sIndex.switchTab(e.target.dataset.index, true)
   })
   // getBaobao
   sBaobao.getBaobao((baobaos) => {

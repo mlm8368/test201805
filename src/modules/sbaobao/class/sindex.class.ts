@@ -98,11 +98,11 @@ export default class SIndex extends Student {
   /**
    * switchTab
    */
-  public switchTab (index: number) {
-    // this.slide.setPaginationActive(index)
+  public switchTab (index: number, switchSlideBody = false) {
+    if (switchSlideBody) this.slide.setPaginationActive(index)
 
     const c = document.querySelector('.aui-tab-item.aui-active')
-    if (c) c.classList.remove('mui-active')
+    if (c) c.classList.remove('aui-active')
     const target = document.querySelector('.aui-tab .aui-tab-item:nth-child(' + (index + 1) + ')')
     target.classList.add('aui-active')
 
