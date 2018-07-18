@@ -41,11 +41,6 @@ $.plusReady(() => {
   // offcanvas
   setTimeout(() => { sIndex.setMenu() }, 100)
   window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
-  // refreshBaobao
-  window.addEventListener('refreshBaobao', () => {
-    const c = document.querySelector('.aui-tab-item.aui-active')
-    sIndex.refreshBaobao(c.getAttribute('data-index'))
-  })
 
   // tabBar(baobao)
   let tabBarItems = []
@@ -72,7 +67,7 @@ $.plusReady(() => {
     sIndex.switchTab(e.target.dataset.index, true)
   })
   // getBaobao
-  sBaobao.getBaobao(() => {
+  const doRenderBaobao = () => {
     $.plus.nativeUI.closeWaiting()
 
     tabBarItems.forEach((tabBarItem, index) => {
@@ -80,6 +75,16 @@ $.plusReady(() => {
     })
 
     $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
+  }
+  sBaobao.getBaobao(doRenderBaobao)
+  // refreshBaobao
+  window.addEventListener('refreshBaobao', () => {
+    // const c = document.querySelector('.aui-tab-item.aui-active')
+    // sIndex.refreshBaobao(c.getAttribute('data-index'))
+    // const studentid = sBaobao.getStorage('current_sbaobao_studentid')
+    $.plus.nativeUI.showWaiting()
+    sBaobao.rmBaobaoCache()
+    sBaobao.getBaobao(doRenderBaobao)
   })
 
   // footerBar

@@ -113,10 +113,12 @@ export default class SIndex extends Student {
   /**
    * refreshBaobao
    */
+/*
   public refreshBaobao (vwid: string) {
     $.plus.nativeUI.showWaiting()
     const cache = new Cache()
     cache.remove(appCacheKey.sbaobao_baobao_parentes_schools)
     $.fire($.plus.webview.getWebviewById(vwid), 'refreshBaobao')
   }
+*/
 }

@@ -86,6 +86,10 @@ export default class SBaobao extends Student {
     // this.byId('school_' + index).innerHTML = dot.school({ school: baobao.school[classes.schoolid], classes: classes })
   }
 
+  public rmBaobaoCache () {
+    this.cache.remove(appCacheKey.sbaobao_baobao_parentes_schools)
+  }
+
   private getInClassesDay (starttime: number, endtime: number) {
     const diffValue = endtime - starttime
     const day = 86400000
