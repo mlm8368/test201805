@@ -64,7 +64,7 @@ $.plusReady(() => {
   }
   sIndex.setTabBar(tabBarItems)
   $('#tabBar').on('tap', '.aui-tab-item', (e) => {
-    sIndex.switchTab(e.target.dataset.index, true)
+    sIndex.switchTab(e.target.dataset.index)
   })
   // getBaobao
   const doRenderBaobao = () => {
@@ -79,9 +79,6 @@ $.plusReady(() => {
   sBaobao.getBaobao(doRenderBaobao)
   // refreshBaobao
   window.addEventListener('refreshBaobao', () => {
-    // const c = document.querySelector('.aui-tab-item.aui-active')
-    // sIndex.refreshBaobao(c.getAttribute('data-index'))
-    // const studentid = sBaobao.getStorage('current_sbaobao_studentid')
     $.plus.nativeUI.showWaiting()
     sBaobao.rmBaobaoCache()
     sBaobao.getBaobao(doRenderBaobao)

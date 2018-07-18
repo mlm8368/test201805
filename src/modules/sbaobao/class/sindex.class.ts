@@ -1,7 +1,6 @@
 import { $, viewEXT } from '../../../common/js/global.js'
+import * as config from '../index/config'
 import Student from '../../../class/student.class'
-import { appCacheKey } from '../../../class/enum'
-import Cache from '../../../class/cache.class'
 import AuiSlide from '../../../plugin/aui/slide.js'
 
 export default class SIndex extends Student {
@@ -73,6 +72,7 @@ export default class SIndex extends Student {
   public setTabBar (tabBarItems) {
     this.tabBarItems = tabBarItems
 
+    const tabHeightAll = $.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight
     let tabBarHtml = []
     let slideNodeItems = []
     tabBarItems.forEach((tabBarItem, index) => {
@@ -89,36 +89,24 @@ export default class SIndex extends Student {
     $('#slideBody').html(slideNodeItems.join(''))
 
     this.slide = new AuiSlide({
-      container: document.getElementById('aui-slide'), height: 260, pageShow: false, loop: false, currentPage: (index) => {
+      container: document.getElementById('aui-slide'), height: ($.plus.screen.resolutionHeight - tabHeightAll), pageShow: false, loop: false, currentPage: (index) => {
         console.log(index)
-        this.switchTab(index)
+        const tabItems = $.qsa('.aui-tab-item', this.byId('tabBar'))
+        console.log(tabItems.length)
+        tabItems.forEach((element, k) => {
+          if (k === index) element.classList.add('aui-active')
+          else element.classList.remove('aui-active')
+        })
+
+        this.setStorage('current_sbaobao_studentid', this.tabBarItems[index].studentid)
+        $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
       }
     })
   }
   /**
    * switchTab
    */
-  public switchTab (index: number, switchSlideBody = false) {
-    if (switchSlideBody) this.slide.setPaginationActive(index)
-
-    const c = document.querySelector('.aui-tab-item.aui-active')
-    if (c) c.classList.remove('aui-active')
-    const target = document.querySelector('.aui-tab .aui-tab-item:nth-child(' + (index + 1) + ')')
-    target.classList.add('aui-active')
-
-    this.setStorage('current_sbaobao_studentid', this.tabBarItems[index].studentid)
-    $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
+  public switchTab (index: number) {
+    this.slide.setPaginationActive(index)
   }
-
-  /**
-   * refreshBaobao
-   */
-/*
-  public refreshBaobao (vwid: string) {
-    $.plus.nativeUI.showWaiting()
-    const cache = new Cache()
-    cache.remove(appCacheKey.sbaobao_baobao_parentes_schools)
-    $.fire($.plus.webview.getWebviewById(vwid), 'refreshBaobao')
-  }
-*/
 }

@@ -11,8 +11,10 @@ export default class SBaobao extends Student {
 
   constructor () {
     super()
-    this.cache = new Cache()
-    this.baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    $.plusReady(() => {
+      this.cache = new Cache()
+      this.baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    })
   }
   /**
    * getBaobao
@@ -68,8 +70,8 @@ export default class SBaobao extends Student {
 
     let baobaoInfo = baobao.baobao
     baobaoInfo['birthdayStr'] = getAge(baobaoInfo.birthday + ' 1:1:1', this.getFormatDate() + ' 1:1:1')
-    const baobaoDivs = $.qsa('.baobao_' + index)
-    $.log(baobaoDivs)
+    const baobaoDivs = $.qsa('.baobao_' + index, this.byId('slideBody'))
+    // $.log(baobaoDivs)
     baobaoDivs.forEach(element => {
       element.innerHTML = dot.baobao(baobaoInfo)
     })
