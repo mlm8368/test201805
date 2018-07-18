@@ -70,7 +70,7 @@ export default class SBaobao extends Student {
 
     let baobaoInfo = baobao.baobao
     baobaoInfo['birthdayStr'] = getAge(baobaoInfo.birthday + ' 1:1:1', this.getFormatDate() + ' 1:1:1')
-    const baobaoDivs = $.qsa('.baobao_' + index)
+    const baobaoDivs = $.qsa('.baobao_' + index, this.byId('slideBody'))
     // $.log(baobaoDivs)
     baobaoDivs.forEach(element => {
       element.innerHTML = dot.baobao(baobaoInfo)

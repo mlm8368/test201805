@@ -64,7 +64,7 @@ $.plusReady(() => {
   }
   sIndex.setTabBar(tabBarItems)
   $('#tabBar').on('tap', '.aui-tab-item', (e) => {
-    sIndex.switchTab(e.target.dataset.index, true)
+    sIndex.switchTab(e.target.dataset.index)
   })
   // getBaobao
   const doRenderBaobao = () => {
