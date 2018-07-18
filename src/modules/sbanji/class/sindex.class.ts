@@ -53,7 +53,7 @@ export default class SIndex extends Student {
       this.vueData.baobaoName = baobao.baobao.babyname
 
       this.vueData.teachers = []
-      if (baobao.classes[classesid].teachers) {
+      if (baobao.classes[classesid]) {
         const teachers = baobao.classes[classesid].teachers
         let tmp = []
         for (const teacher of teachers) {

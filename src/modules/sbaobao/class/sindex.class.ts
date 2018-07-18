@@ -92,6 +92,7 @@ export default class SIndex extends Student {
       container: document.getElementById('aui-slide'), height: ($.plus.screen.resolutionHeight - tabHeightAll), pageShow: false, loop: false, currentPage: (index) => {
         console.log(index)
         const tabItems = $.qsa('.aui-tab-item', this.byId('tabBar'))
+        console.log(tabItems.length)
         tabItems.forEach((element, k) => {
           if (k === index) element.classList.add('aui-active')
           else element.classList.remove('aui-active')
