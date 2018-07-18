@@ -1,7 +1,6 @@
 import { $, viewEXT } from '../../../common/js/global.js'
+import * as config from '../index/config'
 import Student from '../../../class/student.class'
-import { appCacheKey } from '../../../class/enum'
-import Cache from '../../../class/cache.class'
 import AuiSlide from '../../../plugin/aui/slide.js'
 
 export default class SIndex extends Student {
@@ -73,6 +72,7 @@ export default class SIndex extends Student {
   public setTabBar (tabBarItems) {
     this.tabBarItems = tabBarItems
 
+    const tabHeightAll = $.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight
     let tabBarHtml = []
     let slideNodeItems = []
     tabBarItems.forEach((tabBarItem, index) => {
