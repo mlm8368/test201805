@@ -90,6 +90,16 @@ auiSlide.prototype.setPageDotPosition = function(){
 	var pageDotPosition = self.options.dotPosition;
 	this.container.querySelector(__SLIDE_PAGE_WRAP).style.textAlign = pageDotPosition;
 };
+// 指定播放
+auiSlide.prototype.playTo = function (index) {
+	var self = this;
+	self.slideTo(self.getCircle(self.index-1), -self.slideWrapWidth, 0);
+    self.slideTo(self.getCircle(self.index+2), self.slideWrapWidth, 0);
+    self.slideTo(self.index, -self.slideWrapWidth, self.options.speed);
+    self.slideTo(self.getCircle(self.index+1), 0, self.options.speed);
+    self.index = self.getCircle(self.index+1);
+    self.setPaginationActive(self.index);
+};
 // 自动播放
 auiSlide.prototype.autoPlay = function (index) {
 	var self = this;
