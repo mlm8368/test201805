@@ -107,6 +107,6 @@ export default class SIndex extends Student {
    * switchTab
    */
   public switchTab (index: number) {
-    this.slide.setPaginationActive(index)
+    this.slide.playTo(index)
   }
 }
