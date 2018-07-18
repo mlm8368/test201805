@@ -79,9 +79,6 @@ $.plusReady(() => {
   sBaobao.getBaobao(doRenderBaobao)
   // refreshBaobao
   window.addEventListener('refreshBaobao', () => {
-    // const c = document.querySelector('.aui-tab-item.aui-active')
-    // sIndex.refreshBaobao(c.getAttribute('data-index'))
-    // const studentid = sBaobao.getStorage('current_sbaobao_studentid')
     $.plus.nativeUI.showWaiting()
     sBaobao.rmBaobaoCache()
     sBaobao.getBaobao(doRenderBaobao)

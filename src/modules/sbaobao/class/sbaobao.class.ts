@@ -11,8 +11,10 @@ export default class SBaobao extends Student {
 
   constructor () {
     super()
-    this.cache = new Cache()
-    this.baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    $.plusReady(() => {
+      this.cache = new Cache()
+      this.baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    })
   }
   /**
    * getBaobao

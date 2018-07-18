@@ -109,16 +109,4 @@ export default class SIndex extends Student {
     this.setStorage('current_sbaobao_studentid', this.tabBarItems[index].studentid)
     $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
   }
-
-  /**
-   * refreshBaobao
-   */
-/*
-  public refreshBaobao (vwid: string) {
-    $.plus.nativeUI.showWaiting()
-    const cache = new Cache()
-    cache.remove(appCacheKey.sbaobao_baobao_parentes_schools)
-    $.fire($.plus.webview.getWebviewById(vwid), 'refreshBaobao')
-  }
-*/
 }
