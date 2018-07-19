@@ -78,7 +78,7 @@ export default class SIndex extends Student {
     tabBarItems.forEach((tabBarItem, index) => {
       tabBarHtml.push(`<div class="aui-tab-item ${tabBarItem.activeClass}" data-index="${index}">${tabBarItem.title}</div>`)
 
-      let slideNodeItem = `<div class="aui-slide-node aui-slide-node-middle aui-slide-node-center">
+      let slideNodeItem = `<div class="aui-slide-node">
       <section class="aui-content baobao_${index}"></section>
       <section class="aui-content aui-grid aui-margin-b-15 jiazhang parent_${index}"></section>
       <section class="aui-content school_${index}"></section>
@@ -92,7 +92,6 @@ export default class SIndex extends Student {
       container: document.getElementById('aui-slide'), height: ($.plus.screen.resolutionHeight - tabHeightAll), pageShow: false, loop: false, currentPage: (index) => {
         console.log(index)
         const tabItems = $.qsa('.aui-tab-item', this.byId('tabBar'))
-        console.log(tabItems.length)
         tabItems.forEach((element, k) => {
           if (k === index) element.classList.add('aui-active')
           else element.classList.remove('aui-active')
