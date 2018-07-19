@@ -72,16 +72,18 @@ export default class SIndex extends Student {
   public setTabBar (tabBarItems) {
     this.tabBarItems = tabBarItems
 
-    const tabHeightAll = $.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight
+    const tabBodyHeight = $.plus.screen.resolutionHeight - ($.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight)
     let tabBarHtml = []
     let slideNodeItems = []
     tabBarItems.forEach((tabBarItem, index) => {
       tabBarHtml.push(`<div class="aui-tab-item ${tabBarItem.activeClass}" data-index="${index}">${tabBarItem.title}</div>`)
 
       let slideNodeItem = `<div class="aui-slide-node">
+      <div style="height:${tabBodyHeight}px;overflow-y:auto;">
       <section class="aui-content baobao_${index}"></section>
       <section class="aui-content aui-grid aui-margin-b-15 jiazhang parent_${index}"></section>
       <section class="aui-content school_${index}"></section>
+      </div>
     </div>`
       slideNodeItems.push(slideNodeItem)
     })
@@ -89,7 +91,7 @@ export default class SIndex extends Student {
     $('#slideBody').html(slideNodeItems.join(''))
 
     this.slide = new AuiSlide({
-      container: document.getElementById('aui-slide'), height: ($.plus.screen.resolutionHeight - tabHeightAll), pageShow: false, loop: false, currentPage: (index) => {
+      container: document.getElementById('aui-slide'), height: tabBodyHeight, pageShow: false, loop: false, currentPage: (index) => {
         console.log(index)
         const tabItems = $.qsa('.aui-tab-item', this.byId('tabBar'))
         tabItems.forEach((element, k) => {
