@@ -6,23 +6,58 @@ import Cache from '../../../class/cache.class'
 import * as dot from '../school/dot.js'
 
 export default class SSchool extends Student {
+  private classesIds: string[]
+  private studentid: number
   /**
    * getClasses
    */
   public getClasses () {
-    const studentid: number = this.getStorage('current_sbaobao_studentid')
+    this.studentid = this.getStorage('current_sbaobao_studentid')
     const cache = new Cache()
 
     setTimeout(() => {
       const baobaos = cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
-      if (baobaos) this.renderSchool(baobaos.values[studentid].school, baobaos.values[studentid].classes, studentid)
+      if (baobaos) this.renderSchool(baobaos.values[this.studentid].school, baobaos.values[this.studentid].classes)
     }, 100)
   }
 
-  private renderSchool (schoolList, classesList, studentid: number) {
+  /**
+   * setCurrentClassesid
+   */
+  public setCurrentClassesid (currentClassesid: number, op = 'first') {
+    if (!currentClassesid) return
+    //  set currentClassesid
+    let currentSbaobaoClassesid = this.getStorage('current_sbaobao_classesid')
+    if (currentSbaobaoClassesid === null) {
+      currentSbaobaoClassesid = {}
+      currentSbaobaoClassesid[this.studentid] = currentClassesid
+      this.setStorage('current_sbaobao_classesid', currentSbaobaoClassesid)
+    } else if (typeof currentSbaobaoClassesid[this.studentid] === undefined) {
+      currentSbaobaoClassesid[this.studentid] = currentClassesid
+      this.setStorage('current_sbaobao_classesid', currentSbaobaoClassesid)
+    } else if (op === 'first') {
+      if (currentSbaobaoClassesid[this.studentid]) currentClassesid = currentSbaobaoClassesid[this.studentid]
+    } else if (op === 'set') {
+      currentSbaobaoClassesid[this.studentid] = currentClassesid
+      this.setStorage('current_sbaobao_classesid', currentSbaobaoClassesid)
+    }
+
+    this.classesIds.forEach(classesid => {
+      if (parseInt(classesid, 10) === currentClassesid) {
+        this.byId('classesid' + classesid).classList.remove('aui-hide')
+      } else {
+        this.byId('classesid' + classesid).classList.add('aui-hide')
+      }
+    })
+    // sbanji_index refreshVueData
+    $.fire($.plus.webview.getWebviewById('sbanji_index'), 'refreshVueData')
+  }
+
+  private renderSchool (schoolList, classesList) {
     if (!schoolList) return
 
     let currentClassesid = 0
+    this.classesIds = Object.keys(classesList)
 
     let schoolHtmlDoing = ''
     let schoolHtmlDone = ''
@@ -35,27 +70,13 @@ export default class SSchool extends Student {
         else if (school.status === 'done') schoolHtmlDone += schoolHtml
 
         if ((currentClassesid === 0 && school.status === 'done') || (school.status === 'doing')) {
-          const keyArr = Object.keys(classesList)
-          currentClassesid = parseInt(keyArr[0], 10)
+          currentClassesid = parseInt(this.classesIds[0], 10)
         }
       }
     }
     this.byId('attending').innerHTML = schoolHtmlDoing
     this.byId('attended').innerHTML = schoolHtmlDone
 
-    //  set currentClassesid
-    let currentSbaobaoClassesid = this.getStorage('current_sbaobao_classesid')
-    if (currentSbaobaoClassesid === null) {
-      currentSbaobaoClassesid = {}
-      currentSbaobaoClassesid[studentid] = currentClassesid
-      this.setStorage('current_sbaobao_classesid', currentSbaobaoClassesid)
-    } else if (typeof currentSbaobaoClassesid[studentid] === undefined) {
-      currentSbaobaoClassesid[studentid] = currentClassesid
-      this.setStorage('current_sbaobao_classesid', currentSbaobaoClassesid)
-    } else {
-      currentClassesid = currentSbaobaoClassesid[studentid]
-    }
-    $.fire($.plus.webview.getWebviewById('sbanji_index'), 'refreshVueData')
-    // todo init currentClassesid
+    this.setCurrentClassesid(currentClassesid)
   }
 }

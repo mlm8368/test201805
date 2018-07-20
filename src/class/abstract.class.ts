@@ -8,6 +8,36 @@ export default class Abstract {
     return document.getElementById(id)
   }
   /**
+   * closestElement
+   */
+  public closestElement (el, selector: string) {
+    let doms
+    let targetDom
+    const isSame = (doms, el) => {
+      let i = 0
+      const len = doms.length
+      for (i; i < len; i++) {
+        if (doms[i].isEqualNode(el)) {
+          return doms[i]
+        }
+      }
+      return false
+    }
+    const traversal = (el, selector) => {
+      doms = el.parentNode.querySelectorAll(selector)
+      targetDom = isSame(doms, el)
+      if (!targetDom) {
+        el = el.parentNode
+        if (el != null && el.nodeType === el.DOCUMENT_NODE) {
+          return false
+        }
+        traversal(el, selector)
+      }
+      return targetDom
+    }
+    return traversal(el, selector)
+  }
+  /**
    * jsonToStr
    */
   public jsonToStr (json: object): string {

@@ -24,6 +24,11 @@ $.plusReady(() => {
   if (viewEXT === '.htm') return
   // sSchool.getClasses()
 })
+// tap
+$('body').on('tap', '.classes', (e) => {
+  const classesid: number = parseInt(sSchool.closestElement(e.target, 'li.classes').dataset.classesid, 10)
+  sSchool.setCurrentClassesid(classesid, 'set')
+})
 // fire
 window.addEventListener('swipeleft', () => {
   $.fire($.currentWebview.opener(), 'closeOffcanvas')

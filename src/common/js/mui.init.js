@@ -254,30 +254,4 @@ import 'mui/js/mui.back.5+';
       h: el.offsetHeight
     };
   };
-  $.fn.closest = function (selector) {
-    let el = this[0];
-    let doms, targetDom;
-    let isSame = function (doms, el) {
-      let i = 0, len = doms.length;
-      for (i; i < len; i++) {
-        if (doms[i].isEqualNode(el)) {
-          return doms[i];
-        }
-      }
-      return false;
-    };
-    let traversal = function (el, selector) {
-      doms = el.parentNode.querySelectorAll(selector);
-      targetDom = isSame(doms, el);
-      if (!targetDom) {
-        el = el.parentNode;
-        if (el != null && el.nodeType === el.DOCUMENT_NODE) {
-          return false;
-        }
-        traversal(el, selector);
-      }
-      return targetDom;
-    };
-    return traversal(el, selector);
-  };
 })(window.mui);

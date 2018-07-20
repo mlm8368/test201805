@@ -23,9 +23,9 @@
     {%
       var one = it.classesList[classesid];
     %}
-    <li class="aui-list-item">
+    <li class="aui-list-item classes" data-classesid="{%=classesid%}">
       <div class="aui-list-item-inner aui-list-item-arrow">
-        <div class="aui-list-item-title">{%=one.classesname%}</div>
+        <div class="aui-list-item-title"><div id="classesid{%=classesid%}" class="aui-label aui-label-primary aui-hide">当前</div>{%=one.classesname%}</div>
         <div class="aui-list-item-right">
           {%
             var schoolDate = '开学于 ' + one.startdate;
