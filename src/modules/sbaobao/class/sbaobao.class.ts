@@ -45,7 +45,7 @@ export default class SBaobao extends Student {
 
     $.get(config.siteHost.siteurl + 'index.php?moduleid=2&action=getbaobao', { studentids: studentids }, (ret) => {
       if (ret.status === 1) {
-        // $.log(ret)
+        $.log(ret)
         baobaos = { param: cacheParam, values: ret.baobaos }
         this.cache.set(appCacheKey.sbaobao_baobao_parentes_schools, baobaos)
         callback()
