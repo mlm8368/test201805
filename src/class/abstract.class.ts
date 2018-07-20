@@ -1,6 +1,14 @@
 import { $, viewEXT } from '../common/js/global.js'
+import Cache from './cache.class'
 
 export default class Abstract {
+  protected cache
+
+  constructor () {
+    $.plusReady(() => {
+      this.cache = new Cache()
+    })
+  }
   /**
    * byId
    */

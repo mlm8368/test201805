@@ -17,15 +17,20 @@ $.init({
   keyEventBind: { backbutton: false, menubutton: false },
   gestureConfig: { tap: true, swipe: false, doubletap: false, longtap: false, hold: false, flick: false, drag: false, pinch: false }
 })
-$.ready(function () {
+$.ready(() => {
   if (viewEXT === '.htm') return
   $.noop()
 })
 // plusReady
-$.plusReady(function () {
+$.plusReady(() => {
   let slideImages: ImageSliderImageStyles[] = []
   slideImages.push({ src: '_www/static/images/tmp/l1.png', width: '100%' })
   slideImages.push({ src: '_www/static/images/tmp/l2.png', width: '100%' })
   slideImages.push({ src: '_www/static/images/tmp/l3.png', width: '100%' })
   sIndex.setSlideImages(slideImages)
+})
+// updateTitleNViewTitle
+window.addEventListener('updateTitleNViewTitle', (event: any) => {
+  const schoolInfo = sIndex.getSchoolInfo(event.detail.studentid, event.detail.classesid)
+  $.currentWebview().setStyle({ titleNView: { titleText: schoolInfo.schoolName } })
 })

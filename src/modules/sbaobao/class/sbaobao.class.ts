@@ -6,13 +6,11 @@ import Cache from '../../../class/cache.class'
 import * as dot from '../index/dot.js'
 
 export default class SBaobao extends Student {
-  private cache
   private baobaos
 
   constructor () {
     super()
     $.plusReady(() => {
-      this.cache = new Cache()
       this.baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
     })
   }

@@ -51,6 +51,8 @@ export default class SSchool extends Student {
     })
     // sbaobao_index sbanji_index
     $.fire($.plus.webview.getWebviewById('sbaobao_index'), 'renderBaobao')
+    $.fire($.plus.webview.getWebviewById('sxiaoyuan_index'), 'updateTitleNViewTitle', { studentid: this.studentid, classesid: currentClassesid })
+    $.fire($.plus.webview.getWebviewById('sbanji_index'), 'updateTitleNViewTitle', { studentid: this.studentid, classesid: currentClassesid })
     $.fire($.plus.webview.getWebviewById('sbanji_index'), 'refreshVueData')
   }
 

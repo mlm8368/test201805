@@ -1,7 +1,25 @@
 import { $, viewEXT } from '../common/js/global.js'
 import Abstract from './abstract.class'
+import { appCacheKey } from './enum'
 
 export default class Student extends Abstract {
+  constructor () {
+    super()
+  }
+
+  /**
+   * getSchoolInfo
+   */
+  public getSchoolInfo (studentid: number, classesid: number): any {
+    let info = {}
+    const baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    const classes = baobaos.values[studentid].classes[classesid]
+    info['classesName'] = classes.classesname
+    const school = baobaos.values[studentid].school[classes.schoolid]
+    info['schoolName'] = school.school
+
+    return info
+  }
   /**
    * 获取日期,格式2018-07-07
    *
