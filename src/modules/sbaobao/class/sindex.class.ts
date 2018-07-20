@@ -72,7 +72,7 @@ export default class SIndex extends Student {
   public setTabBar (tabBarItems) {
     this.tabBarItems = tabBarItems
 
-    const tabBodyHeight = $.plus.screen.resolutionHeight - ($.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight)
+    const tabBodyHeight = $.plus.screen.resolutionHeight - (this.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight)
     let tabBarHtml = []
     let slideNodeItems = []
     tabBarItems.forEach((tabBarItem, index) => {
