@@ -27,7 +27,7 @@ $.plusReady(() => {
 // tap
 $('body').on('tap', '.classes', (e) => {
   const classesid: number = parseInt(sSchool.closestElement(e.target, 'li.classes').dataset.classesid, 10)
-  sSchool.setCurrentClassesid(classesid, 'set')
+  sSchool.setCurrentClassesid(classesid, 'reset')
 })
 // fire
 window.addEventListener('swipeleft', () => {

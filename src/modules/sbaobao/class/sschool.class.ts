@@ -35,7 +35,7 @@ export default class SSchool extends Student {
       this.setStorage('current_sbaobao_classesid', currentSbaobaoClassesid)
     } else if (op === 'first') {
       if (currentSbaobaoClassesid[this.studentid]) currentClassesid = currentSbaobaoClassesid[this.studentid]
-    } else if (op === 'set') {
+    } else if (op === 'reset') {
       currentSbaobaoClassesid[this.studentid] = currentClassesid
       this.setStorage('current_sbaobao_classesid', currentSbaobaoClassesid)
     }
@@ -48,7 +48,7 @@ export default class SSchool extends Student {
       }
     })
     // sbaobao_index sbanji_index
-    $.fire($.plus.webview.getWebviewById('sbaobao_index'), 'renderBaobao')
+    if (op === 'reset') $.fire($.plus.webview.getWebviewById('sbaobao_index'), 'renderBaobao')
     $.fire($.plus.webview.getWebviewById('sxiaoyuan_index'), 'updateTitleNViewTitle', { studentid: this.studentid, classesid: currentClassesid })
     $.fire($.plus.webview.getWebviewById('sbanji_index'), 'updateTitleNViewTitle', { studentid: this.studentid, classesid: currentClassesid })
     $.fire($.plus.webview.getWebviewById('sbanji_index'), 'refreshVueData')

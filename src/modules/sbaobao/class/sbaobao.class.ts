@@ -5,13 +5,10 @@ import { appCacheKey } from '../../../class/enum'
 import * as dot from '../index/dot.js'
 
 export default class SBaobao extends Student {
-  private baobaos
+  private baobaos = null
 
   constructor () {
     super()
-    $.plusReady(() => {
-      this.baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
-    })
   }
   /**
    * getBaobao
@@ -55,6 +52,8 @@ export default class SBaobao extends Student {
    */
   public renderBaobao (studentid: number, index: number) {
     if (this.baobaos === null) this.baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    if (!this.baobaos) return false
+
     const baobao = this.baobaos.values[studentid]
     let classesid: number = this.getStorage('currentClassesid')
     if (!classesid) classesid = baobao.baobao.classesid
