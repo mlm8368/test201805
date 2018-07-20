@@ -83,6 +83,10 @@ $.plusReady(() => {
     sBaobao.rmBaobaoCache()
     sBaobao.getBaobao(doRenderBaobao)
   })
+  // renderBaobao
+  window.addEventListener('renderBaobao', () => {
+    sBaobao.renderBaobao(sIndex.getCurrentStudentid(), sIndex.getSlideCurrentIndex())
+  })
 
   // footerBar
   const sFooterbar = new SFooterbar(config.footbarProp)

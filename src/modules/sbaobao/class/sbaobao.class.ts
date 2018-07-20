@@ -83,9 +83,6 @@ export default class SBaobao extends Student {
     schoolDivs.forEach(element => {
       element.innerHTML = dot.school({ school: baobao.school[classes.schoolid], classes: classes })
     })
-    // this.byId('baobao_' + index).innerHTML = dot.baobao(baobaoInfo)
-    // this.byId('parent_' + index).innerHTML = dot.parent(baobao.parent)
-    // this.byId('school_' + index).innerHTML = dot.school({ school: baobao.school[classes.schoolid], classes: classes })
   }
 
   public rmBaobaoCache () {

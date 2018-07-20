@@ -49,7 +49,8 @@ export default class SSchool extends Student {
         this.byId('classesid' + classesid).classList.add('aui-hide')
       }
     })
-    // sbanji_index refreshVueData
+    // sbaobao_index sbanji_index
+    $.fire($.plus.webview.getWebviewById('sbaobao_index'), 'renderBaobao')
     $.fire($.plus.webview.getWebviewById('sbanji_index'), 'refreshVueData')
   }
 

@@ -90,6 +90,10 @@ auiSlide.prototype.setPageDotPosition = function(){
 	var pageDotPosition = self.options.dotPosition;
 	this.container.querySelector(__SLIDE_PAGE_WRAP).style.textAlign = pageDotPosition;
 };
+// 获取当前index
+auiSlide.prototype.getCurrentIndex = function () {
+  return this.index;
+};
 // 指定播放
 auiSlide.prototype.playTo = function (index) {
   var self = this;

@@ -11,6 +11,7 @@ export default class SIndex extends Student {
   // Auislide
   private slide: any
   private tabBarItems: any[]
+  private studentid: number
 
   constructor () {
     super()
@@ -99,7 +100,8 @@ export default class SIndex extends Student {
           else element.classList.remove('aui-active')
         })
 
-        this.setStorage('current_sbaobao_studentid', this.tabBarItems[index].studentid)
+        this.studentid = this.tabBarItems[index].studentid
+        this.setStorage('current_sbaobao_studentid', this.studentid)
         $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
       }
     })
@@ -109,5 +111,19 @@ export default class SIndex extends Student {
    */
   public switchTab (index: number) {
     this.slide.playTo(index)
+  }
+
+  /**
+   * getCurrentIndex
+   */
+  public getSlideCurrentIndex (): number {
+    return this.slide.getCurrentIndex()
+  }
+
+  /**
+   * getCurrentStudentid
+   */
+  public getCurrentStudentid (): number {
+    return this.studentid
   }
 }
