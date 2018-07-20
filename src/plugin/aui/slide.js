@@ -93,14 +93,14 @@ auiSlide.prototype.setPageDotPosition = function(){
 // 指定播放
 auiSlide.prototype.playTo = function (index) {
   var self = this;
-  index = self.getCircle(index)
+  index = self.getCircle(index-1);
   self.slideTo(self.getCircle(index-1), -self.slideWrapWidth, 0);
   self.slideTo(self.getCircle(index+2), self.slideWrapWidth, 0);
   self.slideTo(index, -self.slideWrapWidth, self.options.speed);
   self.slideTo(self.getCircle(index+1), 0, self.options.speed);
-  // self.index = self.getCircle(index+1);
-  self.index = index;
-  self.setPaginationActive(index);
+  self.index = self.getCircle(index+1);
+  // self.index = index;
+  self.setPaginationActive(self.index);
 };
 // 自动播放
 auiSlide.prototype.autoPlay = function (index) {
