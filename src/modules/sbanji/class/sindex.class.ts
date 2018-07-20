@@ -2,7 +2,6 @@ import { $, viewEXT } from '../../../common/js/global.js'
 import * as config from '../index/config'
 import Student from '../../../class/student.class'
 import { appCacheKey } from '../../../class/enum'
-import Cache from '../../../class/cache.class'
 import Vue from 'vue'
 import TimeLine from './timeline.vue'
 
@@ -45,8 +44,7 @@ export default class SIndex extends Student {
       const studentid: number = this.getStorage('current_sbaobao_studentid')
       const currentSbaobaoClassesid = this.getStorage('current_sbaobao_classesid')
       const classesid: number = currentSbaobaoClassesid[studentid]
-      const cache = new Cache()
-      const baobaos = cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+      const baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
       const baobao = baobaos.values[studentid]
 
       this.vueData.baobaoAvatar = baobao.baobao.avatar

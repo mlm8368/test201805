@@ -2,7 +2,6 @@ import { $ } from '../../../common/js/global.js'
 import * as config from '../school/config'
 import Student from '../../../class/student.class'
 import { appCacheKey } from '../../../class/enum'
-import Cache from '../../../class/cache.class'
 import * as dot from '../school/dot.js'
 
 export default class SSchool extends Student {
@@ -13,10 +12,9 @@ export default class SSchool extends Student {
    */
   public getClasses () {
     this.studentid = this.getStorage('current_sbaobao_studentid')
-    const cache = new Cache()
 
     setTimeout(() => {
-      const baobaos = cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+      const baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
       if (baobaos) this.renderSchool(baobaos.values[this.studentid].school, baobaos.values[this.studentid].classes)
     }, 100)
   }

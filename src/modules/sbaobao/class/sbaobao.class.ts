@@ -2,7 +2,6 @@ import { $, getAge } from '../../../common/js/global.js'
 import * as config from '../school/config'
 import Student from '../../../class/student.class'
 import { appCacheKey } from '../../../class/enum'
-import Cache from '../../../class/cache.class'
 import * as dot from '../index/dot.js'
 
 export default class SBaobao extends Student {
