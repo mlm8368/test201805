@@ -99,7 +99,7 @@ auiSlide.prototype.playTo = function (index) {
   self.slideTo(index, -self.slideWrapWidth, self.options.speed);
   self.slideTo(self.getCircle(index+1), 0, self.options.speed);
   // self.index = self.getCircle(index+1);
-  self.index = index
+  self.index = index;
   self.setPaginationActive(index);
 };
 // 自动播放
