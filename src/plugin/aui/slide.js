@@ -98,7 +98,8 @@ auiSlide.prototype.playTo = function (index) {
   self.slideTo(self.getCircle(index+2), self.slideWrapWidth, 0);
   self.slideTo(index, -self.slideWrapWidth, self.options.speed);
   self.slideTo(self.getCircle(index+1), 0, self.options.speed);
-  self.index = self.getCircle(index+1);
+  // self.index = self.getCircle(index+1);
+  self.index = index
   self.setPaginationActive(index);
 };
 // 自动播放
