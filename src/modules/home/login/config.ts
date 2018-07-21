@@ -156,6 +156,36 @@ export const barTagsStudent = [
     'rectStyles': {
       'color': '#ccc'
     }
+  }, {
+    'tag': 'rect',
+    'id': 'xiaoyuanIcon2',
+    'position': {
+      'top': '4px',
+      'left': '27%',
+      'width': '24px',
+      'height': '24px'
+    },
+    'rectStyles': {
+      'borderColor': '#ccc',
+      'borderWidth': '1px',
+      'radius': '12px',
+      'color': 'rgba(0,0,0,0)'
+    }
+  }, {
+    'tag': 'rect',
+    'id': 'banjiIcon2',
+    'position': {
+      'top': '4px',
+      'left': '47%',
+      'width': '24px',
+      'height': '24px'
+    },
+    'rectStyles': {
+      'borderColor': '#ccc',
+      'borderWidth': '1px',
+      'radius': '12px',
+      'color': 'rgba(0,0,0,0)'
+    }
   }
 ]
 
