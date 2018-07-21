@@ -33,4 +33,5 @@ $.plusReady(() => {
 window.addEventListener('updateTitleNViewTitle', (event: any) => {
   const schoolInfo = sIndex.getSchoolInfo(event.detail.studentid, event.detail.classesid)
   $.currentWebview.setStyle({ titleNView: { titleText: schoolInfo.schoolName } })
+  $.currentWebview.reload(true)
 })
