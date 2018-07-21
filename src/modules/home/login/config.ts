@@ -33,7 +33,7 @@ export const barTagsStudent = [
   }, {
     'tag': 'font',
     'id': 'newsIcon',
-    'text': '\ue300',
+    'text': '校',
     'position': {
       'top': '4px',
       'left': '20%',
@@ -41,9 +41,8 @@ export const barTagsStudent = [
       'height': '24px'
     },
     'textStyles': {
-      'fontSrc': '_www/fonts/mui.ttf',
       'align': 'center',
-      'size': '24px'
+      'size': '20px'
     }
   }, {
     'tag': 'font',
@@ -62,7 +61,7 @@ export const barTagsStudent = [
   }, {
     'tag': 'font',
     'id': 'todoIcon',
-    'text': '\ue563',
+    'text': '班',
     'position': {
       'top': '4px',
       'left': '40%',
@@ -70,9 +69,8 @@ export const barTagsStudent = [
       'height': '24px'
     },
     'textStyles': {
-      'fontSrc': '_www/fonts/mui.ttf',
       'align': 'center',
-      'size': '24px'
+      'size': '20px'
     }
   }, {
     'tag': 'font',
