@@ -28,4 +28,14 @@ export default class SFooterbar extends Footerbar {
     }
     return currIndex
   }
+
+  /**
+   * updateSubNViews
+   */
+  public updateSubNViews (schoolFirstchar: string, classesFirstchar: string) {
+    let tags = []
+    tags[2] = { text: schoolFirstchar }
+    tags[4] = { text: classesFirstchar }
+    $.currentWebview.setStyle({ subNViews: [{ tags: tags }] })
+  }
 }

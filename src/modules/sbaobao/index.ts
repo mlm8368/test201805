@@ -106,4 +106,9 @@ $.plusReady(() => {
     sFooterbar.toggleNview(currIndex)
     sFooterbar.changeSubpage(targetPage)
   })
+  // updateSubNViews
+  window.addEventListener('updateSubNViews', (event: any) => {
+    const schoolInfo = sIndex.getSchoolInfo(event.detail.studentid, event.detail.classesid)
+    sFooterbar.updateSubNViews(schoolInfo.schoolFirstchar, schoolInfo.classesFirstchar)
+  })
 })

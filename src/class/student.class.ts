@@ -15,8 +15,10 @@ export default class Student extends Abstract {
     const baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
     const classes = baobaos.values[studentid].classes[classesid]
     info['classesName'] = classes.classesname
+    info['classesFirstchar'] = classes.firstchar
     const school = baobaos.values[studentid].school[classes.schoolid]
     info['schoolName'] = school.school
+    info['schoolFirstchar'] = school.firstchar
 
     return info
   }
