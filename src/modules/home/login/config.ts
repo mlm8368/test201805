@@ -3,7 +3,7 @@ export * from '../../../class/config'
 export const barTagsStudent = [
   {
     'tag': 'font',
-    'id': 'indexIcon',
+    'id': 'baobaoIcon',
     'text': '\ue500',
     'position': {
       'top': '4px',
@@ -18,7 +18,7 @@ export const barTagsStudent = [
     }
   }, {
     'tag': 'font',
-    'id': 'indexText',
+    'id': 'baobaoText',
     'text': '宝宝',
     'position': {
       'top': '23px',
@@ -32,7 +32,7 @@ export const barTagsStudent = [
     }
   }, {
     'tag': 'font',
-    'id': 'newsIcon',
+    'id': 'xiaoyuanIcon',
     'text': '校',
     'position': {
       'top': '4px',
@@ -46,7 +46,7 @@ export const barTagsStudent = [
     }
   }, {
     'tag': 'font',
-    'id': 'newsText',
+    'id': 'xiaoyuanText',
     'text': '学校',
     'position': {
       'top': '23px',
@@ -60,7 +60,7 @@ export const barTagsStudent = [
     }
   }, {
     'tag': 'font',
-    'id': 'todoIcon',
+    'id': 'banjiIcon',
     'text': '班',
     'position': {
       'top': '4px',
@@ -74,7 +74,7 @@ export const barTagsStudent = [
     }
   }, {
     'tag': 'font',
-    'id': 'todoText',
+    'id': 'banjiText',
     'text': '班级',
     'position': {
       'top': '24px',
@@ -88,7 +88,7 @@ export const barTagsStudent = [
     }
   }, {
     'tag': 'font',
-    'id': 'contactIcon',
+    'id': 'bamaquanIcon',
     'text': '\ue203',
     'position': {
       'top': '4px',
@@ -103,7 +103,7 @@ export const barTagsStudent = [
     }
   }, {
     'tag': 'font',
-    'id': 'contactText',
+    'id': 'bamaquanText',
     'text': '爸妈圈',
     'position': {
       'top': '24px',
@@ -117,7 +117,7 @@ export const barTagsStudent = [
     }
   }, {
     'tag': 'font',
-    'id': 'newwindowIcon',
+    'id': 'moreIcon',
     'text': '\ue101',
     'position': {
       'top': '4px',
@@ -132,7 +132,7 @@ export const barTagsStudent = [
     }
   }, {
     'tag': 'font',
-    'id': 'newwindowText',
+    'id': 'moreText',
     'text': '更多',
     'position': {
       'top': '24px',
