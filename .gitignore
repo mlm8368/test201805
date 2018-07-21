@@ -60,3 +60,4 @@ typings/
 # git config --global credential.helper store
 node_modules
 .project
+tmp

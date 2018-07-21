@@ -72,6 +72,7 @@ export default class SIndex extends Student {
    */
   public setTabBar (tabBarItems) {
     this.tabBarItems = tabBarItems
+    this.studentid = this.tabBarItems[0].studentid
 
     const tabBodyHeight = $.plus.screen.resolutionHeight - (this.byId('tabBar').offsetHeight + $.immersed + config.common.titleNViewHeight + config.common.footerbarHeight)
     let tabBarHtml = []
@@ -93,7 +94,7 @@ export default class SIndex extends Student {
 
     this.slide = new AuiSlide({
       container: document.getElementById('aui-slide'), height: tabBodyHeight, pageShow: false, loop: false, currentPage: (index) => {
-        // console.log(index)
+        // console.log('AuiSlide-' + index)
         const tabItems = $.qsa('.aui-tab-item', this.byId('tabBar'))
         tabItems.forEach((element, k) => {
           if (k === index) element.classList.add('aui-active')

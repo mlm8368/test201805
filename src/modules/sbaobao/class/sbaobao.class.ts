@@ -55,8 +55,10 @@ export default class SBaobao extends Student {
     if (!this.baobaos) return false
 
     const baobao = this.baobaos.values[studentid]
-    let classesid: number = this.getStorage('currentClassesid')
-    if (!classesid) classesid = baobao.baobao.classesid
+    const currentSbaobaoClassesid = this.getStorage('current_sbaobao_classesid')
+    let classesid: number
+    if (currentSbaobaoClassesid && currentSbaobaoClassesid[studentid]) classesid = currentSbaobaoClassesid[studentid]
+    else classesid = baobao.baobao.classesid
     let classes = baobao.classes[classesid]
     if (!classes.enddate) {
       classes.enddate = '现在'
@@ -67,7 +69,6 @@ export default class SBaobao extends Student {
     let baobaoInfo = baobao.baobao
     baobaoInfo['birthdayStr'] = getAge(baobaoInfo.birthday + ' 1:1:1', this.getFormatDate() + ' 1:1:1')
     const baobaoDivs = $.qsa('.baobao_' + index, this.byId('slideBody'))
-    // $.log(baobaoDivs)
     baobaoDivs.forEach(element => {
       element.innerHTML = dot.baobao(baobaoInfo)
     })
