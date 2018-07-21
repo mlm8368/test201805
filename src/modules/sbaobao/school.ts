@@ -28,6 +28,7 @@ $.plusReady(() => {
 $('body').on('tap', '.classes', (e) => {
   const classesid: number = parseInt(sSchool.closestElement(e.target, 'li.classes').dataset.classesid, 10)
   sSchool.setCurrentClassesid(classesid, 'reset')
+  $.fire($.currentWebview.opener(), 'closeOffcanvas')
 })
 // fire
 window.addEventListener('swipeleft', () => {
