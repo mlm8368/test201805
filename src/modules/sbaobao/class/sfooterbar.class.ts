@@ -38,6 +38,8 @@ export default class SFooterbar extends Footerbar {
     tags[2]['text'] = schoolFirstchar
     tags[4]['text'] = classesFirstchar
     $.currentWebview.setStyle({ subNViews: [{ tags: tags }] })
+    tags[0]['textStyles']['color'] = this.props.activeColor
+    tags[1]['textStyles']['color'] = this.props.activeColor
     $.currentWebview.updateSubNViews([{ id: 'tabBarStudent', tags: tags }])
   }
 }
