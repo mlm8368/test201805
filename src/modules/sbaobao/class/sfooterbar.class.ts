@@ -1,4 +1,5 @@
 import { $, viewEXT } from '../../../common/js/global.js'
+import * as config from '../../home/login/config'
 import { FooterbarConfig } from '../../../class/interface'
 import Footerbar from '../../../class/footerbar.class'
 
@@ -33,9 +34,10 @@ export default class SFooterbar extends Footerbar {
    * updateSubNViews
    */
   public updateSubNViews (schoolFirstchar: string, classesFirstchar: string) {
-    let tags = []
-    tags[2] = { text: schoolFirstchar }
-    tags[4] = { text: classesFirstchar }
+    let tags = config.barTagsStudent
+    tags[2]['text'] = schoolFirstchar
+    tags[4]['text'] = classesFirstchar
     $.currentWebview.setStyle({ subNViews: [{ tags: tags }] })
+    $.currentWebview.updateSubNViews([{ id: 'tabBarStudent', tags: tags }])
   }
 }
