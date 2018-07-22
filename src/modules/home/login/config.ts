@@ -166,7 +166,7 @@ export const barTagsStudent = [
       'height': '24px'
     },
     'rectStyles': {
-      'borderColor': '#ccc',
+      'borderColor': '#ddd',
       'borderWidth': '1px',
       'radius': '12px',
       'color': 'rgba(0,0,0,0)'
@@ -181,7 +181,7 @@ export const barTagsStudent = [
       'height': '24px'
     },
     'rectStyles': {
-      'borderColor': '#ccc',
+      'borderColor': '#ddd',
       'borderWidth': '1px',
       'radius': '12px',
       'color': 'rgba(0,0,0,0)'
