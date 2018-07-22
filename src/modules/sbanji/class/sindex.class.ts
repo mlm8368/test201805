@@ -51,8 +51,7 @@ export default class SIndex extends Student {
       this.vueData.baobaoName = baobao.baobao.babyname
 
       if (baobao.classes[classesid]) {
-        const teachers = baobao.classes[classesid].teachers
-        this.vueData.teachers = this.objToArray(teachers)
+        this.vueData.teachers = this.objToArray(baobao.classes[classesid].teachers)
       }
     }
   }
