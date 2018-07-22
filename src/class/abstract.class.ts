@@ -59,6 +59,16 @@ export default class Abstract {
     return JSON && JSON.parse(str)
   }
   /**
+   * objToArray
+   */
+  public objToArray (object = {}): any[] {
+    let array = []
+    for (const key in object) {
+      array.push(object[key])
+    }
+    return array
+  }
+  /**
    * setStorage
    */
   public setStorage (key: string, value: any): void {
