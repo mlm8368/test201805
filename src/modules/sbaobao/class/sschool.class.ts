@@ -52,7 +52,7 @@ export default class SSchool extends Student {
     $.fire($.plus.webview.getWebviewById('sbaobao_index'), 'updateSubNViews', { studentid: this.studentid, classesid: currentClassesid })
     $.fire($.plus.webview.getWebviewById('sxiaoyuan_index'), 'updateTitleNViewTitle', { studentid: this.studentid, classesid: currentClassesid })
     $.fire($.plus.webview.getWebviewById('sbanji_index'), 'updateTitleNViewTitle', { studentid: this.studentid, classesid: currentClassesid })
-    // $.fire($.plus.webview.getWebviewById('sbanji_index'), 'refreshVueData')
+    $.fire($.plus.webview.getWebviewById('sbanji_index'), 'refreshVueData')
   }
 
   private renderSchool (schoolList, classesList) {
