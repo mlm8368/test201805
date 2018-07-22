@@ -35,7 +35,7 @@ export default class SIndex extends Student {
         baobaoAvatar: '../../static/images/defaultAvatar.png',
         baobaoName: '宝宝',
         teachers: [],
-        timelines: []
+        timelines: {}
       }
     }
 
