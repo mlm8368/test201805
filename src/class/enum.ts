@@ -6,3 +6,16 @@ export const enum appCacheKey {
   sbanji = 400,
   sbamaquan = 500
 }
+export const enum appStorageKey {
+  student = 's100-109',
+  current_sbaobao_studentid = 's101',
+  current_sbaobao_classesid = 's102',
+  userid = 's103',
+  username = 's104',
+  accessToken = 's105',
+  groupid = 's106',
+  area = 's107',
+  areaid = 's108',
+  userInfo = 's109',
+  teacher = 't200'
+}

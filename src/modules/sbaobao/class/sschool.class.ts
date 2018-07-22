@@ -1,7 +1,7 @@
 import { $ } from '../../../common/js/global.js'
 import * as config from '../school/config'
 import Student from '../../../class/student.class'
-import { appCacheKey } from '../../../class/enum'
+import { appCacheKey, appStorageKey } from '../../../class/enum'
 import * as dot from '../school/dot.js'
 
 export default class SSchool extends Student {
@@ -11,7 +11,7 @@ export default class SSchool extends Student {
    * getClasses
    */
   public getClasses () {
-    this.studentid = this.getStorage('current_sbaobao_studentid')
+    this.studentid = this.getStorage(appStorageKey.current_sbaobao_studentid)
 
     setTimeout(() => {
       const baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
@@ -25,19 +25,19 @@ export default class SSchool extends Student {
   public setCurrentClassesid (currentClassesid: number, op = 'first') {
     if (!currentClassesid) return
     //  set currentClassesid
-    let currentSbaobaoClassesid = this.getStorage('current_sbaobao_classesid')
+    let currentSbaobaoClassesid = this.getStorage(appStorageKey.current_sbaobao_classesid)
     if (currentSbaobaoClassesid === null) {
       currentSbaobaoClassesid = {}
       currentSbaobaoClassesid[this.studentid] = currentClassesid
-      this.setStorage('current_sbaobao_classesid', currentSbaobaoClassesid)
+      this.setStorage(appStorageKey.current_sbaobao_classesid, currentSbaobaoClassesid)
     } else if (typeof currentSbaobaoClassesid[this.studentid] === undefined) {
       currentSbaobaoClassesid[this.studentid] = currentClassesid
-      this.setStorage('current_sbaobao_classesid', currentSbaobaoClassesid)
+      this.setStorage(appStorageKey.current_sbaobao_classesid, currentSbaobaoClassesid)
     } else if (op === 'first') {
       if (currentSbaobaoClassesid[this.studentid]) currentClassesid = currentSbaobaoClassesid[this.studentid]
     } else if (op === 'reset') {
       currentSbaobaoClassesid[this.studentid] = currentClassesid
-      this.setStorage('current_sbaobao_classesid', currentSbaobaoClassesid)
+      this.setStorage(appStorageKey.current_sbaobao_classesid, currentSbaobaoClassesid)
     }
 
     this.classesIds.forEach(classesid => {
@@ -51,9 +51,9 @@ export default class SSchool extends Student {
     if (op === 'reset') $.fire($.plus.webview.getWebviewById('sbaobao_index'), 'renderBaobao')
     $.fire($.plus.webview.getWebviewById('sbaobao_index'), 'updateSubNViews', { studentid: this.studentid, classesid: currentClassesid })
     $.fire($.plus.webview.getWebviewById('sxiaoyuan_index'), 'updateTitleNViewTitle', { studentid: this.studentid, classesid: currentClassesid })
-    $.fire($.plus.webview.getWebviewById('sxiaoyuan_index'), 'reloadVueData')
+    $.fire($.plus.webview.getWebviewById('sxiaoyuan_index'), 'reloadPage')
     $.fire($.plus.webview.getWebviewById('sbanji_index'), 'updateTitleNViewTitle', { studentid: this.studentid, classesid: currentClassesid })
-    $.fire($.plus.webview.getWebviewById('sbanji_index'), 'reloadVueData')
+    $.fire($.plus.webview.getWebviewById('sbanji_index'), 'reloadPage')
   }
 
   private renderSchool (schoolList, classesList) {

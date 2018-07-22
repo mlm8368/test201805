@@ -1,5 +1,6 @@
 import { $, viewEXT, appName } from '../../../common/js/global.js'
 import * as config from '../login/config'
+import { appStorageKey } from '../../../class/enum'
 import Abstract from '../../../class/abstract.class'
 
 export default class Login extends Abstract {
@@ -67,7 +68,7 @@ export default class Login extends Abstract {
         this.goPortalTeacher()
         break
       case 'allapp':
-        if (this.getStorage('userInfo').student) this.goPortalStudent()
+        if (this.getStorage(appStorageKey.userInfo).student) this.goPortalStudent()
         else this.goPortalTeacher()
         break
     }
@@ -100,10 +101,10 @@ export default class Login extends Abstract {
       uData['mobile'] = mobile
       uData['password'] = password
       uData['cpassword'] = password1
-      uData['areaid'] = this.getStorage('areaid')
+      uData['areaid'] = this.getStorage(appStorageKey.areaid)
       if (!uData['areaid']) uData['areaid'] = 0
 
-      this.setStorage('accessToken', '')
+      this.setStorage(appStorageKey.accessToken, '')
       $.post(config.siteHost.siteurl + 'index.php?moduleid=2&action=reg', uData, (ret) => {
         if (ret.status === 1) {
           this.alert('注册成功', () => {
@@ -173,13 +174,13 @@ export default class Login extends Abstract {
   }
 
   private setLoginData (userInfo, updateAccessToken = true) {
-    this.setStorage('userid', userInfo.userid)
-    this.setStorage('username', userInfo.username)
-    if (updateAccessToken) this.setStorage('accessToken', userInfo.accessToken)
-    this.setStorage('groupid', userInfo.groupid)
-    this.setStorage('area', userInfo.area)
-    this.setStorage('areaid', userInfo.areaid)
-    this.setStorage('userInfo', userInfo)
+    this.setStorage(appStorageKey.userid, userInfo.userid)
+    this.setStorage(appStorageKey.username, userInfo.username)
+    if (updateAccessToken) this.setStorage(appStorageKey.accessToken, userInfo.accessToken)
+    this.setStorage(appStorageKey.groupid, userInfo.groupid)
+    this.setStorage(appStorageKey.area, userInfo.area)
+    this.setStorage(appStorageKey.areaid, userInfo.areaid)
+    this.setStorage(appStorageKey.userInfo, userInfo)
   }
 
 }

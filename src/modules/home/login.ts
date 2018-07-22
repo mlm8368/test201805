@@ -5,6 +5,7 @@ import './login/style.scss'
 import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT } from '../../common/js/global.js'
+import { appStorageKey } from '../../class/enum'
 import Login from './class/login.class'
 import * as config from './login/config'
 import Cache from '../../class/cache.class'
@@ -26,7 +27,7 @@ $.plusReady(() => {
   $.noop()
   // 已登录 直接跳转
   login.checkLoginUserInfo(() => {
-    login.toast(login.getStorage('username') + ',欢迎你回来', { verticalAlign: 'top' })
+    login.toast(login.getStorage(appStorageKey.username) + ',欢迎你回来', { verticalAlign: 'top' })
   }, () => {
     login.toast('请重新登录')
   })

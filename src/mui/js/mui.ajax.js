@@ -256,7 +256,7 @@
 	};
 
 	$.getJSON = function( /* url, data, success */ ) {
-	  $.extend($.ajaxSettings.headers, {'APPACCTOKEN': $.getStorage('accessToken')});
+	  $.extend($.ajaxSettings.headers, {'APPACCTOKEN': $.getStorage('s105')}); // appStorageKey.accessToken = 's105'
 		var options = parseArguments.apply(null, arguments);
 		options.dataType = 'json';
 		return $.ajax(options);

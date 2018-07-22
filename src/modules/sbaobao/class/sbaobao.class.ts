@@ -1,7 +1,7 @@
 import { $, getAge } from '../../../common/js/global.js'
 import * as config from '../school/config'
 import Student from '../../../class/student.class'
-import { appCacheKey } from '../../../class/enum'
+import { appCacheKey, appStorageKey } from '../../../class/enum'
 import * as dot from '../index/dot.js'
 
 export default class SBaobao extends Student {
@@ -19,7 +19,7 @@ export default class SBaobao extends Student {
     let classesids = ''
     let teacherids = ''
 
-    const userInfo = this.getStorage('userInfo')
+    const userInfo = this.getStorage(appStorageKey.userInfo)
     if (userInfo.student) {
       if (userInfo.student.studentids) studentids = userInfo.student.studentids
       if (userInfo.student.parentuserids) parentuserids = userInfo.student.parentuserids
@@ -55,7 +55,7 @@ export default class SBaobao extends Student {
     if (!this.baobaos) return false
 
     const baobao = this.baobaos.values[studentid]
-    const currentSbaobaoClassesid = this.getStorage('current_sbaobao_classesid')
+    const currentSbaobaoClassesid = this.getStorage(appStorageKey.current_sbaobao_classesid)
     let classesid: number
     if (currentSbaobaoClassesid && currentSbaobaoClassesid[studentid]) classesid = currentSbaobaoClassesid[studentid]
     else classesid = baobao.baobao.classesid

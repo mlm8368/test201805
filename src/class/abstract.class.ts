@@ -1,4 +1,5 @@
 import { $, viewEXT } from '../common/js/global.js'
+import { appStorageKey } from './enum'
 import Cache from './cache.class'
 
 export default class Abstract {
@@ -120,20 +121,20 @@ export default class Abstract {
    * isLogin
    */
   public isLogin (): boolean {
-    if (this.getStorage('accessToken')) return true
+    if (this.getStorage(appStorageKey.accessToken)) return true
     return false
   }
   /**
    * logout
    */
   public logout () {
-    this.rmStorage('userid')
-    this.rmStorage('username')
-    this.rmStorage('accessToken')
-    this.rmStorage('groupid')
-    this.rmStorage('area')
-    this.rmStorage('areaid')
-    this.rmStorage('userInfo')
+    this.rmStorage(appStorageKey.userid)
+    this.rmStorage(appStorageKey.username)
+    this.rmStorage(appStorageKey.accessToken)
+    this.rmStorage(appStorageKey.groupid)
+    this.rmStorage(appStorageKey.area)
+    this.rmStorage(appStorageKey.areaid)
+    this.rmStorage(appStorageKey.userInfo)
   }
   /**
    * trim

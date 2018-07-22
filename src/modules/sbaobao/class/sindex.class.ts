@@ -1,5 +1,6 @@
 import { $, viewEXT } from '../../../common/js/global.js'
 import * as config from '../index/config'
+import { appStorageKey } from '../../../class/enum'
 import Student from '../../../class/student.class'
 import AuiSlide from '../../../plugin/aui/slide.js'
 
@@ -102,7 +103,7 @@ export default class SIndex extends Student {
         })
 
         this.studentid = this.tabBarItems[index].studentid
-        this.setStorage('current_sbaobao_studentid', this.studentid)
+        this.setStorage(appStorageKey.current_sbaobao_studentid, this.studentid)
         $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
       }
     })

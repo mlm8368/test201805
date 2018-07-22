@@ -6,6 +6,7 @@ import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT } from '../../common/js/global.js'
 import * as config from './index/config'
+import { appStorageKey } from '../../class/enum'
 import SFooterbar from './class/sfooterbar.class'
 import SIndex from './class/sindex.class'
 import SBaobao from './class/sbaobao.class'
@@ -44,7 +45,7 @@ $.plusReady(() => {
 
   // tabBar(baobao)
   let tabBarItems = []
-  let userInfo = sIndex.getStorage('userInfo')
+  let userInfo = sIndex.getStorage(appStorageKey.userInfo)
   if (userInfo && userInfo.student) {
     let studentids = userInfo.student.studentids.split(',')
     let relatename = userInfo.student.relatename.split(',')
@@ -53,7 +54,7 @@ $.plusReady(() => {
       let one = { title: relatename[index], activeClass: '', studentid: studentid }
       if (index === 0) {
         one['activeClass'] = 'aui-active'
-        sIndex.setStorage('current_sbaobao_studentid', studentid)
+        sIndex.setStorage(appStorageKey.current_sbaobao_studentid, studentid)
       }
       tabBarItems.push(one)
     })
