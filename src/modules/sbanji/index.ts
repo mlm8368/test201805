@@ -25,7 +25,7 @@ $.plusReady(() => {
 })
 
 // fire
-window.addEventListener('refreshVueData', () => {
+window.addEventListener('reloadVueData', () => {
   sIndex.setVueData('refresh')
 })
 // updateTitleNViewTitle
