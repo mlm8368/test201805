@@ -57,7 +57,7 @@ $.plusReady(() => {
   // footerBar
   const sFooterbar = new SFooterbar(config.footbarProp)
   sFooterbar.initSubpage()
-  const tabBarNView = $.plus.nativeObj.View.getViewById('tabBarStudent')
+  const tabBarNView = $.plus.nativeObj.View.getViewById('tabBarTeacher')
   tabBarNView.addEventListener('click', function (e) {
     if (sFooterbar.getStatus() === 'doing') return
     let targetPage: string = null
@@ -71,5 +71,13 @@ $.plusReady(() => {
 
     sFooterbar.toggleNview(currIndex)
     sFooterbar.changeSubpage(targetPage)
+  })
+})
+
+// tap
+$.byId('logout').addEventListener('tap', () => {
+  sIndex.logout()
+  sIndex.alert('期待你尽快回来哦', () => {
+    $.plus.webview.close('tbanji_index')
   })
 })

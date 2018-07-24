@@ -152,7 +152,7 @@ export default class Login extends Abstract {
     $.plus.nativeUI.showWaiting() // 等宝宝等页加载完后关闭
     // teacher
     let subNViews = [{
-      'id': 'tabBarStudent',
+      'id': 'tabBarTeacher',
       'styles': { bottom: '0px', left: '0px', height: config.common.footerbarHeight + 'px', width: '100%', backgroundColor: '#FFFFFF' },
       'tags': config.barTagsTeacher
     }]
