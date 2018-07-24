@@ -32,7 +32,7 @@ $.plusReady(() => {
     login.checkLoginUserInfo(() => {
       $.fire($.plus.webview.getWebviewById('sbaobao_index'), 'refreshBaobao')
     }, () => {
-      login.toast('请重新登录')
+      login.toast('信息已更新，请重新登录')
     })
   }
 })
