@@ -44,19 +44,16 @@ export default class Login extends Abstract {
    * checkLoginUserInfo
    */
   public checkLoginUserInfo (successFun: () => void, errorFun: () => void) {
-    if (this.isLogin()) {
-      $.post(config.siteHost.siteurl + 'index.php?moduleid=2&action=login&op=checkloginuserinfo', null, (ret) => {
-        // $.log(ret)
-        if (ret.status === 1) {
-          this.setLoginData(ret.userInfo, false)
-          this.goPortal()
-          successFun()
-        } else {
-          this.logout()
-          errorFun()
-        }
-      }, 'json')
-    }
+    $.post(config.siteHost.siteurl + 'index.php?moduleid=2&action=login&op=checkloginuserinfo', null, (ret) => {
+      // $.log(ret)
+      if (ret.status === 1) {
+        this.setLoginData(ret.userInfo, false)
+        successFun()
+      } else {
+        this.logout()
+        errorFun()
+      }
+    }, 'json')
   }
 
   public goPortal () {
@@ -135,7 +132,7 @@ export default class Login extends Abstract {
       $.fire(wvSbaobaoIndex, 'openOffcanvas')
     }
     const clickButtonRefresh = (): void => {
-      $.fire(wvSbaobaoIndex, 'refreshBaobao')
+      $.fire(wvSbaobaoIndex, 'refreshBaobao', { op: 'rmcache' })
     }
     const titleNView = { backgroundColor: '#D74B28', titleText: '宝宝上学啦', titleColor: '#CCCCCC', buttons: [
       { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: clickButtonOffcanvas },

@@ -79,9 +79,11 @@ $.plusReady(() => {
   }
   sBaobao.getBaobao(doRenderBaobao)
   // refreshBaobao
-  window.addEventListener('refreshBaobao', () => {
-    $.plus.nativeUI.showWaiting()
-    sBaobao.rmBaobaoCache()
+  window.addEventListener('refreshBaobao', (event: any) => {
+    if (event.detail.op && event.detail.op === 'rmcache') {
+      $.plus.nativeUI.showWaiting()
+      sBaobao.rmBaobaoCache()
+    }
     sBaobao.getBaobao(doRenderBaobao)
   })
   // renderBaobao

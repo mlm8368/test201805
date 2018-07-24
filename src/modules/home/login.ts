@@ -26,11 +26,15 @@ $.plusReady(() => {
   }, 'json')
   $.noop()
   // 已登录 直接跳转
-  login.checkLoginUserInfo(() => {
+  if (login.isLogin()) {
     login.toast(login.getStorage(appStorageKey.username) + ',欢迎你回来', { verticalAlign: 'top' })
-  }, () => {
-    login.toast('请重新登录')
-  })
+    login.goPortal()
+    login.checkLoginUserInfo(() => {
+      $.fire($.plus.webview.getWebviewById('sbaobao_index'), 'refreshBaobao')
+    }, () => {
+      login.toast('请重新登录')
+    })
+  }
 })
 // tap
 $.byId('doLogin').addEventListener('tap', () => {
