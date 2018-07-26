@@ -2,8 +2,8 @@
 // 打包时模块区分
 const appBuildModules = {
   student: ['home', 'sbaobao', 'sxiaoyuan', 'sbanji', 'sbamaquan', 'smore'],
-  teacher: ['home', 'tbanji'],
-  allapp: ['home', 'sbaobao', 'sxiaoyuan', 'sbanji', 'sbamaquan', 'smore', 'tbanji']
+  teacher: ['home', 'txiaoyuan', 'tbanji', 'tdaiban', 'tjiaoshiquan', 'tmore'],
+  allapp: ['home', 'sbaobao', 'sxiaoyuan', 'sbanji', 'sbamaquan', 'smore', 'txiaoyuan', 'tbanji', 'tdaiban', 'tjiaoshiquan', 'tmore']
 }
 
 module.exports = {

@@ -208,7 +208,7 @@ export const barTagsTeacher = [
   }, {
     'tag': 'font',
     'id': 'indexText',
-    'text': '班级',
+    'text': '学校',
     'position': {
       'top': '23px',
       'left': '0',
@@ -237,7 +237,7 @@ export const barTagsTeacher = [
   }, {
     'tag': 'font',
     'id': 'newsText',
-    'text': '学校',
+    'text': '班级',
     'position': {
       'top': '23px',
       'left': '20%',
@@ -266,7 +266,7 @@ export const barTagsTeacher = [
   }, {
     'tag': 'font',
     'id': 'todoText',
-    'text': '班级',
+    'text': '待办',
     'position': {
       'top': '24px',
       'left': '40%',
