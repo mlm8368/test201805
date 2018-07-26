@@ -165,7 +165,7 @@ export default class Login extends Abstract {
     ] }
     let wvTbanjiIndex = $.openWindow({
       id: 'tbanji_index',
-      url: '../tbanji/index' + viewEXT,
+      url: '../txiaoyuan/index' + viewEXT,
       styles: { top: '0px', backButtonAutoControl: 'none', subNViews: subNViews, titleNView: titleNView }
     })
   }
