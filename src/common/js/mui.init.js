@@ -17,6 +17,8 @@ import 'mui/js/mui.dialog.toast';
 import 'mui/js/mui.back';
 import 'mui/js/mui.back.5+';
 
+import * as config from './config';
+
 (function ($) {
   $.nowtime = new Date().getTime();
   $.immersed = 0;
@@ -253,5 +255,19 @@ import 'mui/js/mui.back.5+';
       w: el.offsetWidth,
       h: el.offsetHeight
     };
+  };
+  // onerror
+  window.onerror = function (msg, url, lineNo, columnNo, error) {
+    let refer = [
+      'Message: ' + msg,
+      'URL: ' + url,
+      'Line: ' + lineNo,
+      'Column: ' + columnNo,
+      'Error object: ' + JSON.stringify(error)
+    ].join(' - ');
+
+    $.post(config.siteHost.siteurl + 'index.php?action=errorlog', {url: url, refer: refer}, null, 'json');
+
+    return false;
   };
 })(window.mui);
