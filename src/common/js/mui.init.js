@@ -258,12 +258,37 @@ import * as config from './config';
   };
   // onerror
   window.onerror = function (msg, url, lineNo, columnNo, error) {
+    const obj2string = function (o) {
+      let r = [];
+      if (typeof o === 'string') {
+        // eslint-disable-next-line 
+        return "\"" + o.replace(/([\'\"\\])/g, "\\$1").replace(/(\n)/g, "\\n").replace(/(\r)/g, "\\r").replace(/(\t)/g, "\\t") + "\"";
+      }
+      if (typeof o === 'object') {
+        if (!o.sort) {
+          for (let i in o) {
+            r.push(i + ':' + obj2string(o[i]));
+          }
+          if (!!document.all && !/^\n?function\s*toString\(\)\s*\{\n?\s*\[native code\]\n?\s*\}\n?\s*$/.test(o.toString)) {
+            r.push('toString:' + o.toString.toString());
+          }
+          r = '{' + r.join() + '}';
+        } else {
+          for (let i = 0; i < o.length; i++) {
+            r.push(obj2string(o[i]));
+          }
+          r = '[' + r.join() + ']';
+        }
+        return r;
+      }
+      return o.toString();
+    };
     let refer = [
       'Message: ' + msg,
       'URL: ' + url,
       'Line: ' + lineNo,
       'Column: ' + columnNo,
-      'Error object: ' + JSON.stringify(error)
+      'Error object: ' + obj2string(error)
     ].join(' - ');
 
     $.post(config.siteHost.siteurl + 'index.php?action=errorlog', {url: url, refer: refer}, null, 'json');
