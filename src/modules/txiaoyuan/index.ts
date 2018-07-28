@@ -9,8 +9,6 @@ import * as config from './index/config'
 import SFooterbar from './class/sfooterbar.class'
 import SIndex from './class/sindex.class'
 
-import { TabBarItem } from '../../class/interface'
-
 const sIndex = new SIndex()
 
 // ready
@@ -41,18 +39,6 @@ $.plusReady(() => {
   // offcanvas
   setTimeout(() => { sIndex.setMenu() }, 100)
   window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
-
-  // tabBar
-  let tabBarItems: TabBarItem[] = [
-    { id: 'sbaobao_baobao_1', url: './baobao' + viewEXT, title: '大宝', activeClass: 'mui-active', extras: { catid: 1 } },
-    { id: 'sbaobao_baobao_2', url: './baobao' + viewEXT, title: '二宝', activeClass: '', extras: { catid: 2 } },
-    { id: 'sbaobao_baobao_3', url: './baobao' + viewEXT, title: '三宝', activeClass: '', extras: { catid: 3 } },
-    { id: 'sbaobao_baobao_4', url: './baobao' + viewEXT, title: '四宝', activeClass: '', extras: { catid: 4 } }
-  ]
-  sIndex.setTabBar(tabBarItems)
-  $('#tabBar').on('tap', '.mui-control-item', function (this: any) {
-    sIndex.switchTab(this.dataset.vwid)
-  })
 
   // footerBar
   const sFooterbar = new SFooterbar(config.footbarProp)
