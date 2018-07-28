@@ -164,7 +164,7 @@ export default class Login extends Abstract {
       { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: clickButtonOffcanvas }
     ] }
     let wvTbanjiIndex = $.openWindow({
-      id: 'tbanji_index',
+      id: 'txiaoyuan_index',
       url: '../txiaoyuan/index' + viewEXT,
       styles: { top: '0px', backButtonAutoControl: 'none', subNViews: subNViews, titleNView: titleNView }
     })

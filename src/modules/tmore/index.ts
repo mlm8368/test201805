@@ -27,6 +27,6 @@ $.plusReady(function () {
 $.byId('logout').addEventListener('tap', () => {
   sMore.logout()
   sMore.alert('期待你尽快回来哦', () => {
-    $.plus.webview.close('sbaobao_index')
+    $.plus.webview.close('txiaoyuan_index')
   })
 })

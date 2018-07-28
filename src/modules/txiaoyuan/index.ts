@@ -39,6 +39,7 @@ $.plusReady(() => {
   // offcanvas
   setTimeout(() => { sIndex.setMenu() }, 100)
   window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
+  $.plus.nativeUI.closeWaiting()
 
   // footerBar
   const sFooterbar = new SFooterbar(config.footbarProp)
@@ -57,13 +58,5 @@ $.plusReady(() => {
 
     sFooterbar.toggleNview(currIndex)
     sFooterbar.changeSubpage(targetPage)
-  })
-})
-
-// tap
-$.byId('logout').addEventListener('tap', () => {
-  sIndex.logout()
-  sIndex.alert('期待你尽快回来哦', () => {
-    $.plus.webview.close('tbanji_index')
   })
 })
