@@ -288,11 +288,11 @@ import * as config from './config';
       'URL: ' + url,
       'Line: ' + lineNo,
       'Column: ' + columnNo,
-      'Error object: ' + obj2string(error)
+      'Error object: ' + JSON.stringify(error)
     ].join(' - ');
 
     $.post(config.siteHost.siteurl + 'index.php?action=errorlog', {url: url, refer: refer}, null, 'json');
 
-    return false;
+    return true;
   };
 })(window.mui);
