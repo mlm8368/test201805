@@ -485,7 +485,7 @@ export const barTagsCompany = [
   }, {
     'tag': 'font',
     'id': 'newwindowText',
-    'text': '待定',
+    'text': '更多',
     'position': {
       'top': '24px',
       'left': '80%',
