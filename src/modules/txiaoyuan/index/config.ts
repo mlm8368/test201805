@@ -2,7 +2,7 @@ import { viewEXT } from '../../../common/js/global.js'
 
 export * from '../../../class/config'
 
-const subpageStyleBanji = { top: '0px', backButtonAutoControl: 'none', titleNView: { backgroundColor: '#54ee11', titleText: '启蒙一班', titleColor: '#CCCCCC' } }
+const subpageStyleBanji = { top: '0px', backButtonAutoControl: 'none', titleNView: { backgroundColor: '#880033', titleText: '启蒙一班', titleColor: '#CCCCCC' } }
 const subpageStyleDaiban = { top: '0px', backButtonAutoControl: 'none', titleNView: { backgroundColor: '#540000', titleText: '待办', titleColor: '#CCCCCC' } }
 const subpageStyleJiaoshiquan = { top: '0px', backButtonAutoControl: 'none', titleNView: { backgroundColor: '#668800', titleText: '教师圈', titleColor: '#CCCCCC' } }
 const subpageStyleMore = { top: '0px', backButtonAutoControl: 'none', titleNView: { backgroundColor: '#aacc00', titleText: '更多', titleColor: '#CCCCCC' } }
