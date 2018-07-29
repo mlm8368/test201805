@@ -7,7 +7,7 @@ export default class SIndex extends Student {
     super()
   }
   /**
-   * setAuiSlide
+   * setSlideImages
    */
   public setSlideImages (images: ImageSliderImageStyles[]) {
     const slideNView = $.plus.nativeObj.View.getViewById('schoolSlider')

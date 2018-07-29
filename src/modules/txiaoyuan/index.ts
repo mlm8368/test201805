@@ -6,6 +6,7 @@ import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT } from '../../common/js/global.js'
 import * as config from './index/config'
+import { ImageSliderImageStyles } from '../../class/interface'
 import SFooterbar from './class/sfooterbar.class'
 import SIndex from './class/sindex.class'
 
@@ -35,6 +36,12 @@ $.plusReady(() => {
     }
   }, false)
   */
+
+  let slideImages: ImageSliderImageStyles[] = []
+  slideImages.push({ src: '_www/static/images/tmp/l1.png', width: '100%' })
+  slideImages.push({ src: '_www/static/images/tmp/l2.png', width: '100%' })
+  slideImages.push({ src: '_www/static/images/tmp/l3.png', width: '100%' })
+  sIndex.setSlideImages(slideImages)
 
   // offcanvas
   setTimeout(() => { sIndex.setMenu() }, 100)

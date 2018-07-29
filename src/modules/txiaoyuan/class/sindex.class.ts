@@ -1,5 +1,6 @@
 import { $, viewEXT } from '../../../common/js/global.js'
 import Student from '../../../class/student.class'
+import { ImageSliderImageStyles } from '../../../class/interface'
 import * as config from '../index/config'
 
 export default class SIndex extends Student {
@@ -61,5 +62,13 @@ export default class SIndex extends Student {
       setTimeout(() => { this.menu.hide() }, 300)
       this.showMenu = false
     }
+  }
+
+  /**
+   * setSlideImages
+   */
+  public setSlideImages (images: ImageSliderImageStyles[]) {
+    const slideNView = $.plus.nativeObj.View.getViewById('schoolSlider')
+    slideNView.setImages(images)
   }
 }

@@ -155,7 +155,11 @@ export default class Login extends Abstract {
       'id': 'tabBarTeacher',
       'styles': { bottom: '0px', left: '0px', height: config.common.footerbarHeight + 'px', width: '100%', backgroundColor: '#FFFFFF' },
       'tags': config.barTagsTeacher
-    }]
+    }, {
+      id: 'schoolSlider', type: 'ImageSlider',
+      styles: { left: '0px', right: '0px', top: '0px', height: '200px', position: 'static', autoplay: true, loop: true, images: [] }
+    }
+    ]
     let clickButtonOffcanvas = (): void => {
       // $.log('clickButtonOffcanvas')
       $.fire(wvTbanjiIndex, 'openOffcanvas')
