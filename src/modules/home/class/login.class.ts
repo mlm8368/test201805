@@ -26,7 +26,7 @@ export default class Login extends Abstract {
     uData['password'] = password
 
     $.post(config.siteHost.siteurl + 'index.php?moduleid=2&action=login', uData, (ret) => {
-      // $.log(ret)
+      $.log(ret)
       if (ret.status === 1) {
         this.setLoginData(ret.userInfo)
         // fire
@@ -45,7 +45,7 @@ export default class Login extends Abstract {
    */
   public checkLoginUserInfo (successFun: () => void, errorFun: () => void) {
     $.post(config.siteHost.siteurl + 'index.php?moduleid=2&action=login&op=checkloginuserinfo', null, (ret) => {
-      // $.log(ret)
+      $.log(ret)
       if (ret.status === 1) {
         this.setLoginData(ret.userInfo, false)
         successFun()
