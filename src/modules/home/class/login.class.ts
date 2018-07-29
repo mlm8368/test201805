@@ -59,13 +59,17 @@ export default class Login extends Abstract {
   public goPortal () {
     switch (appName) {
       case 'student':
-        this.goPortalStudent()
+        if (this.getStorage(appStorageKey.groupid) === 5) this.goPortalStudent()
+        else this.alert('你的账户存在问题，请联系管理员sddd@123.com')
         break
       case 'teacher':
-        this.goPortalTeacher()
+        if (this.getStorage(appStorageKey.groupid) === 6) this.goPortalCompany()
+        else if (this.getStorage(appStorageKey.groupid) === 5) this.goPortalTeacher()
+        else this.alert('你的账户存在问题，请联系管理员sddd@123.com')
         break
       case 'allapp':
-        if (this.getStorage(appStorageKey.userInfo).student) this.goPortalStudent()
+        if (this.getStorage(appStorageKey.groupid) === 6) this.goPortalCompany()
+        else if (this.getStorage(appStorageKey.userInfo).student) this.goPortalStudent()
         else this.goPortalTeacher()
         break
     }
@@ -151,7 +155,7 @@ export default class Login extends Abstract {
   public goPortalTeacher (): void {
     $.plus.nativeUI.showWaiting() // 等宝宝等页加载完后关闭
     // teacher
-    let subNViews = [{
+    const subNViews = [{
       'id': 'tabBarTeacher',
       'styles': { bottom: '0px', left: '0px', height: config.common.footerbarHeight + 'px', width: '100%', backgroundColor: '#FFFFFF' },
       'tags': config.barTagsTeacher
@@ -160,16 +164,50 @@ export default class Login extends Abstract {
       styles: { left: '0px', right: '0px', top: '0px', height: '200px', position: 'static', autoplay: true, loop: true, images: [] }
     }
     ]
-    let clickButtonOffcanvas = (): void => {
+    const clickButtonOffcanvas = (): void => {
       // $.log('clickButtonOffcanvas')
-      $.fire(wvTbanjiIndex, 'openOffcanvas')
+      $.fire(wvTxiaoyuanIndex, 'openOffcanvas')
     }
-    let titleNView = { backgroundColor: '#D74B28', titleText: '幼教云', titleColor: '#CCCCCC', buttons: [
+    const titleNView = { backgroundColor: '#D74B28', titleText: '幼教云', titleColor: '#CCCCCC', buttons: [
       { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: clickButtonOffcanvas }
     ] }
-    let wvTbanjiIndex = $.openWindow({
+    const wvTxiaoyuanIndex = $.openWindow({
       id: 'txiaoyuan_index',
       url: '../txiaoyuan/index' + viewEXT,
+      styles: { top: '0px', backButtonAutoControl: 'none', subNViews: subNViews, titleNView: titleNView }
+    })
+  }
+
+  /**
+   * goPortalCompany
+   */
+  public goPortalCompany (): void {
+    $.plus.nativeUI.showWaiting() // 等宝宝等页加载完后关闭
+    // company
+    const subNViews = [{
+      'id': 'tabBarCompany',
+      'styles': { bottom: '0px', left: '0px', height: config.common.footerbarHeight + 'px', width: '100%', backgroundColor: '#FFFFFF' },
+      'tags': config.barTagsCompany
+    }]
+    const clickButtonClassesOffcanvas = (): void => {
+      // $.log('clickButtonOffcanvas')
+      $.fire(wvCxiaowuIndex, 'openOffcanvas')
+    }
+    const clickButtonPublishOffcanvas = (): void => {
+      // $.log('clickButtonOffcanvas')
+      $.fire(wvCxiaowuIndex, 'openOffcanvas')
+    }
+    const clickButtonBackHome = (): void => {
+      $.noop()
+    }
+    const titleNView = { backgroundColor: '#D74B28', titleText: '校务管理', titleColor: '#CCCCCC', buttons: [
+      { text: '班级', fontSize: '14px', float: 'left', onclick: clickButtonClassesOffcanvas },
+      { text: '发布', fontSize: '14px', float: 'right', onclick: clickButtonPublishOffcanvas },
+      { text: '\ue500', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'right', onclick: clickButtonBackHome }
+    ] }
+    const wvCxiaowuIndex = $.openWindow({
+      id: 'cxiaowu_index',
+      url: '../cxiaowu/index' + viewEXT,
       styles: { top: '0px', backButtonAutoControl: 'none', subNViews: subNViews, titleNView: titleNView }
     })
   }
