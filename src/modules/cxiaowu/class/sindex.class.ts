@@ -63,4 +63,12 @@ export default class SIndex extends Student {
       this.showMenu = false
     }
   }
+
+  /**
+   * setSlideImages
+   */
+  public setSlideImages (images: ImageSliderImageStyles[]) {
+    const slideNView = $.plus.nativeObj.View.getViewById('schoolSlider')
+    slideNView.setImages(images)
+  }
 }

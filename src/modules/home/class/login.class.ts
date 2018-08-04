@@ -69,6 +69,7 @@ export default class Login extends Abstract {
         break
       case 'allapp':
         if (this.getStorage(appStorageKey.groupid) === 6) this.goPortalCompany()
+        else if (this.getStorage(appStorageKey.groupid) === 5) this.goPortalTeacher()
         else if (this.getStorage(appStorageKey.userInfo).student) this.goPortalStudent()
         else this.goPortalTeacher()
         break
@@ -188,14 +189,17 @@ export default class Login extends Abstract {
       'id': 'tabBarCompany',
       'styles': { bottom: '0px', left: '0px', height: config.common.footerbarHeight + 'px', width: '100%', backgroundColor: '#FFFFFF' },
       'tags': config.barTagsCompany
+    }, {
+      id: 'schoolSlider', type: 'ImageSlider',
+      styles: { left: '0px', right: '0px', top: '0px', height: '200px', position: 'static', autoplay: true, loop: true, images: [] }
     }]
     const clickButtonClassesOffcanvas = (): void => {
       // $.log('clickButtonOffcanvas')
-      $.fire(wvCxiaowuIndex, 'openOffcanvas')
+      $.fire(wvCxiaowuIndex, 'openClassesOffcanvas')
     }
     const clickButtonPublishOffcanvas = (): void => {
       // $.log('clickButtonOffcanvas')
-      $.fire(wvCxiaowuIndex, 'openOffcanvas')
+      $.fire(wvCxiaowuIndex, 'openPublishOffcanvas')
     }
     const clickButtonBackHome = (): void => {
       $.noop()
