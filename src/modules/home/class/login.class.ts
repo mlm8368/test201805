@@ -189,9 +189,6 @@ export default class Login extends Abstract {
       'id': 'tabBarCompany',
       'styles': { bottom: '0px', left: '0px', height: config.common.footerbarHeight + 'px', width: '100%', backgroundColor: '#FFFFFF' },
       'tags': config.barTagsCompany
-    }, {
-      id: 'schoolSlider', type: 'ImageSlider',
-      styles: { left: '0px', right: '0px', top: '0px', height: '200px', position: 'static', autoplay: true, loop: true, images: [] }
     }]
     const clickButtonClassesOffcanvas = (): void => {
       $.fire(wvCxiaowuIndex, 'openLeftClassesOffcanvas')

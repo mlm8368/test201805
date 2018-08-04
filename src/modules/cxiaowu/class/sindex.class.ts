@@ -1,7 +1,9 @@
 import { $, viewEXT } from '../../../common/js/global.js'
-import Student from '../../../class/student.class'
-import { ImageSliderImageStyles } from '../../../class/interface'
 import * as config from '../index/config'
+import Teacher from '../../../class/teacher.class'
+import { ImageSliderImageStyles } from '../../../class/interface'
+import Vue from 'vue'
+import Home from './home.vue'
 
 enum showMenuStatus {
   none,
@@ -9,16 +11,26 @@ enum showMenuStatus {
   rightPublish
 }
 
-export default class SIndex extends Student {
+export default class SIndex extends Teacher {
+  private main: any
+  private vm: Vue
+  private vueData = {}
   // Offcanvas
   private showMenu = showMenuStatus.none
-  private main: any
   private menu = { leftClasses: null, rightPublish: null }
 
   constructor () {
     super()
     $.plusReady(() => {
       this.main = $.currentWebview
+    })
+
+    this.vm = new Vue({
+      el: '#vue-app',
+      data: this.vueData,
+      components: {
+        'home': Home
+      }
     })
   }
 
@@ -88,13 +100,5 @@ export default class SIndex extends Student {
       }
       this.showMenu = showMenuStatus.none
     }
-  }
-
-  /**
-   * setSlideImages
-   */
-  public setSlideImages (images: ImageSliderImageStyles[]) {
-    const slideNView = $.plus.nativeObj.View.getViewById('schoolSlider')
-    slideNView.setImages(images)
   }
 }
