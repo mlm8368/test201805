@@ -11,6 +11,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const glob = require('glob')
+const buildEntries = require('./build-entries')
 
 let env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -18,6 +19,8 @@ let env = process.env.NODE_ENV === 'testing'
   env = merge(env, {
     appName: '"'+process.env.NODE_APPNAME+'"'
   })
+
+const appBuildModules = env.appBuildModules[process.env.NODE_APPNAME]
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -133,23 +136,15 @@ if (config.build.bundleAnalyzerReport) {
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
-let pages = ((globalPath)=>{
-  let htmlFiles = {},
-    pageName;
-	
-  glob.sync(globalPath).forEach((pagePath)=>{
-    var ext = path.extname(pagePath),
-      basename = path.basename(pagePath, ext),
-      modulename = path.basename(pagePath.replace('/' + basename + ext,''));
-    if ( process.env.NODE_MODULES === 'all' || (process.env.NODE_MODULES === modulename && (process.env.NODE_CONTROL === 'all' || process.env.NODE_CONTROL === basename))) {
-      pageName = modulename + '/' + basename;
-      htmlFiles[pageName] = {};
-      htmlFiles[pageName]['ext'] = ext;
-      htmlFiles[pageName]['path'] = pagePath;
-    }
-  });
+let pages = (()=>{
+  let htmlFiles = {};
+  for (const key in buildEntries) {
+    htmlFiles[key] = {};
+    htmlFiles[key]['ext'] = process.env.NODE_TPL_EXT;
+    htmlFiles[key]['path'] = buildEntries[key].replace('.ts',process.env.NODE_TPL_EXT);
+  }
   return htmlFiles;
-})(utils.resolve('src')+'/modules/**/*'+process.env.NODE_TPL_EXT);
+})();
 
 for (let entryName in pages) {
   let conf = {
