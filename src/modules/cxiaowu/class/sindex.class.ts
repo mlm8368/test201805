@@ -3,11 +3,17 @@ import Student from '../../../class/student.class'
 import { ImageSliderImageStyles } from '../../../class/interface'
 import * as config from '../index/config'
 
+enum showMenuStatus {
+  none,
+  leftClasses,
+  rightPublish
+}
+
 export default class SIndex extends Student {
   // Offcanvas
-  private showMenu = false
+  private showMenu = showMenuStatus.none
   private main: any
-  private menu: any
+  private menu = { leftClasses: null, rightPublish: null }
 
   constructor () {
     super()
@@ -20,7 +26,6 @@ export default class SIndex extends Student {
    * setMenu
    */
   public setMenu () {
-    // this.menu = $.preload({ id: 'sbaobao_school', url: './school' + viewEXT, styles: { left: '0%', width: '70%', backButtonAutoControl: 'none', bounce: 'none' } })
     // $.options.beforeback = (): boolean => {
     //   if (this.showMenu) {
     //     this.closeMenu()
@@ -30,37 +35,60 @@ export default class SIndex extends Student {
     //     return true
     //   }
     // }
-    this.menu = $.plus.webview.create('./school' + viewEXT, 'sbaobao_school', { left: '0%', bottom: '0px', width: '70%', height: '100%', backButtonAutoControl: 'none', bounce: 'none' })
+    this.menu.leftClasses = $.plus.webview.create('./classes' + viewEXT, 'cxiaoyuan_classes', { left: '0%', bottom: '0px', width: '70%', height: '100%', backButtonAutoControl: 'none', bounce: 'none' })
+    this.menu.rightPublish = $.plus.webview.create('./publish' + viewEXT, 'cxiaoyuan_publish', { left: '30%', bottom: '0px', width: '70%', height: '100%', backButtonAutoControl: 'none', bounce: 'none' })
     this.main.addEventListener('maskClick', () => {
-      this.main.setStyle({ mask: 'none' })
-      this.closeMenu(false)
+      this.closeMenu()
     }, false)
     window.addEventListener('dragright', function (e: any) { e.detail.gesture.preventDefault() })
     window.addEventListener('dragleft', function (e: any) { e.detail.gesture.preventDefault() })
+    // 主界面向右滑动
+    window.addEventListener('swiperight', function (this: SIndex) {
+      if (showMenuStatus[this.showMenu] === 'none') this.openMenu('leftClasses')
+      else if (showMenuStatus[this.showMenu] === 'rightPublish') this.closeMenu()
+    })
+    // 主界面向左滑动
+    window.addEventListener('swipeleft', function (this: SIndex) {
+      if (showMenuStatus[this.showMenu] === 'none') this.openMenu('rightPublish')
+      else if (showMenuStatus[this.showMenu] === 'leftClasses') this.closeMenu()
+    })
     window.addEventListener('closeOffcanvas', () => { this.closeMenu() })
   }
   /**
    * openMenu
+   * @param type leftClasses/rightPublish
    */
-  public openMenu () {
-    if (!this.showMenu) {
-      this.menu.show('none', 0, () => {
-        this.main.setStyle({ left: '70%', transition: { duration: 150 } })
-      })
+  public openMenu (type: string) {
+    if (this.showMenu === showMenuStatus.none) {
       this.main.setStyle({ mask: 'rgba(0,0,0,0.5)' })
-      this.showMenu = true
+      if (type === 'leftClasses') {
+        this.menu.leftClasses.show('none', 0, () => {
+          this.main.setStyle({ left: '70%', transition: { duration: 150 } })
+        })
+        this.showMenu = showMenuStatus.leftClasses
+      } else if (type === 'rightPublish') {
+        this.menu.rightPublish.show('none', 0, () => {
+          this.main.setStyle({ left: '30%', transition: { duration: 150 } })
+        })
+        this.showMenu = showMenuStatus.rightPublish
+      }
     }
   }
 
   /**
    * closeMenu
    */
-  public closeMenu (this: SIndex, closeMask = true) {
-    if (closeMask) this.main.setStyle({ mask: 'none' })
-    if (this.showMenu) {
-      this.main.setStyle({ left: '0%', transition: { duration: 150 } })
-      setTimeout(() => { this.menu.hide() }, 300)
-      this.showMenu = false
+  public closeMenu (this: SIndex) {
+    if (this.showMenu !== showMenuStatus.none) {
+      this.main.setStyle({ mask: 'none' })
+
+      if (showMenuStatus[this.showMenu] === 'leftClasses') {
+        this.main.setStyle({ left: '0%', transition: { duration: 150 } })
+      } else if (showMenuStatus[this.showMenu] === 'rightPublish') {
+        this.main.setStyle({ left: '100%', transition: { duration: 150 } })
+      }
+      setTimeout(() => { this.menu.leftClasses.hide() }, 300)
+      this.showMenu = showMenuStatus.none
     }
   }
 
