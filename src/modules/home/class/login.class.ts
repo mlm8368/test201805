@@ -194,12 +194,10 @@ export default class Login extends Abstract {
       styles: { left: '0px', right: '0px', top: '0px', height: '200px', position: 'static', autoplay: true, loop: true, images: [] }
     }]
     const clickButtonClassesOffcanvas = (): void => {
-      // $.log('clickButtonOffcanvas')
-      $.fire(wvCxiaowuIndex, 'openClassesOffcanvas')
+      $.fire(wvCxiaowuIndex, 'openLeftClassesOffcanvas')
     }
     const clickButtonPublishOffcanvas = (): void => {
-      // $.log('clickButtonOffcanvas')
-      $.fire(wvCxiaowuIndex, 'openPublishOffcanvas')
+      $.fire(wvCxiaowuIndex, 'openRightPublishOffcanvas')
     }
     const clickButtonBackHome = (): void => {
       $.noop()
