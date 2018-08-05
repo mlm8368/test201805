@@ -1,7 +1,7 @@
 import { $, viewEXT } from '../../../common/js/global.js'
-import Student from '../../../class/student.class'
+import Teacher from '../../../class/teacher.class'
 
-export default class Index extends Student {
+export default class Index extends Teacher {
   // Offcanvas
   private showMenu = false
   private main: any
@@ -10,7 +10,7 @@ export default class Index extends Student {
   constructor () {
     super()
     $.plusReady(() => {
-      this.main = $.currentWebview
+      this.main = $.plus.webview.getWebviewById('cxiaowu_index')
     })
   }
 
