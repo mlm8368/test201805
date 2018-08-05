@@ -190,8 +190,8 @@ export default class Login extends Abstract {
       'styles': { bottom: '0px', left: '0px', height: config.common.footerbarHeight + 'px', width: '100%', backgroundColor: '#FFFFFF' },
       'tags': config.barTagsCompany
     }]
-    const clickButtonClassesOffcanvas = (): void => {
-      $.fire(wvCxiaowuIndex, 'openLeftClassesOffcanvas')
+    const clickButtonMyOffcanvas = (): void => {
+      $.fire(wvCxiaowuIndex, 'openLeftMyOffcanvas')
     }
     const clickButtonPublishOffcanvas = (): void => {
       $.fire(wvCxiaowuIndex, 'openRightPublishOffcanvas')
@@ -200,7 +200,7 @@ export default class Login extends Abstract {
       $.noop()
     }
     const titleNView = { backgroundColor: '#D74B28', titleText: '校务管理', titleColor: '#CCCCCC', buttons: [
-      { text: '班级', fontSize: '14px', float: 'left', onclick: clickButtonClassesOffcanvas },
+      { text: '\ue100', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: clickButtonMyOffcanvas },
       { text: '发布', fontSize: '14px', float: 'right', onclick: clickButtonPublishOffcanvas },
       { text: '\ue500', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'right', onclick: clickButtonBackHome }
     ] }
