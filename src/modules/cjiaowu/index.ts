@@ -4,19 +4,25 @@ import '../../common/sass/mui.init.scss'
 // mui js
 import '../../common/js/mui.init.js'
 // self
-// import './index/init.ts'
-import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
+import { $, viewEXT } from '../../common/js/global.js'
+import Index from './class/index.class'
+
+const index = new Index()
+
 // ready
 $.init({
   swipeBack: false,
   keyEventBind: { backbutton: false, menubutton: false },
-  gestureConfig: { tap: true, swipe: false, doubletap: false, longtap: false, hold: false, flick: false, drag: false, pinch: false }
+  gestureConfig: { tap: true, swipe: true, doubletap: false, longtap: false, hold: false, flick: false, drag: false, pinch: false }
 })
-$.ready(function () {
+$.ready(() => {
   if (viewEXT === '.htm') return
   $.noop()
 })
 // plusReady
-$.plusReady(function () {
-  $.noop()
+$.plusReady(() => {
+  // offcanvas
+  setTimeout(() => { index.setMenu() }, 100)
+  window.addEventListener('openRightClassesOffcanvas', () => { index.openMenu() })
+  $.plus.nativeUI.closeWaiting()
 })

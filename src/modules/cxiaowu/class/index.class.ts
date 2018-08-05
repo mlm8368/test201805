@@ -11,7 +11,7 @@ enum showMenuStatus {
   rightPublish
 }
 
-export default class SIndex extends Teacher {
+export default class Index extends Teacher {
   private main: any
   private vm: Vue
   private vueData = {}
@@ -88,7 +88,7 @@ export default class SIndex extends Teacher {
   /**
    * closeMenu
    */
-  public closeMenu (this: SIndex) {
+  public closeMenu (this: Index) {
     if (this.showMenu !== showMenuStatus.none) {
       this.main.setStyle({ mask: 'none' })
 

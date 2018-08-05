@@ -7,10 +7,10 @@ import '../../common/js/mui.init.js'
 import { $, viewEXT } from '../../common/js/global.js'
 import * as config from './index/config'
 import { ImageSliderImageStyles } from '../../class/interface'
-import SFooterbar from './class/sfooterbar.class'
-import SIndex from './class/sindex.class'
+import CFooterbar from './class/cfooterbar.class'
+import Index from './class/index.class'
 
-const sIndex = new SIndex()
+const index = new Index()
 
 // ready
 $.init({
@@ -38,13 +38,13 @@ $.plusReady(() => {
   */
 
   // offcanvas
-  setTimeout(() => { sIndex.setMenu() }, 100)
-  window.addEventListener('openLeftMyOffcanvas', () => { sIndex.openMenu('leftMy') })
-  window.addEventListener('openRightPublishOffcanvas', () => { sIndex.openMenu('rightPublish') })
+  setTimeout(() => { index.setMenu() }, 100)
+  window.addEventListener('openLeftMyOffcanvas', () => { index.openMenu('leftMy') })
+  window.addEventListener('openRightPublishOffcanvas', () => { index.openMenu('rightPublish') })
   $.plus.nativeUI.closeWaiting()
 
   // footerBar
-  const sFooterbar = new SFooterbar(config.footbarProp)
+  const sFooterbar = new CFooterbar(config.footbarProp)
   sFooterbar.initSubpage()
   const tabBarNView = $.plus.nativeObj.View.getViewById('tabBarCompany')
   tabBarNView.addEventListener('click', function (e) {
