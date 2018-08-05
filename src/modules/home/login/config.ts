@@ -398,7 +398,7 @@ export const barTagsCompany = [
   }, {
     'tag': 'font',
     'id': 'newsText',
-    'text': '统计',
+    'text': '教务',
     'position': {
       'top': '23px',
       'left': '20%',
@@ -427,7 +427,7 @@ export const barTagsCompany = [
   }, {
     'tag': 'font',
     'id': 'todoText',
-    'text': '待定',
+    'text': '统计',
     'position': {
       'top': '24px',
       'left': '40%',
