@@ -7,9 +7,9 @@ import '../../common/js/mui.init.js'
 import { $, viewEXT } from '../../common/js/global.js'
 import * as config from './index/config'
 import { ImageSliderImageStyles } from '../../class/interface'
-import SIndex from './class/sindex.class'
+import Index from './class/index.class'
 
-const sIndex = new SIndex()
+const index = new Index()
 
 // ready
 $.init({
@@ -27,10 +27,10 @@ $.plusReady(() => {
   slideImages.push({ src: '_www/static/images/tmp/l1.png', width: '100%' })
   slideImages.push({ src: '_www/static/images/tmp/l2.png', width: '100%' })
   slideImages.push({ src: '_www/static/images/tmp/l3.png', width: '100%' })
-  sIndex.setSlideImages(slideImages)
+  index.setSlideImages(slideImages)
 })
 // updateTitleNViewTitle
 window.addEventListener('updateTitleNViewTitle', (event: any) => {
-  const schoolInfo = sIndex.getSchoolInfo(event.detail.studentid, event.detail.classesid)
+  const schoolInfo = index.getSchoolInfo(event.detail.studentid, event.detail.classesid)
   $.currentWebview.setStyle({ titleNView: { titleText: schoolInfo.schoolName } })
 })

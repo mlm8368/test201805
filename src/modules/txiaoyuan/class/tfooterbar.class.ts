@@ -2,7 +2,7 @@ import { $, viewEXT } from '../../../common/js/global.js'
 import { FooterbarConfig } from '../../../class/interface'
 import Footerbar from '../../../class/footerbar.class'
 
-export default class SFooterbar extends Footerbar {
+export default class TFooterbar extends Footerbar {
   constructor (props: FooterbarConfig) {
     super(props)
   }

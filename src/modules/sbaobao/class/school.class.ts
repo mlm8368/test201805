@@ -4,7 +4,7 @@ import Student from '../../../class/student.class'
 import { appCacheKey, appStorageKey } from '../../../class/enum'
 import * as dot from '../school/dot.js'
 
-export default class SSchool extends Student {
+export default class School extends Student {
   private classesIds: string[]
   private studentid: number
   /**

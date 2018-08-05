@@ -7,10 +7,10 @@ import '../../common/js/mui.init.js'
 import { $, viewEXT } from '../../common/js/global.js'
 import * as config from './index/config'
 import { ImageSliderImageStyles } from '../../class/interface'
-import SFooterbar from './class/sfooterbar.class'
-import SIndex from './class/sindex.class'
+import TFooterbar from './class/tfooterbar.class'
+import Index from './class/index.class'
 
-const sIndex = new SIndex()
+const index = new Index()
 
 // ready
 $.init({
@@ -41,15 +41,15 @@ $.plusReady(() => {
   slideImages.push({ src: '_www/static/images/tmp/l1.png', width: '100%' })
   slideImages.push({ src: '_www/static/images/tmp/l2.png', width: '100%' })
   slideImages.push({ src: '_www/static/images/tmp/l3.png', width: '100%' })
-  sIndex.setSlideImages(slideImages)
+  index.setSlideImages(slideImages)
 
   // offcanvas
-  setTimeout(() => { sIndex.setMenu() }, 100)
-  window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
+  setTimeout(() => { index.setMenu() }, 100)
+  window.addEventListener('openOffcanvas', () => { index.openMenu() })
   $.plus.nativeUI.closeWaiting()
 
   // footerBar
-  const sFooterbar = new SFooterbar(config.footbarProp)
+  const sFooterbar = new TFooterbar(config.footbarProp)
   sFooterbar.initSubpage()
   const tabBarNView = $.plus.nativeObj.View.getViewById('tabBarTeacher')
   tabBarNView.addEventListener('click', function (e) {

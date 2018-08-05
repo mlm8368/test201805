@@ -8,11 +8,11 @@ import { $, viewEXT } from '../../common/js/global.js'
 import * as config from './index/config'
 import { appStorageKey } from '../../class/enum'
 import SFooterbar from './class/sfooterbar.class'
-import SIndex from './class/sindex.class'
-import SBaobao from './class/sbaobao.class'
+import Index from './class/index.class'
+import Baobao from './class/baobao.class'
 
-const sIndex = new SIndex()
-const sBaobao = new SBaobao()
+const index = new Index()
+const baobao = new Baobao()
 
 // ready
 $.init({
@@ -40,12 +40,12 @@ $.plusReady(() => {
   */
 
   // offcanvas
-  setTimeout(() => { sIndex.setMenu() }, 100)
-  window.addEventListener('openOffcanvas', () => { sIndex.openMenu() })
+  setTimeout(() => { index.setMenu() }, 100)
+  window.addEventListener('openOffcanvas', () => { index.openMenu() })
 
   // tabBar(baobao)
   let tabBarItems = []
-  let userInfo = sIndex.getStorage(appStorageKey.userInfo)
+  let userInfo = index.getStorage(appStorageKey.userInfo)
   if (userInfo && userInfo.student) {
     let studentids = userInfo.student.studentids.split(',')
     let relatename = userInfo.student.relatename.split(',')
@@ -54,7 +54,7 @@ $.plusReady(() => {
       let one = { title: relatename[index], activeClass: '', studentid: studentid }
       if (index === 0) {
         one['activeClass'] = 'aui-active'
-        sIndex.setStorage(appStorageKey.current_sbaobao_studentid, studentid)
+        index.setStorage(appStorageKey.current_sbaobao_studentid, studentid)
       }
       tabBarItems.push(one)
     })
@@ -63,32 +63,32 @@ $.plusReady(() => {
       { id: 0, title: '宝宝', activeClass: 'aui-active', studentid: 0 }
     ]
   }
-  sIndex.setTabBar(tabBarItems)
+  index.setTabBar(tabBarItems)
   $('#tabBar').on('tap', '.aui-tab-item', (e) => {
-    sIndex.switchTab(e.target.dataset.index)
+    index.switchTab(e.target.dataset.index)
   })
   // getBaobao
   const doRenderBaobao = () => {
     $.plus.nativeUI.closeWaiting()
 
     tabBarItems.forEach((tabBarItem, index) => {
-      sBaobao.renderBaobao(tabBarItem.studentid, index)
+      baobao.renderBaobao(tabBarItem.studentid, index)
     })
 
     $.fire($.plus.webview.getWebviewById('sbaobao_school'), 'getClasses')
   }
-  sBaobao.getBaobao(doRenderBaobao)
+  baobao.getBaobao(doRenderBaobao)
   // refreshBaobao
   window.addEventListener('refreshBaobao', (event: any) => {
     if (event.detail.op && event.detail.op === 'rmcache') {
       $.plus.nativeUI.showWaiting()
-      sBaobao.rmBaobaoCache()
+      baobao.rmBaobaoCache()
     }
-    sBaobao.getBaobao(doRenderBaobao)
+    baobao.getBaobao(doRenderBaobao)
   })
   // renderBaobao
   window.addEventListener('renderBaobao', () => {
-    sBaobao.renderBaobao(sIndex.getCurrentStudentid(), sIndex.getSlideCurrentIndex())
+    baobao.renderBaobao(index.getCurrentStudentid(), index.getSlideCurrentIndex())
   })
 
   // footerBar
@@ -111,7 +111,7 @@ $.plusReady(() => {
   })
   // updateSubNViews
   window.addEventListener('updateSubNViews', (event: any) => {
-    const schoolInfo = sIndex.getSchoolInfo(event.detail.studentid, event.detail.classesid)
+    const schoolInfo = index.getSchoolInfo(event.detail.studentid, event.detail.classesid)
     sFooterbar.updateSubNViews(schoolInfo.schoolFirstchar, schoolInfo.classesFirstchar)
   })
 })

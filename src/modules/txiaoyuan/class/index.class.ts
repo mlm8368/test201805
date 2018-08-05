@@ -3,7 +3,7 @@ import Student from '../../../class/student.class'
 import { ImageSliderImageStyles } from '../../../class/interface'
 import * as config from '../index/config'
 
-export default class SIndex extends Student {
+export default class Index extends Student {
   // Offcanvas
   private showMenu = false
   private main: any
@@ -55,7 +55,7 @@ export default class SIndex extends Student {
   /**
    * closeMenu
    */
-  public closeMenu (this: SIndex, closeMask = true) {
+  public closeMenu (this: Index, closeMask = true) {
     if (closeMask) this.main.setStyle({ mask: 'none' })
     if (this.showMenu) {
       this.main.setStyle({ left: '0%', transition: { duration: 150 } })

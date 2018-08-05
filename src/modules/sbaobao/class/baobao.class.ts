@@ -4,7 +4,7 @@ import Student from '../../../class/student.class'
 import { appCacheKey, appStorageKey } from '../../../class/enum'
 import * as dot from '../index/dot.js'
 
-export default class SBaobao extends Student {
+export default class Baobao extends Student {
   private baobaos = null
 
   constructor () {

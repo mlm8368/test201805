@@ -5,7 +5,7 @@ import { appCacheKey, appStorageKey } from '../../../class/enum'
 import Vue from 'vue'
 import TimeLine from './timeline.vue'
 
-export default class SIndex extends Student {
+export default class Index extends Student {
   private main: any
   private vm: Vue
   private vueData = null

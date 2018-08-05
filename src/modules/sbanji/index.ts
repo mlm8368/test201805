@@ -5,9 +5,9 @@ import './index/style.scss'
 import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT } from '../../common/js/global.js'
-import SIndex from './class/sindex.class'
+import Index from './class/index.class'
 
-const sIndex = new SIndex()
+const index = new Index()
 
 // ready
 $.init({
@@ -21,15 +21,15 @@ $.ready(() => {
 // plusReady
 $.plusReady(() => {
   if (viewEXT === '.htm') return
-  sIndex.getTimeLine()
+  index.getTimeLine()
 })
 
 // fire
 window.addEventListener('reloadPage', () => {
-  sIndex.setVueData('refresh')
+  index.setVueData('refresh')
 })
 // updateTitleNViewTitle
 window.addEventListener('updateTitleNViewTitle', (event: any) => {
-  const schoolInfo = sIndex.getSchoolInfo(event.detail.studentid, event.detail.classesid)
+  const schoolInfo = index.getSchoolInfo(event.detail.studentid, event.detail.classesid)
   $.currentWebview.setStyle({ titleNView: { titleText: schoolInfo.classesName } })
 })

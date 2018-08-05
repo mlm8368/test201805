@@ -5,9 +5,9 @@ import '../../common/sass/mui.init.scss'
 import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
-import SSchool from './class/sschool.class'
+import School from './class/school.class'
 
-let sSchool = new SSchool()
+let school = new School()
 
 // ready
 $.init({
@@ -26,8 +26,8 @@ $.plusReady(() => {
 })
 // tap
 $('body').on('tap', '.classes', (e) => {
-  const classesid: number = parseInt(sSchool.closestElement(e.target, 'li.classes').dataset.classesid, 10)
-  sSchool.setCurrentClassesid(classesid, 'reset')
+  const classesid: number = parseInt(school.closestElement(e.target, 'li.classes').dataset.classesid, 10)
+  school.setCurrentClassesid(classesid, 'reset')
   $.fire($.currentWebview.opener(), 'closeOffcanvas')
 })
 // fire
@@ -36,5 +36,5 @@ window.addEventListener('swipeleft', () => {
 })
 
 window.addEventListener('getClasses', () => {
-  sSchool.getClasses()
+  school.getClasses()
 })
