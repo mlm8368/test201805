@@ -14,32 +14,31 @@
 </head>
 
 <body>
+<div id="vue-app" v-cloak>
   <header id="header" class="aui-bar aui-bar-nav">
-    <a class="aui-pull-left aui-btn">
-      共5班
-    </a>
+    <a class="aui-pull-left aui-btn">共 {{total}} 班</a>
     <a class="aui-pull-right aui-btn">
       新增
     </a>
   </header>
   <div class="aui-content">
     <ul class="aui-list aui-list-in">
-      <li class="aui-list-item">
+      <li v-for="one in list" class="aui-list-item">
         <div class="aui-list-item-inner aui-list-item-arrow">
-          <div class="aui-list-item-title"><div class="aui-label aui-label-info">当前</div>启蒙一班</div>
+          <div class="aui-list-item-title"><div v-if="one.id === currentId" class="aui-label aui-label-info">当前</div>{{one.classesname}}</div>
           <div class="aui-list-item-right">
             <div class="aui-btn aui-btn-primary">编辑</div>
           </div>
         </div>
       </li>
-      <li class="aui-list-item">
+      <!-- <li class="aui-list-item">
         <div class="aui-list-item-inner aui-list-item-arrow">
           <div class="aui-list-item-title">启蒙二班</div>
           <div class="aui-list-item-right">
             <div class="aui-btn aui-btn-primary">编辑</div>
           </div>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
   <div class="aui-content">
@@ -58,6 +57,18 @@
         </div>
       </li>
       <li class="aui-list-item">
+        <div class="aui-list-item-inner">
+          <div class="aui-list-item-label">开始</div>
+          <div class="aui-list-item-input"><input type="date" name="" id=""></div>
+        </div>
+      </li>
+      <li class="aui-list-item">
+        <div class="aui-list-item-inner">
+          <div class="aui-list-item-label">结束</div>
+          <div class="aui-list-item-input"><input type="date" name="" id=""></div>
+        </div>
+      </li>
+      <li class="aui-list-item">
         <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn">
           <div class="aui-btn aui-btn-info aui-margin-r-5">新增班级</div>
           <div class="aui-btn aui-btn-danger aui-margin-l-5">删除班级</div>
@@ -65,5 +76,6 @@
       </li>
     </ul>
   </div>
+</div>
 </body>
 </html>

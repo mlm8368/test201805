@@ -5,10 +5,17 @@ import { appCacheKey, appStorageKey } from '../../../class/enum'
 import Vue from 'vue'
 import TimeLine from './timeline.vue'
 
+interface VueData {
+  baobaoAvatar: string,
+  baobaoName: string,
+  teachers: any[],
+  timelines: {}
+}
+
 export default class Index extends Student {
   private main: any
   private vm: Vue
-  private vueData = null
+  private vueData: VueData
 
   constructor () {
     super()
@@ -16,7 +23,7 @@ export default class Index extends Student {
       this.main = $.currentWebview
     })
 
-    this.setVueData()
+    this.setVueData('init')
     this.vm = new Vue({
       el: '#vue-app',
       data: this.vueData,
@@ -29,8 +36,8 @@ export default class Index extends Student {
   /**
    * setVueData
    */
-  public setVueData (op = 'init') {
-    if (this.vueData === null) {
+  public setVueData (op: string) {
+    if (op === 'init') {
       this.vueData = {
         baobaoAvatar: '../../static/images/defaultAvatar.png',
         baobaoName: '宝宝',
