@@ -23,7 +23,6 @@ import Component from 'vue-class-component'
   // }
 })
 export default class Classes extends Vue {
-  public total = 5
   public currentId = 2
   public lists = [{ id: 1, classesname: '启蒙一班', listorder: 1, startdate: '2018-02-01', enddate: '2018-05-11' },{ id: 2, classesname: '启蒙二班', listorder: 2, startdate: '2017-02-01', enddate: '2017-05-11' }]
   public editId = 0
@@ -33,6 +32,10 @@ export default class Classes extends Vue {
   constructor () {
     super()
     this.teacher = new Teacher()
+  }
+
+  public get total (): number {
+    return this.lists.length
   }
 
   public get formtitle (): string {
@@ -55,16 +58,25 @@ export default class Classes extends Vue {
   }
 
   public mounted () {
-    this.setOntapEvents()
+    this.$nextTick().then(() => {
+      this.setOntapEvents()
+    })
   }
 
   /**
    * setOntapEvents
    */
   public setOntapEvents () {
+    $('#list').on('tap', 'li', (e: any) => {
+      let id = this.teacher.closest(e.target, 'li').dataset.id
+      this.currentId = parseInt(id, 10)
+    })
     $('#list').on('tap', '.edit', (e: any) => {
       let id = this.teacher.closest(e.target, 'li').dataset.id
       this.editId = parseInt(id, 10)
+    })
+    $('header').on('tap', '.add', (e: any) => {
+      this.editId = 0
     })
   }
 }
