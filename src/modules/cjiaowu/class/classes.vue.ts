@@ -49,7 +49,7 @@ export default class Classes extends Vue {
     if (this.editId > 0) {
       for (const list of this.lists) {
         if (list.id === this.editId) {
-          data = Object.assign(data, list)
+          data = $.extend(data, list)
           break
         }
       }
@@ -58,7 +58,7 @@ export default class Classes extends Vue {
   }
 
   public mounted () {
-    this.$nextTick().then(() => {
+    this.$nextTick(() => {
       this.setOntapEvents()
     })
   }
