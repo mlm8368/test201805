@@ -5,9 +5,8 @@ import '../../common/sass/mui.init.scss'
 import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
-import Classes from './class/classes.class'
-
-let classes = new Classes()
+import Vue from 'vue'
+import Classes from './class/classes.vue'
 
 // ready
 $.init({
@@ -16,7 +15,14 @@ $.init({
   gestureConfig: { tap: true, swipe: true, doubletap: false, longtap: false, hold: false, flick: false, drag: false, pinch: false }
 })
 $.ready(() => {
-  setImmersedHeight($.byId('header'))
+  const vm = new Vue({
+    el: '#vue-app',
+    mounted: () => {
+      setImmersedHeight($.byId('header'))
+    },
+    render: h => h(Classes, {})
+  })
+
   if (viewEXT === '.htm') return
 })
 // plusReady

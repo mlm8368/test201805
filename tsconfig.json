@@ -15,6 +15,8 @@
     "target": "es5",
     // 这可以对 `this` 上的数据属性进行更严格的推断
     // "strict": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
     "noImplicitThis": true,
     "sourceMap": true,
     "emitDecoratorMetadata": true,
