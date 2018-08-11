@@ -26,7 +26,7 @@ $.plusReady(() => {
 })
 // tap
 $('body').on('tap', '.classes', (e) => {
-  const classesid: number = parseInt(school.closestElement(e.target, 'li.classes').dataset.classesid, 10)
+  const classesid: number = parseInt(school.closest(e.target, 'li.classes').dataset.classesid, 10)
   school.setCurrentClassesid(classesid, 'reset')
   $.fire($.currentWebview.opener(), 'closeOffcanvas')
 })

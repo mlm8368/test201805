@@ -19,7 +19,7 @@ export default class Abstract {
   /**
    * closestElement
    */
-  public closestElement (el, selector: string) {
+  public closest (el, selector: string) {
     let doms
     let targetDom
     const isSame = (doms, el) => {
