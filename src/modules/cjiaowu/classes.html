@@ -23,7 +23,7 @@
   </header>
   <div class="aui-content">
     <ul class="aui-list aui-list-in">
-      <li v-for="one in list" class="aui-list-item">
+      <li v-for="one in lists" class="aui-list-item">
         <div class="aui-list-item-inner aui-list-item-arrow">
           <div class="aui-list-item-title"><div v-if="one.id === currentId" class="aui-label aui-label-info">当前</div>{{one.classesname}}</div>
           <div class="aui-list-item-right">
@@ -31,47 +31,43 @@
           </div>
         </div>
       </li>
-      <!-- <li class="aui-list-item">
-        <div class="aui-list-item-inner aui-list-item-arrow">
-          <div class="aui-list-item-title">启蒙二班</div>
-          <div class="aui-list-item-right">
-            <div class="aui-btn aui-btn-primary">编辑</div>
-          </div>
-        </div>
-      </li> -->
     </ul>
   </div>
   <div class="aui-content">
     <ul class="aui-list aui-form-list">
-      <li class="aui-list-header">添加一个新班级/编辑班级信息</li>
+      <li class="aui-list-header">{{formtitle}}</li>
+      <input type="hidden" v-model="formdata.id" name="id">
       <li class="aui-list-item">
         <div class="aui-list-item-inner">
           <div class="aui-list-item-label">名称</div>
-          <div class="aui-list-item-input"><input type="text" placeholder="班级名称" name="" id=""></div>
+          <div class="aui-list-item-input"><input type="text" v-model="formdata.classesname" placeholder="班级名称" name="classesname"></div>
         </div>
       </li>
       <li class="aui-list-item">
         <div class="aui-list-item-inner">
           <div class="aui-list-item-label">排序</div>
-          <div class="aui-list-item-input"><input type="number" placeholder="班级排序" name="" id=""></div>
+          <div class="aui-list-item-input"><input type="number" v-model="formdata.listorder" placeholder="班级排序" name="listorder"></div>
         </div>
       </li>
       <li class="aui-list-item">
         <div class="aui-list-item-inner">
           <div class="aui-list-item-label">开始</div>
-          <div class="aui-list-item-input"><input type="date" name="" id=""></div>
+          <div class="aui-list-item-input"><input type="date" v-model="formdata.startdate" value="2018-03-06" name="startdate"></div>
         </div>
       </li>
       <li class="aui-list-item">
         <div class="aui-list-item-inner">
           <div class="aui-list-item-label">结束</div>
-          <div class="aui-list-item-input"><input type="date" name="" id=""></div>
+          <div class="aui-list-item-input"><input type="date" v-model="formdata.enddate" value="2018-07-06" name="enddate"></div>
         </div>
       </li>
       <li class="aui-list-item">
         <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn">
-          <div class="aui-btn aui-btn-info aui-margin-r-5">新增班级</div>
-          <div class="aui-btn aui-btn-danger aui-margin-l-5">删除班级</div>
+          <template v-if="formdata.id > -1">
+            <div class="aui-btn aui-btn-info aui-margin-r-5 edit">提交修改</div>
+            <div class="aui-btn aui-btn-danger aui-margin-l-5 del">删除班级</div>
+          </template>
+          <div v-if="formdata.id === -1" class="aui-btn aui-btn-info aui-margin-r-5 add">新增班级</div>
         </div>
       </li>
     </ul>

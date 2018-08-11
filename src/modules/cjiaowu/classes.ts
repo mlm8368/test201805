@@ -7,7 +7,7 @@ import '../../common/js/mui.init.js'
 import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
 import Classes from './class/classes.class'
 
-const classes = new Classes()
+let classes = new Classes()
 
 // ready
 $.init({

@@ -5,7 +5,8 @@ import Vue from 'vue'
 interface VueData {
   total: number,
   currentId: number,
-  list: any[]
+  lists: any[],
+  editId: number
 }
 
 export default class Classes extends Teacher {
@@ -18,7 +19,24 @@ export default class Classes extends Teacher {
     this.setVueData(null, 'init')
     this.vm = new Vue({
       el: '#vue-app',
-      data: this.vueData
+      data: this.vueData,
+      computed: {
+        formtitle: () => {
+          let title = '添加一个新班级'
+          if (this.vueData.editId > -1) title = '编辑班级信息'
+          return title
+        },
+        formdata: (): { id: number, classesname: string, listorder: number, startdate: string, enddate: string } => {
+          let data = { id: 0, classesname: '', listorder: this.vueData.lists.length + 1, startdate: '', enddate: '' }
+          if (this.vueData.editId > -1) data = Object.assign(data, this.vueData.lists[this.vueData.editId])
+          return data
+        }
+      },
+      methods: {
+        setTapEvents: () => {
+          $.log('2')
+        }
+      }
     })
   }
 
@@ -27,7 +45,8 @@ export default class Classes extends Teacher {
       this.vueData = {
         total: 5,
         currentId: 2,
-        list: [{ id: 1, classesname: '启蒙一班' },{ id: 2, classesname: '启蒙二班' }]
+        lists: [{ id: 1, classesname: '启蒙一班' },{ id: 2, classesname: '启蒙二班' }],
+        editId: -1
       }
     }
   }
