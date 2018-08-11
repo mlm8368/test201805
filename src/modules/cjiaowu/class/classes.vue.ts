@@ -74,6 +74,7 @@ export default class Classes extends Vue {
     $('#list').on('tap', '.edit', (e: any) => {
       let id = this.teacher.closest(e.target, 'li').dataset.id
       this.editId = parseInt(id, 10)
+      return false
     })
     $('header').on('tap', '.add', (e: any) => {
       this.editId = 0
