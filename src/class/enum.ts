@@ -17,5 +17,7 @@ export const enum appStorageKey {
   area = 's107',
   areaid = 's108',
   userInfo = 's109',
-  teacher = 't200'
+  teacher = 't200',
+  school = 'c300',
+  current_jiaowu_classesid = 'c301'
 }

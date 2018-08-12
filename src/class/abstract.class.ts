@@ -3,7 +3,7 @@ import { appStorageKey } from './enum'
 import Cache from './cache.class'
 
 export default class Abstract {
-  protected cache
+  public cache
 
   constructor () {
     $.plusReady(() => {

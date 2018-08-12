@@ -30,8 +30,7 @@ export default class Baobao extends Student {
     }
 
     const cacheParam = studentids + parentuserids + classesids + teacherids
-    let baobaos = null
-    baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    let baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
     if (baobaos !== null && baobaos.param === cacheParam) {
       callback()
       return
