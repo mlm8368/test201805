@@ -15,7 +15,7 @@
     </li>
   </ul>
 </div>
-<div class="aui-content">
+<div id="op" class="aui-content">
   <ul class="aui-list aui-form-list">
     <li class="aui-list-header">{{formtitle}}</li>
     <input type="hidden" v-model="formdata.id" name="id">
@@ -49,7 +49,7 @@
           <div class="aui-btn aui-btn-info aui-margin-r-5 edit">提交修改</div>
           <div class="aui-btn aui-btn-danger aui-margin-l-5 del">删除班级</div>
         </template>
-        <div v-if="editId === 0" class="aui-btn aui-btn-info aui-margin-r-5 add">新增班级</div>
+        <div v-if="editId === 0" class="aui-btn aui-btn-info aui-margin-r-5 edit">新增班级</div>
       </div>
     </li>
   </ul>

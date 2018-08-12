@@ -64,7 +64,7 @@ export default class Classes extends Vue {
   public mounted (): void {
     this.$nextTick(() => {
       this.setOntapEvents()
-      this.getPageData()
+      this.getClasses()
     })
   }
 
@@ -72,6 +72,9 @@ export default class Classes extends Vue {
    * setOntapEvents
    */
   public setOntapEvents (): void {
+    $('header').on('tap', '.add', (e: any) => {
+      this.editId = 0
+    })
     $('#list').on('tap', 'li', (e: any) => {
       let id = this.school.closest(e.target, 'li').dataset.id
       this.currentId = parseInt(id, 10)
@@ -82,25 +85,51 @@ export default class Classes extends Vue {
       this.editId = parseInt(id, 10)
       return false
     })
-    $('header').on('tap', '.add', (e: any) => {
-      this.editId = 0
+    $('#op').on('tap', '.edit', (e: any) => {
+      if (!this.formdata.classesname) {
+        this.school.alert('请填写班级名称')
+        return false
+      }
+      if (!this.formdata.startdate) {
+        this.school.alert('请填写开始日期')
+        return false
+      }
+      if (!this.formdata.enddate) {
+        this.school.alert('请填写结束日期')
+        return false
+      }
+      $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=edit', this.formdata, (ret) => {
+        if (ret.status === 1) {
+          this.lists = ret.lists
+          this.cacheClasses('set', this.lists)
+        } else {
+          this.school.alert(ret.msg)
+        }
+      }, 'json')
+    })
+    $('#op').on('tap', '.del', (e: any) => {
+      $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=del', { id: this.formdata.id }, (ret) => {
+        if (ret.status === 1) {
+          this.lists = ret.lists
+          this.cacheClasses('set', this.lists)
+        } else {
+          this.school.alert(ret.msg)
+        }
+      }, 'json')
     })
   }
 
   /**
-   * getPageData
+   * getClasses
    */
-  private getPageData () {
-    // const schoolid = this.school.getStorage(appStorageKey.userid)
-    const schoolid = 2
-
+  private getClasses () {
     const lists = this.cacheClasses('get')
     if (lists !== null) {
       this.lists = lists
       return
     }
 
-    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=list', { schoolid: schoolid }, (ret) => {
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=list', null, (ret) => {
       if (ret.status === 1) {
         this.lists = ret.lists
         this.cacheClasses('set', this.lists)
@@ -109,18 +138,18 @@ export default class Classes extends Vue {
   }
 
   private cacheClasses (op: string, lists = null) {
-    // const schoolid = this.school.getStorage(appStorageKey.userid)
-    const schoolid = 2
+    const schoolid = this.school.getStorage(appStorageKey.userid)
+    // const schoolid = 2
     const cacheParam = schoolid
     let classes = null
 
     if (op === 'get') {
-      // let classes = this.school.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+      classes = this.school.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
       if (classes !== null) return classes.value
       else return null
     } else if (op === 'set') {
       classes = { param: cacheParam, value: lists }
-      // this.school.cache.set(appCacheKey.sbaobao_baobao_parentes_schools, classes)
+      this.school.cache.set(appCacheKey.sbaobao_baobao_parentes_schools, classes)
     }
   }
 }
