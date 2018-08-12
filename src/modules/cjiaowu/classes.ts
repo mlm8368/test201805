@@ -15,14 +15,6 @@ $.init({
   gestureConfig: { tap: true, swipe: true, doubletap: false, longtap: false, hold: false, flick: false, drag: false, pinch: false }
 })
 $.ready(() => {
-  const vm = new Vue({
-    el: '#vue-app',
-    mounted: () => {
-      setImmersedHeight($.byId('header'))
-    },
-    render: h => h(Classes, {})
-  })
-
   if (viewEXT === '.htm') return
 })
 // plusReady
@@ -30,5 +22,13 @@ $.plusReady(() => {
   const main = $.plus.webview.currentWebview().opener()
   window.addEventListener('swiperight', () => {
     $.fire(main, 'closeOffcanvas')
+  })
+
+  const vm = new Vue({
+    el: '#vue-app',
+    mounted: () => {
+      setImmersedHeight($.byId('header'))
+    },
+    render: h => h(Classes, {})
   })
 })

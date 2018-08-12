@@ -130,6 +130,7 @@ export default class Classes extends Vue {
     }
 
     $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=list', null, (ret) => {
+      $.log(ret)
       if (ret.status === 1) {
         this.lists = ret.lists
         this.cacheClasses('set', this.lists)
@@ -144,12 +145,12 @@ export default class Classes extends Vue {
     let classes = null
 
     if (op === 'get') {
-      classes = this.school.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+      classes = this.school._cache().get(appCacheKey.sbaobao_baobao_parentes_schools)
       if (classes !== null) return classes.value
       else return null
     } else if (op === 'set') {
       classes = { param: cacheParam, value: lists }
-      this.school.cache.set(appCacheKey.sbaobao_baobao_parentes_schools, classes)
+      this.school._cache().set(appCacheKey.sbaobao_baobao_parentes_schools, classes)
     }
   }
 }

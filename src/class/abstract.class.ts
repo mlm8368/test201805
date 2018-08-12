@@ -3,12 +3,20 @@ import { appStorageKey } from './enum'
 import Cache from './cache.class'
 
 export default class Abstract {
-  public cache
+  protected cache: Cache
 
   constructor () {
     $.plusReady(() => {
-      this.cache = new Cache()
+      if (!this.cache) this.cache = new Cache()
     })
+  }
+
+  /**
+   * _cache
+   */
+  public _cache (): Cache {
+    if (!this.cache) this.cache = new Cache()
+    return this.cache
   }
   /**
    * byId
