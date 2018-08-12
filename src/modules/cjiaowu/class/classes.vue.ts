@@ -130,7 +130,6 @@ export default class Classes extends Vue {
     }
 
     $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=list', null, (ret) => {
-      $.log(ret)
       if (ret.status === 1) {
         this.lists = ret.lists
         this.cacheClasses('set', this.lists)

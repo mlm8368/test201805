@@ -22,7 +22,7 @@ $.plusReady(() => {
   cache.clearAll() // debug
 
   $.get(config.siteHost.siteurl + 'index.php?XDEBUG_SESSION_START=ECLIPSE_DBGP&KEY=15197212645396', null, (ret) => {
-    $.log(ret)
+    $.log('XDEBUG...')
   }, 'json')
   $.noop()
   // 已登录 直接跳转
