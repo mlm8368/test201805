@@ -4,7 +4,7 @@ import './login/style.scss'
 // mui js
 import '../../common/js/mui.init.js'
 // self
-import { $, viewEXT } from '../../common/js/global.js'
+import { $, viewEXT, appName } from '../../common/js/global.js'
 import { appStorageKey } from '../../class/enum'
 import Login from './class/login.class'
 import * as config from './login/config'
@@ -30,7 +30,7 @@ $.plusReady(() => {
     login.toast(login.getStorage(appStorageKey.username) + ',欢迎你回来', { verticalAlign: 'top' })
     login.goPortal()
     login.checkLoginUserInfo(() => {
-      $.fire($.plus.webview.getWebviewById('sbaobao_index'), 'refreshBaobao')
+      if (appName === 'student') $.fire($.plus.webview.getWebviewById('sbaobao_index'), 'refreshBaobao')
     }, () => {
       login.toast('信息已更新，请重新登录')
     })

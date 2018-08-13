@@ -7,17 +7,18 @@ export const enum appCacheKey {
   sbamaquan = 500
 }
 export const enum appStorageKey {
-  student = 's100-109',
+  home = 'h000-007',// home
+  userid = 'h001',
+  username = 'h002',
+  accessToken = 'h003',
+  groupid = 'h004',
+  area = 'h005',
+  areaid = 'h006',
+  userInfo = 'h007',
+  student = 's100-102',// student
   current_sbaobao_studentid = 's101',
   current_sbaobao_classesid = 's102',
-  userid = 's103',
-  username = 's104',
-  accessToken = 's105',
-  groupid = 's106',
-  area = 's107',
-  areaid = 's108',
-  userInfo = 's109',
-  teacher = 't200',
-  school = 'c300',
+  teacher = 't200',// teacher
+  school = 'c300-301',// school
   current_jiaowu_classesid = 'c301'
 }
