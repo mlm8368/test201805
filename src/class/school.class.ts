@@ -102,15 +102,15 @@ export default class School extends Abstract {
     const schoolid = this.getStorage(appStorageKey.userid)
     // const schoolid = 2
     const cacheParam = schoolid + classesid
-    let teachers = null
+    let students = null
 
     if (op === 'get') {
-      teachers = this._cache().get(appCacheKey.school_cjiaowu_students)
-      if (teachers !== null) return teachers.value
+      students = this._cache().get(appCacheKey.school_cjiaowu_students)
+      if (students !== null) return students.value
       else return null
     } else if (op === 'set') {
-      teachers = { param: cacheParam, value: lists }
-      this._cache().set(appCacheKey.school_cjiaowu_students, teachers)
+      students = { param: cacheParam, value: lists }
+      this._cache().set(appCacheKey.school_cjiaowu_students, students)
     }
   }
 }

@@ -1,4 +1,4 @@
-import { $, viewEXT } from '../../../common/js/global.js'
+import { $, viewEXT, getAge } from '../../../common/js/global.js'
 import * as config from '../index/config'
 import School from '../../../class/school.class'
 import { appCacheKey, appStorageKey } from '../../../class/enum'
@@ -13,6 +13,7 @@ import Component from 'vue-class-component'
       classesId = parseInt(classesId, 10)
       // $.log(classesId)
       const school = new School()
+      // teacher
       school.getTeacherByClassesid(classesId, (lists: any[]) => {
         if (lists.length === 0) return
 
@@ -29,15 +30,29 @@ import Component from 'vue-class-component'
         })
         this.$data.teacherLists = teacherLists
       })
-      // school.getStudentByClassesid(classesId, (lists: any[]) => {
-      //   if (lists.length === 0) return
-      //   this.$data.teacherLists = lists
-      // })
+      // student
+      school.getStudentByClassesid(classesId, (lists: any[]) => {
+        if (lists.length === 0 || !lists[0].id) return
+
+        let studentLists = []
+        lists.forEach((one) => {
+          let tmp = {}
+          tmp['id'] = one.id
+          tmp['babyname'] = one.babyname
+          tmp['avatar'] = one.avatar
+          if (!tmp['avatar']) tmp['avatar'] = '../../static/images/defaultAvatar.png'
+          tmp['gender'] = school.getGender(one.gender)
+          tmp['age'] = getAge(one.birthday + ' 1:1:1', school.getFormatDate() + ' 1:1:1')
+
+          studentLists.push(tmp)
+        })
+        this.$data.studentLists = studentLists
+      })
     }
   }
 })
 export default class Index extends Vue {
-  public classesId: number
+  public classesId: number = 0
   public classesName = ''
   public teacherLists: any[] = []
   public studentLists: any[] = []
@@ -46,8 +61,6 @@ export default class Index extends Vue {
   constructor () {
     super()
     this.school = new School()
-    this.classesId = this.school.getStorage(appStorageKey.current_jiaowu_classesid)
-    if (!this.classesId) this.classesId = 0
   }
 
   public get totalTeacher () {
@@ -60,6 +73,10 @@ export default class Index extends Vue {
 
   public mounted (): void {
     this.$nextTick(() => {
+      this.classesId = this.school.getStorage(appStorageKey.current_jiaowu_classesid)
+      if (!this.classesId) this.classesId = 0
+
+      // getClasses
       this.school.getClasses((lists) => {
         if (lists.length === 0) {
           this.classesName = '您还未添加班级'
