@@ -7,7 +7,13 @@ import Component from 'vue-class-component'
 
 //
 @Component({
-  template: require('../index/root.vue.html')
+  template: require('../index/root.vue.html'),
+  watch: {
+    classesId: function (this: Vue, classesId, oldClassesId) {
+      classesId = parseInt(classesId, 10)
+      $.log(classesId)
+    }
+  }
 })
 export default class Index extends Vue {
   public classesId: number
@@ -35,7 +41,7 @@ export default class Index extends Vue {
     this.$nextTick(() => {
       this.getClasses((lists) => {
         if (lists.length === 0) {
-          this.classesName = '还未添加班级'
+          this.classesName = '您还未添加班级'
           return
         }
 

@@ -80,6 +80,7 @@ export default class Abstract {
    * setStorage
    */
   public setStorage (key: string, value: any): void {
+    if (key) return null // test
     if (typeof value === 'object') {
       if (value === null) {
         value = 'objnull-null'
@@ -102,6 +103,7 @@ export default class Abstract {
    * getStorage
    */
   public getStorage (key: string) {
+    if (key) return null // test
     let v = localStorage[key]
     if (!v) return null
     if (v.indexOf('obj-') === 0) {
