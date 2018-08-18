@@ -64,7 +64,7 @@ export default class Classes extends Vue {
   public mounted (): void {
     this.$nextTick(() => {
       this.setOntapEvents()
-      this.getClasses((lists) => {
+      this.school.getClasses((lists) => {
         this.lists = lists
       })
     })
@@ -119,23 +119,5 @@ export default class Classes extends Vue {
         }
       }, 'json')
     })
-  }
-
-  /**
-   * getClasses
-   */
-  private getClasses (callback: (lists: any[]) => void) {
-    const lists = this.school.cacheClasses('get')
-    if (lists !== null) {
-      callback(lists)
-      return
-    }
-
-    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=list', null, (ret) => {
-      if (ret.status === 1) {
-        callback(ret.lists)
-        this.school.cacheClasses('set', ret.lists)
-      }
-    }, 'json')
   }
 }

@@ -39,7 +39,7 @@ export default class Index extends Vue {
 
   public mounted (): void {
     this.$nextTick(() => {
-      this.getClasses((lists) => {
+      this.school.getClasses((lists) => {
         if (lists.length === 0) {
           this.classesName = '您还未添加班级'
           return
@@ -59,20 +59,5 @@ export default class Index extends Vue {
         }
       })
     })
-  }
-
-  private getClasses (callback: (lists: any[]) => void) {
-    const lists = this.school.cacheClasses('get')
-    if (lists !== null) {
-      callback(lists)
-      return
-    }
-
-    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=list', null, (ret) => {
-      if (ret.status === 1) {
-        callback(ret.lists)
-        this.school.cacheClasses('set', ret.lists)
-      }
-    }, 'json')
   }
 }

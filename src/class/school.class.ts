@@ -1,9 +1,26 @@
+import { $, viewEXT } from '../common/js/global.js'
+import * as config from './config'
 import 	Abstract from './abstract.class'
 import { appCacheKey, appStorageKey } from './enum'
 
 export default class School extends Abstract {
   constructor () {
     super()
+  }
+
+  public getClasses (callback: (lists: any[]) => void) {
+    const lists = this.cacheClasses('get')
+    if (lists !== null) {
+      callback(lists)
+      return
+    }
+
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=list', null, (ret) => {
+      if (ret.status === 1) {
+        callback(ret.lists)
+        this.cacheClasses('set', ret.lists)
+      }
+    }, 'json')
   }
 
 /**
