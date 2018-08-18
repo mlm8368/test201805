@@ -1,12 +1,12 @@
 <div>
   <section class="aui-content aui-text-center aui-margin-b-15">
-    <h2 class="aui-margin-t-15">启蒙一班</h2>
+    <h2 class="aui-margin-t-15">{{classesName}}</h2>
     <div class="classes aui-row aui-margin-t-15">
       <div class=" aui-col-xs-6 aui-text-right aui-border-r aui-padded-r-10">
-        <span data-num="5" class=" aui-text-danger aui-margin-r-5"></span>教师
+        <span :data-num="totalTeacher" class=" aui-text-danger aui-margin-r-5"></span>教师
       </div>
       <div class=" aui-col-xs-6 aui-text-left aui-padded-l-10">
-        学生<span data-num="30" class=" aui-text-danger aui-margin-l-5"></span>
+        学生<span :data-num="totalStudent" class=" aui-text-danger aui-margin-l-5"></span>
       </div>
     </div>
   </section>

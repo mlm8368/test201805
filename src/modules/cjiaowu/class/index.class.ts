@@ -1,11 +1,14 @@
 import { $, viewEXT } from '../../../common/js/global.js'
 import Teacher from '../../../class/teacher.class'
+import Vue from 'vue'
+import IndexVue from './index.vue'
 
 export default class Index extends Teacher {
   // Offcanvas
   private showMenu = false
   private main: any
   private menu: any
+  private vm: Vue
 
   constructor () {
     super()
@@ -61,5 +64,15 @@ export default class Index extends Teacher {
       setTimeout(() => { this.menu.hide() }, 300)
       this.showMenu = false
     }
+  }
+
+  /**
+   * openIndexVue
+   */
+  public openIndexVue () {
+    this.vm = new Vue({
+      el: '#vue-app',
+      render: h => h(IndexVue, {})
+    })
   }
 }

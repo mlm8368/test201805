@@ -6,15 +6,9 @@ import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT } from '../../common/js/global.js'
 import Index from './class/index.class'
-import Vue from 'vue'
-import IndexVue from './class/index.vue'
 
 const index = new Index()
-
-const vm = new Vue({
-  el: '#vue-app',
-  render: h => h(IndexVue, {})
-})
+index.openIndexVue() // test
 
 // ready
 $.init({
@@ -33,8 +27,5 @@ $.plusReady(() => {
   window.addEventListener('openRightClassesOffcanvas', () => { index.openMenu() })
   $.plus.nativeUI.closeWaiting()
 
-  const vm = new Vue({
-    el: '#vue-app',
-    render: h => h(IndexVue, {})
-  })
+  index.openIndexVue()
 })

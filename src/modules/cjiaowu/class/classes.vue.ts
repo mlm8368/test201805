@@ -64,7 +64,9 @@ export default class Classes extends Vue {
   public mounted (): void {
     this.$nextTick(() => {
       this.setOntapEvents()
-      this.getClasses()
+      this.getClasses((lists) => {
+        this.lists = lists
+      })
     })
   }
 
@@ -101,7 +103,7 @@ export default class Classes extends Vue {
       $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=edit', this.formdata, (ret) => {
         if (ret.status === 1) {
           this.lists = ret.lists
-          this.cacheClasses('set', this.lists)
+          this.school.cacheClasses('set', this.lists)
         } else {
           this.school.alert(ret.msg)
         }
@@ -111,7 +113,7 @@ export default class Classes extends Vue {
       $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=del', { id: this.formdata.id }, (ret) => {
         if (ret.status === 1) {
           this.lists = ret.lists
-          this.cacheClasses('set', this.lists)
+          this.school.cacheClasses('set', this.lists)
         } else {
           this.school.alert(ret.msg)
         }
@@ -122,34 +124,18 @@ export default class Classes extends Vue {
   /**
    * getClasses
    */
-  private getClasses () {
-    const lists = this.cacheClasses('get')
+  private getClasses (callback: (lists: any[]) => void) {
+    const lists = this.school.cacheClasses('get')
     if (lists !== null) {
-      this.lists = lists
+      callback(lists)
       return
     }
 
     $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=list', null, (ret) => {
       if (ret.status === 1) {
-        this.lists = ret.lists
-        this.cacheClasses('set', this.lists)
+        callback(ret.lists)
+        this.school.cacheClasses('set', ret.lists)
       }
     }, 'json')
-  }
-
-  private cacheClasses (op: string, lists = null) {
-    const schoolid = this.school.getStorage(appStorageKey.userid)
-    // const schoolid = 2
-    const cacheParam = schoolid
-    let classes = null
-
-    if (op === 'get') {
-      classes = this.school._cache().get(appCacheKey.sbaobao_baobao_parentes_schools)
-      if (classes !== null) return classes.value
-      else return null
-    } else if (op === 'set') {
-      classes = { param: cacheParam, value: lists }
-      this.school._cache().set(appCacheKey.sbaobao_baobao_parentes_schools, classes)
-    }
   }
 }
