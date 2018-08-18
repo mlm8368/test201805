@@ -6,40 +6,80 @@
   <meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
   <title>上学啦</title>
   <script src="../../static/mui.js"></script>
+  <link rel="stylesheet" href="../../static/aui.css" />
+  <style type="text/css">
+  .aui-list .aui-list-header { background-color: #03a9f4; color: #ffffff;}
+  .aui-media-list .aui-list-item-media {width: 3.8rem; padding-right: 1.5rem;}
+  </style>
 </head>
 
 <body>
+  <div class="aui-searchbar">
+    <div class="aui-searchbar-input aui-border-radius">
+      <i class="aui-iconfont aui-icon-search"></i>
+      <input type="search" placeholder="请输入老师完整姓名查找">
+      <div class="aui-searchbar-clear-btn">
+        <i class="aui-iconfont aui-icon-close"></i>
+      </div>
+    </div>
+    <div class="aui-searchbar-btn">取消</div>
+  </div>
   <div class=" aui-content">
-    <ul class=" aui-list aui-form-list">
+    <ul class=" aui-list aui-form-list aui-media-list">
       <li class=" aui-list-header">老师信息</li>
-      <li class=" aui-list-item">
-        <div class=" aui-list-item-inner">
+      <li class="aui-list-item aui-list-item-middle">
+        <div class="aui-media-list-item-inner">
           <div class=" aui-list-item-label">姓名</div>
-          <div class=" aui-list-item-input"><input type="text" placeholder="姓名全称"></div>
+          <div class="aui-list-item-inner">
+            <div class="aui-list-item-text">
+              <div class="aui-list-item-title aui-font-size-14">张金华</div>
+            </div>
+            <div class="aui-list-item-media aui-list-item-right">
+              <img src="../../static/images/tmp/demo5.png" class="aui-img-round aui-list-img-sm">
+            </div>
+          </div>
         </div>
       </li>
       <li class=" aui-list-item">
         <div class=" aui-list-item-inner">
-          <div class=" aui-list-item-label">姓名</div>
-          <div class=" aui-list-item-input"><input type="text" placeholder="姓名全称"></div>
+          <div class=" aui-list-item-label">电话</div>
+          <div class="aui-list-item-inner">
+              <div class="aui-list-item-text">
+                <div class="aui-list-item-title aui-font-size-14">18600566543</div>
+              </div>
+              <div class="aui-list-item-media aui-list-item-right">
+                <div class=" aui-btn aui-btn-primary">拨打</div>
+              </div>
+            </div>
         </div>
       </li>
       <li class=" aui-list-item">
         <div class=" aui-list-item-inner">
-          <div class=" aui-list-item-label">姓名</div>
-          <div class=" aui-list-item-input"><input type="text" placeholder="姓名全称"></div>
+          <div class=" aui-list-item-label">职务</div>
+          <div class=" aui-list-item-input"><input type="text" placeholder="如：班主任"></div>
         </div>
       </li>
       <li class=" aui-list-item">
         <div class=" aui-list-item-inner">
-          <div class=" aui-list-item-label">姓名</div>
-          <div class=" aui-list-item-input"><input type="text" placeholder="姓名全称"></div>
+          <div class=" aui-list-item-label">性别</div>
+          <div class="aui-list-item-input">男</div>
         </div>
       </li>
       <li class=" aui-list-item">
         <div class=" aui-list-item-inner">
-          <div class=" aui-list-item-label">姓名</div>
-          <div class=" aui-list-item-input"><input type="text" placeholder="姓名全称"></div>
+          <div class=" aui-list-item-label">QQ</div>
+          <div class="aui-list-item-input">233444</div>
+        </div>
+      </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">微信</div>
+          <div class="aui-list-item-input">34455565</div>
+        </div>
+      </li>
+      <li class="aui-list-item">
+        <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn">
+          <div class="aui-btn aui-btn-info aui-btn-block aui-btn-sm">保存</div>
         </div>
       </li>
     </ul>

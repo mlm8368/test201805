@@ -7,140 +7,109 @@
   <title>上学啦</title>
   <script src="../../static/mui.js"></script>
   <link rel="stylesheet" href="../../static/aui.css" />
-    <style type="text/css">
-    	.aui-list .aui-list-item:active { background-color: #ffffff;}
-      .aui-list .aui-list-item-media { width: 3rem; }
-      .username {color:#4c5276;}
-      .content {color:#333;}
-      .op {padding: 0 5px; color: #4c5276;}
-      .op:active {background-color: #f5f5f5;}
-    </style>
+  <style type="text/css">
+  .aui-list .aui-list-header { background-color: #03a9f4; color: #ffffff;}
+  .aui-media-list .avatar {width: 3.8rem; padding-right: 1.5rem;}
+  .aui-list .aui-list-item-right { max-width: 60%;}
+  </style>
 </head>
 
 <body>
-    <section class="aui-content">
-        <ul class="aui-list aui-media-list">
-            <li class="aui-list-item">
-                <div class="aui-media-list-item-inner">
-                    <div class="aui-list-item-media">
-                        <img src="../../static/images/tmp/demo1.png"/>
-                    </div>
-                    <div class="aui-list-item-inner">
-                        <div class="aui-list-item-text">
-                            <div class="aui-list-item-title username">流浪男</div>
-                        </div>
-                        <div class="aui-list-item-text content">
-                            如果谈及中国在技术领域的短板，那么大家可能想到的是发动机，其实还有一样：高级电子芯片！人们通常所说的CPU，所谓CPU即中央处理器，就是其代表产品，它可是为电子信息产品的心脏
-                        </div>
-                        <div class="aui-list-item-text">
-                            <div class="aui-row-padded" style="max-width:90%;">
-                                <div class="aui-col-xs-4">
-                                    <img src="../../static/images/tmp/l1.png" />
-                                </div>
-                                <div class="aui-col-xs-4">
-                                    <img src="../../static/images/tmp/l2.png" />
-                                </div>
-                                <div class="aui-col-xs-4">
-                                    <img src="../../static/images/tmp/l3.png" />
-                                </div>
-                                <div class="aui-col-xs-4">
-                                    <img src="../../static/images/tmp/l2.png" />
-                                </div>
-                                <div class="aui-col-xs-4">
-                                    <img src="../../static/images/tmp/l1.png" />
-                                </div>
-                                <div class="aui-col-xs-4">
-                                    <img src="../../static/images/tmp/l3.png" />
-                                </div>
-                            </div>
-                        </div>
-                        <p class="aui-margin-t-5 aui-font-size-12">山东潍坊</p>
-                        <div class="aui-info aui-font-size-12" style="padding-top:0; padding-bottom:0">
-                            <div class="aui-info-item">1小时前</div>
-                            <div class="aui-info-item op">
-                                <i class="aui-iconfont aui-icon-comment"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="aui-list-item">
-                <div class="aui-media-list-item-inner">
-                    <div class="aui-list-item-media">
-                        <img src="../../static/images/tmp/demo3.png" />
-                    </div>
-                    <div class="aui-list-item-inner">
-                        <div class="aui-list-item-text">
-                            <div class="aui-list-item-title username">AUI</div>
-                        </div>
-                        <div class="aui-list-item-text content">
-                            中国拥有世界顶级航天芯片产品：俄罗斯造不出来了只能求中国分享
-                        </div>
-                        <div class="aui-info aui-font-size-12 aui-padded-t-0 aui-padded-b-0">
-                            <div class="aui-info-item">1小时前</div>
-                            <div class="aui-info-item op">
-                                <i class="aui-iconfont aui-icon-comment"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="aui-list-item">
-                <div class="aui-media-list-item-inner">
-                    <div class="aui-list-item-media">
-                        <img src="../../static/images/tmp/demo2.png" />
-                    </div>
-                    <div class="aui-list-item-inner">
-                        <div class="aui-list-item-text">
-                            <div class="aui-list-item-title username">流浪男</div>
-                        </div>
-                        <div class="aui-list-item-text content">
-                            网传“贴吧之父”俞军加入滴滴
-                        </div>
-                        <div class="aui-list-item-text">
-                            <div class="aui-row-padded" style="max-width:90%;">
-                                <div class="aui-col-xs-4">
-                                    <img src="../../static/images/tmp/l1.png" />
-                                </div>
-                                <div class="aui-col-xs-4">
-                                    <img src="../../static/images/tmp/l2.png" />
-                                </div>
-                                <div class="aui-col-xs-4">
-                                    <img src="../../static/images/tmp/l3.png" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="aui-info aui-font-size-12 aui-padded-t-0 aui-padded-b-0">
-                            <div class="aui-info-item">1小时前</div>
-                            <div class="aui-info-item op">
-                                <i class="aui-iconfont aui-icon-comment"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="aui-list-item">
-                <div class="aui-media-list-item-inner">
-                    <div class="aui-list-item-media">
-                        <img src="../../static/images/tmp/demo3.png" />
-                    </div>
-                    <div class="aui-list-item-inner">
-                        <div class="aui-list-item-text">
-                            <div class="aui-list-item-title username">流浪男</div>
-                        </div>
-                        <div class="aui-list-item-text content">
-                            美团、饿了么外卖小哥斗殴：约架中关村
-                        </div>
-                        <div class="aui-info aui-font-size-12 aui-padded-t-0 aui-padded-b-0">
-                            <div class="aui-info-item">1小时前</div>
-                            <div class="aui-info-item op">
-                                <i class="aui-iconfont aui-icon-comment"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </section>
+  <div class="aui-searchbar">
+    <div class="aui-searchbar-input aui-border-radius">
+      <i class="aui-iconfont aui-icon-search"></i>
+      <input type="search" placeholder="请输入家长提供的宝宝ID号">
+      <div class="aui-searchbar-clear-btn">
+        <i class="aui-iconfont aui-icon-close"></i>
+      </div>
+    </div>
+    <div class="aui-searchbar-btn">取消</div>
+    <a class="aui-pull-right aui-btn aui-margin-r-10">
+      <span class="aui-iconfont aui-icon-camera" style="margin-right:0;"></span>
+    </a>
+  </div>
+  <div class=" aui-content">
+    <ul class=" aui-list aui-form-list aui-media-list">
+      <li class=" aui-list-header">学生信息</li>
+      <li class="aui-list-item aui-list-item-middle">
+        <div class="aui-media-list-item-inner">
+          <div class=" aui-list-item-label">姓名</div>
+          <div class="aui-list-item-inner aui-list-item-arrow">
+            <div class="aui-list-item-text">
+              <div class="aui-list-item-title aui-font-size-14">张子航</div>
+            </div>
+            <div class="aui-list-item-right avatar">
+              <img src="../../static/images/tmp/demo5.png" class="aui-img-round">
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">妈妈</div>
+          <div class="aui-list-item-inner">
+              <div class="aui-list-item-text">
+                <div class="aui-list-item-title aui-font-size-14">张平</div>
+              </div>
+              <div class="aui-list-item-right aui-margin-r-15">
+                <span>Tel：18600566543</span>
+                <div class=" aui-btn aui-btn-primary">拨打</div>
+              </div>
+            </div>
+        </div>
+      </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">爸爸</div>
+          <div class="aui-list-item-inner">
+            <div class="aui-list-item-text">
+              <div class="aui-list-item-title aui-font-size-14">张平</div>
+            </div>
+            <div class="aui-list-item-right aui-margin-r-15">
+              <span>Tel：18600566543</span>
+              <div class=" aui-btn aui-btn-primary">拨打</div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">奶奶</div>
+          <div class="aui-list-item-inner">
+            <div class="aui-list-item-text">
+              <div class="aui-list-item-title aui-font-size-14">张平</div>
+            </div>
+            <div class="aui-list-item-right aui-margin-r-15">
+              <span>Tel：18600566543</span>
+              <div class=" aui-btn aui-btn-primary">拨打</div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">入学时间</div>
+          <div class="aui-list-item-input"><input type="date"></div>
+        </div>
+      </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">性别</div>
+          <div class="aui-list-item-input">男</div>
+        </div>
+      </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">生日</div>
+          <div class="aui-list-item-input">2018-02-16</div>
+        </div>
+      </li>
+      <li class="aui-list-item">
+        <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn">
+          <div class="aui-btn aui-btn-info aui-btn-block aui-btn-sm">保存</div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </body>
 </html>
