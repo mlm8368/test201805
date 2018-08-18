@@ -1,10 +1,12 @@
 export const enum appCacheKey {
-  home = 100,
-  sbaobao = 200,
-  sbaobao_baobao_parentes_schools = 201,
-  sxiaoyuan = 300,
-  sbanji = 400,
-  sbamaquan = 500
+  home = 100,// home
+  student = 200,// student
+  student_sbaobao_baobaosParentesSchools = 201,
+  teacher = 300,// teacher
+  school = 400,// school
+  school_cjiaowu_classes = 401,
+  school_cjiaowu_teachers = 402,
+  school_cjiaowu_students = 403
 }
 export const enum appStorageKey {
   home = 'h000-007',// home

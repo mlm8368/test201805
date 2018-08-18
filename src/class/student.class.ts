@@ -12,7 +12,7 @@ export default class Student extends Abstract {
    */
   public getSchoolInfo (studentid: number, classesid: number): any {
     let info = {}
-    const baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    const baobaos = this.cache.get(appCacheKey.student_sbaobao_baobaosParentesSchools)
     const classes = baobaos.values[studentid].classes[classesid]
     info['classesName'] = classes.classesname
     info['classesFirstchar'] = classes.firstchar

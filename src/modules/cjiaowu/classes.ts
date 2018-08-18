@@ -8,6 +8,14 @@ import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
 import Vue from 'vue'
 import Classes from './class/classes.vue'
 
+// const vm = new Vue({
+//   el: '#vue-app',
+//   mounted: () => {
+//     setImmersedHeight($.byId('header'))
+//   },
+//   render: h => h(Classes, {})
+// })
+
 // ready
 $.init({
   swipeBack: false,

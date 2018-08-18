@@ -30,7 +30,7 @@ export default class Baobao extends Student {
     }
 
     const cacheParam = studentids + parentuserids + classesids + teacherids
-    let baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    let baobaos = this.cache.get(appCacheKey.student_sbaobao_baobaosParentesSchools)
     if (baobaos !== null && baobaos.param === cacheParam) {
       callback()
       return
@@ -40,7 +40,7 @@ export default class Baobao extends Student {
       if (ret.status === 1) {
         // $.log(ret)
         baobaos = { param: cacheParam, values: ret.baobaos }
-        this.cache.set(appCacheKey.sbaobao_baobao_parentes_schools, baobaos)
+        this.cache.set(appCacheKey.student_sbaobao_baobaosParentesSchools, baobaos)
         callback()
       }
     }, 'json')
@@ -50,7 +50,7 @@ export default class Baobao extends Student {
    * renderBaobao
    */
   public renderBaobao (studentid: number, index: number) {
-    if (this.baobaos === null) this.baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+    if (this.baobaos === null) this.baobaos = this.cache.get(appCacheKey.student_sbaobao_baobaosParentesSchools)
     if (!this.baobaos) return false
 
     const baobao = this.baobaos.values[studentid]
@@ -82,7 +82,7 @@ export default class Baobao extends Student {
   }
 
   public rmBaobaoCache () {
-    this.cache.remove(appCacheKey.sbaobao_baobao_parentes_schools)
+    this.cache.remove(appCacheKey.student_sbaobao_baobaosParentesSchools)
   }
 
   private getInClassesDay (starttime: number, endtime: number) {

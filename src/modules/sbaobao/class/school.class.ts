@@ -14,7 +14,7 @@ export default class School extends Student {
     this.studentid = this.getStorage(appStorageKey.current_sbaobao_studentid)
 
     setTimeout(() => {
-      const baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+      const baobaos = this.cache.get(appCacheKey.student_sbaobao_baobaosParentesSchools)
       if (baobaos) this.renderSchool(baobaos.values[this.studentid].school, baobaos.values[this.studentid].classes)
     }, 100)
   }

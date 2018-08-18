@@ -51,7 +51,7 @@ export default class Index extends Student {
       const studentid: number = this.getStorage(appStorageKey.current_sbaobao_studentid)
       const currentSbaobaoClassesid = this.getStorage(appStorageKey.current_sbaobao_classesid)
       const classesid: number = currentSbaobaoClassesid[studentid]
-      const baobaos = this.cache.get(appCacheKey.sbaobao_baobao_parentes_schools)
+      const baobaos = this.cache.get(appCacheKey.student_sbaobao_baobaosParentesSchools)
       const baobao = baobaos.values[studentid]
 
       this.vueData.baobaoAvatar = baobao.baobao.avatar
