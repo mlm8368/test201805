@@ -16,14 +16,14 @@
         <div><i class=" aui-iconfont aui-icon-my aui-text-danger"></i> 全部老师</div>
         <div class="aui-list-item-right">添加老师</div>
       </div>
-      <li class="aui-list-item aui-list-item-middle">
+      <li v-for="teacher in teacherLists" :data-id="teacher.id" class="aui-list-item aui-list-item-middle">
         <div class="aui-media-list-item-inner">
           <div class="aui-list-item-media" style="width: 3rem;">
-            <img src="../../static/images/tmp/demo5.png" class="aui-img-round aui-list-img-sm">
+            <img :src="teacher.avatar" class="aui-img-round aui-list-img-sm">
           </div>
           <div class="aui-list-item-inner aui-list-item-arrow">
             <div class="aui-list-item-text">
-              <div class="aui-list-item-title aui-font-size-14">张金华<small class=" aui-font-size-12 aui-margin-l-5">(班主任)</small></div>
+              <div class="aui-list-item-title aui-font-size-14">{{teacher.truename}}<small class=" aui-font-size-12 aui-margin-l-5">({{teacher.teacherpost}})</small></div>
               <div class="aui-list-item-right">
                 <div class=" aui-btn aui-btn-primary aui-margin-r-5">编辑</div>
                 <div class=" aui-btn aui-btn-danger">删除</div>

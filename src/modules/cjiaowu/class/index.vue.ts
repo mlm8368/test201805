@@ -11,15 +11,36 @@ import Component from 'vue-class-component'
   watch: {
     classesId: function (this: Vue, classesId, oldClassesId) {
       classesId = parseInt(classesId, 10)
-      $.log(classesId)
+      // $.log(classesId)
+      const school = new School()
+      school.getTeacherByClassesid(classesId, (lists: any[]) => {
+        if (lists.length === 0) return
+
+        let teacherLists = []
+        lists.forEach((one) => {
+          let tmp = {}
+          tmp['id'] = one.id
+          tmp['teacherpost'] = one.teacherpost
+          tmp['truename'] = one.truename
+          tmp['avatar'] = one.avatar
+          if (!tmp['avatar']) tmp['avatar'] = '../../static/images/defaultAvatar.png'
+
+          teacherLists.push(tmp)
+        })
+        this.$data.teacherLists = teacherLists
+      })
+      // school.getStudentByClassesid(classesId, (lists: any[]) => {
+      //   if (lists.length === 0) return
+      //   this.$data.teacherLists = lists
+      // })
     }
   }
 })
 export default class Index extends Vue {
   public classesId: number
   public classesName = ''
-  public teacherLists = []
-  public studentLists = []
+  public teacherLists: any[] = []
+  public studentLists: any[] = []
   private school: School
 
   constructor () {

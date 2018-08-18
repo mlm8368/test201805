@@ -59,7 +59,7 @@ export default class School extends Abstract {
       return
     }
 
-    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=teacher&op=list', null, (ret) => {
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=teacher&op=list', { classesid: classesid }, (ret) => {
       if (ret.status === 1) {
         callback(ret.lists)
         this.cacheTeacherByClassesid('set', classesid, ret.lists)
@@ -80,6 +80,37 @@ export default class School extends Abstract {
     } else if (op === 'set') {
       teachers = { param: cacheParam, value: lists }
       this._cache().set(appCacheKey.school_cjiaowu_teachers, teachers)
+    }
+  }
+
+  public getStudentByClassesid (classesid: number, callback: (lists: any[]) => void) {
+    const lists = this.cacheTeacherByClassesid('get', classesid)
+    if (lists !== null) {
+      callback(lists)
+      return
+    }
+
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=student&op=list', { classesid: classesid }, (ret) => {
+      if (ret.status === 1) {
+        callback(ret.lists)
+        this.cacheStudentByClassesid('set', classesid, ret.lists)
+      }
+    }, 'json')
+  }
+
+  public cacheStudentByClassesid (op: string, classesid: number, lists = null) {
+    const schoolid = this.getStorage(appStorageKey.userid)
+    // const schoolid = 2
+    const cacheParam = schoolid + classesid
+    let teachers = null
+
+    if (op === 'get') {
+      teachers = this._cache().get(appCacheKey.school_cjiaowu_students)
+      if (teachers !== null) return teachers.value
+      else return null
+    } else if (op === 'set') {
+      teachers = { param: cacheParam, value: lists }
+      this._cache().set(appCacheKey.school_cjiaowu_students, teachers)
     }
   }
 }
