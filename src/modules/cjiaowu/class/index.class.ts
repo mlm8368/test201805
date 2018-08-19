@@ -72,7 +72,12 @@ export default class Index extends Teacher {
   public openIndexVue () {
     this.vm = new Vue({
       el: '#vue-app',
-      render: h => h(IndexVue, {})
+      render: (h) => h(IndexVue, null)
+    })
+
+    // console.log(this.vm.$children)
+    window.addEventListener('updateSelectClasses', (event: any) => {
+      this.vm.$children[0].$data.classesId = event.detail.classesId
     })
   }
 }

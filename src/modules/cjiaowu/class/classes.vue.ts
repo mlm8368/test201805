@@ -78,12 +78,16 @@ export default class Classes extends Vue {
       this.editId = 0
     })
     $('#list').on('tap', 'li', (e: any) => {
-      let id = this.school.closest(e.target, 'li').dataset.id
+      const id = this.school.closest(e.target, 'li').dataset.id
       this.currentId = parseInt(id, 10)
       this.school.setStorage(appStorageKey.current_jiaowu_classesid, this.currentId)
+
+      const cjiaowuIndex = $.plus.webview.getWebviewById('cjiaowu_index')
+      $.fire(cjiaowuIndex, 'updateSelectClasses', { classesId: this.currentId })
+      $.fire(cjiaowuIndex, 'closeOffcanvas')
     })
     $('#list').on('tap', '.edit', (e: any) => {
-      let id = this.school.closest(e.target, 'li').dataset.id
+      const id = this.school.closest(e.target, 'li').dataset.id
       this.editId = parseInt(id, 10)
       return false
     })

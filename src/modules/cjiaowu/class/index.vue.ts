@@ -9,10 +9,17 @@ import Component from 'vue-class-component'
 @Component({
   template: require('../index/root.vue.html'),
   watch: {
-    classesId: function (this: Vue, classesId, oldClassesId) {
-      classesId = parseInt(classesId, 10)
-      // $.log(classesId)
+    classesId: function (this: Vue, classesId: number, oldClassesId) {
       const school = new School()
+      // classesName
+      school.getClasses((lists) => {
+        for (const one of lists) {
+          if (one.id === classesId) {
+            this.$data.classesName = one.classesname
+            break
+          }
+        }
+      })
       // teacher
       school.getTeacherByClassesid(classesId, (lists: any[]) => {
         if (lists.length === 0) return
