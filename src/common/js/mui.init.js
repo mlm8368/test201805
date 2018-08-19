@@ -39,7 +39,7 @@ import { appName } from './global';
   $.closePopup = $.noop;
   // ajax
   $.accessToken = function () {
-    let accessToken = localStorage['accessToken'];
+    let accessToken = localStorage['h003']; // appStorageKey.accessToken = 's105'
     if (accessToken) accessToken = accessToken.slice(4);
     return accessToken;
   };
