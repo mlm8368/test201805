@@ -14,7 +14,7 @@ if (nodeEnv === 'development') {
     mounted: () => {
       setImmersedHeight($.byId('header'))
     },
-    render: h => h(Classes, {})
+    render: h => h(Classes, null)
   })
 }
 
@@ -39,6 +39,6 @@ $.plusReady(() => {
     mounted: () => {
       setImmersedHeight($.byId('header'))
     },
-    render: h => h(Classes, {})
+    render: h => h(Classes, null)
   })
 })

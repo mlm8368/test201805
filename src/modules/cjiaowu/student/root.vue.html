@@ -1,63 +1,98 @@
 <div>
-  <section class="aui-content aui-text-center aui-margin-b-15">
-    <h2 class="aui-margin-t-15">{{classesName}}</h2>
-    <div class="classes aui-row aui-margin-t-15">
-      <div class=" aui-col-xs-6 aui-text-right aui-border-r aui-padded-r-10">
-        <span :data-num="totalTeacher" class=" aui-text-danger aui-margin-r-5"></span>教师
-      </div>
-      <div class=" aui-col-xs-6 aui-text-left aui-padded-l-10">
-        学生<span :data-num="totalStudent" class=" aui-text-danger aui-margin-l-5"></span>
+  <div class="aui-searchbar">
+    <div class="aui-searchbar-input aui-border-radius">
+      <i class="aui-iconfont aui-icon-search"></i>
+      <input type="search" placeholder="请输入家长提供的宝宝ID号">
+      <div class="aui-searchbar-clear-btn">
+        <i class="aui-iconfont aui-icon-close"></i>
       </div>
     </div>
-  </section>
-  <section class="teacher aui-content">
-    <ul class=" aui-list aui-media-list">
-      <div class=" aui-list-header">
-        <div><i class=" aui-iconfont aui-icon-my aui-text-danger"></i> 全部老师</div>
-        <div class="aui-list-item-right">添加老师</div>
-      </div>
-      <li v-for="teacher in teacherLists" :data-id="teacher.id" class="aui-list-item aui-list-item-middle">
+    <div class="aui-searchbar-btn">取消</div>
+    <a class="aui-pull-right aui-btn aui-margin-r-10">
+      <span class="aui-iconfont aui-icon-camera" style="margin-right:0;"></span>
+    </a>
+  </div>
+  <div class=" aui-content">
+    <ul class=" aui-list aui-form-list aui-media-list">
+      <li class=" aui-list-header">学生信息</li>
+      <li class="aui-list-item aui-list-item-middle">
         <div class="aui-media-list-item-inner">
-          <div class="aui-list-item-media avatar">
-            <img :src="teacher.avatar" class="aui-img-round aui-list-img-sm">
-          </div>
+          <div class=" aui-list-item-label">姓名</div>
           <div class="aui-list-item-inner aui-list-item-arrow">
             <div class="aui-list-item-text">
-              <div class="aui-list-item-title aui-font-size-14">{{teacher.truename}}</div>
-              <div class="aui-list-item-right">
-                <div class=" aui-btn aui-btn-primary aui-margin-r-5">编辑</div>
-                <div class=" aui-btn aui-btn-danger">删除</div>
-              </div>
+              <div class="aui-list-item-title aui-font-size-14">张子航</div>
             </div>
-            <div class="aui-list-item-text"><small class=" aui-font-size-12">{{teacher.teacherpost}}</small></div>
+            <div class="aui-list-item-right avatar">
+              <img src="../../static/images/tmp/demo5.png" class="aui-img-round">
+            </div>
           </div>
         </div>
       </li>
-    </ul>
-  </section>
-  <section class="student aui-content">
-    <ul class=" aui-list aui-media-list">
-      <div class=" aui-list-header">
-        <div><i class=" aui-iconfont aui-icon-my aui-text-danger"></i> 全部学生</div>
-        <div class="aui-list-item-right">添加学生</div>
-      </div>
-      <li v-for="student in studentLists" :data-id="student.id" class="aui-list-item aui-list-item-middle">
-        <div class="aui-media-list-item-inner">
-          <div class="aui-list-item-media avatar">
-            <img :src="student.avatar" class="aui-img-round aui-list-img-sm">
-          </div>
-          <div class="aui-list-item-inner aui-list-item-arrow">
-            <div class="aui-list-item-text">
-              <div class="aui-list-item-title aui-font-size-14">{{student.babyname}}</div>
-              <div class="aui-list-item-right">
-                <div class=" aui-btn aui-btn-primary aui-margin-r-5">编辑</div>
-                <div class=" aui-btn aui-btn-danger">删除</div>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">妈妈</div>
+          <div class="aui-list-item-inner">
+              <div class="aui-list-item-text">
+                <div class="aui-list-item-title aui-font-size-14">张平</div>
+              </div>
+              <div class="aui-list-item-right aui-margin-r-15">
+                <span>Tel：18600566543</span>
+                <div class=" aui-btn aui-btn-primary">拨打</div>
               </div>
             </div>
-            <div class="aui-list-item-text"><small class=" aui-font-size-12">{{student.gender}}，{{student.age}}</small></div>
+        </div>
+      </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">爸爸</div>
+          <div class="aui-list-item-inner">
+            <div class="aui-list-item-text">
+              <div class="aui-list-item-title aui-font-size-14">张平</div>
+            </div>
+            <div class="aui-list-item-right aui-margin-r-15">
+              <span>Tel：18600566543</span>
+              <div class=" aui-btn aui-btn-primary">拨打</div>
+            </div>
           </div>
         </div>
       </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">奶奶</div>
+          <div class="aui-list-item-inner">
+            <div class="aui-list-item-text">
+              <div class="aui-list-item-title aui-font-size-14">张平</div>
+            </div>
+            <div class="aui-list-item-right aui-margin-r-15">
+              <span>Tel：18600566543</span>
+              <div class=" aui-btn aui-btn-primary">拨打</div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">入学时间</div>
+          <div class="aui-list-item-input"><input type="date"></div>
+        </div>
+      </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">性别</div>
+          <div class="aui-list-item-input">男</div>
+        </div>
+      </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">生日</div>
+          <div class="aui-list-item-input">2018-02-16</div>
+        </div>
+      </li>
+      <li class="aui-list-item">
+        <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn">
+          <div class="aui-btn aui-btn-info aui-btn-block aui-btn-sm">保存</div>
+        </div>
+      </li>
     </ul>
-  </section>
+  </div>
 </div>
