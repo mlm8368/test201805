@@ -1,6 +1,7 @@
 export let $ = window.mui;
 export let viewEXT = process.env.viewEXT; // .htm .html
-export let appName = process.env.appName; // student teacher
+export let appName = process.env.appName; // student teacher allapp
+export let nodeEnv = process.env.NODE_ENV; // production development
 export function getFileExt(fileName) {
   return fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
 }

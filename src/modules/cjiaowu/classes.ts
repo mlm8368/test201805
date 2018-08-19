@@ -4,17 +4,19 @@ import '../../common/sass/mui.init.scss'
 // mui js
 import '../../common/js/mui.init.js'
 // self
-import { $, viewEXT, setImmersedHeight } from '../../common/js/global.js'
+import { $, viewEXT, nodeEnv, setImmersedHeight } from '../../common/js/global.js'
 import Vue from 'vue'
 import Classes from './class/classes.vue'
 
-// const vm = new Vue({
-//   el: '#vue-app',
-//   mounted: () => {
-//     setImmersedHeight($.byId('header'))
-//   },
-//   render: h => h(Classes, {})
-// })
+if (nodeEnv === 'development') {
+  const vm = new Vue({
+    el: '#vue-app',
+    mounted: () => {
+      setImmersedHeight($.byId('header'))
+    },
+    render: h => h(Classes, {})
+  })
+}
 
 // ready
 $.init({

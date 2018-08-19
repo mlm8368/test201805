@@ -4,11 +4,14 @@ import '../../common/sass/mui.init.scss'
 // mui js
 import '../../common/js/mui.init.js'
 // self
-import { $, viewEXT } from '../../common/js/global.js'
+import { $, viewEXT, nodeEnv } from '../../common/js/global.js'
 import Index from './class/index.class'
 
 const index = new Index()
-index.openIndexVue() // test
+
+if (nodeEnv === 'development') {
+  index.openIndexVue()
+}
 
 // ready
 $.init({

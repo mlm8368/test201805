@@ -1,4 +1,4 @@
-import { $ } from '../common/js/global.js'
+import { $, nodeEnv } from '../common/js/global.js'
 import { appCacheKey } from './enum'
 
 export default class Cache {
@@ -7,7 +7,7 @@ export default class Cache {
    * getItem
    */
   public get (key: appCacheKey): {param: string, values: any} {
-    if (key) return null // test
+    if (nodeEnv === 'development') return null // test
     let value = $.plus.storage.getItem(this.preKey + key)
     if (value === null) return null
     else if (value.expires > 0 && value.expires < new Date().getTime()) return null
@@ -18,7 +18,7 @@ export default class Cache {
    * setItem
    */
   public set (key: appCacheKey, value: {param: string, values: any}, expires = 0) {
-    if (key) return null // test
+    if (nodeEnv === 'development') return null // test
     if (expires > 0) expires = new Date().getTime() + expires * 1000
     value['expires'] = expires
 
