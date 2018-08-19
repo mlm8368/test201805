@@ -6,7 +6,7 @@ import '../../common/js/mui.init.js'
 // self
 import { $, viewEXT, nodeEnv } from '../../common/js/global.js'
 import Vue from 'vue'
-import Student from './student/student.vue'
+import Student from './class/student.vue'
 
 if (nodeEnv === 'development') {
   const vm = new Vue({
