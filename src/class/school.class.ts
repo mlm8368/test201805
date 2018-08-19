@@ -38,7 +38,6 @@ export default class School extends Abstract {
  */
   public cacheClasses (op: string, lists = null) {
     const schoolid = this.getStorage(appStorageKey.userid)
-    // const schoolid = 2
     const cacheParam = schoolid
     let classes = null
 
@@ -69,22 +68,21 @@ export default class School extends Abstract {
 
   public cacheTeacherByClassesid (op: string, classesid: number, lists = null) {
     const schoolid = this.getStorage(appStorageKey.userid)
-    // const schoolid = 2
     const cacheParam = schoolid + classesid
     let teachers = null
 
     if (op === 'get') {
-      teachers = this._cache().get(appCacheKey.school_cjiaowu_teachers)
+      teachers = this._cache().get(appCacheKey.school_cjiaowu_teachers, classesid.toString())
       if (teachers !== null) return teachers.value
       else return null
     } else if (op === 'set') {
       teachers = { param: cacheParam, value: lists }
-      this._cache().set(appCacheKey.school_cjiaowu_teachers, teachers)
+      this._cache().set(appCacheKey.school_cjiaowu_teachers + classesid, teachers, 0, classesid.toString())
     }
   }
 
   public getStudentByClassesid (classesid: number, callback: (lists: any[]) => void) {
-    const lists = this.cacheTeacherByClassesid('get', classesid)
+    const lists = this.cacheStudentByClassesid('get', classesid)
     if (lists !== null) {
       callback(lists)
       return
@@ -100,17 +98,16 @@ export default class School extends Abstract {
 
   public cacheStudentByClassesid (op: string, classesid: number, lists = null) {
     const schoolid = this.getStorage(appStorageKey.userid)
-    // const schoolid = 2
     const cacheParam = schoolid + classesid
     let students = null
 
     if (op === 'get') {
-      students = this._cache().get(appCacheKey.school_cjiaowu_students)
+      students = this._cache().get(appCacheKey.school_cjiaowu_students, classesid.toString())
       if (students !== null) return students.value
       else return null
     } else if (op === 'set') {
       students = { param: cacheParam, value: lists }
-      this._cache().set(appCacheKey.school_cjiaowu_students, students)
+      this._cache().set(appCacheKey.school_cjiaowu_students + classesid, students, 0, classesid.toString())
     }
   }
 }
