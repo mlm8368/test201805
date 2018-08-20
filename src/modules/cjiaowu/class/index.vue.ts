@@ -82,6 +82,9 @@ export default class Index extends Vue {
 
   public mounted (): void {
     this.$nextTick(() => {
+      this.setOntapEvents()
+
+      // init
       this.classesId = this.school.getStorage(appStorageKey.current_jiaowu_classesid)
       if (!this.classesId) this.classesId = 0
 
