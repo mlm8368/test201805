@@ -111,7 +111,7 @@ export default class Index extends Vue {
   private setOntapEvents () {
     $('.teacher').on('tap', 'li', (e: any) => {
       const index = this.school.closest(e.target, 'li').dataset.index
-      let titleNView = { backgroundColor: '#f7f7f7', titleText: '', titleColor: '#000000', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
+      let titleNView = { backgroundColor: '#00bcd4', titleText: '', titleColor: '#ffffff', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
 
       this.school.showWaiting()
       if (!this.wvCjiaowuTeacher) {
