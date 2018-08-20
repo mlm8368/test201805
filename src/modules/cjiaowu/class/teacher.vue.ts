@@ -11,6 +11,7 @@ import Component from 'vue-class-component'
 })
 export default class Teacher extends Vue {
   public keywords: string = ''
+  public op: string = 'view'
   private school: School
 
   constructor () {
@@ -21,6 +22,14 @@ export default class Teacher extends Vue {
   public mounted (): void {
     this.$nextTick(() => {
       setAuiSearchbar()
+
+      // doShow
+      window.addEventListener('doShow', (event: any) => {
+        const tid = event.detail.tid
+
+        $.currentWebview.show('slide-in-right', 300)
+        this.school.closeWaitingAll()
+      })
     })
   }
 }

@@ -132,8 +132,20 @@ export default class Abstract {
   /**
    * toast
    */
-  public toast (message: string, options?: any) {
+  public toast (message: string, options: any = null) {
     $.plus.nativeUI.toast(message, options)
+  }
+  /**
+   * showWaiting
+   */
+  public showWaiting (title = '加载中...', options: any = null): { setTitle: (title: string) => void, close: () => void, onclose: any } {
+    return $.plus.nativeUI.showWaiting(title, options)
+  }
+  /**
+   * closeWaitingAll
+   */
+  public closeWaitingAll (): void {
+    $.plus.nativeUI.closeWaiting()
   }
   /**
    * isLogin

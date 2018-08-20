@@ -64,6 +64,8 @@ export default class Index extends Vue {
   public teacherLists: any[] = []
   public studentLists: any[] = []
   private school: School
+  private wvCjiaowuTeacher: any
+  private wvCjiaowuStudent: any
 
   constructor () {
     super()
@@ -103,6 +105,25 @@ export default class Index extends Vue {
           }
         }
       })
+    })
+  }
+
+  private setOntapEvents () {
+    $('.teacher').on('tap', 'li', (e: any) => {
+      const index = this.school.closest(e.target, 'li').dataset.index
+      let titleNView = { backgroundColor: '#f7f7f7', titleText: '', titleColor: '#000000', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
+
+      this.school.showWaiting()
+      if (!this.wvCjiaowuTeacher) {
+        this.wvCjiaowuTeacher = $.preload({
+          id: 'cjiaowu_teacher',
+          url: './teacher' + viewEXT,
+          styles: { top: '0px', backButtonAutoControl: 'none', titleNView: titleNView }
+        })
+      }
+      $.fire(this.wvCjiaowuTeacher, 'doShow', { tid: this.teacherLists[index].id })
+      titleNView.titleText = this.teacherLists[index].truename
+      this.wvCjiaowuTeacher.setStyle({ 'titleNView': titleNView })
     })
   }
 }
