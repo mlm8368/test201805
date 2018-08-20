@@ -134,3 +134,41 @@ export function getAge(beginStr, endStr) {
   return result;
   */
 }
+
+export function setAuiSearchbar() {
+  const searchBarInput = document.querySelector('.aui-searchbar input');
+  const searchBarBtn = document.querySelector('.aui-searchbar .aui-searchbar-btn');
+  const searchBarClearBtn = document.querySelector('.aui-searchbar .aui-searchbar-clear-btn');
+
+  searchBarInput.onclick = function () {
+    searchBarBtn.style.marginRight = 0;
+  };
+  searchBarInput.oninput = function () {
+    if (this.value.length) {
+      searchBarClearBtn.style.display = 'block';
+      searchBarBtn.classList.add('aui-text-info');
+      searchBarBtn.textContent = '搜索';
+    } else {
+      searchBarClearBtn.style.display = 'none';
+      searchBarBtn.classList.remove('aui-text-info');
+      searchBarBtn.textContent = '取消';
+    }
+  };
+  searchBarClearBtn.onclick = function () {
+    this.style.display = 'none';
+    searchBarInput.value = '';
+    searchBarBtn.classList.remove('aui-text-info');
+    searchBarBtn.textContent = '取消';
+  };
+  searchBarBtn.onclick = function () {
+    const keywords = searchBarInput.value;
+    if (keywords.length) {
+      searchBarInput.blur();
+      document.getElementById('keywords').value = keywords;
+    } else {
+      this.style.marginRight = '-' + this.offsetWidth + 'px';
+      searchBarInput.value = '';
+      searchBarInput.blur();
+    }
+  };
+}
