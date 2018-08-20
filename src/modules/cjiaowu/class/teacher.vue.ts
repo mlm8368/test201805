@@ -23,6 +23,11 @@ export default class Teacher extends Vue {
     this.$nextTick(() => {
       setAuiSearchbar()
 
+      // back
+      $.back = () => {
+        $.currentWebview.hide('auto', 300)
+      }
+
       // doShow
       window.addEventListener('doShow', (event: any) => {
         const tid = event.detail.tid

@@ -124,7 +124,7 @@ export default class Index extends Vue {
           styles: { top: '0px', backButtonAutoControl: 'none', titleNView: titleNView }
         })
       }
-      $.fire(this.wvCjiaowuTeacher, 'doShow', { tid: this.teacherLists[index].id })
+      $.fire(this.wvCjiaowuTeacher, 'doShow', { tid: this.teacherLists[index].id, op: 'view' })
       titleNView.titleText = this.teacherLists[index].truename
       this.wvCjiaowuTeacher.setStyle({ 'titleNView': titleNView })
     })
