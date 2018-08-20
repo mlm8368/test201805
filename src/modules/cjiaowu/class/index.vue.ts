@@ -118,15 +118,19 @@ export default class Index extends Vue {
 
       this.school.showWaiting()
       if (!this.wvCjiaowuTeacher) {
-        this.wvCjiaowuTeacher = $.preload({
+        titleNView.titleText = this.teacherLists[index].truename
+
+        this.wvCjiaowuTeacher = $.openWindow({
           id: 'cjiaowu_teacher',
           url: './teacher' + viewEXT,
-          styles: { top: '0px', backButtonAutoControl: 'none', titleNView: titleNView }
+          styles: { top: '0px', backButtonAutoControl: 'hide', titleNView: titleNView },
+          extras: { tid: this.teacherLists[index].id, op: 'view' }
         })
+      } else {
+        $.fire(this.wvCjiaowuTeacher, 'doShow', { tid: this.teacherLists[index].id, op: 'view' })
+        titleNView.titleText = this.teacherLists[index].truename
+        this.wvCjiaowuTeacher.setStyle({ 'titleNView': titleNView })
       }
-      $.fire(this.wvCjiaowuTeacher, 'doShow', { tid: this.teacherLists[index].id, op: 'view' })
-      titleNView.titleText = this.teacherLists[index].truename
-      this.wvCjiaowuTeacher.setStyle({ 'titleNView': titleNView })
     })
   }
 }
