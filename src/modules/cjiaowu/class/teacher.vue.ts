@@ -70,8 +70,10 @@ export default class Teacher extends Vue {
           }, 100)
         }
         // transition
-        if (event.detail.teacherInfo.avatar) event.detail.teacherInfo.avatar = this.school.getAvatar(event.detail.teacherInfo.avatar)
-        if (event.detail.teacherInfo.gender) event.detail.teacherInfo.gender = this.school.getGender(event.detail.teacherInfo.gender)
+        if (event.detail.teacherInfo) {
+          event.detail.teacherInfo.avatar = this.school.getAvatar(event.detail.teacherInfo.avatar)
+          event.detail.teacherInfo.gender = this.school.getGender(event.detail.teacherInfo.gender)
+        }
         this.teacherInfo = event.detail.teacherInfo
 
         $.currentWebview.show('slide-in-right', 300)
