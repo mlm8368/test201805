@@ -114,8 +114,33 @@ export default class Index extends Vue {
     window.addEventListener('updateTeacherLists', (event: any) => {
       this.updateTeacherLists()
     })
+    // student
+    $('.student').on('tap', 'li', (e: any) => {
+      const index = this.school.closest(e.target, 'li').dataset.index
+      this.openStudentWin(this.studentLists[index].id, this.studentLists[index].truename, 'view')
+    })
+    $('.student').on('tap', '.add', (e: any) => {
+      this.openStudentWin(0, '添加老师', 'add')
+    })
+    $('.student').on('tap', '.edit', (e: any) => {
+      const index = this.school.closest(e.target, 'li').dataset.index
+      this.openStudentWin(this.studentLists[index].id, this.studentLists[index].truename, 'view')
+      return false
+    })
+    $('.student').on('tap', '.del', (e: any) => {
+      const index = this.school.closest(e.target, 'li').dataset.index
+      this.delStudent(this.studentLists[index].id, () => {
+        this.school.alert('删除成功')
+        this.updateStudentLists()
+      })
+      return false
+    })
+    window.addEventListener('updateStudentLists', (event: any) => {
+      this.updateStudentLists()
+    })
   }
 
+  // teacher
   private openTeacherWin (tid: number, titleText: string, op: string) {
     const extras = { tid: tid, cid: this.classesId, op: op }
     const titleNView = { backgroundColor: '#00bcd4', titleText: titleText, titleColor: '#ffffff', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
@@ -140,6 +165,34 @@ export default class Index extends Vue {
     })
   }
   private delTeacher (tid: number, callback: () => void) {
+    callback()
+  }
+
+  // student
+  private openStudentWin (tid: number, titleText: string, op: string) {
+    const extras = { tid: tid, cid: this.classesId, op: op }
+    const titleNView = { backgroundColor: '#00bcd4', titleText: titleText, titleColor: '#ffffff', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
+
+    this.school.showWaiting()
+    if (!this.wvCjiaowuStudent) {
+      this.wvCjiaowuStudent = $.openWindow({
+        id: 'cjiaowu_student',
+        url: './student' + viewEXT,
+        styles: { top: '0px', backButtonAutoControl: 'hide', titleNView: titleNView },
+        extras: extras
+      })
+    } else {
+      $.fire(this.wvCjiaowuStudent, 'doShow', extras)
+      this.wvCjiaowuStudent.setStyle({ 'titleNView': titleNView })
+    }
+  }
+  private updateStudentLists (): void {
+    this.school.getStudentByClassesid(this.classesId, (lists: any[]) => {
+      if (lists.length === 0) return
+      this.studentLists = this.util.outStudent(lists)
+    })
+  }
+  private delStudent (tid: number, callback: () => void) {
     callback()
   }
 }
