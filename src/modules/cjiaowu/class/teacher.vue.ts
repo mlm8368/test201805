@@ -9,18 +9,26 @@ import Component from 'vue-class-component'
 @Component({
   template: require('../teacher/root.vue.html'),
   watch: {
-    keywords: function (this: Vue, keywords: string, oldKeywords) {
+    keywords: function (this: Vue, keywords: string ) {
       const school = new School()
       school.getTeacherByKeywords(keywords, this.$data.schoolId, (ret: any) => {
         if (ret.status === 1) {
-          ret.teacherInfo.avatar = school.getAvatar(ret.teacherInfo.avatar)
-          ret.teacherInfo.gender = school.getGender(ret.teacherInfo.gender)
-          this.$data.teacherInfo = ret.teacherInfo
-          this.$data.op = 'edit'
+          this.$data.searchTeachers = ret.lists
+          this.$data.searchTeacherIndex = -1
+          this.$data.teacherInfo = null
         } else {
           school.alert(ret.msg)
         }
       })
+    },
+    searchTeacherIndex: function (this: Vue, index: number ) {
+      if (index < 0) return
+
+      const school = new School()
+      let teacherInfo = this.$data.searchTeachers[index]
+      teacherInfo.avatar = school.getAvatar(teacherInfo.avatar)
+      teacherInfo.gender = school.getGender(teacherInfo.gender)
+      this.$data.teacherInfo = teacherInfo
     }
   }
 })
@@ -29,6 +37,8 @@ export default class Teacher extends Vue {
   public keywords: string = ''
   public op: string = 'view'
   public teacherInfo: any = null
+  public searchTeachers: any[] = []
+  public searchTeacherIndex: number = -1
   private school: School
 
   constructor () {
