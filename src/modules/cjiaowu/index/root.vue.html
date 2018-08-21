@@ -14,7 +14,7 @@
     <ul class=" aui-list aui-media-list">
       <div class=" aui-list-header">
         <div><i class=" aui-iconfont aui-icon-my aui-text-danger"></i> 全部老师</div>
-        <div class="aui-list-item-right">添加老师</div>
+        <div class="aui-list-item-right add">添加老师</div>
       </div>
       <li v-for="(teacher, index) in teacherLists" :data-index="index" class="aui-list-item aui-list-item-middle">
         <div class="aui-media-list-item-inner">
@@ -25,8 +25,8 @@
             <div class="aui-list-item-text">
               <div class="aui-list-item-title aui-font-size-14">{{teacher.truename}}</div>
               <div class="aui-list-item-right">
-                <div class=" aui-btn aui-btn-primary aui-margin-r-5">编辑</div>
-                <div class=" aui-btn aui-btn-danger">删除</div>
+                <div class=" aui-btn aui-btn-primary aui-margin-r-5 edit">编辑</div>
+                <div class=" aui-btn aui-btn-danger del">删除</div>
               </div>
             </div>
             <div class="aui-list-item-text"><small class=" aui-font-size-12">{{teacher.teacherpost}}</small></div>
@@ -39,7 +39,7 @@
     <ul class=" aui-list aui-media-list">
       <div class=" aui-list-header">
         <div><i class=" aui-iconfont aui-icon-my aui-text-danger"></i> 全部学生</div>
-        <div class="aui-list-item-right">添加学生</div>
+        <div class="aui-list-item-right add">添加学生</div>
       </div>
       <li v-for="student in studentLists" :data-id="student.id" class="aui-list-item aui-list-item-middle">
         <div class="aui-media-list-item-inner">
@@ -50,8 +50,8 @@
             <div class="aui-list-item-text">
               <div class="aui-list-item-title aui-font-size-14">{{student.babyname}}</div>
               <div class="aui-list-item-right">
-                <div class=" aui-btn aui-btn-primary aui-margin-r-5">编辑</div>
-                <div class=" aui-btn aui-btn-danger">删除</div>
+                <div class=" aui-btn aui-btn-primary aui-margin-r-5 edit">编辑</div>
+                <div class=" aui-btn aui-btn-danger del">删除</div>
               </div>
             </div>
             <div class="aui-list-item-text"><small class=" aui-font-size-12">{{student.gender}}，{{student.age}}</small></div>

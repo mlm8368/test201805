@@ -11,6 +11,7 @@ import Component from 'vue-class-component'
   watch: {
     classesId: function (this: Vue, classesId: number, oldClassesId) {
       const school = new School()
+      const util = new Util()
       // classesName
       school.getClasses((lists) => {
         for (const one of lists) {
@@ -23,37 +24,12 @@ import Component from 'vue-class-component'
       // teacher
       school.getTeacherByClassesid(classesId, (lists: any[]) => {
         if (lists.length === 0) return
-
-        let teacherLists = []
-        lists.forEach((one) => {
-          let tmp = {}
-          tmp['id'] = one.id
-          tmp['teacherpost'] = one.teacherpost
-          tmp['truename'] = one.truename
-          tmp['avatar'] = one.avatar
-          if (!tmp['avatar']) tmp['avatar'] = '../../static/images/defaultAvatar.png'
-
-          teacherLists.push(tmp)
-        })
-        this.$data.teacherLists = teacherLists
+        this.$data.teacherLists = util.outTeacher(lists)
       })
       // student
       school.getStudentByClassesid(classesId, (lists: any[]) => {
         if (lists.length === 0 || !lists[0].id) return
-
-        let studentLists = []
-        lists.forEach((one) => {
-          let tmp = {}
-          tmp['id'] = one.id
-          tmp['babyname'] = one.babyname
-          tmp['avatar'] = one.avatar
-          if (!tmp['avatar']) tmp['avatar'] = '../../static/images/defaultAvatar.png'
-          tmp['gender'] = school.getGender(one.gender)
-          tmp['age'] = getAge(one.birthday + ' 1:1:1', school.getFormatDate() + ' 1:1:1')
-
-          studentLists.push(tmp)
-        })
-        this.$data.studentLists = studentLists
+        this.$data.studentLists = util.outStudent(lists)
       })
     }
   }
@@ -82,6 +58,7 @@ export default class Index extends Vue {
 
   public mounted (): void {
     this.$nextTick(() => {
+      // tap
       this.setOntapEvents()
 
       // init
@@ -112,25 +89,92 @@ export default class Index extends Vue {
   }
 
   private setOntapEvents () {
+    // teacher
     $('.teacher').on('tap', 'li', (e: any) => {
       const index = this.school.closest(e.target, 'li').dataset.index
-      let titleNView = { backgroundColor: '#00bcd4', titleText: '', titleColor: '#ffffff', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
+      this.openTeacherWin(this.teacherLists[index].id, this.teacherLists[index].truename, 'view')
+    })
+    $('.teacher').on('tap', '.add', (e: any) => {
+      this.openTeacherWin(0, '添加老师', 'add')
+    })
+    $('.teacher').on('tap', '.edit', (e: any) => {
+      const index = this.school.closest(e.target, 'li').dataset.index
+      this.openTeacherWin(this.teacherLists[index].id, this.teacherLists[index].truename, 'view')
+      return false
+    })
+    $('.teacher').on('tap', '.del', (e: any) => {
+      const index = this.school.closest(e.target, 'li').dataset.index
+      this.delTeacher(this.teacherLists[index].id, () => {
+        this.school.alert('删除成功')
+        this.updateTeacherLists()
+      })
+      return false
+    })
+    window.addEventListener('updateTeacherLists', (event: any) => {
+        this.updateTeacherLists()
+      })
+  }
+
+  private function openTeacherWin (tid: number, titleText: string, op: string) {
+      const extras = { tid: tid, cid: this.classesId, op: op }
+      const titleNView = { backgroundColor: '#00bcd4', titleText: titleText, titleColor: '#ffffff', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
 
       this.school.showWaiting()
       if (!this.wvCjiaowuTeacher) {
-        titleNView.titleText = this.teacherLists[index].truename
-
         this.wvCjiaowuTeacher = $.openWindow({
           id: 'cjiaowu_teacher',
           url: './teacher' + viewEXT,
           styles: { top: '0px', backButtonAutoControl: 'hide', titleNView: titleNView },
-          extras: { tid: this.teacherLists[index].id, op: 'view' }
+          extras: extras
         })
       } else {
-        $.fire(this.wvCjiaowuTeacher, 'doShow', { tid: this.teacherLists[index].id, op: 'view' })
-        titleNView.titleText = this.teacherLists[index].truename
+        $.fire(this.wvCjiaowuTeacher, 'doShow', extras)
         this.wvCjiaowuTeacher.setStyle({ 'titleNView': titleNView })
       }
-    })
+  }
+  private function updateTeacherLists (): void {
+    this.school.getTeacherByClassesid(this.classesId, (lists: any[]) => {
+          if (lists.length === 0) return
+          this.teacherLists = this.util.outTeacher(lists)
+        })
+  }
+  private function delTeacher (tid: number, callback: () => void) {
+    callback()
+  }
+}
+
+class Util {
+  private school: School
+
+  constructor () {
+    this.school = new School()
+  }
+
+  public function outTeacher (lists: any[]): any[] {
+        let teacherLists = []
+        lists.forEach((one) => {
+          let tmp = {}
+          tmp['id'] = one.id
+          tmp['teacherpost'] = one.teacherpost
+          tmp['truename'] = one.truename
+          tmp['avatar'] = this.school.getAvatar(one.avatar)
+
+          teacherLists.push(tmp)
+        })
+        return teacherLists
+  }
+  public function outStudent (lists: any[]): any[] {
+        let studentLists = []
+        lists.forEach((one) => {
+          let tmp = {}
+          tmp['id'] = one.id
+          tmp['babyname'] = one.babyname
+          tmp['avatar'] = this.school.getAvatar(one.avatar)
+          tmp['gender'] = this.school.getGender(one.gender)
+          tmp['age'] = getAge(one.birthday + ' 1:1:1', this.school.getFormatDate() + ' 1:1:1')
+
+          studentLists.push(tmp)
+        })
+        return studentLists
   }
 }
