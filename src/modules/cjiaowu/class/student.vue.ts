@@ -1,4 +1,4 @@
-import { $, viewEXT, getAge } from '../../../common/js/global.js'
+import { $, viewEXT, setAuiSearchbar } from '../../../common/js/global.js'
 import * as config from '../index/config'
 import School from '../../../class/school.class'
 import { appCacheKey, appStorageKey } from '../../../class/enum'
@@ -7,101 +7,77 @@ import Component from 'vue-class-component'
 
 //
 @Component({
-  template: require('../student/root.vue.html'),
+  template: require('../teacher/root.vue.html'),
   watch: {
-    classesId: function (this: Vue, classesId: number, oldClassesId) {
+    keywords: function (this: Vue, keywords: string, oldKeywords) {
       const school = new School()
-      // classesName
-      school.getClasses((lists) => {
-        for (const one of lists) {
-          if (one.id === classesId) {
-            this.$data.classesName = one.classesname
-            break
-          }
+      school.getTeacherByKeywords(keywords, this.$data.schoolId, (ret: any) => {
+        if (ret.status === 1) {
+          ret.teacherInfo.avatar = school.getAvatar(ret.teacherInfo.avatar)
+          ret.teacherInfo.gender = school.getGender(ret.teacherInfo.gender)
+          this.$data.teacherInfo = ret.teacherInfo
+          this.$data.op = 'edit'
+        } else {
+          school.alert(ret.msg)
         }
-      })
-      // teacher
-      school.getTeacherByClassesid(classesId, (lists: any[]) => {
-        if (lists.length === 0) return
-
-        let teacherLists = []
-        lists.forEach((one) => {
-          let tmp = {}
-          tmp['id'] = one.id
-          tmp['teacherpost'] = one.teacherpost
-          tmp['truename'] = one.truename
-          tmp['avatar'] = one.avatar
-          if (!tmp['avatar']) tmp['avatar'] = '../../static/images/defaultAvatar.png'
-
-          teacherLists.push(tmp)
-        })
-        this.$data.teacherLists = teacherLists
-      })
-      // student
-      school.getStudentByClassesid(classesId, (lists: any[]) => {
-        if (lists.length === 0 || !lists[0].id) return
-
-        let studentLists = []
-        lists.forEach((one) => {
-          let tmp = {}
-          tmp['id'] = one.id
-          tmp['babyname'] = one.babyname
-          tmp['avatar'] = one.avatar
-          if (!tmp['avatar']) tmp['avatar'] = '../../static/images/defaultAvatar.png'
-          tmp['gender'] = school.getGender(one.gender)
-          tmp['age'] = getAge(one.birthday + ' 1:1:1', school.getFormatDate() + ' 1:1:1')
-
-          studentLists.push(tmp)
-        })
-        this.$data.studentLists = studentLists
       })
     }
   }
 })
-export default class Index extends Vue {
-  public classesId: number = 0
-  public classesName = ''
-  public teacherLists: any[] = []
-  public studentLists: any[] = []
+export default class Teacher extends Vue {
+  public schoolId: number = 0
+  public keywords: string = ''
+  public op: string = 'view'
+  public teacherInfo: any = null
   private school: School
 
   constructor () {
     super()
     this.school = new School()
+
+    // do First open
+    this.op = $.currentWebview.op
+    this.teacherInfo = $.currentWebview.teacherInfo
+
+    this.school.closeWaitingAll()
   }
 
-  public get totalTeacher () {
-    return this.teacherLists.length
-  }
-
-  public get totalStudent () {
-    return this.studentLists.length
+  public get submitName (): string {
+    let name = '修改'
+    if (this.op === 'add') name = '添加'
+    return name
   }
 
   public mounted (): void {
     this.$nextTick(() => {
-      this.classesId = this.school.getStorage(appStorageKey.current_jiaowu_classesid)
-      if (!this.classesId) this.classesId = 0
+      if (this.op === 'add') {
+        setTimeout(() => {
+          setAuiSearchbar()
+        }, 100)
+      }
 
-      // getClasses
-      this.school.getClasses((lists) => {
-        if (lists.length === 0) {
-          this.classesName = '您还未添加班级'
-          return
-        }
+      // back
+      $.back = () => {
+        $.currentWebview.hide('auto', 300)
+      }
 
-        if (this.classesId === 0) {
-          this.classesId = lists[0].id
-          this.classesName = lists[0].classesname
-          this.school.setStorage(appStorageKey.current_jiaowu_classesid, this.classesId)
-        } else {
-          for (const one of lists) {
-            if (one.id === this.classesId) {
-              this.classesName = one.classesname
-              break
-            }
-          }
+      // doShow
+      window.addEventListener('doShow', (event: any) => {
+        this.op = event.detail.op
+        if (this.op === 'add') {
+          setTimeout(() => {
+            setAuiSearchbar()
+          }, 100)
         }
+        // transition
+        if (event.detail.teacherInfo) {
+          event.detail.teacherInfo.avatar = this.school.getAvatar(event.detail.teacherInfo.avatar)
+          event.detail.teacherInfo.gender = this.school.getGender(event.detail.teacherInfo.gender)
+        }
+        this.teacherInfo = event.detail.teacherInfo
+
+        $.currentWebview.show('slide-in-right', 300)
+        this.school.closeWaitingAll()
       })
     })
   }
