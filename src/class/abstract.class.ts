@@ -250,7 +250,7 @@ export default class Abstract {
 
     return genderName[typeid][gender]
   }
-  public getAvatar(url: string): string {
+  public getAvatar (url: string): string {
     if (!url) url = '../../static/images/defaultAvatar.png'
     return url
   }

@@ -40,6 +40,7 @@ export default class Index extends Vue {
   public teacherLists: any[] = []
   public studentLists: any[] = []
   private school: School
+  private util: Util
   private wvCjiaowuTeacher: any
   private wvCjiaowuStudent: any
 
@@ -111,34 +112,34 @@ export default class Index extends Vue {
       return false
     })
     window.addEventListener('updateTeacherLists', (event: any) => {
-        this.updateTeacherLists()
+      this.updateTeacherLists()
+    })
+  }
+
+  private openTeacherWin (tid: number, titleText: string, op: string) {
+    const extras = { tid: tid, cid: this.classesId, op: op }
+    const titleNView = { backgroundColor: '#00bcd4', titleText: titleText, titleColor: '#ffffff', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
+
+    this.school.showWaiting()
+    if (!this.wvCjiaowuTeacher) {
+      this.wvCjiaowuTeacher = $.openWindow({
+        id: 'cjiaowu_teacher',
+        url: './teacher' + viewEXT,
+        styles: { top: '0px', backButtonAutoControl: 'hide', titleNView: titleNView },
+        extras: extras
       })
+    } else {
+      $.fire(this.wvCjiaowuTeacher, 'doShow', extras)
+      this.wvCjiaowuTeacher.setStyle({ 'titleNView': titleNView })
+    }
   }
-
-  private function openTeacherWin (tid: number, titleText: string, op: string) {
-      const extras = { tid: tid, cid: this.classesId, op: op }
-      const titleNView = { backgroundColor: '#00bcd4', titleText: titleText, titleColor: '#ffffff', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
-
-      this.school.showWaiting()
-      if (!this.wvCjiaowuTeacher) {
-        this.wvCjiaowuTeacher = $.openWindow({
-          id: 'cjiaowu_teacher',
-          url: './teacher' + viewEXT,
-          styles: { top: '0px', backButtonAutoControl: 'hide', titleNView: titleNView },
-          extras: extras
-        })
-      } else {
-        $.fire(this.wvCjiaowuTeacher, 'doShow', extras)
-        this.wvCjiaowuTeacher.setStyle({ 'titleNView': titleNView })
-      }
-  }
-  private function updateTeacherLists (): void {
+  private updateTeacherLists (): void {
     this.school.getTeacherByClassesid(this.classesId, (lists: any[]) => {
-          if (lists.length === 0) return
-          this.teacherLists = this.util.outTeacher(lists)
-        })
+      if (lists.length === 0) return
+      this.teacherLists = this.util.outTeacher(lists)
+    })
   }
-  private function delTeacher (tid: number, callback: () => void) {
+  private delTeacher (tid: number, callback: () => void) {
     callback()
   }
 }
@@ -150,31 +151,31 @@ class Util {
     this.school = new School()
   }
 
-  public function outTeacher (lists: any[]): any[] {
-        let teacherLists = []
-        lists.forEach((one) => {
-          let tmp = {}
-          tmp['id'] = one.id
-          tmp['teacherpost'] = one.teacherpost
-          tmp['truename'] = one.truename
-          tmp['avatar'] = this.school.getAvatar(one.avatar)
+  public outTeacher (lists: any[]): any[] {
+    let teacherLists = []
+    lists.forEach((one) => {
+      let tmp = {}
+      tmp['id'] = one.id
+      tmp['teacherpost'] = one.teacherpost
+      tmp['truename'] = one.truename
+      tmp['avatar'] = this.school.getAvatar(one.avatar)
 
-          teacherLists.push(tmp)
-        })
-        return teacherLists
+      teacherLists.push(tmp)
+    })
+    return teacherLists
   }
-  public function outStudent (lists: any[]): any[] {
-        let studentLists = []
-        lists.forEach((one) => {
-          let tmp = {}
-          tmp['id'] = one.id
-          tmp['babyname'] = one.babyname
-          tmp['avatar'] = this.school.getAvatar(one.avatar)
-          tmp['gender'] = this.school.getGender(one.gender)
-          tmp['age'] = getAge(one.birthday + ' 1:1:1', this.school.getFormatDate() + ' 1:1:1')
+  public outStudent (lists: any[]): any[] {
+    let studentLists = []
+    lists.forEach((one) => {
+      let tmp = {}
+      tmp['id'] = one.id
+      tmp['babyname'] = one.babyname
+      tmp['avatar'] = this.school.getAvatar(one.avatar)
+      tmp['gender'] = this.school.getGender(one.gender)
+      tmp['age'] = getAge(one.birthday + ' 1:1:1', this.school.getFormatDate() + ' 1:1:1')
 
-          studentLists.push(tmp)
-        })
-        return studentLists
+      studentLists.push(tmp)
+    })
+    return studentLists
   }
 }
