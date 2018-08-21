@@ -21,6 +21,7 @@ export default class Teacher extends Vue {
 
   public mounted (): void {
     this.$nextTick(() => {
+      this.school.closeWaitingAll()
       setAuiSearchbar()
 
       // back
