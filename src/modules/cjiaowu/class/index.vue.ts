@@ -145,7 +145,6 @@ export default class Index extends Vue {
     const extras = { tid: tid, cid: this.classesId, op: op }
     const titleNView = { backgroundColor: '#00bcd4', titleText: titleText, titleColor: '#ffffff', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
 
-    this.school.showWaiting()
     if (!this.wvCjiaowuTeacher) {
       this.wvCjiaowuTeacher = $.openWindow({
         id: 'cjiaowu_teacher',
@@ -154,6 +153,7 @@ export default class Index extends Vue {
         extras: extras
       })
     } else {
+      this.school.showWaiting()
       $.fire(this.wvCjiaowuTeacher, 'doShow', extras)
       this.wvCjiaowuTeacher.setStyle({ 'titleNView': titleNView })
     }
@@ -173,7 +173,6 @@ export default class Index extends Vue {
     const extras = { tid: tid, cid: this.classesId, op: op }
     const titleNView = { backgroundColor: '#00bcd4', titleText: titleText, titleColor: '#ffffff', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
 
-    this.school.showWaiting()
     if (!this.wvCjiaowuStudent) {
       this.wvCjiaowuStudent = $.openWindow({
         id: 'cjiaowu_student',
@@ -182,6 +181,7 @@ export default class Index extends Vue {
         extras: extras
       })
     } else {
+      this.school.showWaiting()
       $.fire(this.wvCjiaowuStudent, 'doShow', extras)
       this.wvCjiaowuStudent.setStyle({ 'titleNView': titleNView })
     }
