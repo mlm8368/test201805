@@ -51,6 +51,15 @@ export default class School extends Abstract {
     }
   }
 
+  /**
+   * getTeacherByKeywords
+   */
+  public getTeacherByKeywords (keywords: string, schoolid: number, callback: (lists: any[]) => void) {
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=teacher&op=search', { schoolid: schoolid, keywords: keywords }, (ret) => {
+      callback(ret)
+    }, 'json')
+  }
+
   public getTeacherByClassesid (classesid: number, callback: (lists: any[]) => void) {
     const lists = this.cacheTeacherByClassesid('get', classesid)
     if (lists !== null) {

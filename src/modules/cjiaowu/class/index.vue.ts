@@ -93,14 +93,14 @@ export default class Index extends Vue {
     // teacher
     $('.teacher').on('tap', 'li', (e: any) => {
       const index = this.school.closest(e.target, 'li').dataset.index
-      this.openTeacherWin(this.teacherLists[index].id, this.teacherLists[index].truename, 'view')
+      this.openTeacherWin(this.teacherLists[index], this.teacherLists[index].truename, 'view')
     })
     $('.teacher').on('tap', '.add', (e: any) => {
-      this.openTeacherWin(0, '添加老师', 'add')
+      this.openTeacherWin(null, '添加老师', 'add')
     })
     $('.teacher').on('tap', '.edit', (e: any) => {
       const index = this.school.closest(e.target, 'li').dataset.index
-      this.openTeacherWin(this.teacherLists[index].id, this.teacherLists[index].truename, 'view')
+      this.openTeacherWin(this.teacherLists[index], this.teacherLists[index].truename, 'edit')
       return false
     })
     $('.teacher').on('tap', '.del', (e: any) => {
@@ -120,7 +120,7 @@ export default class Index extends Vue {
       this.openStudentWin(this.studentLists[index].id, this.studentLists[index].truename, 'view')
     })
     $('.student').on('tap', '.add', (e: any) => {
-      this.openStudentWin(0, '添加老师', 'add')
+      this.openStudentWin(0, '添加学生', 'add')
     })
     $('.student').on('tap', '.edit', (e: any) => {
       const index = this.school.closest(e.target, 'li').dataset.index
@@ -141,8 +141,8 @@ export default class Index extends Vue {
   }
 
   // teacher
-  private openTeacherWin (tid: number, titleText: string, op: string) {
-    const extras = { tid: tid, cid: this.classesId, op: op }
+  private openTeacherWin (teacherInfo: any, titleText: string, op: string) {
+    const extras = { teacherInfo: teacherInfo, cid: this.classesId, op: op }
     const titleNView = { backgroundColor: '#00bcd4', titleText: titleText, titleColor: '#ffffff', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
 
     if (!this.wvCjiaowuTeacher) {
@@ -169,8 +169,8 @@ export default class Index extends Vue {
   }
 
   // student
-  private openStudentWin (tid: number, titleText: string, op: string) {
-    const extras = { tid: tid, cid: this.classesId, op: op }
+  private openStudentWin (sid: number, titleText: string, op: string) {
+    const extras = { sid: sid, cid: this.classesId, op: op }
     const titleNView = { backgroundColor: '#00bcd4', titleText: titleText, titleColor: '#ffffff', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
 
     if (!this.wvCjiaowuStudent) {
