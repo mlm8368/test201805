@@ -50,7 +50,8 @@ export default class Teacher extends Vue {
 
   public mounted (): void {
     this.$nextTick(() => {
-      setAuiSearchbar()
+      $.log('123')
+      if (this.op === 'add') setAuiSearchbar()
 
       // back
       $.back = () => {
@@ -60,6 +61,7 @@ export default class Teacher extends Vue {
       // doShow
       window.addEventListener('doShow', (event: any) => {
         this.op = event.detail.op
+        if (this.op === 'add') setAuiSearchbar()
         // transition
         event.detail.teacherInfo.avatar = this.school.getAvatar(event.detail.teacherInfo.avatar)
         event.detail.teacherInfo.gender = this.school.getGender(event.detail.teacherInfo.gender)
