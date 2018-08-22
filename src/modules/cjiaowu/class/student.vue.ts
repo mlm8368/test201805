@@ -7,7 +7,8 @@ import Component from 'vue-class-component'
 
 //
 @Component({
-  template: require('../student/root.vue.html'),
+  template: require('../student/root.vue.html')
+  /*
   watch: {
     keywords: function (this: Vue, keywords: string, oldKeywords) {
       const school = new School()
@@ -23,17 +24,18 @@ import Component from 'vue-class-component'
       })
     }
   }
+  */
 })
 export default class Teacher extends Vue {
-  public schoolId: number = 0
-  public keywords: string = ''
   public op: string = 'view'
   public teacherInfo: any = null
   private school: School
+  private cjiaowuIndex: any = null
 
   constructor () {
     super()
     this.school = new School()
+    this.cjiaowuIndex = $.plus.webview.getWebviewById('cjiaowu_index')
 
     // do First open
     this.op = $.currentWebview.op
@@ -60,6 +62,13 @@ export default class Teacher extends Vue {
       $.back = () => {
         $.currentWebview.hide('auto', 300)
       }
+      /*
+      $.options.beforeback = (): boolean => {
+        this.searchTeachers = []
+        this.searchTeacherIndex = -1
+        return true
+      }
+      */
 
       // doShow
       window.addEventListener('doShow', (event: any) => {
@@ -80,5 +89,30 @@ export default class Teacher extends Vue {
         this.school.closeWaitingAll()
       })
     })
+  }
+
+  public searchkeywords (e): void {
+    // $.log(e.target.value)
+    const keywords = e.target.value
+
+    this.school.getTeacherByKeywords(keywords, (ret: any) => {
+      $.log(ret)
+      if (ret.status === 1) {
+        this.teacherInfo = null
+      } else {
+        this.school.alert(ret.msg)
+      }
+    })
+  }
+
+  public doSubmit (): void {
+    $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=' + this.op, this.teacherInfo, (ret) => {
+      if (ret.status === 1) {
+        this.op = 'edit'
+        $.fire(this.cjiaowuIndex, 'updateTeacherLists')
+      } else {
+        this.school.alert(ret.msg)
+      }
+    }, 'json')
   }
 }

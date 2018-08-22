@@ -58,6 +58,11 @@ export default class Teacher extends Vue {
       $.back = () => {
         $.currentWebview.hide('auto', 300)
       }
+      $.options.beforeback = (): boolean => {
+        this.searchTeachers = []
+        this.searchTeacherIndex = -1
+        return true
+      }
 
       // doShow
       window.addEventListener('doShow', (event: any) => {
