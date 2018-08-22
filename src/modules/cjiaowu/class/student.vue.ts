@@ -11,7 +11,7 @@ import Component from 'vue-class-component'
   watch: {
     keywords: function (this: Vue, keywords: string, oldKeywords) {
       const school = new School()
-      school.getTeacherByKeywords(keywords, this.$data.schoolId, (ret: any) => {
+      school.getTeacherByKeywords(keywords, (ret: any) => {
         if (ret.status === 1) {
           ret.teacherInfo.avatar = school.getAvatar(ret.teacherInfo.avatar)
           ret.teacherInfo.gender = school.getGender(ret.teacherInfo.gender)
