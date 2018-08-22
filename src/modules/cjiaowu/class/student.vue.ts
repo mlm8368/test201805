@@ -7,7 +7,7 @@ import Component from 'vue-class-component'
 
 //
 @Component({
-  template: require('../teacher/root.vue.html'),
+  template: require('../student/root.vue.html'),
   watch: {
     keywords: function (this: Vue, keywords: string, oldKeywords) {
       const school = new School()
