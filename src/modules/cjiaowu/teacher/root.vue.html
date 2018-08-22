@@ -12,7 +12,7 @@
   <input type="hidden" id="keywords" v-model="keywords">
   <div v-if="op === 'add'" class="aui-content-padded">
     <div>请查询教师后添加</div>
-    <label v-for="(teacher, index) in searchTeachers"><input class="aui-radio" type="radio" name="demo" :value="index" v-model="searchTeacherIndex"> 选项一</label>
+    <label v-for="(teacher, index) in searchTeachers"><input class="aui-radio" type="radio" name="demo" :value="index" v-model="searchTeacherIndex"> {{teacher.truename}}</label>
   </div>
   <div v-if="teacherInfo" class=" aui-content">
     <ul class=" aui-list aui-form-list aui-media-list">

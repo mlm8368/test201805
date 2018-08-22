@@ -11,7 +11,7 @@ import Component from 'vue-class-component'
   watch: {
     keywords: function (this: Vue, keywords: string ) {
       const school = new School()
-      school.getTeacherByKeywords(keywords, this.$data.schoolId, (ret: any) => {
+      school.getTeacherByKeywords(keywords, (ret: any) => {
         if (ret.status === 1) {
           this.$data.searchTeachers = ret.lists
           this.$data.searchTeacherIndex = -1
@@ -33,7 +33,6 @@ import Component from 'vue-class-component'
   }
 })
 export default class Teacher extends Vue {
-  public schoolId: number = 0
   public keywords: string = ''
   public op: string = 'view'
   public teacherInfo: any = null
