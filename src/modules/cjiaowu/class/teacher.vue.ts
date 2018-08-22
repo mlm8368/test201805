@@ -9,7 +9,7 @@ import Component from 'vue-class-component'
 @Component({
   template: require('../teacher/root.vue.html'),
   watch: {
-    keywords: function (this: Vue, keywords: string ) {
+    keywords: function (this: Vue, keywords: string) {
       const school = new School()
       school.getTeacherByKeywords(keywords, (ret: any) => {
         if (ret.status === 1) {
@@ -21,7 +21,7 @@ import Component from 'vue-class-component'
         }
       })
     },
-    searchTeacherIndex: function (this: Vue, index: number ) {
+    searchTeacherIndex: function (this: Vue, index: number) {
       if (index < 0) return
 
       const school = new School()
@@ -93,14 +93,14 @@ export default class Teacher extends Vue {
     })
   }
 
-  public doSubmit(): void {
+  public doSubmit (): void {
     $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=' + this.op, this.teacherInfo, (ret) => {
-        if (ret.status === 1) {
-          this.op = 'edit'
-          $.fire(this.cjiaowuIndex, 'updateTeacherLists')
-        } else {
-          this.school.alert(ret.msg)
-        }
-      }, 'json')
+      if (ret.status === 1) {
+        this.op = 'edit'
+        $.fire(this.cjiaowuIndex, 'updateTeacherLists')
+      } else {
+        this.school.alert(ret.msg)
+      }
+    }, 'json')
   }
 }
