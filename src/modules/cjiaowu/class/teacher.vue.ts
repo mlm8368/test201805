@@ -1,4 +1,4 @@
-import { $, viewEXT, setAuiSearchbar } from '../../../common/js/global.js'
+import { $, viewEXT, nodeEnv, setAuiSearchbar } from '../../../common/js/global.js'
 import * as config from '../index/config'
 import School from '../../../class/school.class'
 import { appCacheKey, appStorageKey } from '../../../class/enum'
@@ -9,18 +9,6 @@ import Component from 'vue-class-component'
 @Component({
   template: require('../teacher/root.vue.html'),
   watch: {
-    keywords: function (this: Vue, keywords: string) {
-      const school = new School()
-      school.getTeacherByKeywords(keywords, (ret: any) => {
-        if (ret.status === 1) {
-          this.$data.searchTeachers = ret.lists
-          this.$data.searchTeacherIndex = -1
-          this.$data.teacherInfo = null
-        } else {
-          school.alert(ret.msg)
-        }
-      })
-    },
     searchTeacherIndex: function (this: Vue, index: number) {
       if (index < 0) return
 
@@ -33,7 +21,6 @@ import Component from 'vue-class-component'
   }
 })
 export default class Teacher extends Vue {
-  public keywords: string = ''
   public op: string = 'view'
   public teacherInfo: any = null
   public searchTeachers: any[] = []
@@ -90,6 +77,22 @@ export default class Teacher extends Vue {
         $.currentWebview.show('slide-in-right', 300)
         this.school.closeWaitingAll()
       })
+    })
+  }
+
+  public searchkeywords (e): void {
+    // $.log(e.target.value)
+    const keywords = e.target.value
+
+    this.school.getTeacherByKeywords(keywords, (ret: any) => {
+      $.log(ret)
+      if (ret.status === 1) {
+        this.searchTeachers = ret.lists
+        this.searchTeacherIndex = -1
+        this.teacherInfo = null
+      } else {
+        this.school.alert(ret.msg)
+      }
     })
   }
 

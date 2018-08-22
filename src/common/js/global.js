@@ -164,7 +164,9 @@ export function setAuiSearchbar() {
     const keywords = searchBarInput.value;
     if (keywords.length) {
       searchBarInput.blur();
-      document.getElementById('keywords').value = keywords;
+      let keywordsInput = document.getElementById('keywords');
+      keywordsInput.value = keywords;
+      $.trigger(keywordsInput, 'click');
     } else {
       this.style.marginRight = '-' + this.offsetWidth + 'px';
       searchBarInput.value = '';
