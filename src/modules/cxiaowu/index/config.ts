@@ -9,7 +9,7 @@ const clickButtonClassesOffcanvas = (): void => {
   $.fire($.plus.webview.getWebviewById('cjiaowu_index'), 'openRightClassesOffcanvas')
 }
 const subpageStyleJiaowu = { top: '0px', backButtonAutoControl: 'none', titleNView: { backgroundColor: '#880033', titleText: '教务', titleColor: '#CCCCCC', buttons: [
-  { text: '教职工', fontSize: '14px', float: 'left', onclick: clickButtonStaffOffcanvas },
+  { text: '老师', fontSize: '14px', float: 'left', onclick: clickButtonStaffOffcanvas },
   { text: '班级', fontSize: '14px', float: 'right', onclick: clickButtonClassesOffcanvas }
 ] } }
 const subpageStyleTongji = { top: '0px', backButtonAutoControl: 'none', titleNView: { backgroundColor: '#880033', titleText: '统计', titleColor: '#CCCCCC' } }
