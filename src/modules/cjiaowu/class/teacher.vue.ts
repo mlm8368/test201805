@@ -55,6 +55,7 @@ export default class Teacher extends Vue {
       }
 
       // back
+      /*
       $.back = () => {
         $.currentWebview.hide('auto', 300)
       }
@@ -63,11 +64,14 @@ export default class Teacher extends Vue {
         this.searchTeacherIndex = -1
         return true
       }
+      */
 
       // doShow
       window.addEventListener('doShow', (event: any) => {
         this.op = event.detail.op
         if (this.op === 'add') {
+          this.searchTeachers = []
+          this.searchTeacherIndex = -1
           setTimeout(() => {
             setAuiSearchbar()
           }, 100)
