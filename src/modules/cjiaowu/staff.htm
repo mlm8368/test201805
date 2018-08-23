@@ -9,13 +9,37 @@
   <link rel="stylesheet" href="../../static/aui.css" />
   <style type="text/css">
     html,body {height: 100%;}
-    body,header,.aui-card-list {background-color: #333 !important;color: #fff;}
-    .schoolpic {width: 70px !important;}
+    body,.aui-card-list {background-color: #333 !important;color: #fff;}
+    .aui-searchbar {
+            background: transparent;
+        }
+        .aui-bar-nav .aui-searchbar-input {
+            background-color: #ffffff;
+        }
+        .aui-bar-light .aui-searchbar-input {
+            background-color: #f5f5f5;
+        }
   </style>
 </head>
 
 <body>
-  <header id="header"></header>
+  <header class="aui-bar aui-bar-nav">
+        <a class="aui-pull-left">
+           benxiao
+        </a>
+        <div class="aui-title" style="left:4rem; right: 0.5rem;">
+            <div class="aui-searchbar" id="search">
+                <div class="aui-searchbar-input aui-border-radius">
+                    <i class="aui-iconfont aui-icon-search"></i>
+                    <input type="number" placeholder="请输入shiujih" id="search-input">
+                    <div class="aui-searchbar-clear-btn">
+                        <i class="aui-iconfont aui-icon-close"></i>
+                    </div>
+                </div>
+                <div class="aui-searchbar-btn" tapmode>取消</div>
+            </div>
+        </div>
+    </header>
   <section class="aui-content">
     <div class="aui-card-list aui-margin-b-0">
       <div class="aui-card-list-header">目前就读于</div>
