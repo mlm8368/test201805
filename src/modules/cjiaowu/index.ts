@@ -27,7 +27,8 @@ $.ready(() => {
 $.plusReady(() => {
   // offcanvas
   setTimeout(() => { index.setMenu() }, 100)
-  window.addEventListener('openRightClassesOffcanvas', () => { index.openMenu() })
+  window.addEventListener('openLeftStaffOffcanvas', () => { index.openMenu('leftStaff') })
+  window.addEventListener('openRightClassesOffcanvas', () => { index.openMenu('rightClasses') })
   $.plus.nativeUI.closeWaiting()
 
   index.openIndexVue()
