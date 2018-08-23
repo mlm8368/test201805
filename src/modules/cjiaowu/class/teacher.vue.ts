@@ -108,7 +108,10 @@ export default class Teacher extends Vue {
   }
 
   public doSubmit (): void {
-    $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=' + this.op, this.teacherInfo, (ret) => {
+    const postData = { id: this.teacherInfo.id, teacheruserid: this.teacherInfo.userid, teacherpost: this.teacherInfo.teacherpost, classesid: this.school.getStorage(appStorageKey.current_jiaowu_classesid) }
+    const w = this.school.showWaiting()
+    $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=' + this.op, postData, (ret) => {
+      w.close()
       if (ret.status === 1) {
         this.op = 'edit'
         $.fire(this.cjiaowuIndex, 'updateTeacherLists')
