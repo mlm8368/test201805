@@ -55,6 +55,7 @@ export default class Teacher extends Vue {
       }
 
       // back
+      /*
       $.back = () => {
         $.currentWebview.hide('auto', 300)
       }
@@ -63,11 +64,14 @@ export default class Teacher extends Vue {
         this.searchTeacherIndex = -1
         return true
       }
+      */
 
       // doShow
       window.addEventListener('doShow', (event: any) => {
         this.op = event.detail.op
         if (this.op === 'add') {
+          this.searchTeachers = []
+          this.searchTeacherIndex = -1
           setTimeout(() => {
             setAuiSearchbar()
           }, 100)
@@ -89,8 +93,10 @@ export default class Teacher extends Vue {
     // $.log(e.target.value)
     const keywords = e.target.value
 
+    const w = this.school.showWaiting()
     this.school.getTeacherByKeywords(keywords, (ret: any) => {
-      $.log(ret)
+      // $.log(ret)
+      w.close()
       if (ret.status === 1) {
         this.searchTeachers = ret.lists
         this.searchTeacherIndex = -1
@@ -102,7 +108,10 @@ export default class Teacher extends Vue {
   }
 
   public doSubmit (): void {
-    $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=' + this.op, this.teacherInfo, (ret) => {
+    const postData = { id: this.teacherInfo.id, teacheruserid: this.teacherInfo.userid, teacherpost: this.teacherInfo.teacherpost, classesid: this.school.getStorage(appStorageKey.current_jiaowu_classesid) }
+    const w = this.school.showWaiting()
+    $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=' + this.op, postData, (ret) => {
+      w.close()
       if (ret.status === 1) {
         this.op = 'edit'
         $.fire(this.cjiaowuIndex, 'updateTeacherLists')

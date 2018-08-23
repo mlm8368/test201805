@@ -9,7 +9,9 @@ import Component from 'vue-class-component'
 @Component({
   template: require('../index/root.vue.html'),
   watch: {
-    classesId: function (this: Vue, classesId: number, oldClassesId) {
+    classesId: function (this: Vue, classesId: number): void {
+      if (!classesId) return
+
       const school = new School()
       const util = new Util()
       // classesName
@@ -64,7 +66,10 @@ export default class Index extends Vue {
 
       // init
       this.classesId = this.school.getStorage(appStorageKey.current_jiaowu_classesid)
-      if (!this.classesId) this.classesId = 0
+      if (!this.classesId) {
+        this.classesId = 0
+        this.school.setStorage(appStorageKey.current_jiaowu_classesid, this.classesId)
+      }
 
       // getClasses
       this.school.getClasses((lists) => {

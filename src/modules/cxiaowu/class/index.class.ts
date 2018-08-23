@@ -88,7 +88,7 @@ export default class Index extends Teacher {
   /**
    * closeMenu
    */
-  public closeMenu (this: Index) {
+  public closeMenu () {
     if (this.showMenu !== showMenuStatus.none) {
       this.main.setStyle({ mask: 'none' })
 
