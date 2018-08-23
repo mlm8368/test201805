@@ -89,8 +89,10 @@ export default class Teacher extends Vue {
     // $.log(e.target.value)
     const keywords = e.target.value
 
+    const w = this.school.showWaiting()
     this.school.getTeacherByKeywords(keywords, (ret: any) => {
-      $.log(ret)
+      // $.log(ret)
+      w.close()
       if (ret.status === 1) {
         this.searchTeachers = ret.lists
         this.searchTeacherIndex = -1
