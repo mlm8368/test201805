@@ -111,6 +111,10 @@ export default class Staff extends Vue {
     })
   }
 
+  public searchkeywords (e): void {
+    $.log(e.target.value)
+  }
+
   private getStaffLists (callback: (lists: any[]) => void): void {
     const lists = this.cacheStaffs('get')
     if (lists !== null) {
