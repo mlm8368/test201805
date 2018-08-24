@@ -1,0 +1,7 @@
+@import "../../../mui/sass/variables.scss";
+@import "../../../mui/sass/mixins.scss";
+
+    body,.aui-card-list {background-color: #333 !important;color: #fff;}
+    .aui-searchbar { background: transparent; }
+    .aui-bar-nav .aui-searchbar-input { background-color: #ffffff; }
+    .aui-bar-light .aui-searchbar-input { background-color: #f5f5f5; }
