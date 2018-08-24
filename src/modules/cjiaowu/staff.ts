@@ -11,12 +11,11 @@ $.init({
   keyEventBind: { backbutton: false, menubutton: false },
   gestureConfig: { tap: true, swipe: true, doubletap: false, longtap: false, hold: false, flick: false, drag: false, pinch: false }
 })
-$.ready(function () {
+$.ready(() => {
   setImmersedHeight($.byId('header'))
-  if (viewEXT === '.htm') return
 })
 // plusReady
-$.plusReady(function () {
+$.plusReady(() => {
   const main = $.plus.webview.currentWebview().opener()
   window.addEventListener('swipeleft', () => {
     $.fire(main, 'closeOffcanvas')
