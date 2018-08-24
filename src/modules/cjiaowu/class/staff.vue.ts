@@ -1,4 +1,4 @@
-import { $, viewEXT } from '../../../common/js/global.js'
+import { $, viewEXT, setAuiSearchbar } from '../../../common/js/global.js'
 import * as config from '../staff/config'
 import School from '../../../class/school.class'
 import { appCacheKey, appStorageKey } from '../../../class/enum'
@@ -58,6 +58,10 @@ export default class Staff extends Vue {
       this.getStaffLists((lists: any[]) => {
         this.lists = lists
       })
+
+      setTimeout(() => {
+        setAuiSearchbar()
+      }, 100)
     })
   }
 
