@@ -9,84 +9,58 @@
   <link rel="stylesheet" href="../../static/aui.css" />
   <style type="text/css">
     html,body {height: 100%;}
-    body,header,.aui-card-list {background-color: #333 !important;color: #fff;}
-    .schoolpic {width: 70px !important;}
+    body,.aui-card-list {background-color: #333 !important;color: #fff;}
+    .aui-searchbar {
+            background: transparent;
+        }
+        .aui-bar-nav .aui-searchbar-input {
+            background-color: #ffffff;
+        }
+        .aui-bar-light .aui-searchbar-input {
+            background-color: #f5f5f5;
+        }
   </style>
 </head>
 
 <body>
-  <header id="header"></header>
-  <section class="aui-content">
-    <div class="aui-card-list aui-margin-b-0">
-      <div class="aui-card-list-header">目前就读于</div>
-      <div class="aui-card-list-content">
-        <ul class="aui-list aui-media-list">
-          <li class="aui-list-item aui-list-item-middle">
-              <div class="aui-media-list-item-inner">
-                  <div class="aui-list-item-media schoolpic">
-                      <img src="../../static/images/tmp/demo1.png" class="aui-img-round aui-list-img-sm">
-                  </div>
-                  <div class="aui-list-item-inner">
-                      <div class="aui-list-item-text">
-                          <div class="aui-list-item-title aui-font-size-14">阳光美智幼儿园</div>
-                      </div>
-                      <div class="aui-list-item-text">
-                          专注英语培训
-                      </div>
-                  </div>
-              </div>
-          </li>
-      </ul>
+  <header class="aui-bar aui-bar-nav">
+    <a class="aui-pull-left">
+      本校教师
+    </a>
+    <div class="aui-title" style="left:4rem; right: 0.5rem;">
+      <div class="aui-searchbar" id="search">
+        <div class="aui-searchbar-input aui-border-radius">
+          <i class="aui-iconfont aui-icon-search"></i>
+          <input type="number" placeholder="请输入老师手机号添加" id="search-input">
+          <div class="aui-searchbar-clear-btn">
+            <i class="aui-iconfont aui-icon-close"></i>
+          </div>
+        </div>
+        <div class="aui-searchbar-btn">取消</div>
       </div>
-      <div class="aui-card-list-content">
-        <ul class="aui-list aui-list-in">
-          <li class="aui-list-item">
-            <div class="aui-list-item-inner aui-list-item-arrow">
-              <div class="aui-list-item-title">幼儿二班</div>
-              <div class="aui-list-item-right">
-                <div class="aui-label-info">开学于 2018-03-02</div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
+      <input type="hidden" id="keywords" v-on:click="searchkeywords">
     </div>
-  </section>
-  <section class="aui-content">
-    <div class="aui-card-list aui-margin-b-0">
-      <div class="aui-card-list-header">已毕业学校</div>
-      <div class="aui-card-list-content">
-        <ul class="aui-list aui-media-list">
-          <li class="aui-list-item aui-list-item-middle">
-              <div class="aui-media-list-item-inner">
-                  <div class="aui-list-item-media schoolpic">
-                      <img src="../../static/images/tmp/demo2.png" class="aui-img-round aui-list-img-sm">
-                  </div>
-                  <div class="aui-list-item-inner">
-                      <div class="aui-list-item-text">
-                          <div class="aui-list-item-title aui-font-size-14">阳光美智幼儿园</div>
-                      </div>
-                      <div class="aui-list-item-text">
-                          专注英语培训
-                      </div>
-                  </div>
-              </div>
-          </li>
-      </ul>
-      </div>
-      <div class="aui-card-list-content">
-        <ul class="aui-list aui-list-in">
-          <li class="aui-list-item">
-            <div class="aui-list-item-inner aui-list-item-arrow">
-              <div class="aui-list-item-title">启蒙一班</div>
-              <div class="aui-list-item-right">
-                <div class="aui-label-info">2018-03-02 ~ 2018-05-02</div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  </header>
+  <div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-list-in">
+      <li class="aui-list-header">共 6 位教师</li>
+      <li class="aui-list-item">
+        <div class="aui-list-item-label-icon">
+          <i class="aui-iconfont aui-icon-home"></i>
+        </div>
+        <div class="aui-list-item-inner">
+          <div class="aui-list-item-title">
+            张三
+          </div>
+          <div class="aui-list-item-text">
+            <div class="aui-font-size-14">18600987654</div>
+          </div>
+          <div class="aui-list-item-media aui-list-item-right">
+            <div class=" aui-btn aui-btn-primary">拨打</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </body>
 </html>
