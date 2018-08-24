@@ -16,7 +16,7 @@ $.ready(() => {
 })
 // plusReady
 $.plusReady(() => {
-  const main = $.plus.webview.currentWebview().opener()
+  const main = $.currentWebview.opener()
   window.addEventListener('swipeleft', () => {
     $.fire(main, 'closeOffcanvas')
   })
