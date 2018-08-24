@@ -6,7 +6,8 @@ export const enum appCacheKey {
   school = 400,// school
   school_cjiaowu_classes = 401,
   school_cjiaowu_teachers = 402,
-  school_cjiaowu_students = 403
+  school_cjiaowu_students = 403,
+  school_cjiaowu_staffs = 404
 }
 export const enum appStorageKey {
   home = 'h000-007',// home
