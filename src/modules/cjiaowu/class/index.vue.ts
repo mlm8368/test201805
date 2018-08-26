@@ -41,6 +41,8 @@ export default class Index extends Vue {
   public classesName = ''
   public teacherLists: any[] = []
   public studentLists: any[] = []
+  public editTeacher: boolean = false
+  public editStudent: boolean = false
   private school: School
   private util: Util
   private wvCjiaowuTeacher: any
