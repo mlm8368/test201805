@@ -3,3 +3,5 @@ body,.aui-card-list {background-color: #333 !important;color: #fff;}
 .aui-bar-nav .aui-searchbar-input { background-color: #ffffff; }
 .aui-searchbar .aui-searchbar-btn { color: #ffffff !important; }
 .aui-bar-light .aui-searchbar-input { background-color: #f5f5f5; }
+
+.aui-bar-nav .aui-pull-left { font-size: 0.7rem; }
