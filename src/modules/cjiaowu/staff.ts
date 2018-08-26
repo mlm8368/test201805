@@ -1,6 +1,6 @@
 // css
 import '../../common/sass/mui.init.scss'
-// import './index/style.scss'
+import './staff/style.css'
 // mui js
 import '../../common/js/mui.init.js'
 // self

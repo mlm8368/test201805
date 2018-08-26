@@ -9,50 +9,10 @@
   <link rel="stylesheet" href="../../static/aui.css" />
   <style type="text/css">
     html,body {height: 100%;}
-    body,.aui-card-list {background-color: #333 !important;color: #fff;}
-    .aui-searchbar { background: transparent; }
-    .aui-bar-nav .aui-searchbar-input { background-color: #ffffff; }
-    .aui-bar-light .aui-searchbar-input { background-color: #f5f5f5; }
   </style>
 </head>
 
 <body>
-  <header id="header" class="aui-bar aui-bar-nav">
-    <a class="aui-pull-left">加老师</a>
-    <div class="aui-title" style="left:3rem; right: 0.5rem;">
-      <div class="aui-searchbar" id="search">
-        <div class="aui-searchbar-input aui-border-radius">
-          <i class="aui-iconfont aui-icon-mobile"></i>
-          <input type="number" placeholder="输入老师手机号" id="search-input">
-          <div class="aui-searchbar-clear-btn">
-            <i class="aui-iconfont aui-icon-close"></i>
-          </div>
-        </div>
-        <div class="aui-searchbar-btn">取消</div>
-      </div>
-      <input type="hidden" id="keywords" v-on:click="searchkeywords">
-    </div>
-  </header>
-  <div class="aui-content aui-margin-b-15">
-    <ul class="aui-list aui-list-in">
-      <li class="aui-list-header">本校共 6 位教师</li>
-      <li class="aui-list-item">
-        <div class="aui-list-item-label-icon">
-          <i class="aui-iconfont aui-icon-home"></i>
-        </div>
-        <div class="aui-list-item-inner">
-          <div class="aui-list-item-title">
-            张三
-          </div>
-          <div class="aui-list-item-text">
-            <div class="aui-font-size-14">18600987654</div>
-          </div>
-          <div class="aui-list-item-media aui-list-item-right">
-            <div class=" aui-btn aui-btn-primary">拨打</div>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <div id="vue-app" v-cloak></div>
 </body>
 </html>
