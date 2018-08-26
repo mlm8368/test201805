@@ -1,4 +1,4 @@
-import { $, viewEXT } from '../common/js/global.js'
+import { $, viewEXT, nodeEnv } from '../common/js/global.js'
 import { appStorageKey } from './enum'
 import Cache from './cache.class'
 
@@ -139,13 +139,13 @@ export default class Abstract {
    * showWaiting
    */
   public showWaiting (title = '加载中...', options: any = null): { setTitle: (title: string) => void, close: () => void, onclose: any } {
-    return $.plus.nativeUI.showWaiting(title, options)
+    if (nodeEnv === 'production') return $.plus.nativeUI.showWaiting(title, options)
   }
   /**
    * closeWaitingAll
    */
   public closeWaitingAll (): void {
-    $.plus.nativeUI.closeWaiting()
+    if (nodeEnv === 'production') $.plus.nativeUI.closeWaiting()
   }
   /**
    * isLogin

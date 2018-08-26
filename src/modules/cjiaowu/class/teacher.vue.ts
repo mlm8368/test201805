@@ -25,12 +25,14 @@ export default class Teacher extends Vue {
   public teacherInfo: any = null
   public searchTeachers: any[] = []
   public searchTeacherIndex: number = -1
+  public searchMsg = ''
   private school: School
   private cjiaowuIndex: any = null
 
   constructor () {
     super()
     this.school = new School()
+/*
     this.cjiaowuIndex = $.plus.webview.getWebviewById('cjiaowu_index')
 
     // do First open
@@ -38,6 +40,8 @@ export default class Teacher extends Vue {
     this.teacherInfo = $.currentWebview.teacherInfo
 
     this.school.closeWaitingAll()
+    */
+    this.op = 'add'
   }
 
   public get submitName (): string {
@@ -49,6 +53,8 @@ export default class Teacher extends Vue {
   public mounted (): void {
     this.$nextTick(() => {
       if (this.op === 'add') {
+        this.searchMsg = '请查询教师后添加'
+
         setTimeout(() => {
           setAuiSearchbar()
         }, 100)
@@ -70,11 +76,14 @@ export default class Teacher extends Vue {
       window.addEventListener('doShow', (event: any) => {
         this.op = event.detail.op
         if (this.op === 'add') {
+          this.searchMsg = '请查询教师后添加'
           this.searchTeachers = []
           this.searchTeacherIndex = -1
           setTimeout(() => {
             setAuiSearchbar()
           }, 100)
+        } else {
+          this.searchMsg = ''
         }
         // transition
         if (event.detail.teacherInfo) {
@@ -96,13 +105,16 @@ export default class Teacher extends Vue {
     const w = this.school.showWaiting()
     this.school.getTeacherByKeywords(keywords, (ret: any) => {
       // $.log(ret)
-      w.close()
+      if (w) w.close()
+      this.searchMsg = ''
+      this.searchTeachers = []
+      this.searchTeacherIndex = -1
+      this.teacherInfo = null
       if (ret.status === 1) {
         this.searchTeachers = ret.lists
-        this.searchTeacherIndex = -1
-        this.teacherInfo = null
       } else {
-        this.school.alert(ret.msg)
+        // this.school.alert(ret.msg)
+        this.searchMsg = ret.msg
       }
     })
   }

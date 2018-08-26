@@ -11,8 +11,8 @@
   </div>
   <input type="hidden" id="keywords" v-on:click="searchkeywords">
   <div v-if="op === 'add'" class="aui-content-padded">
-    <div>请查询教师后添加</div>
-    <label v-for="(teacher, index) in searchTeachers"><input class="aui-radio" type="radio" name="demo" :value="index" v-model="searchTeacherIndex"> {{teacher.truename}}</label>
+    <div v-if="searchMsg">{{searchMsg}}</div>
+    <label v-for="(teacher, index) in searchTeachers" class=" aui-margin-r-5"><input class="aui-radio" type="radio" name="demo" :value="index" v-model="searchTeacherIndex"> {{teacher.truename}}</label> 
   </div>
   <div v-if="teacherInfo" class=" aui-content">
     <ul class=" aui-list aui-form-list aui-media-list">
@@ -45,12 +45,6 @@
       </li>
       <li class=" aui-list-item">
         <div class=" aui-list-item-inner">
-          <div class=" aui-list-item-label">职务</div>
-          <div class=" aui-list-item-input"><input type="text" v-model="teacherInfo.teacherpost" placeholder="如：语文老师"></div>
-        </div>
-      </li>
-      <li class=" aui-list-item">
-        <div class=" aui-list-item-inner">
           <div class=" aui-list-item-label">性别</div>
           <div class="aui-list-item-input">{{teacherInfo.gender}}</div>
         </div>
@@ -67,6 +61,13 @@
           <div class="aui-list-item-input">{{teacherInfo.wx}}</div>
         </div>
       </li>
+      <div class=" aui-hr"></div>
+      <li class=" aui-list-item">
+          <div class=" aui-list-item-inner">
+            <div class=" aui-list-item-label">职务</div>
+            <div class=" aui-list-item-input"><input type="text" v-model="teacherInfo.teacherpost" placeholder="如：语文老师"></div>
+          </div>
+        </li>
       <li v-if="op !== 'view'" class="aui-list-item">
         <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn">
           <div class="aui-btn aui-btn-info aui-btn-block aui-btn-sm" @tap="doSubmit">{{submitName}}</div>
