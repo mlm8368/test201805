@@ -172,7 +172,15 @@ export default class Index extends Vue {
     })
   }
   private delTeacher (tid: number, callback: () => void) {
-    callback()
+    const w = this.school.showWaiting()
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=teacher&op=del', { id: tid }, (ret) => {
+      if (w) w.close()
+      if (ret.status === 1) {
+        callback()
+      } else {
+        this.school.alert(ret.msg)
+      }
+    }, 'json')
   }
 
   // student
