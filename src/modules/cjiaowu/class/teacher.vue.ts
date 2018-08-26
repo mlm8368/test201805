@@ -32,7 +32,7 @@ export default class Teacher extends Vue {
   constructor () {
     super()
     this.school = new School()
-/*
+
     this.cjiaowuIndex = $.plus.webview.getWebviewById('cjiaowu_index')
 
     // do First open
@@ -40,8 +40,8 @@ export default class Teacher extends Vue {
     this.teacherInfo = $.currentWebview.teacherInfo
 
     this.school.closeWaitingAll()
-    */
-    this.op = 'add'
+
+    // this.op = 'add'
   }
 
   public get submitName (): string {
