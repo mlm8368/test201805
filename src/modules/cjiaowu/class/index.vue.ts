@@ -167,7 +167,9 @@ export default class Index extends Vue {
     }
   }
   private updateTeacherLists (): void {
+    this.school._cache().remove(appCacheKey.school_cjiaowu_teachers, this.classesId.toString())
     this.school.getTeacherByClassesid(this.classesId, (lists: any[]) => {
+      $.log(lists)
       if (lists.length === 0) return
       this.teacherLists = this.util.outTeacher(lists)
     })
