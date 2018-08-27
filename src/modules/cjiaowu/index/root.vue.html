@@ -14,7 +14,7 @@
     <ul class=" aui-list aui-media-list">
       <div class=" aui-list-header">
         <div><i class=" aui-iconfont aui-icon-my aui-text-danger"></i> 班级老师</div>
-        <div class="aui-list-item-right"><span class="add">添加老师</span> | 编辑 <input v-model="editTeacher" class="aui-switch" type="checkbox" name="teacher"></div>
+        <div class="aui-list-item-right"><span class="add">添加</span> | 编辑 <input v-model="editTeacher" class="aui-switch" type="checkbox" name="teacher"></div>
       </div>
       <li v-for="(teacher, index) in teacherLists" :data-index="index" class="aui-list-item aui-list-item-middle">
         <div class="aui-media-list-item-inner">
@@ -39,7 +39,7 @@
     <ul class=" aui-list aui-media-list">
       <div class=" aui-list-header">
         <div><i class=" aui-iconfont aui-icon-my aui-text-danger"></i> 班级学生</div>
-        <div class="aui-list-item-right"><span class="add">添加学生</span> | 编辑 <input v-model="editStudent" class="aui-switch" type="checkbox" name="student"></div>
+        <div class="aui-list-item-right"><span class="add">添加</span> | 编辑 <input v-model="editStudent" class="aui-switch" type="checkbox" name="student"></div>
       </div>
       <li v-for="student in studentLists" :data-id="student.id" class="aui-list-item aui-list-item-middle">
         <div class="aui-media-list-item-inner">
