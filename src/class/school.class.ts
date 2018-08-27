@@ -86,7 +86,7 @@ export default class School extends Abstract {
       else return null
     } else if (op === 'set') {
       teachers = { param: cacheParam, value: lists }
-      this._cache().set(appCacheKey.school_cjiaowu_teachers + classesid, teachers, 0, classesid.toString())
+      this._cache().set(appCacheKey.school_cjiaowu_teachers, teachers, 0, classesid.toString())
     }
   }
 
@@ -116,7 +116,7 @@ export default class School extends Abstract {
       else return null
     } else if (op === 'set') {
       students = { param: cacheParam, value: lists }
-      this._cache().set(appCacheKey.school_cjiaowu_students + classesid, students, 0, classesid.toString())
+      this._cache().set(appCacheKey.school_cjiaowu_students, students, 0, classesid.toString())
     }
   }
 }

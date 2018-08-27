@@ -119,6 +119,7 @@ export default class Index extends Vue {
       return false
     })
     window.addEventListener('updateTeacherLists', (event: any) => {
+      $.log('updateTeacherLists')
       this.updateTeacherLists()
     })
     // student
