@@ -51,6 +51,7 @@ export default class Index extends Vue {
   constructor () {
     super()
     this.school = new School()
+    this.util = new Util()
   }
 
   public get totalTeacher () {
@@ -119,7 +120,6 @@ export default class Index extends Vue {
       return false
     })
     window.addEventListener('updateTeacherLists', (event: any) => {
-      $.log('updateTeacherLists')
       this.updateTeacherLists()
     })
     // student
@@ -169,7 +169,6 @@ export default class Index extends Vue {
   private updateTeacherLists (): void {
     this.school._cache().remove(appCacheKey.school_cjiaowu_teachers, this.classesId.toString())
     this.school.getTeacherByClassesid(this.classesId, (lists: any[]) => {
-      $.log(lists)
       if (lists.length === 0) return
       this.teacherLists = this.util.outTeacher(lists)
     })
