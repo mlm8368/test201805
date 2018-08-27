@@ -15,7 +15,7 @@
     </div>
   </header>
   <div class="aui-content aui-margin-b-15">
-    <ul class="aui-list aui-list-in">
+    <ul id="searchstaff" class="aui-list aui-list-in">
       <li class="aui-list-item">
         <div class="aui-list-item-label-icon">
           <i class="aui-iconfont aui-icon-home"></i>
@@ -28,14 +28,14 @@
             <div class="aui-font-size-14">18600987654</div>
           </div>
           <div class="aui-list-item-media aui-list-item-right">
-            <div class=" aui-btn aui-btn-primary">添加</div>
+            <div class=" aui-btn aui-btn-primary add">添加</div>
           </div>
         </div>
       </li>
     </ul>
   </div>
   <div class="aui-content aui-margin-b-15">
-    <ul class="aui-list aui-list-in">
+    <ul id="stafflist" class="aui-list aui-list-in">
       <li class="aui-list-header">
         <div>本校共 {{total}} 位教师</div>
         <div class=" aui-list-item-right"><span class="refresh">刷新</span> | 编辑 <input v-model="editStaff" class="aui-switch" type="checkbox" name="staff"></div>
@@ -52,7 +52,7 @@
             <div class="aui-font-size-14">18600987654</div>
           </div>
           <div class="aui-list-item-media aui-list-item-right">
-            <div v-if="editStaff" class=" aui-btn aui-btn-primary">删除</div>
+            <div v-if="editStaff" class=" aui-btn aui-btn-primary del">删除</div>
             <template v-else>
               <div v-if="one.agree">确认中</div>
               <div v-else class=" aui-btn aui-btn-primary">拨打</div>
