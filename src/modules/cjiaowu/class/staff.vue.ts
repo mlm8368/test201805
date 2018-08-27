@@ -8,26 +8,10 @@ import Component from 'vue-class-component'
 //
 @Component({
   template: require('../staff/root.vue.html')
-  // watch: {
-  //   editId: function (this: Vue, val, oldVal) {
-  //     val = parseInt(val, 10)
-  //     let data = { id: 0, classesname: '', listorder: this.$data.lists.length + 1, startdate: '', enddate: '' }
-  //     if (val > 0) {
-  //       for (const list of this.$data.lists) {
-  //         if (list.id === val) {
-  //           data = Object.assign(data, list)
-  //           break
-  //         }
-  //       }
-  //     }
-  //     this.$data.formdata = data
-  //   }
-  // }
 })
 export default class Staff extends Vue {
+  public editStaff: boolean = false
   public lists = []
-  public editId = 0
-  // public formdata = { id: 0, classesname: '', listorder: 0, startdate: '', enddate: '' }
   private school: School
 
   constructor () {
@@ -37,19 +21,6 @@ export default class Staff extends Vue {
 
   public get total (): number {
     return this.lists.length
-  }
-
-  public get formdata (): { id: number, classesname: string, listorder: number, startdate: string, enddate: string } {
-    let data = { id: 0, classesname: '', listorder: this.lists.length + 1, startdate: '', enddate: '' }
-    if (this.editId > 0) {
-      for (const list of this.lists) {
-        if (list.id === this.editId) {
-          data = $.extend(data, list)
-          break
-        }
-      }
-    }
-    return data
   }
 
   public mounted (): void {
