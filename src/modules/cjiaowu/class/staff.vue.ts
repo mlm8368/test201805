@@ -40,27 +40,7 @@ export default class Staff extends Vue {
    * setOntapEvents
    */
   public setOntapEvents (): void {
-    $('header').on('tap', '.add', (e: any) => {
-      this.editId = 0
-    })
-    $('#list').on('tap', '.edit', (e: any) => {
-      const id = this.school.closest(e.target, 'li').dataset.id
-      this.editId = parseInt(id, 10)
-      return false
-    })
-    $('#op').on('tap', '.edit', (e: any) => {
-      if (!this.formdata.classesname) {
-        this.school.alert('请填写班级名称')
-        return false
-      }
-      if (!this.formdata.startdate) {
-        this.school.alert('请填写开始日期')
-        return false
-      }
-      if (!this.formdata.enddate) {
-        this.school.alert('请填写结束日期')
-        return false
-      }
+    $('#searchstaff').on('tap', '.add', (e: any) => {
       $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=edit', this.formdata, (ret) => {
         if (ret.status === 1) {
           this.lists = ret.lists
@@ -70,7 +50,7 @@ export default class Staff extends Vue {
         }
       }, 'json')
     })
-    $('#op').on('tap', '.del', (e: any) => {
+    $('#stafflist').on('tap', '.del', (e: any) => {
       $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=del', { id: this.formdata.id }, (ret) => {
         if (ret.status === 1) {
           this.lists = ret.lists
