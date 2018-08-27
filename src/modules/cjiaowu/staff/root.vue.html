@@ -36,7 +36,10 @@
   </div>
   <div class="aui-content aui-margin-b-15">
     <ul class="aui-list aui-list-in">
-      <li class="aui-list-header">本校共 {{total}} 位教师</li>
+      <li class="aui-list-header">
+        <div>本校共 {{total}} 位教师</div>
+        <div class=" aui-list-item-right">编辑 <input v-model="editTeacher" class="aui-switch" type="checkbox" name="staff"></div>
+      </li>
       <li class="aui-list-item">
         <div class="aui-list-item-label-icon">
           <i class="aui-iconfont aui-icon-home"></i>

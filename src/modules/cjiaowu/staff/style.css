@@ -5,3 +5,7 @@ body,.aui-card-list {background-color: #333 !important;color: #fff;}
 .aui-bar-light .aui-searchbar-input { background-color: #f5f5f5; }
 
 .aui-bar-nav .aui-pull-left { font-size: 0.7rem; }
+
+.aui-switch { height: 0.9rem; }
+.aui-switch:before { height: 0.8rem; }
+.aui-switch:checked {border-color: #4cd964; background-color: #4cd964; }
