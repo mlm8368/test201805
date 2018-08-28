@@ -14,7 +14,8 @@
       <input type="hidden" id="keywords" v-on:click="searchkeywords">
     </div>
   </header>
-  <div class="aui-content aui-margin-b-15">
+  <div v-if="searchMsg" class="aui-content-padded">{{searchMsg}}</div>
+  <div v-if="searchLists.length > 0" class="aui-content aui-margin-b-15">
     <ul id="searchstaff" class="aui-list aui-list-in">
       <li class="aui-list-item">
         <div class="aui-list-item-label-icon">
