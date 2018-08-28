@@ -1,7 +1,7 @@
  /*初始化类*/
 html{
     font-family: "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 20px; /*no*/
+    font-size: 20px; 
 }
 html,body {
     -webkit-touch-callout:none;
@@ -12,7 +12,7 @@ html,body {
 }
 body {
     line-height: 1.5;
-    font-size: 0.8rem;
+    font-size: 16px;
     color: #212121;
     background-color: #f5f5f5;
     outline: 0;
@@ -33,24 +33,24 @@ form,label,dl,dt,dd,cite,input,hr,time,mark,code,figcaption,figure,textarea,h1,h
 }
 @media only screen and (min-width: 400px) {
     html {
-        font-size: 21.33333333px !important; /*no*/
+        font-size: 21.33333333px !important; 
     }
 }
 @media only screen and (min-width: 414px) {
     html {
-        font-size: 21px !important; /*no*/
+        font-size: 21px !important; 
     }
 }
 @media only screen and (min-width: 480px) {
     html {
-        font-size: 25.6px !important; /*no*/
+        font-size: 25.6px !important; 
     }
 }
 ul, li {
     list-style: none;
 }
 p {
-    font-size: 0.7rem;
+    font-size: 14px;
     color: #757575;
 }
 a {
@@ -102,13 +102,13 @@ button,input,select,textarea {
 .aui-hr {
     width: 100%;
     position: relative;
-    border-top: 1px solid #dddddd; /*no*/
-    height: 1px; /*no*/
+    border-top: 1px solid #dddddd; 
+    height: 1px; 
 }
 @media screen and (-webkit-min-device-pixel-ratio:1.5) {
     .aui-hr{
         border: none;
-        background-size: 100% 1px; /*no*/
+        background-size: 100% 1px; 
         background-repeat: no-repeat;
         background-position: top;
         background-image: linear-gradient(0,#dddddd,#dddddd 50%,transparent 50%);
@@ -120,121 +120,121 @@ button,input,select,textarea {
     padding: 0 !important;
 }
 .aui-padded-5 {
-    padding: 0.25rem !important;
+    padding: 5px !important;
 }
 .aui-padded-10 {
-    padding: 0.5rem !important;
+    padding: 10px !important;
 }
 .aui-padded-15 {
-    padding: 0.75rem !important;
+    padding: 15px !important;
 }
 .aui-padded-t-0 {
     padding-top: 0 !important;
 }
 .aui-padded-t-5 {
-    padding-top: 0.25rem !important;
+    padding-top: 5px !important;
 }
 .aui-padded-t-10 {
-    padding-top: 0.5rem !important;
+    padding-top: 10px !important;
 }
 .aui-padded-t-15 {
-    padding-top: 0.75rem !important;
+    padding-top: 15px !important;
 }
 .aui-padded-b-0 {
     padding-bottom: 0 !important;
 }
 .aui-padded-b-5 {
-    padding-bottom: 0.25rem !important;
+    padding-bottom: 5px !important;
 }
 .aui-padded-b-10 {
-    padding-bottom: 0.5rem !important;
+    padding-bottom: 10px !important;
 }
 .aui-padded-b-15 {
-    padding-bottom: 0.75rem !important;
+    padding-bottom: 15px !important;
 }
 .aui-padded-l-0 {
     padding-left: 0 !important;
 }
 .aui-padded-l-5 {
-    padding-left: 0.25rem !important;
+    padding-left: 5px !important;
 }
 .aui-padded-l-10 {
-    padding-left: 0.5rem !important;
+    padding-left: 10px !important;
 }
 .aui-padded-l-15 {
-    padding-left: 0.75rem !important;
+    padding-left: 15px !important;
 }
 .aui-padded-r-0 {
     padding-right: 0 !important;
 }
 .aui-padded-r-5 {
-    padding-right: 0.25rem !important;
+    padding-right: 5px !important;
 }
 .aui-padded-r-10 {
-    padding-right: 0.5rem !important;
+    padding-right: 10px !important;
 }
 .aui-padded-r-15 {
-    padding-right: 0.75rem !important;
+    padding-right: 15px !important;
 }
 .aui-margin-0 {
     margin: 0 !important;
 }
 .aui-margin-5 {
-    margin: 0.25rem !important;
+    margin: 5px !important;
 }
 .aui-margin-10 {
-    margin: 0.5rem !important;
+    margin: 5px !important;
 }
 .aui-margin-15 {
-    margin: 0.75rem !important;
+    margin: 15px !important;
 }
 .aui-margin-t-0 {
-    margin-top: 0.25rem !important;
+    margin-top: 5px !important;
 }
 .aui-margin-t-5 {
     margin-top: 0 !important;
 }
 .aui-margin-t-10 {
-    margin-top: 0.5rem !important;
+    margin-top: 10px !important;
 }
 .aui-margin-t-15 {
-    margin-top: 0.75rem !important;
+    margin-top: 15px !important;
 }
 .aui-margin-b-0 {
     margin-bottom: 0 !important;
 }
 .aui-margin-b-5 {
-    margin-bottom: 0.25rem !important;
+    margin-bottom: 5px !important;
 }
 .aui-margin-b-10 {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 10px !important;
 }
 .aui-margin-b-15 {
-    margin-bottom: 0.75rem !important;
+    margin-bottom: 15px !important;
 }
 .aui-margin-l-0 {
     margin-left: 0 !important;
 }
 .aui-margin-l-5 {
-    margin-left: 0.25rem !important;
+    margin-left: 5px !important;
 }
 .aui-margin-l-10 {
-    margin-left: 0.5rem !important;
+    margin-left: 10px !important;
 }
 .aui-margin-l-15 {
-    margin-left: 0.75rem !important;
+    margin-left: 15px !important;
 }
 .aui-margin-r-0 {
     margin-right: 0 !important;
 }
 .aui-margin-r-5 {
-    margin-right: 0.25rem !important;
+    margin-right: 5px !important;
 }
 .aui-margin-r-10 {
-    margin-right: 0.5rem !important;
+    margin-right: 10px !important;
 }
 .aui-margin-r-15 {
-    margin-right: 0.75rem !important;
+    margin-right: 15px !important;
 }
 .aui-clearfix {
     clear: both;
@@ -264,24 +264,24 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: 400;
 }
 h1 {
-    font-size: 1.2rem;
+    font-size: 24px;
 }
 h2 {
-    font-size: 1rem;
+    font-size: 20px;
 }
 h3 {
-    font-size: 0.8rem;
+    font-size: 16px;
 }
 h4 {
-    font-size: 0.7rem;
+    font-size: 14px;
 }
 h5 {
-    font-size: 0.7rem;
+    font-size: 14px;
     font-weight: normal;
     color: #757575;
 }
 h6 {
-    font-size: 0.7rem;
+    font-size: 14px;
     font-weight: normal;
     color: #757575;
 }
@@ -306,19 +306,19 @@ img {
     display: block;
 }
 .aui-font-size-12 {
-    font-size: 0.6rem !important;
+    font-size: 12px !important;
 }
 .aui-font-size-14 {
-    font-size: 0.7rem !important;
+    font-size: 14px !important;
 }
 .aui-font-size-16 {
-    font-size: 0.8rem !important;
+    font-size: 16px !important;
 }
 .aui-font-size-18 {
-    font-size: 0.9rem !important;
+    font-size: 18px !important;
 }
 .aui-font-size-20 {
-    font-size: 1rem !important;
+    font-size: 20px !important;
 }
 .aui-text-default {
     color: #212121 !important;
@@ -440,7 +440,7 @@ img.aui-img-round {
     word-break: break-all;
 }
 .aui-content-padded {
-    margin: 0.75rem;
+    margin: 15px;
     position: relative;
     word-break: break-all;
     -webkit-overflow-scrolling: touch;

@@ -5,8 +5,8 @@
     background: transparent;
     position: fixed;
     height: auto;
-    min-width: 7rem;
-    min-height: 4.5rem;
+    min-width: 140px;
+    min-height: 90px;
     z-index: 999;
     opacity: 0;
     -webkit-transition-property: -webkit-transform, opacity;
@@ -23,29 +23,29 @@
           transition-duration: 300ms;
 }
 .aui-popup-right {
-    right: 0.75rem;
+    right: 15px;
 }
 .aui-popup-content {
     background-color: #ffffff;
-    border-radius: 0.2rem;
+    border-radius: 4px;
     overflow: hidden;
-    min-height: 4.5rem;
+    min-height: 90px;
     height: 100%;
 }
 .aui-popup-top,
 .aui-popup-top-left,
 .aui-popup-top-right {
-    top: 0.45rem;
+    top: 9px;
 }
 .aui-popup-top {
     left: 50%;
-    margin-left: -3.5rem;
+    margin-left: -70px;
 }
 .aui-popup-top-left {
-    left: 0.45rem;
+    left: 9px;
 }
 .aui-popup-top-right {
-    right: 0.45rem;
+    right: 9px;
 }
 .aui-popup-arrow {
     position: absolute;
@@ -60,62 +60,62 @@
 .aui-popup-top .aui-popup-arrow,
 .aui-popup-top-left .aui-popup-arrow,
 .aui-popup-top-right .aui-popup-arrow {
-    top: 0.2rem;
+    top: 4px;
     -webkit-transform: rotate(135deg);
             transform: rotate(135deg);
 }
 .aui-popup-top .aui-popup-arrow {
     left: 50%;
-    margin-left: -0.25rem;
-    margin-top: -0.4rem;
+    margin-left: -5px;
+    margin-top: -8px;
 }
 .aui-popup-top-left .aui-popup-arrow {
-    left: 0.25rem;
-    margin-top: -0.4rem;
+    left: 5px;
+    margin-top: -8px;
 }
 .aui-popup-top-right .aui-popup-arrow {
-    right: 0.25rem;
-    margin-top: -0.4rem;
+    right: 5px;
+    margin-top: -8px;
 }
 .aui-popup-bottom,
 .aui-popup-bottom-left,
 .aui-popup-bottom-right {
-    bottom: 0.45rem;
+    bottom: 9px;
 }
 .aui-popup-bottom {
     left: 50%;
-    margin-left: -3.5rem;
+    margin-left: -70px;
 }
 .aui-popup-bottom-left {
-    left: 0.45rem;
+    left: 9px;
 }
 .aui-popup-bottom-right {
-    right: 0.45rem;
+    right: 9px;
 }
 .aui-popup-bottom .aui-popup-arrow,
 .aui-popup-bottom-left .aui-popup-arrow,
 .aui-popup-bottom-right .aui-popup-arrow {
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
-    bottom: 0.2rem;
+    bottom: 4px;
 }
 .aui-popup-bottom .aui-popup-arrow {
     left: 50%;
-    margin-left: -0.25rem;
-    margin-bottom: -0.4rem;
+    margin-left: -5px;
+    margin-bottom: -8px;
 }
 .aui-popup-bottom-left .aui-popup-arrow {
-    left: 0.25rem;
-    margin-bottom: -0.4rem;
+    left: 5px;
+    margin-bottom: -8px;
 }
 .aui-popup-bottom-right .aui-popup-arrow {
-    right: 0.25rem;
-    margin-bottom: -0.4rem;
+    right: 5px;
+    margin-bottom: -8px;
 }
 .aui-popup .aui-list {
     background: transparent;
 }
 .aui-popup-content .aui-list img {
     display: block;
-    width: 1rem;
+    width: 20px;
 }

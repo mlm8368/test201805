@@ -43,7 +43,7 @@ export default class Staff extends Vue {
    */
   public setOntapEvents (): void {
     $('#searchstaff').on('tap', '.add', (e: any) => {
-      $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=add', this.formdata, (ret) => {
+      $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=add', {}, (ret) => {
         if (ret.status === 1) {
           this.lists = ret.lists
           this.school.cacheClasses('set', this.lists)
@@ -53,7 +53,7 @@ export default class Staff extends Vue {
       }, 'json')
     })
     $('#stafflist').on('tap', '.del', (e: any) => {
-      $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=del', { id: this.formdata.id }, (ret) => {
+      $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=del', { id: '' }, (ret) => {
         if (ret.status === 1) {
           this.lists = ret.lists
           this.school.cacheClasses('set', this.lists)

@@ -1,9 +1,9 @@
 /*列表*/
 .aui-list {
     position: relative;
-    font-size: 0.8rem;
+    font-size: 16px;
     background-color: #ffffff;
-border-top: 1px solid #dddddd; /*no*/
+border-top: 1px solid #dddddd; 
 }
 .aui-list .aui-content {
     overflow: hidden;
@@ -16,8 +16,8 @@ border-top: 1px solid #dddddd; /*no*/
     background-color: #dddddd;
     color: #212121;
     position: relative;
-    font-size: 0.6rem;
-    padding: 0.4rem 0.75rem;
+    font-size: 12px;
+    padding: 8px 15px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     display: -webkit-box;
@@ -34,11 +34,11 @@ border-top: 1px solid #dddddd; /*no*/
     list-style: none;
     margin: 0;
     padding: 0;
-    padding-left: 0.75rem;
+    padding-left: 15px;
     color: #212121;
-    border-bottom: 1px solid #dddddd; /*no*/
+    border-bottom: 1px solid #dddddd; 
     position: relative;
-    min-height: 2.2rem;
+    min-height: 44px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     display: -webkit-box;
@@ -53,8 +53,8 @@ border-top: 1px solid #dddddd; /*no*/
 }
 .aui-list .aui-list-item-inner {
     position: relative;
-    min-height: 2.2rem;
-    padding-right: 0.75rem;
+    min-height: 44px;
+    padding-right: 15px;
     width: 100%;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -74,7 +74,7 @@ border-top: 1px solid #dddddd; /*no*/
     background-color: #f5f5f5;
 }
 .aui-list .aui-list-item-text {
-    font-size: 0.7rem;
+    font-size: 14px;
     color: #757575;
     position: relative;
     -webkit-box-sizing: border-box;
@@ -89,7 +89,7 @@ border-top: 1px solid #dddddd; /*no*/
             align-items: center;
 }
 .aui-list .aui-list-item-title {
-    font-size: 0.8rem;
+    font-size: 16px;
     position: relative;
     max-width: 100%;
     color: #212121;
@@ -98,9 +98,9 @@ border-top: 1px solid #dddddd; /*no*/
 .aui-list-item-title-row em {
     max-width: 50%;
     position: relative;
-    font-size: 0.6rem;
+    font-size: 12px;
     color: #757575;
-    margin-left: 0.25rem;
+    margin-left:5px;
 }
 .aui-list .aui-list-item-inner p {
     overflow: hidden;
@@ -123,17 +123,17 @@ border-top: 1px solid #dddddd; /*no*/
 }
 .aui-media-list .aui-list-item-inner {
     display: block;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .aui-media-list-item-inner + .aui-info {
-    margin-right: 0.75rem;
+    margin-right: 15px;
 }
 .aui-list .aui-list-item-media {
-    width: 4.5rem;
+    width: 90px;
     position: relative;
-    padding: 0.5rem 0;
-    padding-right: 0.75rem;
+    padding: 10px 0;
+    padding-right: 15px;
     display: inherit;
     -webkit-flex-shrink: 0;
             flex-shrink: 0;
@@ -148,7 +148,7 @@ border-top: 1px solid #dddddd; /*no*/
     display: block;
 }
 .aui-list .aui-list-item-media-list {
-    margin-top: 0.25rem;
+    margin-top: 5px;
     padding-right: 0;
     display: block;
 }
@@ -178,22 +178,22 @@ border-top: 1px solid #dddddd; /*no*/
 .aui-list .aui-list-item i.aui-iconfont {
     -webkit-align-self: center;
             align-self: center;
-    font-size: 0.8rem;
+    font-size: 16px;
 }
 .aui-list-item-inner.aui-list-item-arrow {
     overflow: hidden;
-    padding-right: 1.5rem;
+    padding-right: 30px;
 }
 .aui-list-item-arrow:before {
     content: '';
-    width: 0.4rem;
-    height: 0.4rem;
+    width: 8px;
+    height: 8px;
     position: absolute;
     top: 50%;
-    right: 0.75rem;
-    margin-top: -0.2rem;
+    right: 15px;
+    margin-top: -4px;
     background: transparent;
-    border: 1px solid #dddddd; /*no*/
+    border: 1px solid #dddddd; 
     border-top: none;
     border-right: none;
     z-index: 2;
@@ -203,10 +203,10 @@ border-top: 1px solid #dddddd; /*no*/
             transform: rotate(-135deg);
 }
 .aui-list-item.aui-list-item-arrow {
-    padding-right: 0.75rem;
+    padding-right: 15px;
 }
 .aui-list label {
-    line-height: 1.3rem;
+    line-height: 26px;
 }
 .aui-list.aui-form-list .aui-list-item:active {
     background-color: #ffffff;
@@ -223,11 +223,11 @@ border-top: 1px solid #dddddd; /*no*/
 .aui-list .aui-list-item-label-icon {
     color: #212121;
     width: 35%;
-    min-width: 1.5rem;
+    min-width: 30px;
     margin: 0;
     padding: 0;
-    padding-right: 0.25rem;
-    line-height: 2.2rem;
+    padding-right: 5px;
+    line-height: 44px;
     position: relative;
     overflow: hidden;
     white-space: nowrap;
@@ -242,12 +242,12 @@ border-top: 1px solid #dddddd; /*no*/
 }
 .aui-list .aui-list-item-label-icon {
     width: auto;
-    padding-right: 0.75rem;
+    padding-right: 15px;
 }
 .aui-list .aui-list-item-input {
     width: 100%;
     padding: 0;
-    padding-right: 0.75rem;
+    padding-right: 15px;
     -webkit-box-flex: 1;
             box-flex: 1;
     -webkit-flex-shrink: 1;
@@ -258,25 +258,25 @@ border-top: 1px solid #dddddd; /*no*/
 }
 .aui-list.aui-select-list .aui-list-item-inner {
     display: block;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
     -webkit-align-self: stretch;
             align-self: stretch;
 }
 .aui-list.aui-select-list .aui-list-item-label {
     width: auto;
-    min-width: 2.2rem;
-    padding: 0.5rem 0;
-    padding-right: 0.75rem;
+    min-width: 44px;
+    padding: 10px 0;
+    padding-right: 15px;
 }
 .aui-list.aui-form-list .aui-list-item-btn {
-    padding: 0.75rem 0.75rem 0.75rem 0;
+    padding: 15px 15px 15px 0;
 }
 .aui-list textarea {
     overflow: auto;
-    margin: 0.5rem 0;
-    height: 3rem;
-    line-height: 1rem;
+    margin: 10px 0;
+    height: 60px;
+    line-height: 20px;
     resize: none;
 }
 .aui-list .aui-list-item-right .aui-badge,
@@ -286,14 +286,14 @@ border-top: 1px solid #dddddd; /*no*/
 @media screen and (-webkit-min-device-pixel-ratio:1.5) {
     .aui-list {
         border: none;
-        background-size: 100% 1px; /*no*/
+        background-size: 100% 1px; 
         background-repeat: no-repeat;
         background-position: top;
         background-image: linear-gradient(0,#dddddd,#dddddd 50%,transparent 50%);
     }
     .aui-list .aui-list-item {
         border: none;
-        background-size: 100% 1px; /*no*/
+        background-size: 100% 1px; 
         background-repeat: no-repeat;
         background-position: bottom;
         background-image: linear-gradient(0,#dddddd,#dddddd 50%,transparent 50%);
@@ -302,9 +302,9 @@ border-top: 1px solid #dddddd; /*no*/
 
     .aui-list.aui-list-in .aui-list-item {
         border: none;
-        background-size: 100% 1px; /*no*/
+        background-size: 100% 1px; 
         background-repeat: no-repeat;
-        background-position: 0.75rem bottom;
+        background-position: 15px bottom;
         background-image: linear-gradient(0,#dddddd,#dddddd 50%,transparent 50%);
         background-image: -webkit-linear-gradient(90deg,#dddddd,#dddddd 50%,transparent 50%);
     }
