@@ -12,6 +12,8 @@ import Component from 'vue-class-component'
 export default class Staff extends Vue {
   public editStaff: boolean = false
   public lists = []
+  public searchLists = []
+  public searchMsg = ''
   private school: School
 
   constructor () {
@@ -41,7 +43,7 @@ export default class Staff extends Vue {
    */
   public setOntapEvents (): void {
     $('#searchstaff').on('tap', '.add', (e: any) => {
-      $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=edit', this.formdata, (ret) => {
+      $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=add', this.formdata, (ret) => {
         if (ret.status === 1) {
           this.lists = ret.lists
           this.school.cacheClasses('set', this.lists)
