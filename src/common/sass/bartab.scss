@@ -11,7 +11,7 @@
     display: table-cell;
     position: relative;
     width: 1%;
-    height: 50px;
+    height: 2.5rem;
     text-align: center;
     vertical-align: middle;
 }
@@ -21,25 +21,25 @@
 .aui-bar-tab .aui-bar-tab-item .aui-iconfont {
     position: relative;
     z-index: 20;
-    top: 2px;
-    height: 24px;
-    font-size: 20px;
-    line-height: 20px;
+    top: 0.1rem;
+    height: 1.2rem;
+    font-size: 1rem;
+    line-height: 1rem;
 }
 .aui-bar-tab .aui-bar-tab-label {
     display: block;
-    font-size: 12px;
+    font-size: 0.6rem;
     position: relative;
 }
 .aui-bar-tab .aui-badge {
     position: absolute;
-    top: 2px;
+    top: 0.1rem;
     left: 55%;
     z-index: 99;
 }
 .aui-bar-tab .aui-dot {
     position: absolute;
-    top: 2px;
+    top: 0.1rem;
     right: 30%;
     z-index: 99;
 }

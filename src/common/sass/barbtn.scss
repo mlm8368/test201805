@@ -1,25 +1,25 @@
 /*按钮工具栏*/
 .aui-bar-btn {
     position: relative;
-    font-size: 14px;
+    font-size: 0.7rem;
     display: table;
     white-space: nowrap;
     margin: 0 auto;
     padding: 0;
     border: none;
     width: 100%;
-    min-height: 36px;
+    min-height: 1.8rem;
 }
 .aui-bar-btn-item {
     display: table-cell;
     position: relative;
     width: 1%;
-    line-height: 32px;
+    line-height: 1.6rem;
     text-align: center;
     vertical-align: middle;
     border-radius: 0;
     position: relative;
-    border-width: 1px; 
+    border-width: 1px; /*no*/
     border-style: solid;
     border-color: #03a9f4;
     border-left-width: 0;
@@ -27,34 +27,34 @@
 .aui-bar-btn .aui-input,
 .aui-bar-btn input,
 .aui-bar-btn select {
-    padding-left: 5px;
-    padding-right: 5px;
-    height: 36px;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    height: 1.8rem;
 }
 .aui-bar-btn-sm {
-    min-height: 26px;
+    min-height: 1.3rem;
 }
 .aui-bar-btn.aui-bar-btn-sm  .aui-input,
 .aui-bar-btn.aui-bar-btn-sm  input,
 .aui-bar-btn.aui-bar-btn-sm  select {
-    height: 24px;
+    height: 1.2rem;
 }
 .aui-bar-btn-sm .aui-bar-btn-item {
-    line-height: 26px;
-    font-size: 12px;
+    line-height: 1.3rem;
+    font-size: 0.6rem;
 }
 .aui-bar-btn-item.aui-active {
     background-color: #03a9f4;
     color: #ffffff;
 }
 .aui-bar-btn-item:first-child {
-    border-left-width: 1px; 
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+    border-left-width: 1px; /*no*/
+    border-top-left-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
 }
 .aui-bar-btn-item:last-child {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-top-right-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
     border-left: 0px;
 }
 .aui-bar-btn.aui-bar-btn-full .aui-bar-btn-item:first-child {
@@ -68,20 +68,20 @@
     border-bottom-right-radius: 0;
 }
 .aui-bar-btn.aui-bar-btn-round .aui-bar-btn-item:first-child {
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
 }
 .aui-bar-btn.aui-bar-btn-round .aui-bar-btn-item:last-child {
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
 }
 .aui-bar-nav .aui-bar-btn {
-    margin-top: 9px;
-    margin-bottom: 8px;
-    min-height: 26px;
+    margin-top: 0.45rem;
+    margin-bottom: 0.4rem;
+    min-height: 1.3rem;
 }
 .aui-bar-nav .aui-bar-btn-item {
-    line-height: 26px;
+    line-height: 1.3rem;
     border-color: #ffffff;
 }
 .aui-bar-nav .aui-bar-btn-item.aui-active {

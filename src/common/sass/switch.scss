@@ -1,13 +1,13 @@
 /*单选、多选、开关*/
 .aui-radio,
 .aui-checkbox {
-    width: 24px;
-    height: 24px;
+    width: 1.2rem;
+    height: 1.2rem;
     background-color: #ffffff;
-    border: solid 1px #dddddd; 
-    -webkit-border-radius: 12px;
-    border-radius: 12px;
-    font-size: 16px;
+    border: solid 1px #dddddd; /*no*/
+    -webkit-border-radius: 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 0.8rem;
     margin: 0;
     padding: 0;
     position: relative;
@@ -21,14 +21,14 @@
             transition: background-color ease 0.1s;
 }
 .aui-checkbox {
-    border-radius: 2px;
+    border-radius: 0.1rem;
 }
 .aui-radio:checked,
 .aui-radio.aui-checked,
 .aui-checkbox:checked,
 .aui-checkbox.aui-checked {
     background-color: #03a9f4;
-    border: solid 1px #03a9f4; 
+    border: solid 1px #03a9f4; /*no*/
     text-align: center;
     background-clip: padding-box;
 }
@@ -41,15 +41,15 @@
 .aui-checkbox:checked:after,
 .aui-checkbox.aui-checked:after {
     content: '';
-    width: 10px;
-    height: 6px;
+    width: 0.5rem;
+    height: 0.3rem;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -5px;
-    margin-top: -5px;
+    margin-left: -0.25rem;
+    margin-top: -0.25rem;
     background: transparent;
-    border: 1px solid #ffffff; 
+    border: 1px solid #ffffff; /*no*/
     border-top: none;
     border-right: none;
     z-index: 2;
@@ -63,7 +63,7 @@
 .aui-checkbox:disabled,
 .aui-checkbox.aui-disabled {
     background-color: #dddddd;
-    border: solid 1px #dddddd; 
+    border: solid 1px #dddddd; /*no*/
 }
 .aui-radio:disabled:before,
 .aui-radio.aui-disabled:before,
@@ -74,15 +74,15 @@
 .aui-checkbox:disabled:after,
 .aui-checkbox.aui-disabled:after {
     content: '';
-    width: 10px;
-    height: 6px;
+    width: 0.5rem;
+    height: 0.3rem;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -5px;
-    margin-top: -5px;
+    margin-left: -0.25rem;
+    margin-top: -0.25rem;
     background: transparent;
-    border: 1px solid #ffffff; 
+    border: 1px solid #ffffff; /*no*/
     border-top: none;
     border-right: none;
     z-index: 2;
@@ -92,13 +92,13 @@
             transform: rotate(-45deg);
 }
 .aui-switch {
-    width: 46px;
-    height: 24px;
+    width: 2.3rem;
+    height: 1.2rem;
     position: relative;
     vertical-align: top;
-    border: 1px solid #dddddd; 
+    border: 1px solid #dddddd; /*no*/
     background-color: #dddddd;
-    border-radius: 12px;
+    border-radius: 0.6rem;
     background-clip: content-box;
     display: inline-block;
     outline: none;
@@ -114,12 +114,12 @@
             transition: all 0.2s linear;
 }
 .aui-switch:before {
-    width: 22px;
-    height: 22px;
+    width: 1.1rem;
+    height: 1.1rem;
     position: absolute;
     top: 0;
     left: 0;
-    border-radius: 12px;
+    border-radius: 0.6rem;
     background-color: #fff;
     content: '';
     -webkit-transition: left 0.2s;
@@ -130,5 +130,5 @@
     background-color: #03a9f4;
 }
 .aui-switch:checked:before {
-    left: 22px;
+    left: 1.1rem;
 }

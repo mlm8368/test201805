@@ -10,7 +10,7 @@
     position: relative;
     text-align: center;
     vertical-align: middle;
-    padding: 20px 0;
+    padding: 1rem 0;
 }
 .aui-grid [class*=aui-col-xs-]:active {
     background-color: #f5f5f5;
@@ -19,25 +19,25 @@
     position: relative;
     z-index: 20;
     top: 0;
-    height: 28px;
-    font-size: 28px;
-    line-height: 28px;
+    height: 1.4rem;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
 }
 .aui-grid .aui-grid-label {
     display: block;
-    font-size: 14px;
+    font-size: 0.7rem;
     position: relative;
-    margin-top: 5px;
+    margin-top: 0.25rem;
 }
 .aui-grid .aui-badge {
     position: absolute;
-    top: 10px;
+    top: 0.5rem;
     left: 60%;
     z-index: 99;
 }
 .aui-grid .aui-dot {
     position: absolute;
-    top: 10px;
+    top: 0.5rem;
     right: 20%;
     z-index: 99;
 }

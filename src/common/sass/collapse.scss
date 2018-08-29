@@ -18,7 +18,7 @@
     .aui-list.aui-collapse.aui-list-noborder,
     .aui-list.aui-collapse.aui-list-noborder .aui-collapse-content:last-child .aui-list-item:last-child {
         border: none;
-        background-size: 100% 1px; 
+        background-size: 100% 1px; /*no*/
         background-repeat: no-repeat;
         background-position: 0 bottom;
         background-image: linear-gradient(0,#dddddd,#dddddd 50%,transparent 50%);
