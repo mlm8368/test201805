@@ -41,7 +41,7 @@
         <div>本校共 {{total}} 位教师</div>
         <div class=" aui-list-item-right"><span class="refresh">刷新</span> | 编辑 <input v-model="editStaff" class="aui-switch" type="checkbox" name="staff"></div>
       </li>
-      <li class="aui-list-item">
+      <li v-for="(one,index) in lists" class="aui-list-item">
         <div class="aui-list-item-label-icon">
           <i class="aui-iconfont aui-icon-home"></i>
         </div>
