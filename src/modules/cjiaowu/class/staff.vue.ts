@@ -75,7 +75,7 @@ export default class Staff extends Vue {
       return
     }
 
-    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=list', null, (ret) => {
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=4&action=staff&op=list', null, (ret) => {
       if (ret.status === 1) {
         callback(ret.lists)
         this.cacheStaffs('set', ret.lists)
@@ -89,7 +89,7 @@ export default class Staff extends Vue {
 
     if (op === 'get') {
       staffs = this.school._cache().get(appCacheKey.school_cjiaowu_staffs)
-      if (staffs !== null) return staffs.value
+      if (staffs !== null && staffs.param === cacheParam) return staffs.value
       else return null
     } else if (op === 'set') {
       staffs = { param: cacheParam, value: lists }

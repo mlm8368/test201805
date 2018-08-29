@@ -43,7 +43,7 @@ export default class School extends Abstract {
 
     if (op === 'get') {
       classes = this._cache().get(appCacheKey.school_cjiaowu_classes)
-      if (classes !== null) return classes.value
+      if (classes !== null && classes.param === cacheParam) return classes.value
       else return null
     } else if (op === 'set') {
       classes = { param: cacheParam, value: lists }
@@ -82,7 +82,7 @@ export default class School extends Abstract {
 
     if (op === 'get') {
       teachers = this._cache().get(appCacheKey.school_cjiaowu_teachers, classesid.toString())
-      if (teachers !== null) return teachers.value
+      if (teachers !== null && teachers.param === cacheParam) return teachers.value
       else return null
     } else if (op === 'set') {
       teachers = { param: cacheParam, value: lists }
@@ -112,7 +112,7 @@ export default class School extends Abstract {
 
     if (op === 'get') {
       students = this._cache().get(appCacheKey.school_cjiaowu_students, classesid.toString())
-      if (students !== null) return students.value
+      if (students !== null && students.param === cacheParam) return students.value
       else return null
     } else if (op === 'set') {
       students = { param: cacheParam, value: lists }
