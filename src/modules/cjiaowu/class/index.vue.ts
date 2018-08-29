@@ -24,12 +24,16 @@ import Component from 'vue-class-component'
         }
       })
       // teacher
+      this.$data.teacherListsLoading = true
       school.getTeacherByClassesid(classesId, (lists: any[]) => {
+        this.$data.teacherListsLoading = false
         if (lists.length === 0) return
         this.$data.teacherLists = util.outTeacher(lists)
       })
       // student
+      this.$data.studentListsLoading = true
       school.getStudentByClassesid(classesId, (lists: any[]) => {
+        this.$data.studentListsLoading = false
         if (lists.length === 0 || !lists[0].id) return
         this.$data.studentLists = util.outStudent(lists)
       })
@@ -41,6 +45,8 @@ export default class Index extends Vue {
   public classesName = ''
   public teacherLists: any[] = []
   public studentLists: any[] = []
+  public teacherListsLoading = false
+  public studentListsLoading = false
   public editTeacher: boolean = false
   public editStudent: boolean = false
   private school: School
@@ -168,7 +174,9 @@ export default class Index extends Vue {
   }
   private updateTeacherLists (): void {
     this.school._cache().remove(appCacheKey.school_cjiaowu_teachers, this.classesId.toString())
+    this.teacherListsLoading = true
     this.school.getTeacherByClassesid(this.classesId, (lists: any[]) => {
+      this.teacherListsLoading = false
       if (lists.length === 0) return
       this.teacherLists = this.util.outTeacher(lists)
     })
