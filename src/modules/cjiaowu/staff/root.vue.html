@@ -37,20 +37,19 @@
   </div>
   <div class="aui-content aui-margin-b-15">
     <ul id="stafflist" class="aui-list aui-list-in">
-      <li class="aui-list-header">
+      <div class="aui-list-header">
         <div>本校共 {{total}} 位教师</div>
         <div class=" aui-list-item-right"><span class="refresh">刷新</span> | 编辑 <input v-model="editStaff" class="aui-switch" type="checkbox" name="staff"></div>
-      </li>
+      </div>
+      <div v-if="staffListsLoading" class="aui-text-center"><span class="mui-spinner"></span></div>
       <li v-for="(one,index) in lists" class="aui-list-item">
         <div class="aui-list-item-label-icon">
           <i class="aui-iconfont aui-icon-home"></i>
         </div>
         <div class="aui-list-item-inner">
-          <div class="aui-list-item-title">
-            张三
-          </div>
+          <div class="aui-list-item-title">{{one.truename}}</div>
           <div class="aui-list-item-text">
-            <div class="aui-font-size-14">18600987654</div>
+            <div class="aui-font-size-14">{{one.mobile}}</div>
           </div>
           <div class="aui-list-item-media aui-list-item-right">
             <div v-if="editStaff" class=" aui-btn aui-btn-primary del">删除</div>

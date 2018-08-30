@@ -12,6 +12,7 @@ import Component from 'vue-class-component'
 export default class Staff extends Vue {
   public editStaff: boolean = false
   public lists = []
+  public staffListsLoading = false
   public searchLists = []
   public searchMsg = ''
   private school: School
@@ -28,7 +29,9 @@ export default class Staff extends Vue {
   public mounted (): void {
     this.$nextTick(() => {
       this.setOntapEvents()
+      this.staffListsLoading = true
       this.getStaffLists((lists: any[]) => {
+        this.staffListsLoading = false
         this.lists = lists
       })
 
@@ -43,7 +46,7 @@ export default class Staff extends Vue {
    */
   public setOntapEvents (): void {
     $('#searchstaff').on('tap', '.add', (e: any) => {
-      $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=add', {}, (ret) => {
+      $.post(config.siteHost.siteurl + 'index.php?moduleid=4&action=staff&op=add', {}, (ret) => {
         if (ret.status === 1) {
           this.lists = ret.lists
           this.school.cacheClasses('set', this.lists)
@@ -53,7 +56,7 @@ export default class Staff extends Vue {
       }, 'json')
     })
     $('#stafflist').on('tap', '.del', (e: any) => {
-      $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=del', { id: '' }, (ret) => {
+      $.get(config.siteHost.siteurl + 'index.php?moduleid=4&action=staff&op=del', { id: '' }, (ret) => {
         if (ret.status === 1) {
           this.lists = ret.lists
           this.school.cacheClasses('set', this.lists)
