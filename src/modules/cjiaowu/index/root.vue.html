@@ -17,23 +17,25 @@
         <div class="aui-list-item-right"><span class="add">添加</span> | 编辑 <input v-model="editTeacher" class="aui-switch" type="checkbox" name="teacher"></div>
       </div>
       <div v-if="teacherListsLoading" class="aui-text-center"><span class="mui-spinner"></span></div>
-      <li v-for="(teacher, index) in teacherLists" :data-index="index" class="aui-list-item aui-list-item-middle">
-        <div class="aui-media-list-item-inner">
-          <div class="aui-list-item-media avatar">
-            <img :src="teacher.avatar" class="aui-img-round aui-list-img-sm">
-          </div>
-          <div class="aui-list-item-inner aui-list-item-arrow">
-            <div class="aui-list-item-text">
-              <div class="aui-list-item-title aui-font-size-14">{{teacher.truename}}</div>
-              <div v-if="editTeacher" class="aui-list-item-right">
-                <div class=" aui-btn aui-btn-primary aui-margin-r-5 edit">编辑</div>
-                <div class=" aui-btn aui-btn-danger del">删除</div>
-              </div>
+      <template v-else>
+        <li v-for="(teacher, index) in teacherLists" :data-index="index" class="aui-list-item aui-list-item-middle">
+          <div class="aui-media-list-item-inner">
+            <div class="aui-list-item-media avatar">
+              <img :src="teacher.avatar" class="aui-img-round aui-list-img-sm">
             </div>
-            <div class="aui-list-item-text"><small class=" aui-font-size-12">{{teacher.teacherpost}}</small></div>
+            <div class="aui-list-item-inner aui-list-item-arrow">
+              <div class="aui-list-item-text">
+                <div class="aui-list-item-title aui-font-size-14">{{teacher.truename}}</div>
+                <div v-if="editTeacher" class="aui-list-item-right">
+                  <div class=" aui-btn aui-btn-primary aui-margin-r-5 edit">编辑</div>
+                  <div class=" aui-btn aui-btn-danger del">删除</div>
+                </div>
+              </div>
+              <div class="aui-list-item-text"><small class=" aui-font-size-12">{{teacher.teacherpost}}</small></div>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      </template>
     </ul>
   </section>
   <section class="student aui-content">
@@ -43,23 +45,25 @@
         <div class="aui-list-item-right"><span class="add">添加</span> | 编辑 <input v-model="editStudent" class="aui-switch" type="checkbox" name="student"></div>
       </div>
       <div v-if="studentListsLoading" class="aui-text-center"><span class="mui-spinner"></span></div>
-      <li v-for="student in studentLists" :data-id="student.id" class="aui-list-item aui-list-item-middle">
-        <div class="aui-media-list-item-inner">
-          <div class="aui-list-item-media avatar">
-            <img :src="student.avatar" class="aui-img-round aui-list-img-sm">
-          </div>
-          <div class="aui-list-item-inner aui-list-item-arrow">
-            <div class="aui-list-item-text">
-              <div class="aui-list-item-title aui-font-size-14">{{student.babyname}}</div>
-              <div v-if="editStudent" class="aui-list-item-right">
-                <div class=" aui-btn aui-btn-primary aui-margin-r-5 edit">编辑</div>
-                <div class=" aui-btn aui-btn-danger del">删除</div>
-              </div>
+      <template v-else>
+        <li v-for="student in studentLists" :data-id="student.id" class="aui-list-item aui-list-item-middle">
+          <div class="aui-media-list-item-inner">
+            <div class="aui-list-item-media avatar">
+              <img :src="student.avatar" class="aui-img-round aui-list-img-sm">
             </div>
-            <div class="aui-list-item-text"><small class=" aui-font-size-12">{{student.gender}}，{{student.age}}</small></div>
+            <div class="aui-list-item-inner aui-list-item-arrow">
+              <div class="aui-list-item-text">
+                <div class="aui-list-item-title aui-font-size-14">{{student.babyname}}</div>
+                <div v-if="editStudent" class="aui-list-item-right">
+                  <div class=" aui-btn aui-btn-primary aui-margin-r-5 edit">编辑</div>
+                  <div class=" aui-btn aui-btn-danger del">删除</div>
+                </div>
+              </div>
+              <div class="aui-list-item-text"><small class=" aui-font-size-12">{{student.gender}}，{{student.age}}</small></div>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      </template>
     </ul>
   </section>
 </div>

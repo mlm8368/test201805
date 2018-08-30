@@ -13,7 +13,7 @@ export default class Staff extends Vue {
   public editStaff: boolean = false
   public lists = []
   public staffListsLoading = false
-  public searchLists = []
+  public searchStaff = null
   public searchMsg = ''
   private school: School
 

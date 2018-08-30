@@ -15,18 +15,16 @@
     </div>
   </header>
   <div v-if="searchMsg" class="aui-content-padded">{{searchMsg}}</div>
-  <div v-if="searchLists.length > 0" class="aui-content aui-margin-b-15">
+  <div v-if="searchStaff" class="aui-content aui-margin-b-15">
     <ul id="searchstaff" class="aui-list aui-list-in">
       <li class="aui-list-item">
         <div class="aui-list-item-label-icon">
           <i class="aui-iconfont aui-icon-home"></i>
         </div>
         <div class="aui-list-item-inner">
-          <div class="aui-list-item-title">
-            张三
-          </div>
+          <div class="aui-list-item-title">{{searchStaff.truename}}</div>
           <div class="aui-list-item-text">
-            <div class="aui-font-size-14">18600987654</div>
+            <div class="aui-font-size-14">{{searchStaff.mobile}}</div>
           </div>
           <div class="aui-list-item-media aui-list-item-right">
             <div class=" aui-btn aui-btn-primary add">添加</div>
@@ -42,24 +40,27 @@
         <div class=" aui-list-item-right"><span class="refresh">刷新</span> | 编辑 <input v-model="editStaff" class="aui-switch" type="checkbox" name="staff"></div>
       </div>
       <div v-if="staffListsLoading" class="aui-text-center"><span class="mui-spinner"></span></div>
-      <li v-for="(one,index) in lists" class="aui-list-item">
-        <div class="aui-list-item-label-icon">
-          <i class="aui-iconfont aui-icon-home"></i>
-        </div>
-        <div class="aui-list-item-inner">
-          <div class="aui-list-item-title">{{one.truename}}</div>
-          <div class="aui-list-item-text">
-            <div class="aui-font-size-14">{{one.mobile}}</div>
+      <template v-else>
+        <li v-for="(one,index) in lists" class="aui-list-item">
+          <div class="aui-list-item-label-icon">
+            <i class="aui-iconfont aui-icon-home"></i>
           </div>
-          <div class="aui-list-item-media aui-list-item-right">
-            <div v-if="editStaff" class=" aui-btn aui-btn-primary del">删除</div>
-            <template v-else>
-              <div v-if="one.agree">确认中</div>
-              <div v-else class=" aui-btn aui-btn-primary">拨打</div>
-            </template>
+          <div class="aui-list-item-inner">
+            <div class="aui-list-item-title">{{one.truename}}</div>
+            <div class="aui-list-item-text">
+              <div class="aui-font-size-14">{{one.mobile}}</div>
+            </div>
+            <div class="aui-list-item-media aui-list-item-right">
+              <div v-if="editStaff" class=" aui-btn aui-btn-primary del">删除</div>
+              <template v-else>
+                <div v-if="one.agree === 0">确认中</div>
+                <div v-else-if="one.agree === -1">未加入</div>
+                <div v-else class=" aui-btn aui-btn-primary">拨打</div>
+              </template>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      </template>
     </ul>
   </div>
 </div>
