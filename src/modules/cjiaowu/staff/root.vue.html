@@ -41,7 +41,7 @@
       </div>
       <div v-if="staffListsLoading" class="aui-text-center"><span class="mui-spinner"></span></div>
       <template v-else>
-        <li v-for="(one,index) in lists" class="aui-list-item">
+        <li v-for="(one,index) in lists" :data-index="index" class="aui-list-item">
           <div class="aui-list-item-label-icon">
             <i class="aui-iconfont aui-icon-home"></i>
           </div>

@@ -46,20 +46,31 @@ export default class Staff extends Vue {
    */
   public setOntapEvents (): void {
     $('#searchstaff').on('tap', '.add', (e: any) => {
-      $.post(config.siteHost.siteurl + 'index.php?moduleid=4&action=staff&op=add', {}, (ret) => {
+      const w = this.school.showWaiting()
+      $.post(config.siteHost.siteurl + 'index.php?moduleid=4&action=staff&op=add', { teacherid: this.searchStaff.userid }, (ret) => {
         if (ret.status === 1) {
-          this.lists = ret.lists
-          this.school.cacheClasses('set', this.lists)
+          this.staffListsLoading = true
+          this.getStaffLists((lists: any[]) => {
+            if (w) w.close()
+            this.staffListsLoading = false
+            this.lists = lists
+          })
         } else {
           this.school.alert(ret.msg)
         }
       }, 'json')
     })
     $('#stafflist').on('tap', '.del', (e: any) => {
-      $.get(config.siteHost.siteurl + 'index.php?moduleid=4&action=staff&op=del', { id: '' }, (ret) => {
+      const index = this.school.closest(e.target, 'li').dataset.index
+      const w = this.school.showWaiting()
+      $.get(config.siteHost.siteurl + 'index.php?moduleid=4&action=staff&op=del', { id: this.lists[index].id }, (ret) => {
         if (ret.status === 1) {
-          this.lists = ret.lists
-          this.school.cacheClasses('set', this.lists)
+          this.staffListsLoading = true
+          this.getStaffLists((lists: any[]) => {
+            if (w) w.close()
+            this.staffListsLoading = false
+            this.lists = lists
+          })
         } else {
           this.school.alert(ret.msg)
         }
