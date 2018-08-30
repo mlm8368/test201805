@@ -68,7 +68,15 @@ export default class Staff extends Vue {
   }
 
   public searchkeywords (e): void {
-    $.log(e.target.value)
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=4&action=staff&op=list', null, (ret) => {
+      if (ret.status === 1) {
+        this.searchStaff = ret.userinfo
+        this.searchMsg = ''
+      } else {
+        this.searchStaff = null
+        this.searchMsg = ret.msg
+      }
+    }, 'json')
   }
 
   private getStaffLists (callback: (lists: any[]) => void): void {
