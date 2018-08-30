@@ -68,7 +68,15 @@ export default class Staff extends Vue {
   }
 
   public searchkeywords (e): void {
-    $.get(config.siteHost.siteurl + 'index.php?moduleid=4&action=staff&op=list', null, (ret) => {
+    // $.log(e.target.value)
+    const mobile = e.target.value
+    if (!this.school.checkMobile(mobile)) {
+      this.school.alert('手机号不正确')
+      return
+    }
+    const w = this.school.showWaiting()
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=4&action=staff&op=search', { mobile: mobile }, (ret) => {
+      if (w) w.close()
       if (ret.status === 1) {
         this.searchStaff = ret.userinfo
         this.searchMsg = ''

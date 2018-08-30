@@ -254,4 +254,8 @@ export default class Abstract {
     if (!url) url = '../../static/images/defaultAvatar.png'
     return url
   }
+  public checkMobile (mobile: string): boolean {
+    const mobileReg = /^1[0-9]{10}$/
+    return mobileReg.test(mobile)
+  }
 }
