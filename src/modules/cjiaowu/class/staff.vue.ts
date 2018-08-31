@@ -47,6 +47,7 @@ export default class Staff extends Vue {
   public setOntapEvents (): void {
     $('#searchstaff').on('tap', '.add', (e: any) => {
       const w = this.school.showWaiting()
+      this.school._cache().remove(appCacheKey.school_cjiaowu_staffs)
       $.post(config.siteHost.siteurl + 'index.php?moduleid=4&action=staff&op=add', { teacherid: this.searchStaff.userid }, (ret) => {
         if (ret.status === 1) {
           this.staffListsLoading = true
@@ -63,6 +64,7 @@ export default class Staff extends Vue {
     $('#stafflist').on('tap', '.del', (e: any) => {
       const index = this.school.closest(e.target, 'li').dataset.index
       const w = this.school.showWaiting()
+      this.school._cache().remove(appCacheKey.school_cjiaowu_staffs)
       $.get(config.siteHost.siteurl + 'index.php?moduleid=4&action=staff&op=del', { id: this.lists[index].id }, (ret) => {
         if (ret.status === 1) {
           this.staffListsLoading = true
@@ -75,6 +77,14 @@ export default class Staff extends Vue {
           this.school.alert(ret.msg)
         }
       }, 'json')
+    })
+    $('#stafflist').on('tap', '.refresh', (e: any) => {
+      this.school._cache().remove(appCacheKey.school_cjiaowu_staffs)
+      this.staffListsLoading = true
+      this.getStaffLists((lists: any[]) => {
+        this.staffListsLoading = false
+        this.lists = lists
+      })
     })
   }
 
@@ -97,7 +107,7 @@ export default class Staff extends Vue {
       }
     }, 'json')
   }
-
+  
   private getStaffLists (callback: (lists: any[]) => void): void {
     const lists = this.cacheStaffs('get')
     if (lists !== null) {

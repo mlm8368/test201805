@@ -105,19 +105,19 @@ export default class Index extends Vue {
 
   private setOntapEvents () {
     // teacher
-    $('.teacher').on('tap', 'li', (e: any) => {
+    $('#teacher').on('tap', 'li', (e: any) => {
       const index = this.school.closest(e.target, 'li').dataset.index
       this.openTeacherWin(this.teacherLists[index], this.teacherLists[index].truename, 'view')
     })
-    $('.teacher').on('tap', '.add', (e: any) => {
+    $('#teacher').on('tap', '.add', (e: any) => {
       this.openTeacherWin(null, '添加老师', 'add')
     })
-    $('.teacher').on('tap', '.edit', (e: any) => {
+    $('#teacher').on('tap', '.edit', (e: any) => {
       const index = this.school.closest(e.target, 'li').dataset.index
       this.openTeacherWin(this.teacherLists[index], this.teacherLists[index].truename, 'edit')
       return false
     })
-    $('.teacher').on('tap', '.del', (e: any) => {
+    $('#teacher').on('tap', '.del', (e: any) => {
       const index = this.school.closest(e.target, 'li').dataset.index
       this.delTeacher(this.teacherLists[index].id, () => {
         this.school.alert('删除成功')
@@ -129,19 +129,19 @@ export default class Index extends Vue {
       this.updateTeacherLists()
     })
     // student
-    $('.student').on('tap', 'li', (e: any) => {
+    $('#student').on('tap', 'li', (e: any) => {
       const index = this.school.closest(e.target, 'li').dataset.index
       this.openStudentWin(this.studentLists[index].id, this.studentLists[index].truename, 'view')
     })
-    $('.student').on('tap', '.add', (e: any) => {
+    $('#student').on('tap', '.add', (e: any) => {
       this.openStudentWin(0, '添加学生', 'add')
     })
-    $('.student').on('tap', '.edit', (e: any) => {
+    $('#student').on('tap', '.edit', (e: any) => {
       const index = this.school.closest(e.target, 'li').dataset.index
-      this.openStudentWin(this.studentLists[index].id, this.studentLists[index].truename, 'view')
+      this.openStudentWin(this.studentLists[index].id, this.studentLists[index].truename, 'edit')
       return false
     })
-    $('.student').on('tap', '.del', (e: any) => {
+    $('#student').on('tap', '.del', (e: any) => {
       const index = this.school.closest(e.target, 'li').dataset.index
       this.delStudent(this.studentLists[index].id, () => {
         this.school.alert('删除成功')
@@ -212,13 +212,22 @@ export default class Index extends Vue {
     }
   }
   private updateStudentLists (): void {
+    this.school._cache().remove(appCacheKey.school_cjiaowu_students, this.classesId.toString())
     this.school.getStudentByClassesid(this.classesId, (lists: any[]) => {
       if (lists.length === 0) return
       this.studentLists = this.util.outStudent(lists)
     })
   }
-  private delStudent (tid: number, callback: () => void) {
-    callback()
+  private delStudent (sid: number, callback: () => void) {
+    const w = this.school.showWaiting()
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=student&op=del', { id: sid }, (ret) => {
+      if (w) w.close()
+      if (ret.status === 1) {
+        callback()
+      } else {
+        this.school.alert(ret.msg)
+      }
+    }, 'json')
   }
 }
 
