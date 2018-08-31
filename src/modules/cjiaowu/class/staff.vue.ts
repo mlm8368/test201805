@@ -107,7 +107,7 @@ export default class Staff extends Vue {
       }
     }, 'json')
   }
-  
+
   private getStaffLists (callback: (lists: any[]) => void): void {
     const lists = this.cacheStaffs('get')
     if (lists !== null) {
