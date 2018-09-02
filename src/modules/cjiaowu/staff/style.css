@@ -6,7 +6,7 @@ body,.aui-card-list {background-color: #333 !important;color: #fff;}
 
 .aui-bar-nav .aui-pull-left { font-size: 0.7rem; }
 
-.msg {background-color: #ffffff; text-align: center;}
+.msg {text-align: center;}
 
 .aui-switch { height: 0.9rem; border: 1px solid #ffffff; /*no*/ background-color: #ffffff;}
 .aui-switch:before { height: 0.8rem;background-color: #dddddd;}

@@ -33,6 +33,7 @@ export default class Cache {
    * removeItem
    */
   public remove (key: appCacheKey, key2 = '') {
+    if (nodeEnv === 'development') return null // test
     if (key2) key2 = '-' + key2
     $.plus.storage.removeItem(this.preKey + key + key2)
   }
