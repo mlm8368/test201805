@@ -13,18 +13,18 @@
     </a>
   </div>
   <input type="hidden" id="keywords" v-on:click="searchkeywords">
-  <div class=" aui-content">
+  <div v-if="studentInfo" class=" aui-content">
     <ul class=" aui-list aui-form-list aui-media-list">
       <li class=" aui-list-header">学生信息</li>
       <li class="aui-list-item aui-list-item-middle">
         <div class="aui-media-list-item-inner">
           <div class=" aui-list-item-label">姓名</div>
-          <div class="aui-list-item-inner aui-list-item-arrow">
+          <div class="aui-list-item-inner">
             <div class="aui-list-item-text">
-              <div class="aui-list-item-title aui-font-size-14">张子航</div>
+              <div class="aui-list-item-title aui-font-size-14">{{studentInfo.babyname}}</div>
             </div>
-            <div class="aui-list-item-right avatar">
-              <img src="../../static/images/tmp/demo5.png" class="aui-img-round">
+            <div class="aui-list-item-media aui-list-item-right">
+              <img :src="studentInfo.avatar" class="aui-img-round">
             </div>
           </div>
         </div>
@@ -73,20 +73,26 @@
       </li>
       <li class=" aui-list-item">
         <div class=" aui-list-item-inner">
-          <div class=" aui-list-item-label">入学时间</div>
-          <div class="aui-list-item-input"><input type="date"></div>
-        </div>
-      </li>
-      <li class=" aui-list-item">
-        <div class=" aui-list-item-inner">
           <div class=" aui-list-item-label">性别</div>
-          <div class="aui-list-item-input">男</div>
+          <div class="aui-list-item-input">{{studentInfo.gender}}</div>
         </div>
       </li>
       <li class=" aui-list-item">
         <div class=" aui-list-item-inner">
           <div class=" aui-list-item-label">生日</div>
-          <div class="aui-list-item-input">2018-02-16</div>
+          <div class="aui-list-item-input">{{studentInfo.birthday}}</div>
+        </div>
+      </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">入学时间</div>
+          <div class="aui-list-item-input"><input type="date" v-model="studentInfo.startdate"></div>
+        </div>
+      </li>
+      <li class=" aui-list-item">
+        <div class=" aui-list-item-inner">
+          <div class=" aui-list-item-label">入学时间</div>
+          <div class="aui-list-item-input"><input type="date" v-model="studentInfo.enddate"></div>
         </div>
       </li>
       <li class="aui-list-item">

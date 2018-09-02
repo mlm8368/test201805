@@ -103,7 +103,7 @@ export default class Teacher extends Vue {
     const keywords = e.target.value
 
     const w = this.school.showWaiting()
-    this.school.getTeacherByKeywords(keywords, (ret: any) => {
+    this.getTeacherByKeywords(keywords, (ret: any) => {
       // $.log(ret)
       if (w) w.close()
       this.searchMsg = ''
@@ -134,6 +134,12 @@ export default class Teacher extends Vue {
       } else {
         this.school.alert(ret.msg)
       }
+    }, 'json')
+  }
+
+  private getTeacherByKeywords (keywords: string, callback: (lists: any[]) => void) {
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=teacher&op=search', { keywords: keywords }, (ret) => {
+      callback(ret)
     }, 'json')
   }
 }

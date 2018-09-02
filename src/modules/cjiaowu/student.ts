@@ -21,10 +21,6 @@ $.init({
   keyEventBind: { backbutton: false, menubutton: false },
   gestureConfig: { tap: true, swipe: false, doubletap: false, longtap: false, hold: false, flick: false, drag: false, pinch: false }
 })
-$.ready(() => {
-  if (viewEXT === '.htm') return
-  $.noop()
-})
 // plusReady
 $.plusReady(() => {
   const vm = new Vue({

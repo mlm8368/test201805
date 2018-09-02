@@ -1,3 +1,3 @@
 .aui-list .aui-list-header { background-color: #03a9f4; color: #ffffff;}
-.aui-media-list .avatar {width: 3.8rem; padding-right: 1.5rem;}
+.aui-media-list .aui-list-item-media img {width: 3rem; height: 3rem;}
 .aui-list .aui-list-item-right { max-width: 60%;}

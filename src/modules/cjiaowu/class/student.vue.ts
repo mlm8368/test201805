@@ -8,40 +8,26 @@ import Component from 'vue-class-component'
 //
 @Component({
   template: require('../student/root.vue.html')
-  /*
-  watch: {
-    keywords: function (this: Vue, keywords: string, oldKeywords) {
-      const school = new School()
-      school.getTeacherByKeywords(keywords, (ret: any) => {
-        if (ret.status === 1) {
-          ret.teacherInfo.avatar = school.getAvatar(ret.teacherInfo.avatar)
-          ret.teacherInfo.gender = school.getGender(ret.teacherInfo.gender)
-          this.$data.teacherInfo = ret.teacherInfo
-          this.$data.op = 'edit'
-        } else {
-          school.alert(ret.msg)
-        }
-      })
-    }
-  }
-  */
 })
-export default class Teacher extends Vue {
+export default class Student extends Vue {
   public op: string = 'view'
-  public teacherInfo: any = null
+  public studentInfo: any = null
   private school: School
   private cjiaowuIndex: any = null
 
   constructor () {
     super()
     this.school = new School()
+
     this.cjiaowuIndex = $.plus.webview.getWebviewById('cjiaowu_index')
 
     // do First open
     this.op = $.currentWebview.op
-    this.teacherInfo = $.currentWebview.teacherInfo
+    this.studentInfo = $.currentWebview.studentInfo
 
     this.school.closeWaitingAll()
+
+    // this.op = 'add'
   }
 
   public get submitName (): string {
@@ -58,18 +44,6 @@ export default class Teacher extends Vue {
         }, 100)
       }
 
-      // back
-      $.back = () => {
-        $.currentWebview.hide('auto', 300)
-      }
-      /*
-      $.options.beforeback = (): boolean => {
-        this.searchTeachers = []
-        this.searchTeacherIndex = -1
-        return true
-      }
-      */
-
       // doShow
       window.addEventListener('doShow', (event: any) => {
         this.op = event.detail.op
@@ -79,11 +53,11 @@ export default class Teacher extends Vue {
           }, 100)
         }
         // transition
-        if (event.detail.teacherInfo) {
-          event.detail.teacherInfo.avatar = this.school.getAvatar(event.detail.teacherInfo.avatar)
-          event.detail.teacherInfo.gender = this.school.getGender(event.detail.teacherInfo.gender)
+        if (event.detail.studentInfo) {
+          event.detail.studentInfo.avatar = this.school.getAvatar(event.detail.studentInfo.avatar)
+          event.detail.studentInfo.gender = this.school.getGender(event.detail.studentInfo.gender)
         }
-        this.teacherInfo = event.detail.teacherInfo
+        this.studentInfo = event.detail.studentInfo
 
         $.currentWebview.show('slide-in-right', 300)
         this.school.closeWaitingAll()
@@ -95,10 +69,15 @@ export default class Teacher extends Vue {
     // $.log(e.target.value)
     const keywords = e.target.value
 
-    this.school.getTeacherByKeywords(keywords, (ret: any) => {
-      $.log(ret)
+    const w = this.school.showWaiting()
+    this.getStudentByKeywords(keywords, (ret: any) => {
+      // $.log(ret)
+      if (w) w.close()
+      this.studentInfo = null
       if (ret.status === 1) {
-        this.teacherInfo = null
+        ret.studentInfo.avatar = this.school.getAvatar(ret.studentInfo.avatar)
+        ret.studentInfo.gender = this.school.getGender(ret.studentInfo.gender)
+        this.studentInfo = ret.studentInfo
       } else {
         this.school.alert(ret.msg)
       }
@@ -106,13 +85,25 @@ export default class Teacher extends Vue {
   }
 
   public doSubmit (): void {
-    $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=' + this.op, this.teacherInfo, (ret) => {
+    const postData = { id: this.studentInfo.id, classesid: this.school.getStorage(appStorageKey.current_jiaowu_classesid), studentid: this.studentInfo.studentid, startdate:  this.studentInfo.startdate, enddate:  this.studentInfo.enddate }
+    const w = this.school.showWaiting()
+    $.post(config.siteHost.siteurl + 'index.php?moduleid=52&action=student&op=' + this.op, postData, (ret) => {
+      if (w) w.close()
       if (ret.status === 1) {
-        this.op = 'edit'
-        $.fire(this.cjiaowuIndex, 'updateTeacherLists')
+        if (this.op === 'add') {
+          this.studentInfo.id = ret.id
+          this.op = 'edit'
+        }
+        $.fire(this.cjiaowuIndex, 'updateStudentLists')
       } else {
         this.school.alert(ret.msg)
       }
+    }, 'json')
+  }
+
+  private getStudentByKeywords (keywords: string, callback: (lists: any[]) => void) {
+    $.get(config.siteHost.siteurl + 'index.php?moduleid=52&action=student&op=search', { keywords: keywords }, (ret) => {
+      callback(ret)
     }, 'json')
   }
 }
