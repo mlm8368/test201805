@@ -51,6 +51,7 @@ export default class Staff extends Vue {
       $.post(config.siteHost.siteurl + 'index.php?moduleid=4&action=staff&op=add', { teacherid: this.searchStaff.userid }, (ret) => {
         if (ret.status === 1) {
           this.staffListsLoading = true
+          this.searchStaff = null
           this.getStaffLists((lists: any[]) => {
             if (w) w.close()
             this.staffListsLoading = false
