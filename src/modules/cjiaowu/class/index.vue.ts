@@ -125,6 +125,9 @@ export default class Index extends Vue {
       })
       return false
     })
+    $('#teacher').on('tap', '.refresh', (e: any) => {
+      this.updateTeacherLists()
+    })
     window.addEventListener('updateTeacherLists', (event: any) => {
       this.updateTeacherLists()
     })
@@ -148,6 +151,9 @@ export default class Index extends Vue {
         this.updateStudentLists()
       })
       return false
+    })
+    $('#student').on('tap', '.refresh', (e: any) => {
+      this.updateStudentLists()
     })
     window.addEventListener('updateStudentLists', (event: any) => {
       this.updateStudentLists()

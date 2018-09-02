@@ -13,7 +13,7 @@
   <section id="teacher" class="aui-content">
     <ul class=" aui-list aui-media-list">
       <div class=" aui-list-header">
-        <div><i class=" aui-iconfont aui-icon-my aui-text-danger"></i> 班级老师</div>
+        <div><i class=" aui-iconfont aui-icon-my aui-text-danger"></i> 班级老师 | <span class="refresh">刷新</span></div>
         <div class="aui-list-item-right"><span class="add">添加</span> | 编辑 <input v-model="editTeacher" class="aui-switch" type="checkbox" name="teacher"></div>
       </div>
       <div v-if="teacherListsLoading" class="aui-text-center"><span class="mui-spinner"></span></div>
@@ -41,7 +41,7 @@
   <section id="student" class="aui-content">
     <ul class=" aui-list aui-media-list">
       <div class=" aui-list-header">
-        <div><i class=" aui-iconfont aui-icon-my aui-text-danger"></i> 班级学生</div>
+        <div><i class=" aui-iconfont aui-icon-my aui-text-danger"></i> 班级学生 | <span class="refresh">刷新</span></div>
         <div class="aui-list-item-right"><span class="add">添加</span> | 编辑 <input v-model="editStudent" class="aui-switch" type="checkbox" name="student"></div>
       </div>
       <div v-if="studentListsLoading" class="aui-text-center"><span class="mui-spinner"></span></div>
