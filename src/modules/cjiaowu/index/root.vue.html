@@ -46,7 +46,7 @@
       </div>
       <div v-if="studentListsLoading" class="aui-text-center"><span class="mui-spinner"></span></div>
       <template v-else>
-        <li v-for="student in studentLists" :data-id="student.id" class="aui-list-item aui-list-item-middle">
+        <li v-for="(student, index) in studentLists" :data-index="index" class="aui-list-item aui-list-item-middle">
           <div class="aui-media-list-item-inner">
             <div class="aui-list-item-media avatar">
               <img :src="student.avatar" class="aui-img-round aui-list-img-sm">
