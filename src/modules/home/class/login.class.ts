@@ -63,12 +63,12 @@ export default class Login extends Abstract {
         else this.alert('你的账户存在问题，请联系管理员sddd@123.com')
         break
       case 'teacher':
-        if (this.getStorage(appStorageKey.groupid) === 6) this.goPortalCompany()
+        if (this.getStorage(appStorageKey.groupid) === 6) this.goPortalSchool()
         else if (this.getStorage(appStorageKey.groupid) === 5) this.goPortalTeacher()
         else this.alert('你的账户存在问题，请联系管理员sddd@123.com')
         break
       case 'allapp':
-        if (this.getStorage(appStorageKey.groupid) === 6) this.goPortalCompany()
+        if (this.getStorage(appStorageKey.groupid) === 6) this.goPortalSchool()
         else if (this.getStorage(appStorageKey.groupid) === 5) this.goPortalTeacher()
         else if (this.getStorage(appStorageKey.userInfo).student) this.goPortalStudent()
         else this.goPortalTeacher()
@@ -180,9 +180,9 @@ export default class Login extends Abstract {
   }
 
   /**
-   * goPortalCompany
+   * goPortalSchool
    */
-  public goPortalCompany (): void {
+  public goPortalSchool (): void {
     $.plus.nativeUI.showWaiting() // 等宝宝等页加载完后关闭
     // company
     const subNViews = [{
