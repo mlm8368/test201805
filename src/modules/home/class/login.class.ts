@@ -69,8 +69,8 @@ export default class Login extends Abstract {
         break
       case 'allapp':
         if (this.getStorage(appStorageKey.groupid) === 6) this.goPortalSchool()
-        else if (this.getStorage(appStorageKey.groupid) === 5) this.goPortalTeacher()
         else if (this.getStorage(appStorageKey.userInfo).student) this.goPortalStudent()
+        else if (this.getStorage(appStorageKey.groupid) === 5) this.goPortalTeacher()
         else this.goPortalTeacher()
         break
     }
