@@ -139,10 +139,15 @@ export default class Login extends Abstract {
     const clickButtonRefresh = (): void => {
       $.fire(wvSbaobaoIndex, 'refreshBaobao', { op: 'rmcache' })
     }
+    let titleNView = config.titleNViewStudent
+    titleNView.buttons[0].onclick = clickButtonOffcanvas
+    titleNView.buttons[1].onclick = clickButtonRefresh
+    /*
     const titleNView = { backgroundColor: '#D74B28', titleText: '宝宝上学啦', titleColor: '#CCCCCC', buttons: [
       { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: clickButtonOffcanvas },
       { text: '刷新', fontSize: '14px', float: 'right', onclick: clickButtonRefresh }
     ] }
+    */
     const wvSbaobaoIndex = $.openWindow({
       id: 'sbaobao_index',
       url: '../sbaobao/index' + viewEXT,
@@ -169,9 +174,13 @@ export default class Login extends Abstract {
       // $.log('clickButtonOffcanvas')
       $.fire(wvTxiaoyuanIndex, 'openOffcanvas')
     }
+    let titleNView = config.titleNViewTeacher
+    titleNView.buttons[0].onclick = clickButtonOffcanvas
+    /*
     const titleNView = { backgroundColor: '#D74B28', titleText: '幼教云', titleColor: '#CCCCCC', buttons: [
       { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: clickButtonOffcanvas }
     ] }
+    */
     const wvTxiaoyuanIndex = $.openWindow({
       id: 'txiaoyuan_index',
       url: '../txiaoyuan/index' + viewEXT,
@@ -199,11 +208,17 @@ export default class Login extends Abstract {
     const clickButtonBackHome = (): void => {
       $.noop()
     }
+    let titleNView = config.titleNViewSchool
+    titleNView.buttons[0].onclick = clickButtonMyOffcanvas
+    titleNView.buttons[1].onclick = clickButtonPublishOffcanvas
+    titleNView.buttons[2].onclick = clickButtonBackHome
+    /*
     const titleNView = { backgroundColor: '#D74B28', titleText: '校务管理', titleColor: '#CCCCCC', buttons: [
       { text: '\ue100', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: clickButtonMyOffcanvas },
       { text: '发布', fontSize: '14px', float: 'right', onclick: clickButtonPublishOffcanvas },
       { text: '\ue500', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'right', onclick: clickButtonBackHome }
     ] }
+    */
     const wvCxiaowuIndex = $.openWindow({
       id: 'cxiaowu_index',
       url: '../cxiaowu/index' + viewEXT,
