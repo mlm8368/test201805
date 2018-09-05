@@ -1,19 +1,19 @@
 export * from '../../../class/config'
 
 export const titleNViewStudent = { backgroundColor: '#D74B28', titleText: '宝宝上学啦', titleColor: '#CCCCCC', buttons: [
-      { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: null },
-      { text: '刷新', fontSize: '14px', float: 'right', onclick: null }
-    ] }
+  { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: null },
+  { text: '刷新', fontSize: '14px', float: 'right', onclick: null }
+] }
 
 export const titleNViewTeacher = { backgroundColor: '#D74B28', titleText: '幼教云', titleColor: '#CCCCCC', buttons: [
-      { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: null }
-    ] }
+  { text: '\ue563', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: null }
+] }
 
 export const titleNViewSchool = { backgroundColor: '#D74B28', titleText: '校务管理', titleColor: '#CCCCCC', buttons: [
-      { text: '\ue100', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: null },
-      { text: '发布', fontSize: '14px', float: 'right', onclick: null },
-      { text: '\ue500', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'right', onclick: null }
-    ] }
+  { text: '\ue100', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'left', onclick: null },
+  { text: '发布', fontSize: '14px', float: 'right', onclick: null },
+  { text: '\ue500', fontSize: '20px', fontSrc: '_www/fonts/mui.ttf', float: 'right', onclick: null }
+] }
 
 export const barTagsStudent = [
   {
