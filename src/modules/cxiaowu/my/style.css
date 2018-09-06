@@ -1,0 +1,9 @@
+.user-info {
+            background-color: #ffffff;
+            padding: 0.75rem 0;
+        }
+        img.avatar {
+            display: block;
+            margin: 0 auto;
+            width: 20%;
+        }
