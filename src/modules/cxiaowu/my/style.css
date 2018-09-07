@@ -8,3 +8,6 @@ img.avatar {
     margin: 0 auto;
     width: 20%;
 }
+.aui-list-item-label-icon {
+  color: #cccccc;
+}
