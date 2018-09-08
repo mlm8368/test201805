@@ -50,9 +50,9 @@ $.plusReady(() => {
     let studentids = userInfo.student.studentids.split(',')
     let relatename = userInfo.student.relatename.split(',')
 
-    studentids.forEach((studentid, index) => {
-      let one = { title: relatename[index], activeClass: '', studentid: studentid }
-      if (index === 0) {
+    studentids.forEach((studentid, key) => {
+      let one = { title: relatename[key], activeClass: '', studentid: studentid }
+      if (key === 0) {
         one['activeClass'] = 'aui-active'
         index.setStorage(appStorageKey.current_sbaobao_studentid, studentid)
       }

@@ -200,8 +200,8 @@ export default class Index extends Vue {
   }
 
   // student
-  private openStudentWin (sid: number, titleText: string, op: string) {
-    const extras = { sid: sid, cid: this.classesId, op: op }
+  private openStudentWin (studentInfo: any, titleText: string, op: string) {
+    const extras = { studentInfo: studentInfo, cid: this.classesId, op: op }
     const titleNView = { backgroundColor: '#00bcd4', titleText: titleText, titleColor: '#ffffff', type: 'default', autoBackButton: true, splitLine: { color: '#cccccc' } }
 
     if (!this.wvCjiaowuStudent) {
